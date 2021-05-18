@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0054)file:///Users/cole.henrich/CS2/@%23Experiments/so.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">public class Prime {
+
+
+
+    private int sizeLimit;
+    private int size;
+    private int value;
+    public Prime(int _size, int size_limit){
+        this.setSizeLimit(size_limit);
+        this.size = _size;
+        ArrayList&lt;Integer&gt; primes = new ArrayList&lt;Integer&gt;();  
+        for (int i = 3; i &lt; Math.pow(10, sizeLimit)){  
+            boolean isPrime = true;
+            for (int j=2; j&lt;i ;j++){
+                if ((i % j)==0){
+                    isPrime=false;
+                    break;
+                }
+            }
+            if (isPrime){
+                primes.add(i);
+            }
+        }
+        ArrayList&lt;Integer&gt;desirablePrimes = new ArrayList&lt;Integer&gt;();
+        for (int i=0; i &lt; primes.size(); i++){
+            Integer prime = primes.get(i);
+            if (String.valueOf(prime).length() == size){
+               desirablePrimes.add(prime);
+            }
+            else if (String.valueOf(prime).length() &gt; size){
+                break;
+            }
+        }
+        Random prime_getRandom = new Random();
+        int random = prime_getRandom.nextInt(desirablePrimes.size());
+        this.value = desirablePrimes.get(random);
+          
+         
+        
+        
+        
+        
+        
+        
+        
+        
+        }
+                                                                                      
+                                            
+     
+    
+
+     
+    }
+/**
+When this class is calculating primes, it needs to stop at some point because the algorithm and computing power would eventually take inordinate amounts of time to compute. In this method, you can set the limit on the number of digits a prime can have. You can set the limit as high as 40 (as of this writing), which is mostly arbitrary; I may update it. If you attempt to set it above 40, it defaults to the limit (40 as of this writing).
+@param size_limit the length, in digits, that the class should be allowed to calculate. If you set the limit lower, it will compute primes faster, but they cannot be as long. If you set the limit higher, they will be stronger and lead to stronger encryption, but the program will take more time. Do not exceed (as of this writing) 40; otherwise, the limit will simply be capped at 40, no more.
+@return whether you have passed in a valid limit, which is the same thing as whether your desired limit has been set. Returns false if you tried to set a limit over 40, signalling that it has defaulted to a limit of 40.
+*/
+    private boolean setSizeLimit(int size_limit){
+          boolean settable = false;
+          if (size_limit &lt; 40){
+              settable = true;
+              this.sizeLimit = size_limit;
+          }
+          else {sizeLimit = 40;}
+          return settable;
+    }
+    private boolean isPrime(int integer){
+        boolean isPrime = true;
+        for (int i = 2; i &lt; integer; i++){ 
+            if (integer % i == 0){
+                isPrime = false;
+                break;
+            }
+        }    
+        return isPrime;
+    }
+    private int getValue(){return value;}
+
+
+
+}
+
+
+</pre></body></html>

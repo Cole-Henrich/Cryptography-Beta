@@ -1,0 +1,12 @@
+[e, l, null, f, y, null, b, r, o, null, null, p, z, d, null, null, null, i, h, l, null, g, w, null, t, null]
+ e  x   k    f  y   v      b  r o   m       s    p  z  d    c      q      a     i   h  l  u      g  w   j     t    n
+
+correct:
+e f y b r o p z d i h l g w t --> 15
+
+null: 
+k v m s c q a u j n --> 10
+
+incorrect: 
+
+x -> 1

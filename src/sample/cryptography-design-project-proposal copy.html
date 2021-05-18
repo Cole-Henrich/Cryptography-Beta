@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html class="data-libby-ribbon_charlie">
+
+<head>
+    <title>Cryptography Design Project Proposal</title>
+    <meta charset="utf-8" />
+    <meta name="x-dewey-version" content="8.1.0" />
+    <meta name="x-dewey-env" content="charlie" />
+    <meta name="x-roster-root" content="https://libbyapp.com" />
+    <meta name="x-sentry-uri" content="https://sentry-read.svc.overdrive.com" />
+    <meta name="x-sage-uri" content="https://sage.svc.overdrive.com" />
+    <meta name="x-thunder-uri" content="https://thunder.api.overdrive.com" />
+    <meta name="x-autocomplete-uri" content="https://autocomplete.api.overdrive.com" />
+    <meta name="x-autocomplete-key" content="5cb45000b7f1451689d2a643dbbdbf47" />
+
+    <meta name="viewport"
+        content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#FFF" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="supported-color-schemes" content="light only" />
+    <link rel="manifest" href="/dewey-8.1.0/inc/web-app-manifest.json" />
+
+    <link rel="icon" href="/dewey-8.1.0/inc/images/libby-icon-android-192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/dewey-8.1.0/inc/images/libby-icon-ios-180.png" sizes="180x180" />
+    <style type="text/css" id="SPARK-splash">
+        html {
+            font-size: 22px;
+        }
+
+        body {
+            background: #F7F7F7;
+        }
+    </style>
+</head>
+
+<body>
+    <link rel="stylesheet" type="text/css" href="/styles/bembo_mt_pro.css">
+    <style type="text/css" id="SPARK-display-area"></style>
+    <div>
+        <h1 class="para-fmt-pre-pg" data-loc="14" style="font-size: 1.25rem; line-height: 1.5rem; text-align:center;"><a
+                href="o-e_essays.html" style="color:inherit; text-decoration:none;">Cryptography</a></h1>
+        <h2 class="para-fmt-pre-pg" data-loc="15" style="font-size: 1rem; line-height: 1.5rem; text-align:center;">
+            <i>Design Project Proposal</i>
+        </h2>
+        <h2 class="para-fmt-pre-pg" data-loc="15" style="font-size: 0.75rem; line-height: 1.125rem; text-align:center;">
+            <i>by Cole Henrich</i>
+        </h2>
+    </div>
+    <div class="ch_border_container" data-loc="12" style="font-size: 1rem; line-height: 1.2rem;">
+
+        <body data-loc="6" style="font-size: 1rem; line-height: 1.2rem;">
+            <div id="c01" data-loc="7" style="font-size: 1rem; line-height: 1.2rem;">
+                <p class="cn" data-loc="8" style="font-size: 1.125rem; line-height: 1.35rem;"><b data-loc="9"
+                        style="font-size: 1.125rem; line-height: 1.35rem;"><span class="small" data-loc="10"
+                            style="font-size: 0.84375rem; line-height: 1.0125rem;">Classical Ciphers
+                        </span></b>
+                    <br>
+                </p>
+            </div>
+            <div style="margin-left:16pt;">
+                <p class="cotx1" style="font-size: 0.8125rem; line-height: 0.975rem;"><span class="ic"
+                        style="font-size: 1.5rem; line-height: 1.8rem;"><b
+                            style="font-size: 1.5rem; line-height: 1.8rem;">C</b></span><span class="small"
+                        style="font-size: 0.609375rem; line-height: 0.73125rem;">AESAR CIPHER</span>
+                </p>
+                <div style="margin-left:16pt;">
+                    <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem;">
+                        <b> Encryption with any shift, specified by user.
+                        </b>
+                    </p>
+                    <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem;">
+                        <b>Automatic Decryption,</b>
+                        <br>
+                        via brute force, that is, generating a key for each possible unique shift, then using a
+                        proprietary
+                        <code>not_english()</code> class (which I have already written and which can tell
+                        non-english
+                        from English, be
+                        that
+                        non-english ciphertext or French. It does this by checking whether a certain proportion (as
+                        of
+                        this
+                        writing,
+                        50%) or more of the words used in the text can be found in a quite exhaustive list of
+                        English
+                        words.
+                        I created
+                        this list by Scanning and retrieving the unique words out of a compendium of:
+                        <br>
+                        <br>
+                        1. Part of Chapter 3 of "When the Emperor was Divine" by Julie Otsuka
+                        <br>
+                        2. The Entirety of "Great Expectations" by Charles Dickens
+                        <br>
+                        3. The Entirety of "War and Peace", by Leo Tolstoy, translated into English by Louise and
+                        Aylmer
+                        Maude
+                        <br>
+                        4. A Portion of "Dreams From my Father" by Barack Obama, at least the preface, introduction,
+                        and
+                        the first chapter.
+                        <br>
+                        5. The Entirety of "The Jungle Book" by Rudyard Kipling
+                        <br>
+                        6. The Entirety of "The Great Gatsby" by F. Scott Fitzgerald.
+                        <br>
+                        <br>
+                        While I compiled this list using Scanner and its associates, I as of this writing have the
+                        lists
+                        compiled in 3
+                        separate static arrays (static in terms of access and in terms of their mutability), which
+                        are
+                        split
+                        into 3 to
+                        avoid overflowing the 64 kb. limit on Java classes.
+                        These are then accessible through a BiggestArray Class which can return an array of the
+                        (however
+                        many, if I scan
+                        more books) arrays.
+                        <br>
+                        <br>
+                        Update: I am, as of this second writing of the proposal, working on a class which will
+                        compile
+                        these array-storing classes when run (i.e., when there are new sources of text), so that the
+                        text-input goes straight into the static arrays. I consider it a "dormant compiler", because
+                        it
+                        compiles other classes, and then goes dormant (not modifying anything) until a new text
+                        source
+                        is input and it is called to run. This way, it strikes a compromise between Scanner
+                        recreating
+                        the list every runtime (bad) and the static arrays needing to be manually updated when the
+                        trainer-text is updated (bad), and the result is good.
+                        <br>
+                        <br>
+                        I intentionally
+                        created the static (non-mutable) arrays to speed up processing times.
+                    </p>
+                </div>
+
+                <p class="cotx1" style="font-size: 0.8125rem; line-height: 0.975rem;"><span class="ic"
+                        style="font-size: 1.5rem; line-height: 1.8rem;"><b
+                            style="font-size: 1.5rem; line-height: 1.8rem;">S</b></span><span class="small"
+                        style="font-size: 0.609375rem; line-height: 0.73125rem;">UBSTITUTION CIPHER</span>
+                </p>
+                <div style="margin-left:16pt;">
+                    <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem;"><b>Encryption using:</b></p>
+                    <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem; margin-left:16pt;">
+                        <b> Auto-generated random key;
+                        </b>
+                        <br>
+                        <br>
+                        <b> Pre-generated sets of substitution keys,
+                        </b>
+                        <br>
+                        for those who want to play around; I created (not in connection with
+                        this project) a set of substitution encrypters and decrypters (which need the key, far different
+                        from the cipher
+                        cracker I'm making here); the set includes (as of this writing) substitution using emojis,
+                        substitution using
+                        permutations of the characters &lt; and &gt; which results in a cipher looking like a snake;
+                        various variations
+                        on this previous one, such as with permutations of commas and periods - graphically minimalist.
+                        <br>
+                        The set also includes a substitution cipher using most sample of the keys on the qwerty keyboard,
+                        in general
+                        substituting alphabetic characters for alphabetic characters, but also including nonalphabetic
+                        characters out of
+                        the necessity to find encrypted equivalents for non-alphabetic characters like ! and ?.
+                        <br>
+                        <br>
+                        <b> Encryption using User Generated Keys.
+                        </b>
+
+                        <br>
+                        Will be able to take at least a key for sample alphabetic characters, I may
+                        extend that to more or even as many chars as they want. It can then encrypt and decrypt using
+                        their key.
+
+                    </p>
+                </div>
+                <p class="cotx1" style="font-size: 0.8125rem; line-height: 0.975rem;"><span class="ic"
+                        style="font-size: 1.5rem; line-height: 1.8rem;"><b
+                            style="font-size: 1.5rem; line-height: 1.8rem;">V</b></span><span class="small"
+                        style="font-size: 0.609375rem; line-height: 0.73125rem;">IGENÈRE CIPHER</span>
+                </p>
+                <div style="margin-left:16pt;">
+                    <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem; margin-left:16pt;">
+                        Be able to crack a given vigenère cipher, and also create one (I will have to research this).
+
+                    </p>
+                </div>
+                <p class="cotx1" style="font-size: 0.8125rem; line-height: 0.975rem;"><span class="ic"
+                        style="font-size: 1.5rem; line-height: 1.8rem;"><b
+                            style="font-size: 1.5rem; line-height: 1.8rem;">E</b></span><span class="small"
+                        style="font-size: 0.609375rem; line-height: 0.73125rem;">NIGMA MACHINE</span>
+
+                </p>
+                <p class="cotx1" style="font-size: 0.8125rem; line-height: 0.975rem;"><span class="ic"
+                        style="font-size: 1.5rem; line-height: 1.8rem;"><b
+                            style="font-size: 1.5rem; line-height: 1.8rem;">RSA&nbsp;</b></span><span class="small"
+                        style="font-size: 0.609375rem; line-height: 0.73125rem;">ENCRYPTION</span>
+
+                </p>
+                <div>
+                    <h2 class="para-fmt-pre-pg" data-loc="15"
+                        style="font-size: 1rem; line-height: 1.5rem; text-align:center;">
+                        <i>Official Proposal</i>
+                    </h2>
+                </div>
+
+                <p class="tx" data-loc="20" style="font-size: 0.8125rem; line-height: 0.975rem; font-weight: bold;">
+                    I am trying to create an application which can crack and create classical ciphers, simulate modern
+                    cryptography
+                    like RSA encryption, and provide a user interface to encourage user experimentation with ciphers,
+                    e.g., a
+                    simulation of an enigma machine (yikes! If I can do it...)
+                </p>
+                <div id="c01" data-loc="7" style="font-size: 1rem; line-height: 1.2rem;">
+                    <p class="cn" data-loc="8" style="font-size: 1.125rem; line-height: 1.35rem;"><b data-loc="9"
+                            style="font-size: 1.125rem; line-height: 1.35rem;"><span class="small" data-loc="10"
+                                style="font-size: 0.84375rem; line-height: 1.0125rem; text-decoration: underline;">Prerequisite
+                                Knowledge
+                            </span></b>
+                        <br>
+                    </p>
+                </div>
+
+
+
+                <div style="margin-left:16pt;">
+                    <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem;">
+                        I need to understand:
+                    </p>
+                    <div style="margin-left:16pt;">
+                        <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem; font-weight: bold;">
+                            How RSA works
+                            <br>
+                            How the Enigma Machine works.
+                            <br>
+                            The theory of sharing keys, as used in RSA and modern cryptography.
+                            <br>
+                            The specifics of the Vigenère cipher.
+                            <br>
+                    </div>
+                </div>
+                <div id="c01" style="font-size: 1rem; line-height: 1.2rem;">
+                    <p class="cn" style="font-size: 1.125rem; line-height: 1.35rem;"><b
+                            style="font-size: 1.125rem; line-height: 1.35rem;"><span class="small"
+                                style="font-size: 0.84375rem; line-height: 1.0125rem; text-decoration: underline;">A
+                                list of goals and subgoals for
+                                the project in its entirety
+
+                            </span></b>
+                        <br>
+                    </p>
+                </div>
+                <div style="margin-left:16pt;">
+                    <p class="cotx1" style="font-size: 0.8125rem; line-height: 0.975rem;font-weight: bold;"><span
+                            class="ic" style="font-size: 1.5rem; line-height: 1.8rem;"><b
+                                style="font-size: 1.5rem; line-height: 1.8rem;">C</b></span><span class="small"
+                            style="font-size: 0.609375rem; line-height: 0.73125rem;">LASSICAL</span>&nbsp;<span
+                            class="ic" style="font-size: 1.5rem; line-height: 1.8rem;"><b
+                                style="font-size: 1.5rem; line-height: 1.8rem;">C</b></span><span class="small"
+                            style="font-size: 0.609375rem; line-height: 0.73125rem;">IPHERS</span>
+                    </p>
+                    <div style="margin-left:16pt;">
+                        <p class="cotx1" style="font-size: 0.8125rem; line-height: 0.975rem;"><span class="ic"
+                                style="font-size: 1.5rem; line-height: 1.8rem;"><b
+                                    style="font-size: 1.5rem; line-height: 1.8rem;">C</b></span><span class="small"
+                                style="font-size: 0.609375rem; line-height: 0.73125rem;">AESAR</span>
+                        </p>
+                        <div style="margin-left:16pt;">
+                            <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem;">
+                                <b> AutoCrack
+                                </b>
+                                <br>
+                                <b>AutoEncrypt</b>
+                                <br>
+                                <b> User-Specified Encryption
+                                </b>
+                                <br>
+                                <b>A Caesar generator</b>, if the user wants to manually solve one for mental exercise.
+                                <br>
+                                <b> Machine-Decrypt
+                                </b>
+                                <br>
+                                I say this word because it is different from AutoCrack. AutoCrack, for any cipher here,
+                                means
+                                (or
+                                the
+                                act
+                                of)
+                                cracking a cipher solely given the enciphered text. Machine-Decrypt is when the user
+                                already
+                                knows
+                                the
+                                key,
+                                and
+                                they just want the computer to blaze through their text and translate each letter. I
+                                call it
+                                Machine-Decrypt
+                                because the functionality in use is not any of the cryptography theory generally in use
+                                elsewhere,
+                                but
+                                simply
+                                applying the ability of the computer (the machine) to do repetitive tasks.
+                            </p>
+                        </div>
+                        <p class="cotx1" style="font-size: 0.8125rem; line-height: 0.975rem;"><span class="ic"
+                                style="font-size: 1.5rem; line-height: 1.8rem;"><b
+                                    style="font-size: 1.5rem; line-height: 1.8rem;">S</b></span><span class="small"
+                                style="font-size: 0.609375rem; line-height: 0.73125rem;">UBSTITUTION</span>
+                        </p>
+                        <div style="margin-left:16pt;">
+                            <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem;">
+                                <b>AutoCrack</b>, not by brute force, but by a very (very very very) code-heavy
+                                approach, which
+                                tries
+                                to
+                                infer
+                                based on
+                                characteristic such as frequency, length, and repetition of letters and their placement
+                                within
+                                the
+                                words
+                                which
+                                letters are which, and grows from there - the more it knows, the better inferences it
+                                can
+                                make.
+                                As
+                                it
+                                assumes
+                                the identities of more letters (it is very possible for a surprise word which has the
+                                attributes
+                                of
+                                the
+                                presumed
+                                other word to throw the entire process off; this is why I say "assumes"), it can make
+                                "better"
+                                (if
+                                its
+                                assumptions are right) identifcations of words. Specifically, the more letters it
+                                assumes,
+                                the
+                                longer of
+                                words
+                                it can attack, and it can identify words based on 4, 5, or even 6 letters that it has
+                                already
+                                presumed
+                                identified, and then infer the last unknown. For example, "kitchen", if it already
+                                assumes,
+                                "itchen",
+                                then
+                                the
+                                first letter of that encrypted word is almost certainly k.
+                                <br>
+                                <br>
+                                <b> AutoEncrypt (autogenerated keys)
+                                </b>
+                                <br>
+                                <br>
+                                <b>User Specified Encryption</b> - elaboration can be found under initial overview of
+                                "Classical Ciphers" stated before the "Official Proposal".
+                                <br>
+                                <br>
+                                <b>Machine-Decrypt</b> - see "Caesar" under "goals"
+                                <br>
+                                <br>
+                                <b>AutoEncrypt without giving the user the key, for mental exercise.</b>
+                                <br>
+                                Although...user beware!
+                                <br>
+                                <br>
+                            </p>
+                        </div>
+
+                        <p class="cotx1" style="font-size: 0.8125rem; line-height: 0.975rem;"><span class="ic"
+                                style="font-size: 1.5rem; line-height: 1.8rem;"><b
+                                    style="font-size: 1.5rem; line-height: 1.8rem;">V</b></span><span class="small"
+                                style="font-size: 0.609375rem; line-height: 0.73125rem;">IGENÈRE</span>
+                        </p>
+                        <div style="margin-left:16pt;">
+                            <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem; font-weight:bold;">
+                                AutoCrack, Machine-Decrypt, AutoGenerate and give the user the key, AutoGenerate and
+                                don't
+                                give
+                                the
+                                user
+                                the
+                                key
+                                (poor user who asks for that...), generate given key.
+                            </p>
+                            <div style="margin-left:16pt;">
+                                <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem;">
+
+                                    I should make definitions for sample these:
+                                </p>
+                                <div style="margin-left:16pt;">
+                                    <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem;">
+                                        AutoCrack and Machine-Decrypt are already defined;
+                                        <br>
+                                        AutoGenerate/AutoEncrypt is common knowledge; its two subsets are "give the user
+                                        the key"
+                                        and
+                                        "don't
+                                        give
+                                        the
+                                        user the key";
+                                        <br>
+                                        and then there is <i>Generate With Key</i>, which is the counterpart of
+                                        Machine-Decrypt
+                                        -
+                                        both
+                                        function
+                                        with known keys, whereas AutoCrack and AutoGenerate/AutoEncrypt (both subsets)
+                                        function with
+                                        the
+                                        key
+                                        unknown;
+                                        in fact their whole purpose is to derive the key.
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem;">
+
+                                Back to Vigenère, I will have to research what is entailed by AutoCrack, AutoEncrypt,
+                                Generate
+                                With
+                                Key,
+                                including what it means to generate given a key - what does a Vigenère key look like?-
+                                and
+                                Machine-Decrypt -
+                                again, what is a Vigenère key like?, which informs how the program will process a given
+                                key.
+
+                                Whereas the Caesar and Substitution ciphers will have paltry graphics, the Vigenère,
+                                having
+                                more
+                                parts,
+                                may
+                                include more <b>graphics</b>, which may interest the user more and get them to think
+                                about the
+                                inner
+                                workings
+                                of
+                                the
+                                cryptographical theory that is deciphering their input.
+                                The same goes for the Enigma Machine.
+                            </p>
+                        </div>
+                        <p class="cotx1" style="font-size: 0.8125rem; line-height: 0.975rem;"><span class="ic"
+                                style="font-size: 1.5rem; line-height: 1.8rem;"><b
+                                    style="font-size: 1.5rem; line-height: 1.8rem;">E</b></span><span class="small"
+                                style="font-size: 0.609375rem; line-height: 0.73125rem;">NIGMA MACHINE</span>
+                        </p>
+                        <div style="margin-left:16pt;">
+                            <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem;">
+                                I intend to create a interactive representation of the enigma machine, so that the user
+                                can play with the "gears" and alter its function "mechanically". I expect to give it as
+                                many interactive parts as it needs to create a real enigma cipher; if there are any
+                                non-essential parts (there may not be), I will not include those in the digital
+                                simulation for the sake of time. I hope to create both an enigma-maker and an
+                                enigma-cracker; if I have to choose between one in the case of a time crunch, I think I
+                                might choose the enigma-maker, since you can only create an enigma with an enigma
+                                machine, but maybe you can crack it another way. Still, I intend to do both if I can.
+                                There is a nice enigma machine on <a href="https://cryptii.com/pipes/enigma-machine"
+                                    style="color: black;" target="_blank" rel="noopener noreferrer">cryptii.com</a>, but
+                                I intend to make mine a little more like a "machine", with at least a few graphical
+                                representations - e.g., an image of a gear that you can turn, maybe.
+                            </p>
+                        </div>
+                        <p class="cotx1" style="font-size: 0.8125rem; line-height: 0.975rem;"><span class="ic"
+                                style="font-size: 1.5rem; line-height: 1.8rem;"><b
+                                    style="font-size: 1.5rem; line-height: 1.8rem;">RSA&nbsp;</b></span><span
+                                class="small" style="font-size: 0.609375rem; line-height: 0.73125rem;">ENCRYPTION</span>
+                        </p>
+                        <div style="margin-left:16pt;">
+                            <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem;">
+                                I don't know enough about it yet to say
+                                exactly
+                                my
+                                goals.
+                                I'll try to mirror it as faithfully as possible, but with smaller numbers.
+                                <br>
+                                I
+                                think I will also have explanations, written, of sample the cryptographical theories and
+                                ciphers
+                                that I
+                                am
+                                using in
+                                the project, in case the user is interested.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="c01" style="font-size: 1rem; line-height: 1.2rem;">
+                    <p class="cn" style="font-size: 1.125rem; line-height: 1.35rem;"><b
+                            style="font-size: 1.125rem; line-height: 1.35rem;"><span class="small"
+                                style="font-size: 0.84375rem; line-height: 1.0125rem; text-decoration: underline;">Design
+                                Limitations
+
+                            </span></b>
+                        <br>
+                    </p>
+                </div>
+                <div style="margin-left: 16pt;">
+                    <p class="tx" style="font-size: 0.8125rem; line-height: 0.975rem;">
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;I expect that there will be some functionality missing from the enigma
+                        machine in terms
+                        of
+                        simulating
+                        sample of
+                        its
+                        mechanical parts; I may not be able to send the private key for RSA through the program
+                        (users
+                        may
+                        have
+                        to
+                        rely
+                        on just texting or emailing, but maybe, in some long shot, I might give it that
+                        ability).
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;I also
+                        know
+                        that
+                        in
+                        the current version of my substitution cipher, there is this flaw: it starts cracking
+                        the cipher
+                        by
+                        assuming
+                        that the first four letter word, which starts and ends with the same letters, that it
+                        encounters, is
+                        the
+                        enciphered equivalent of the word "that".
+                        This is most often correct, since "that" is one of the most common four letter words,
+                        hence it
+                        is
+                        most
+                        likely to
+                        occur before the others, and as long as it comes first (in this algorithm) it's ok. What
+                        matters
+                        most,
+                        though,
+                        is "that" is by far the most common 4 letter word which starts and ends with the same
+                        letter. For
+                        example,
+                        if
+                        I
+                        see the text "qreq" very frequently throughout a substitution cipher, qreq most likely
+                        equals
+                        "that",
+                        and
+                        hence
+                        I can add q = t, r = h, e = a to the key I am compiling. This is exactly what the
+                        algorithm
+                        does.
+                        Having
+                        assumed
+                        h, a, and t, it moves on the other inferences using those assumptions. I won't go in
+                        depth here.
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;So
+                        after
+                        sample
+                        that pretext, here (finally) is the flaw: what if qreq is <i>not</i> "that"? Answer: the
+                        cipher
+                        <b>will
+                            not</b>
+                        be cracked. Not with this algorithm, on that piece of text.
+                        As long as I can, I will methodically minimize the chances of such mistakes occuring.
+                        However,
+                        they
+                        will
+                        never
+                        be completely eradicated, as long as I am using algorithms which run by assuming the
+                        identity of
+                        words
+                        based
+                        on
+                        the composition of their letters.
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Finally, the RSA functionality will not be able to use prime numbers as
+                        long as are in
+                        use for
+                        actually
+                        encrypting people's data.
+                    </p>
+                </div>
+            </div>
+    </div>
+    </div>
+</body>
+</body>
+
+</html>

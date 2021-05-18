@@ -1,0 +1,28 @@
+Computed Key: [e, v, d, f, y, 2, y, r, o, b, m, h, z, v, e, s, null, p, h, l, u, g, null, 9, null, i]
+               Actual: e  x  k  f  y  v  b r  o  m  s  p  z  d  c  q    a     i  h  l  u  g   w     j   t      n
+
+Correct = 10
+e f y r o z h l u g
+
+
+Incorrect = 13
+v≠x
+d≠k
+2≠v
+y≠b
+b≠m
+m≠s
+h≠p
+v≠d
+e≠c
+s≠q
+p≠i
+9≠j
+i≠n
+
+
+
+No Guess =  3
+null ≠ a
+null ≠ w
+null ≠ t

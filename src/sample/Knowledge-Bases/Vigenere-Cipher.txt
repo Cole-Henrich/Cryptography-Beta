@@ -1,0 +1,496 @@
+##################################################################################################################################################################################
+BOXENTRIQ https://www.boxentriq.com/code-breaking/vigenere-cipher
+##################################################################################################################################################################################
+What is the Vigenère Cipher?
+The Vigenère cipher is a polyalphabetic substitution cipher that is a natural evolution of the Caesar cipher. The Caesar cipher encrypts by shifting each letter in the plaintext up or down a certain number of places in the alphabet. If the message was right shifted by 4, each A would become E, and each S would become W.
+
+In the Vigenère cipher, a message is encrypted using a secret key, as well as an encryption table (called a Vigenere square, Vigenere table, or tabula recta). The tabula recta typically contains the 26 letters of the Latin alphabet from A to Z along the top of each column, and repeated along the left side at the beginning of each row. Each row of the square has the 26 letters of the Latin alphabet, shifted one position to the right in a cyclic way as the rows progress downwards. Once B moves to the front, A moves down to the end. This continues for the entire square.
+
+Also, other alphabets than the English alphabet can be used in a similar way to construct a tabula recta.
+
+Let’s take this plaintext phrase as an example:
+
+IMPROVE YOUR PUZZLE SOLVING SKILLS
+
+After finalizing the plaintext, the person encrypting would then pick a secret key, which would help encrypt and decrypt the message. Our example secret key here is:
+
+BOXENTRIQ
+
+The next step is repeating the secret key enough times so its length matches the plain text.
+
+IMPROVE YOUR PUZZLE SOLVING SKILLS
+BOXENTR IQBO XENTRI QBOXENT RIQBOX
+
+Once the two lines are split into five-letter groups, start encrypting. Take one letter from the plaintext group and a letter from the secret key group (we’re going to start with I and B), and find the entry in the tabula recta where the row and column intersect. For this example, the first letter of the encrypted cipher text is J.
+
+Once you’ve done that for every character, your final encrypted text should look like this:
+
+JAMVB OVGEV FMYMS CMIPZ SMAZJ SYMZP
+
+You can use this cipher for short or long messages. Once you’ve mastered the tabula recta, the encryption process is easy!
+
+How to Decrypt it
+If you have the secret key, decrypting is as easy as encrypting. You can work backwards using the tabula recta. First repeat the secret key so its length matches the cipher text.
+
+JAMVB OVGEV FMYMS CMIPZ SMAZJ SYMZP
+BOXEN TRIQB OXENT RIQBO XENTR IQBOX
+
+Using the tabula recta, find the row that corresponds to the first letter in your secret key text- in our case, B. In the B row, find the corresponding cipher text letter J. The vertical column where that cipher text letter is located reveals the plaintext letter I.
+
+The Vigenère cipher can also be described and then decrypted algebraically, by assigning each letter from A to Z a value from 0 to 25, with addition being performed modulo 26.
+
+How to Break It
+Of course, these decryption methods only work if the secret key is known. In his initial attack against the Vigenère cipher, Friedrich Kasiski had success by examining repeated strings of characters in the cipher text, which could indicate the length of the secret key. This method is now called the Kasiski examination. Finding more repeated strings of characters helps narrow down the length of the potential secret key. Once the length of the secret key is known, the cipher text is rewritten into a corresponding number of columns, with a column for each letter of the key. Each column is then made up of plaintext that’s been encrypted by one Caesar cipher. The code-breaker then breaks the cipher text in a similar way to a Caesar cipher.
+
+Auguste Kerckhoffs improved on Kasiski’s method by matching each “column's letter frequencies to shifted plaintext frequencies to discover the key letter (Caesar shift) for that column.” Once the code-breaker knows each letter in the secret key, all they have to do is decrypt the cipher text using a Vigenere square.
+
+Another option is the key elimination method. If you guess the key length and then subtract the ciphertext from itself, offset by the key length, it will eliminate the secret key. The result will be the plaintext subtracted from itself, offset by the key length. If any words longer than the key length can be guessed, their self-encryption can be searched for.
+
+Fun Facts and Historical Info
+Blaise de Vigenère
+
+Since it was first developed in the mid-16th century, the Vigenère cipher has been popular in the cryptography and code-breaking community. Even as it sat unbroken, it inspired many other encryption schemes, and was given the nickname “le chiffre indéchiffrable” (French for “the undecipherable cipher”). Here are some more interesting facts about this 5-century-old cipher.
+
+Despite being called the Vigenère cipher in honor of Blaise de Vigenère, it was actually developed by someone else entirely
+Alchemist and diplomat Blaise de Vigenère received the credit for inventing the cipher due to a 19th century misattribution. The 19th century author, in reading de Vigenère’s book Traicté des chiffres ou secrètes manières d'escrires, thought that he was describing a cipher that he himself invented. It’s clear to modern authors and cryptographers that Giovan Battista Bellaso, who was born around the same time as Blaise de Vigenère, is actually the author of the cipher.
+
+Giovan Battista Bellaso was one of the first cryptographers to innovate the use of a secret key to identify the alphabets used in encryption.
+Bellaso published a treatise on cryptography called “La Cifra del Sig. Giovan Battista Bellaso” (“The Cipher of Mr. Giovan Battista Bellaso”) in 1553. He went on to publish two more booklets on ciphers and cryptography, complete with a challenge to his rivals to solve the complex cryptograms that he hid within his published work. He even promised to reveal their contents within a year, but this does not appear to have ever happened. To this day, no one has solved the Bellaso ciphers.
+
+Giovan Battista Bellaso foreword
+Giovan Battista Bellaso foreword
+Despite not being the true author of this cipher, Blaise de Vigenère had an illustrious career in politics and cryptography.
+Born in central France in 1523, Blaise de Vigenère entered the diplomatic service at the age of seventeen. It was on a diplomatic mission to Rome that he first began to study cryptography, after reading books written by Alberti and Trithemius throughout his young adult life. Once he made enough money in the diplomatic service, he retired to a life of study. It was during his retirement that de Vigenère created another cipher, the autokey cipher, which is stronger than the cipher that now bears his name.
+
+The Vigenère cipher was thought to be unbreakable until the early 20th century, despite the fact that mathematician and computing pioneer Charles Babbage broke a variant of it in 1854.
+Charles Babbage is most famous for his ‘Difference Engine’, which was a precursor to the modern computer that could perform mathematical calculations. He is thought to have broken a variant of the cipher in 1854, but never formally published his work.
+
+Friedrich Kasiski was the first person to publish a successful attack on the cipher.
+German cryptographer Friedrich Kasiski published his work on the Vigenere cipher as part of his 1863 book Die Geheimschriften und die Dechiffrir-Kunst (“Secret Writing and the Art of Deciphering”). His method relied on analyzing the distance between repeated fragments of the cipher text, which can give the code-breaker a hint at the length of the secret key. Unbelievably, after he published his book, Kasiski turned away from cryptography to focus his attention on archaeology. It’s believed that he died without realizing how revolutionary his work was to the field of cryptanalysis.
+
+The Vigenère cipher was just one of a few different ciphers used during the Civil War.
+The Confederates relied on the cypher often to encrypt their communications. One captain named Campbell Brown, who served under General Joseph E. Johnston, wrote about the difficulty of the Vigenere cipher in his memoirs, saying: “the system I don’t know the name of — it was on the principle of the ‘asymptotes of the hyperbola.’ It was tedious work to decipher — equally laborious to write in cipher.” Despite the fact that officers like Brown would have been trained to write using these ciphers, mistakes were common. During the siege on Vicksburg, an encrypted message was sent to General Edmund Kirby Smith, begging for reinforcements. However, the text was so badly encrypted that by the time his officers figured out the message, it was too late to send help.
+
+Confederate cipher wheel
+Confederate cipher wheel
+Vigenère ciphers are often used in pop culture and fun cryptographical activities like geocaching and CTFs.
+Recently, it’s been mentioned in shows like NCIS: New Orleans, and the Disney Channel kid’s program Gravity Falls. It was also mentioned in the novel “The Spy Who Couldn’t Spell” by Yudhijit Bhattacharjee, and was used by fans to solve a puzzle hidden in the expansion pack of the video game Destiny 2.
+
+
+
+
+
+##################################################################################################################################################################################
+MICHIGAN TECHNOLOGICAL UNIVERSITY https://pages.mtu.edu/~shene/NSF-4/Tutorial/VIG/Vig-Base.html
+##################################################################################################################################################################################
+
+
+The Vigenère cipher uses a 26×26 table with A to Z as the row heading and column heading This table is usually referred to as the Vigenère Tableau, Vigenère Table or Vigenère Square. We shall use Vigenère Table. The first row of this table has the 26 English letters. Starting with the second row, each row has the letters shifted to the left one position in a cyclic way. For example, when B is shifted to the first position on the second row, the letter A moves to the end.
+
+
+In addition to the plaintext, the Vigenère cipher also requires a keyword, which is repeated so that the total length is equal to that of the plaintext. For example, suppose the plaintext is MICHIGAN TECHNOLOGICAL UNIVERSITY and the keyword is HOUGHTON. Then, the keyword must be repeated as follows:
+
+MICHIGAN TECHNOLOGICAL UNIVERSITY
+HOUGHTON HOUGHTONHOUGH TONHOUGNTO
+
+
+We follow the tradition by removing all spaces and punctuation, converting all letters to upper case, and dividing the result into 5-letter blocks. As a result, the above plaintext and keyword become the following:
+
+MICHI GANTE CHNOL OGICA LUNIV ERSIT Y
+HOUGH TONHO UGHTO NHOUG HTONH OUGHT O
+
+[[M, I, C, H, I], [G, A, N, T, E], [C, H, N, O, L], [O, G, I, C, A], [L, U, N, I, V], [E, R, S, I, T], [Y]]
+[[d, z, r, p, g], [h, f, n, m, e], [u, k, s, d, z], [r, p, g, h, f], [n, m, e, u, k], [s, d, z, r, p], [g]]
+
+[[M, I, C, H, I], [G, A, N, T, E], [C, H, N, O, L], [O, G, I, C, A], [L, U, N, I, V], [E, R, S, I, T], [Y]]
+[[H, O, U, G, H], [T, O, N, H, O], [U, G, H, T, O], [N, H, O, U, G], [H, T, O, N, H], [O, U, G, H, T], [O]]
+
+TWWNP ZOAAS WNUHZ BNWWG SNBVC SLYPM M
+twwnpzoaaswnuhzbnwwgsnbvcslypmm
+
+To encrypt, pick a letter in the plaintext and its corresponding letter in the keyword, use the keyword letter and the plaintext letter as the row index and column index, respectively, and the entry at the row-column intersection is the letter in the ciphertext. For example, the first letter in the plaintext is M and its corresponding keyword letter is H. This means that the row of H and the column of M are used, and the entry T at the intersection is the encrypted result.
+
+Similarly, since the letter N in MICHIGAN corresponds to the letter N in the keyword, the entry at the intersection of row N and column N is A which is the encrypted letter in the ciphertext
+
+Repeating this process until all plaintext letters are processed, the ciphertext is TWWNPZOA ASWNUHZBNWWGS NBVCSLYPMM. The following has the plaintext, repeated keyword and ciphertext aligned together.
+																[t, w, w, n, p, z, o, a,  , a, w, n, u, h, z, b, n, w, w, g, s, n,  , b, c, s, l, y, p, m, m]
+MICHI GANTE CHNOL OGICA LUNIV ERSIT Y
+HOUGH TONHO UGHTO NHOUG HTONH OUGHT O
+TWWNP ZOAAS WNUHZ BNWWG SNBVC SLYPM M
+To decrypt, pick a letter in the ciphertext and its corresponding letter in the keyword, use the keyword letter to find the corresponding row, and the letter heading of the column that contains the ciphertext letter is the needed plaintext letter. For example, to decrypt the first letter T in the ciphertext, we find the corresponding letter H in the keyword. Then, the row of H is used to find the corresponding letter T and the column that contains T provides the plaintext letter M (see the above figures). Consider the fifth letter P in the ciphertext. This letter corresponds to the keyword letter H and row H is used to find P. Since P is on column I, the corresponding plaintext letter is I.
+
+
+
+##################################################################################################################################################################################
+DCODE.FR https://www.dcode.fr/vigenere-cipher
+##################################################################################################################################################################################
+
+
+Encryption with Vigenere uses a key made of letters (and an alphabet). There are several ways to achieve the ciphering manually:
+
+Vigenere Ciphering by adding letters
+
+In order to cipher a text, take the first letter of the message and the first letter of the key, add their value (letters have a value depending on their rank in the alphabet, starting with 0). The result of the addition modulo 26 (26=the number of letter in the alphabet) gives the rank of the ciphered letter.
+
+Example: To crypt DCODE, the key is KEY and the alphabet is ABCDEFGHIJKLMNOPQRSTUVWXYZ.
+
+Example: Take the first letters of the plaintext D (value = 3) and of the key K (value = 10) and add them (3+10=13), the letter with value 13 is N.
+
+Continue with the next letter of the plaintext, and the next letter of the key. When arrived at the end of the key, go back to the first letter of the key.
+
+Example: DCODE
+KEYKE
+
+Example: NGMNI is the ciphertext.
+
+Vigenere Cipher using a table
+
+In order to encrypt using Vigenere method, the easiest way is to have a double entry grid, here is one (when the alphabet is ABCDEFGHIJKLMNOPQRSTUVWXYZ):
+*********************************************************************************************************************************************************************************
+Note - the above mentioned method, pretty smart, serves the same function as the method intersectionOf(String row, String column) in TabulaRecta.
+**********************************************************************************************************************************************************************************
+
+Example: The key is KEY, and the plaintext is DCODE.
+
+Locate the first letter of the plaintext message in the first line of the table and the first letter of the key on the left column. The cipher letter is at the intersection.
+
+Example: Locate the letter D on the first row, and the letter K on the first column, the ciphered letter is the intersection cell N.
+
+Continue with the next letter of the plaintext, and the next letter of the key. When arrived at the end of the key, go back to the first letter of the key.
+
+Example: NGMNI is the ciphertext.
+
+How to decrypt Vigenere cipher?
+Vigenere decryption requires a key (and an alphabet). As for encryption, two ways are possible.
+
+Decryption of Vigenere by subtracting letters
+
+Example: To decrypt NGMNI, the key is KEY and the alphabet is ABCDEFGHIJKLMNOPQRSTUVWXYZ.
+
+To decrypt, take the first letter of the ciphertext and the first letter of the key, and subtract their value (letters have a value equal to their position in the alphabet starting from 0). If the result is negative, add 26 (26=the number of letters in the alphabet), the result gives the rank of the plain letter.
+
+Example: Take the first letters of the ciphertext N (value = 13) and the key K (value = 10) and subtract them (13-10=3), the letter of value 3 is D.
+
+Continue with the next letters of the message and the next letters of the key, when arrived at the end of the key, go back the the first key of the key.
+
+Example: NGMNI
+KEYKE
+
+Example: DCODE is the plain text.
+
+Decryption of Vigenere with a table
+
+To decrypt Vigenere with a double entry square table, use the following grid (case alphabet is ABCDEFGHIJKLMNOPQRSTUVWXYZ):
+
+
+
+
+Example: To decrypt NGMNI, the key is KEY.
+
+Locates the first letter of the key in the left column, and locates on the row the first letter of the ciphered message. Then go up in the column to read the first letter, it is the corresponding plain letter.
+
+Example: Locate the letter K on the first column, and on the row of it, find the cell of the letter N, the name of its column is D, it is the first letter of the plain message.
+
+Continue with the next letters of the message and the next letters of the key, when arrived at the end of the key, go back the the first key of the key.
+
+Example: The original plain text is DCODE.
+
+
+ 
+How to recognize Vigenere ciphertext?
+Following a Vigenere encryption, the message has a coincidence index which decreases between 0.05 and 0.04 depending on the length of the key, it decreases towards 0.04 the longer the key is.
+
+How to decipher Vigenere without knowing the key?
+Most common keyless techniques use statistical methods in order to find the key length, then a simple frequency analysis allows to find the key.
+
+Kasiski test
+
+Kasiski test consists in finding repeating sequences of letters in the ciphertext.
+
+Example: ABC appears three times in the message ABCXYZABCKLMNOPQRSABC
+
+The fact that repeating letters can be found means two things: either a same sequence of letter of the plaintext is crypted with the same part of the key, either different sequences letters are crypted with different parts of the key but they ends with the same crypted letters. This second possibility is poorly probable.
+
+By analyzing the gaps between two identical redundant sequences, an attacker can find multiples of the key length. By analyzing each gaps in term of number of letters, and by calculating divisors, an attacker can deduct with a high probability the size of the key.
+
+Example: Positions of ABC are 0, 6 et 18, gaps are 6, 12 and 18 letters length, their most common divisors are 2, 3 and 6, so the key has a high probability to be 2, 3 or 6 letters long.
+
+Index of coincidence test
+
+The test using the index of coincidence consists in taking one letter out of n in the ciphertext and calculate the IC. The higher it is, the higher the probability n is the key size.
+
+Indeed, taking one letter every n where n is the key-length, ends with a sequence of letters that are always crypted using the same shift. The index of coincidence is then equals to the one of the plain text.
+
+
+ 
+How to find the key when having both cipher and plaintext?
+When encrypting, the key is added to the plain text to get encrypted text. So, from the encrypted text, subtract the plain text to get the key.
+
+NB: This is equivalent to decrypting the encrypted text with the plain text as key. The key will then appear repeated.
+
+Example: The cipher text is NGMNI and the corresponding plaintext is DCODE. Use DCODE as key to decrypt NGMNI and find as plaintext KEYKE which is in fact the key KEY (repeated).
+
+What are the variants of the Vigenere cipher?
+Multiple variants exists, as Beaufort Cipher, Vigenere Autoclave, Vernam Cipher
+
+
+ 
+How to choose the encryption key?
+In order to make Vigenere resistant to attacks, the coder must determine the most secure encryption key possible. All attacks are based on detections of key repetitions, so to avoid this pitfall, it is necessary to use a key as long as possible so that it does not repeat, or even longer than the size of the text to encrypt. This is the case of the Vernam cipher.
+
+What is the running key vigenere cipher?
+The variant by running key uses a key length at least equal to that of the text. This technique makes it possible to secure Vigénère's cipher as Kasiski's attack is no longer valid.
+
+To get a long enough key, it is common to use a long book or other message. The use of this kind of key then opens the possibility of other attacks, by probable word and / or by analysis of the frequencies of the characters if the message is long enough.
+
+In the particular case where the entire key is made up of random characters (see Vernam one time pad), then the message becomes completely unbreakable by any method of cryptanalysis (unconditional security).
+
+
+What is the keyed vigenere cipher?
+By using a disordered alphabet, or with a key that modifies the traditional Latin alphabet, then the majority of the tools of cryptanalysis become useless and the Vigenère cipher is then resistant to classical attacks.
+
+
+##################################################################################################################################################################################
+Cryptanalysis of the Vigenère Cipher: The Friedman Test  Spring 2015
+Chris Christensen
+MAT/CSC 483
+https://www.nku.edu/~christensen/1402%20Friedman%20test%202.pdf
+##################################################################################################################################################################################
+
+
+
+Cryptanalysis of the Vigenère Cipher: The Friedman Test
+For the Kasiski attack to work, it is necessary for the keyword to be repeated. In
+fact, what we depended upon was that we had a very long message and relatively
+short keyword so that the keyword was repeated many times and that when we
+stripped off the various Caesar cipher alphabets each alphabet contained enough
+letters to enable us to spot the shift.
+In 1922 William Friedman, who is often called the Dean of American Cryptology,
+published a statistical test that can be used to determine whether a cipher is
+polyalphabetic or monoalphabetic and for polyalphabet ciphers can estimate the
+number of alphabets (the length of the keyword for the Vigenère cipher).
+William Friedman (1891 – 1969) retired from the National Security Agency in
+1955 after 35 years of service with U.S. cryptological activities. Friedman
+transformed the methods and approaches of cryptology from the traditional into the
+modern. His wife Elizebeth was also a cryptologist and served at one point with
+the Coast Guard; she cryptanalyzed messages of the rumrunners. The two of them
+effectively debunked the theory that Francis Bacon used steganography to conceal
+and reveal that he was the author of Shakespeare's works (The Shakespearean
+Cipher Examined, 1957).
+Friedman’s test is a statistical test based upon frequency. One calculation is to
+determine the index of coincidence I. (Because Friedman denoted this number by
+the Greek letter kappa κ , it is sometimes called the Kappa Test.) I varies between
+approximately 0.038 and 0.065. A value of I near 0.065 would indicate that a
+monoalphabetic cipher (like a simple substitution cipher, a Caesar cipher, a
+multiplicative cipher, an affine cipher, or a keyword cipher) was used, and a value
+of I near 0.038 would indicate that a polyalphabetic cipher (like the Vigenère
+cipher) was used.
+The other calculation is an approximation to the length of the keyword l.
+Index of coincidence
+The index of coincidence is sometimes called the repeat rate. Friedman had
+noticed that when drawing two ciphertext letters at random the probability of
+drawing “doubles,” i.e., the two letters are the same, is higher if the letters are
+drawn from the same alphabet than from different alphabets.
+The probability of choosing two letters the same from ciphertext (i.e., two as or
+two bs or two cs or … or two zs) would be
+111 1 ... 111 1
+nn nn nn nn aa bb cc zz I
+nn nn nn nn
+−−− − = × + × + × ++ × −−− −
+This number is denoted I and called the index of coincidence of the ciphertext.
+Because Friedman denoted this number by the Greek letter kappa κ , it is
+sometimes called the Kappa Test.
+English plaintext
+The frequencies of the letters in English are:
+Letter a b c d e f g h i j k l m
+Frequency .082 .015 .028 .043 .127 .022 .020 .061 .070 .002 .008 .040 .024
+Letter n o p q r s t u v w x y z
+Frequency .067 .075 .019 .001 .060 .063 .091 .028 .010 .023 .001 .020 .001
+Beker and Piper, Cipher Systems: The Protection of Communications, Wiley.
+So, for a text in plaintext English, the probability of “drawing” two letters that are
+the same is:
+aa or bb or cc or or zz
+.082 .082 + .015 .015 + .028 .028 + + .001 .001 ××× ×
+
+
+This probability of “drawing” two letters that are the same – the index of
+coincidence -- is approximately I ≈ 0.0656010.
+Monoalphabetic Ciphers
+If the ciphertext were generated by a monoalphabetic cipher, we should determine
+I to be near 0.065 because a monoalphabetic cipher is just a permutation of the
+letters of a single alphabet. The frequencies of letters for the ciphertext alphabet
+should be nearly the same as for English – but in a different order.
+Polyalphabetic ciphers
+If more than one alphabet were used, the frequencies of the letters should be more
+nearly uniform. In the ideal case, the frequencies of ciphertext letters would be
+uniform. If the frequencies were uniform, the probability of “drawing” two letters
+that were the same would be:
+26 terms
+11 11 11 11 1 ... 0.038
+26 26 26 26 26 26 26 26 26
+I       ≈ × + × + × ++ × = ≈             .
+For polyalphabetic ciphers, the frequencies of the letters would become more
+nearly uniform – more nearly the same for each letter. We should determine I to
+be near 0.038.
+Determining Whether a Cipher is Monoalphabetic or Polyalphabetic
+Recall that, using frequency analysis, peaks and valleys of frequencies suggest a
+monoalphabetic cipher and relatively uniform frequencies suggest a polyalphabetic
+cipher. The Friedman test is a statistical way of “looking for peaks and valleys
+versus uniform frequencies.”
+We test the ciphertext by calculating I based on the ciphertext frequencies. The
+closer that I is to 0.065, the more likely it is that we have a monoalphabetic cipher.
+The closer that I is to 0.038, the more likely that we have a polyalphabetic cipher.
+The following frequencies are for ciphertext enciphered with an affine cipher:
+The peaks and valleys of frequencies suggest a monoalphabetic cipher. The index
+of coincidence is 0.0701.
+The following frequencies are for ciphertext enciphered with a Vigenère cipher:
+The relatively uniform frequencies suggest a polyalphabetic cipher. The index of
+coincidence is 0.0441.
+Estimating the Length of the Keyword
+William Friedman’s index of coincidence can also be used to estimate l the length
+of the keyword of a Vigenère cipher.
+We will develop an approximation formula for I, the index of coincidence; this
+formula will contain l and n, the number of letters in the ciphertext. Then, to get
+an approximation for the length l, we will solve for l in terms of I and n (we know
+n and can calculate I).
+First, assume that we know l and arrange the ciphertext into l columns. Now each
+column corresponds to a Caesar cipher. Although the columns might not all have
+the same length, we will assume that the number of letters in the ciphertext is large
+enough so that we can assume that they each have length n
+l
+; i.e., we will assume
+that the error using this number for the length of each column is not large.
+If we chose two letters from the ciphertext, what is the probability that they come
+from the same column and are the same letter?
+One possibility is that we select two letters from the ciphertext that come from the
+same column and are the same letter. What is that probability?
+Select a letter from the ciphertext. This selection determines a column. The
+probability that the next letter chosen comes from the same column is
+1
+1
+n
+l
+n
+−
+− .
+Because both letters are selected from the same Caesar cipher alphabet, the
+probability that both are the same is approximately the same as for standard
+English 0.065. So, the probability that both letters are selected from the same
+column and are the same letter is approximately
+1
+0.065
+1
+n
+l
+n
+−
+× − .
+The other possibility is that we select two letters from the ciphertext that come
+from different columns but are the same letter. What is that probability?
+Select a letter from the ciphertext. Again, this determines a column. The
+probability that the next letter comes from a different column is 1
+n
+n
+l
+n
+−
+− . Because
+the two letters are selected from different Caesar cipher alphabets, the probability
+that both are the same is approximately the same as for a random alphabet 0.038.
+So, the probability that both letters are selected from different columns and are the
+same letter is approximately 0.038
+1
+n
+n
+l
+n
+−
+× − .
+So we have two cases: the two letters are selected from the same column and are
+the same letter or the two letters are selected from different columns and are the
+same letter. To get an approximation of the index of coincidence I, the probability
+that the two letters selected are the same, we add these two probabilities:
+1
+0.065 0.038
+1 1
+n n
+n
+l l I
+n n
+− −
+≈× + × − − .
+Doing a bit of algebra to solve for l, we obtain:
+1
+0.065 0.038
+1 1
+( 1) 1 0.065 0.038
+( 1) 0.065 0.065 0.038 0.038
+( 1) 0.065 0.038 (0.065 0.038)
+( 1) 0.065 0.038 0.027
+0.027
+( 1) 0.065 0.038
+n n
+n
+l l I
+n n
+n n n I n
+l l
+n n n I n
+l l
+n nI n
+l
+n nI n
+l
+n l
+nI n
+− −
+≈× + × − −
+   − ≈ −× + − ×      
+− ≈ × − +× − ×
+− + − ≈× −
+−+ − ≈
+≈
+−+ −
+A commonly used table to estimate the length of the keyword is:
+Estimated length of keyword Index of Coincidence
+1 0.0660
+2 0.0520
+3 0.0473
+4 0.0449
+5 0.0435
+6 0.0426
+7 0.0419
+8 0.0414
+9 0.0410
+10 0.0407
+∞ 0.0388
+ 
+
+##################################################################################################################################################################################
+CRYPTO CORNER https://crypto.interactive-maths.com/kasiski-analysis-breaking-the-code.html
+##################################################################################################################################################################################
+The strength of the Vigenère Cipher is that it is not susceptible to Frequency Analysis, due to the fact that the cipher rotates through different shifts, so the same plaintext letter will not always be encrypted to the same ciphertext letter. For example, if "P" is the most common letter in the ciphertext, we might assume this is "e". However, with the Vigenère Cipher this is not the case.
+For many centuries the Vigenère cipher was thought to be unbreakable, although Charles Babbage is known to have broken certain variants of it as early as 1854, though he did not publish his work. However it was Friedrich Kasiski who published a complete account of how to break the Vigenère Cipher in 1863, which did not rely on any knowledge of either the plaintext or the key.
+Here we shall discuss how the Kasiski Examination works, after which we shall go through an extended example of how to use the activity to help break a message encoded using the Vigenère Cipher.
+The Method
+Although we have flattened out the frequency of the letters in the ciphertext by using a different shift for each letter, there is one main weakness to the security of the Vigenère Cipher. And that is the fact that the key is repeated.
+If we use the keyword key, then the keystream will be keykeykeykeykey... This means that every third letter is encrypted using the same shift. Essentially, we have 3 interwoven Caesar Ciphers, which can each individually be broken by frequency analysis. The hard part is thus working out the length of the keyword.
+The solution that Kasiski came up with was ingenious. As an example, consider what we get when we encode the plaintext "maths is short for mathematics" using the keyword key we get the ciphertext shown in the table below. The important things to notice are the two bits that are bolded. Due to the repeating nature of the key, both times we see "math", it is encrypted in the same way to "WERR".
+
+
+As a cryptanalyst this gives us some useful information. Since the repeating are 15 letters apart, we know that the length of the key must be a factor of 15. That is, the key must repeat exactly in a space of 15 letters. So the keyword must be one of the lengths 15, 5, 3 or 1. Now it can't be one (then it would be a simple Caesar Shift), and it is unlikely to be of length 15, so now we could analyse each of the instances of keywords of length 3 and 5.
+This is a good first step, however it is possible that repeating strings of letters in the ciphertext could be coincidence, so we want to have more information. If we look at the intercepted message below then we can see two sets of repeating strings.
+
+VHVSSPQUCEMRVBVBBBVHVSURQGIBDUGRNICJQUCERVUAXSSR
+
+Following a similar approach to before, the gap between the "VHVS" pair is 18, suggesting a key length of 18, 9, 6, 3 or 2. The gap between the "QUCE" pair is 30, which suggests a key length of 30, 15, 10, 6, 5, 3 or 2. So looking at both together the most likely key length is 6 or possibly 3 (though in practice this is unlikely).
+This method can be extended to look for many trigraphs and higher n-graphs, and by taking the factor that appears the most commonly, you can ascertain with confidence the length of the keyword. Obviously, the longer the message the more repeated n-graphs there are likely to be, and the more confident you can be about the length of the keyword.
+Once you know the length of the keyword, you can write out the ciphertext is that many columns. For example, if the keyword is 6 letters long, write the ciphertext in 6 columns. Now the letters in each column have all been encoded using the same keyword letter, and thus the same shift. So a bit of frequency analysis will help us with each individual column.
+Worked example
+In this example we shall use Kasiski Analysis to break the code used to encrypt the intercept given below, given that it has been encrypted with a Vigenère Cipher.
+
+The first step is to find as many sets of repeating n-graphs as we can, and the distance between each of them. This is a very long-winded process to undertake by hand. Fortunately, computers have made searches like this possible in a matter of seconds. Copy the text above, and paste it into the activity at the top of the page. Now click "Find Repeated Sequences".
+
+
+
+

@@ -1,0 +1,7 @@
+"document.txt" is from StackOverFlow's mailing ad: https://stackoverflow.com/questions/20731966/regex-remove-sample-special-characters-except-numbers/20733612
+"spanish.txt" is from https://lingua.com/spanish/reading/familia-pequena/
+russian.txt -> https://pa-russki.com/stories-and-novels/kulturniye-voditeli-b1/
+obama.txt -> https://libbyapp.com/open/loan/36119875/115463 dreams from my father, obama. pg 306
+belides_english -> metamorphoses.ml
+orpheus_latin -> metamorphoses.ml
+french -> https://lingua.com/french/reading/jessica/

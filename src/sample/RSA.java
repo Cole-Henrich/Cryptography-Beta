@@ -1,0 +1,11 @@
+package sample;
+
+public class RSA {
+    public RSA(){
+
+    }
+    private boolean isPrime(int integer){
+        boolean isPrime = false;
+        return isPrime;
+    }
+}
