@@ -5,7 +5,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,7 +15,7 @@ public class CoordinateGrapher_WithLimits extends JPanel {
     private BufferedImage canvas;
     
     ArrayList<ArrayList<Integer>> coordinates;
-    public CoordinateGrapher_WithLimits(int width, int height) throws FileNotFoundException {
+    public CoordinateGrapher_WithLimits(int width, int height) throws IOException {
         Unique_Words_Accumulator accumulator = new Unique_Words_Accumulator();
         coordinates = accumulator.getCoordinates();
 
@@ -73,7 +73,7 @@ public class CoordinateGrapher_WithLimits extends JPanel {
         repaint();
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
 
         JFrame frame = new JFrame("Graph, Unscaled, Limited Data View");
 

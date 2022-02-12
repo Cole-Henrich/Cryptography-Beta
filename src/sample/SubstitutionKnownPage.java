@@ -106,7 +106,7 @@ public class SubstitutionKnownPage extends StackPane {
             };
             SubstitutionDeciphered substitutionDeciphered = new SubstitutionDeciphered(textField.getText(), key);
             Stage stage = (Stage) getScene().getWindow();
-            Parent root = new SubstitutionVoila(substitutionDeciphered.get());
+            Parent root = new SubstitutionVoila(key,substitutionDeciphered.get());
             stage.setMinWidth(450);
             stage.setMinHeight(450);
             stage.setTitle("");

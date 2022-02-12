@@ -1,6 +1,7 @@
 package sample;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -71,7 +72,7 @@ public class Layer2Regressor {
     }
     public long EndTime(){return endTime;}
 
-    public Layer2Regressor() throws FileNotFoundException {
+    public Layer2Regressor() throws IOException {
         this(nums, new Unique_Words_Accumulator().getCoordinates());
     }
     private ArrayList<Double> precisionFactors(){
@@ -185,7 +186,7 @@ public class Layer2Regressor {
     public ArrayList<ArrayList<Double>> getVariableValues(){return variableValues;}
 
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         Layer2Regressor l2 = new Layer2Regressor();
         System.out.println(getNums()+ "\n\n" + l2.vars + "\n\n"+l2.minimums+"\n\n"+l2.maximums);
     }

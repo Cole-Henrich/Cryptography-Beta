@@ -45,6 +45,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+@SuppressWarnings("MagicNumber")
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -54,9 +55,10 @@ public class Main extends Application {
         primaryStage.show();
     }
     public static void main(String[] args) throws IOException {
+
            launch(args);
 //        System.err.println("main");
-//        EmojiEncode2 emojiEncode2 = new EmojiEncode2("""
+//        EmojEncode2 emojEncode2 = new EmojEncode2("""
 //                Strangely enough, I would turn to the Almighty, and say, "If you allow me to live just a few years in the second half of
 //                the 20th century, I will be happy."
 //                Now that's a strange statement to make, because the world is all messed up. The nation is sick. Trouble is in the

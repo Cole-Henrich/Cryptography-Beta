@@ -1,0 +1,51 @@
+Size = Textsize of CheckBox switcher 24pt;  Rel24pt: area/48000
+
+Padding of 30,50,50,50   
+
+Padding 2,3,4 = 50 =  area/23040
+Padding 1 = 30 =  area/38400
+
+Height of invisible button div between switcher and instructions: 
+normal padding-topPadding = divHeight.
+
+Textsize of instructions 19pt; rel19pt: area/60631.5789474 rounds to 60632; make sure to use rounding so that 18.99...does not cut off to 18. I mean round the final product, not the 60632.
+
+Size of button decode
+rel16pt;
+
+spacing between each Text letter, so that they each align with the letterboxes below.
+Height is a constant 1; this is just the filler because height is not important. When it shrinks, it inevitably shifts stuff vertically, more so the smaller the screen gets.
+prefSize(36,1) 
+rel36 = width/40. 
+
+Fontsize of aforesaid letters
+rel16pt;
+
+prefSize of aforesaid letterboxes
+20, 20;
+
+relWidth20 = width/72;
+relHeight20 = height/40;
+
+--ALL ABOVE DONE--
+--Maybe don't do the stuff in here--
+maxSize and fontSize of popup windows that occur on 
+	(1) decode attempt with insufficient text
+	(2) problematic letterbox entries:
+		(a) nonalphabetic character or characters
+		(b) and/or more than one character
+
+relMaxWidth500 = area/2.88; 500 may not be aesthetically optimal, continue to experiment.
+fontSize = rel15px; PX, notice!
+
+--ALL BELOW DONE--
+FontSize of input and output text areas
+13; rel13= 88615.3846154 rounds to 88615; always round the end result, again.
+prefWidth and prefHeight of aforesaids.
+340minHeight, 550minWidth for both;
+
+rel340 = height/2.35294117647
+rel550 = width/2.61818181818
+
+
+

@@ -9,16 +9,24 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class StartPage extends StackPane {
     public StartPage(){
         Button Encode = new Button("Encode");
         Encode.setOnAction(actionEvent -> {
             Stage s = (Stage) getScene().getWindow();
-            Parent root = new EncodePage();
-            s.setMinWidth(450);
-            s.setMinHeight(450);
-            s.setTitle("Encode");
-            s.setScene(new Scene(root, 500, 500));
+            Parent root = null;
+            try {
+                root = new EncodePage();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            s.setMinWidth(100);
+            s.setMinHeight(100);
+            s.setTitle("If you want to exit any screen and there is no exit button, simply swipe up and an exit button will appear.\n");
+            s.setScene(new Scene(root, 1440, 800));
             s.show();
         });
 
@@ -26,10 +34,10 @@ public class StartPage extends StackPane {
         Decode.setOnAction(actionEvent -> {
             Stage s = (Stage) getScene().getWindow();
             Parent root = new DecodePage();
-            s.setMinWidth(450);
-            s.setMinHeight(450);
-            s.setTitle("Decode");
-            s.setScene(new Scene(root, 500, 500));
+            s.setMinWidth(100);
+            s.setMinHeight(100);
+            s.setTitle("If you want to exit any screen and there is no exit button, simply swipe up and an exit button will appear.\n");
+            s.setScene(new Scene(root, 1440, 800));
             s.show();
         });
         Encode.setStyle("-fx-font-size:40pt;");

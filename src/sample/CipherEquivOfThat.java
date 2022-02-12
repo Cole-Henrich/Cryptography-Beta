@@ -1,9 +1,10 @@
 package sample;
 
+@SuppressWarnings("ChainedMethodCall")
 public class CipherEquivOfThat {
     private String cipherEquivOfThat;
     public CipherEquivOfThat(String Cipher){
-        this.cipherEquivOfThat = new _1231sThatExistInText(Cipher).get().get(0);
+        cipherEquivOfThat = new _1231sThatExistInText(Cipher).get().get(0);
     }
     public String get(){return cipherEquivOfThat;}
 

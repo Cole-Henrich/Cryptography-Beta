@@ -1,0 +1,13 @@
+.example {
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+.link {
+    text-decoration: underline;
+    color:#1a0dab;
+
+}
+.link :active {
+    color: #660199;
+}

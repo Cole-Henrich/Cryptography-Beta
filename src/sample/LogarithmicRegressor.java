@@ -1,6 +1,7 @@
 package sample;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -62,13 +63,13 @@ public class LogarithmicRegressor {
         this(coordinates, Iterate_FiveToThe__Times, 5);
     }
 
-    public LogarithmicRegressor(int Iterate_FiveToThe__Times) throws FileNotFoundException {
+    public LogarithmicRegressor(int Iterate_FiveToThe__Times) throws IOException {
         this(new Unique_Words_Accumulator().getCoordinates(), Iterate_FiveToThe__Times);
     }
-    public LogarithmicRegressor(double base) throws FileNotFoundException {
+    public LogarithmicRegressor(double base) throws IOException {
         this(new Unique_Words_Accumulator().getCoordinates(), 1, base);
     }
-    public LogarithmicRegressor() throws FileNotFoundException {
+    public LogarithmicRegressor() throws IOException {
         this(1);
     }
     public ArrayList<Integer> getAllPointsHit(){return allPointsHit;}

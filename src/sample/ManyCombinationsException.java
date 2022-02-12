@@ -1,0 +1,8 @@
+package sample;
+
+public class ManyCombinationsException extends Exception{
+    public ManyCombinationsException(){
+        super("This is a custom exception thrown to alert you that the program has rejected your command to calculate the possible combinations of abecaefaeadf, because its length is greater than 10. With a length of 10, the number of possible combinations is 10 to the tenth power, or 10 billion. For the computer to compute these will take at least 10 seconds (1 billion iterations per second is the upper limit of its speed), and then to remove duplicates will take even longer, because the computer is making quadrillions of checks in the process. It is possible that even 10 is too much - it's hard to calculate in theory the time the program would take, and unpleasant to test in actuality. The number of combinations follows the path of the function f(items) = items^items, or f(x) = x^x, or y = x^x, or combinations = items^items. Therefore, the inverse is x = y^y, which is y = log [y] (x) where the brackets represent \"base\". This means that items = log[items] (combinations). If you were lost, all this means is that the number of combinations increases rapidly with an increase in items; this at the same time means that the combinations decrease equally rapidly with a decrease in items. The thing to remember from all this is that removing just one item from the list makes computation times MUCH MUCH faster. For example, 9^9 is about 25 times smaller than 10^10. \n" +
+                "While there have been no internal problems, this program is built to prevent exhaustive computations like the one you just requested. Try again with a data set under 10 items in length.");
+    }
+}

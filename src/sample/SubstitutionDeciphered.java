@@ -16,13 +16,21 @@ public class SubstitutionDeciphered {
                 String StringVal = String.valueOf(c);
                 for (int j = 0; j < key.length; j++) {
                     if (StringVal.equalsIgnoreCase(key[j])){
-                        sb.append(alphabet[j]);
+                        boolean isCapital = charSet.isCapital(StringVal);
+                        String append = null;
+                        if (isCapital) {
+                            append= String.valueOf((alphabet[j])).toUpperCase();
+                        }
+                        if (!isCapital) {
+                            append= String.valueOf((alphabet[j])).toLowerCase();
+                        }
+                        sb.append(append);
                         break;
                     }
                 }
             }
         }
-        this.solved = sb.toString();
+        solved = sb.toString();
     }
     public String get(){return solved;}
 }

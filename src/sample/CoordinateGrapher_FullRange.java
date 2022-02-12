@@ -15,6 +15,7 @@ import javax.swing.*;
  * this scales the graph, so that it can display both the first and the last points.
  * It skips points in ratio to how many it needs to fit.
  */
+@SuppressWarnings("MagicNumber")
 public class CoordinateGrapher_FullRange extends JPanel {
 
     private BufferedImage canvas;

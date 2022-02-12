@@ -15,17 +15,17 @@ public class etao {
     private ArrayList<SortingAttribute> sorted;
     public etao(File Reservoir, boolean time) throws FileNotFoundException {
         long start = System.nanoTime();
-        this.reservoir = Reservoir;
-        this.occurrences = count();
-        this.LettersAndTheirOccurrences = combineLetterDataAndOccurrenceData();
-        this.sorted = SortingAttribute.MOST_TO_LEAST(this.LettersAndTheirOccurrences);
+        reservoir = Reservoir;
+        occurrences = count();
+        LettersAndTheirOccurrences = combineLetterDataAndOccurrenceData();
+        sorted = SortingAttribute.MOST_TO_LEAST(this.LettersAndTheirOccurrences);
         StringBuilder sb = new StringBuilder();
         for (SortingAttribute sortingAttribute : sorted) {
             String letter = alphabet[sortingAttribute.getIndex()];
-            System.out.println(letter+" "+sortingAttribute.getOccurrences());
+//            System.out.println(letter+" "+sortingAttribute.getOccurrences());
             sb.append(letter);
         }
-        this.mostFrequentToLeast = sb.toString();
+        mostFrequentToLeast = sb.toString();
         System.out.println(mostFrequentToLeast);
         long end = System.nanoTime();
         long duration = end-start;
@@ -57,6 +57,7 @@ public class etao {
                 }
             }
             Occurrences[a]=count;
+            scanner.close();
         }
         return Occurrences;
     }

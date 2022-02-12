@@ -14,19 +14,20 @@ public class Metamorphose {
         this._A = A;
     }
     public Metamorphose(String b){
-        StringBuilder s = new StringBuilder("[");
-        for (int i = 0; i < b.length()-1; i++) {
-            s.append(b.charAt(i)).append(", ");
+        if (b != null) {
+            StringBuilder s = new StringBuilder("[");
+            for (int i = 0; i < b.length() - 1; i++) {
+                s.append(b.charAt(i)).append(", ");
+            }
+            String c;
+            if (b.isEmpty()) {
+                c = "";
+            } else {
+                c = String.valueOf(b.charAt(b.length() - 1));
+            }
+            s.append(c).append("]");
+            _B = s.toString();
         }
-        String c;
-        if (b.length() == 0) {
-            c = "";
-        }
-        else {
-             c = String.valueOf(b.charAt(b.length()-1));
-        }
-        s.append(c).append("]");
-        this._B = s.toString();
     }
     public Metamorphose(){
 

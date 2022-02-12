@@ -1,6 +1,7 @@
 package sample;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -8,7 +9,7 @@ public class LogarithmicAnalyzer {
     private ArrayList<Integer> allPointsHit;
     ArrayList<ArrayList<Double>> variableValues;
 
-    public LogarithmicAnalyzer() throws FileNotFoundException {
+    public LogarithmicAnalyzer() throws IOException {
         long start = System.nanoTime();
         System.err.println("new LogarithmicAnalyzer();");
         LogarithmicRegressor logRegressor = new LogarithmicRegressor(new Unique_Words_Accumulator().getCoordinates(), (1.0/10000.0), 1000000);
@@ -29,7 +30,7 @@ public class LogarithmicAnalyzer {
         long duration = end-start;
         System.out.println(duration/Math.pow(10,9));
     }
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         new LogarithmicAnalyzer();
     }
     public ArrayList<ArrayList<Double>> goodVarValues(){

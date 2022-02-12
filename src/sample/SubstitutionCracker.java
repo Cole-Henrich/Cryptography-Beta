@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+@SuppressWarnings("LawOfDemeter")
 public class SubstitutionCracker {
-    private final CharSet charSet = new CharSet();
+    private static final CharSet charSet = new CharSet();
     private final math math = new math();
     private final char[] alphabet = charSet.getAlphabet();
     private final char[] ignorers = charSet.getIgnorers();
@@ -96,11 +97,12 @@ public class SubstitutionCracker {
     private boolean hasAll = false;
     private boolean isSolved = false;
 
+
     public SubstitutionCracker(String Cipher, String actualKey) {
         System.err.println("new SubstitutionCracker(String Cipher);");
 
         key = new String[alphabet.length];
-        this.cipher = Cipher;
+        cipher = Cipher;
 
         String correctKey = new Metamorphose(actualKey).get_B();
         // that
@@ -115,7 +117,7 @@ public class SubstitutionCracker {
         System.err.println("hasA = true;");
         hasT = true;
         System.err.println("hasT = true;");
-        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
         System.err.println(correctKey);
 
 //        Scanner hat = new Scanner(cipher);
@@ -160,7 +162,7 @@ public class SubstitutionCracker {
                         hasE = true;
                         System.err.println("hasE = true;");
                         e.close();
-                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                         System.err.println(correctKey);
 
                         break;
@@ -187,7 +189,7 @@ public class SubstitutionCracker {
                                 hasE = true;
                                 System.err.println("hasE = true;");
                                 e_heat.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -206,7 +208,7 @@ public class SubstitutionCracker {
                 hasI = true;
                 System.err.println("hasI = true;");
                 I.close();
-                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                 System.err.println(correctKey);
 
                 break;
@@ -229,7 +231,7 @@ public class SubstitutionCracker {
                             hasS = true;
                             System.err.println("hasS = true;");
                             s.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -255,7 +257,7 @@ public class SubstitutionCracker {
                             hasS = true;
                             System.err.println("hasS = true;");
                             s_see.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -282,7 +284,7 @@ public class SubstitutionCracker {
                             System.err.println("hasW = true;");
                             System.err.println("via Scanner w");
                             w.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -302,7 +304,7 @@ public class SubstitutionCracker {
                     String third = String.valueOf(next.charAt(2));
                     String fourth = String.valueOf(next.charAt(3));
                     if (massCalc_notAnyOther(new String[] { second, third, fourth }, new int[] { _i, _t, _h })) {
-                        if (thisChar_isNotAlreadyInTheKey(first)) {
+                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                             key[_w] = first.toLowerCase();
                             hasW = true;
                             System.err.println("hasW = true;");
@@ -323,7 +325,7 @@ public class SubstitutionCracker {
                         String first = String.valueOf(next.charAt(0));
                         String second = String.valueOf(next.charAt(1));
                         if (massCalc_notAnyOther(new String[] { second }, new int[] { _e })) {
-                            if (thisChar_isNotAlreadyInTheKey(first)) {
+                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                 key[_w] = first.toLowerCase();
                                 hasW = true;
                                 System.err.println("hasW = true;");
@@ -347,7 +349,7 @@ public class SubstitutionCracker {
                             String fourth = String.valueOf(next.charAt(3));
                             if (massCalc_notAnyOther(new String[] { second, third, fourth },
                                     new int[] { _h, _a, _t })) {
-                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                     key[_w] = first.toLowerCase();
                                     hasW = true;
                                     System.err.println("hasW = true;");
@@ -369,7 +371,7 @@ public class SubstitutionCracker {
                                 String second = String.valueOf(next.charAt(1));
                                 String third = String.valueOf(next.charAt(2));
                                 if (massCalc_notAnyOther(new String[] { first, second }, new int[] { _s, _a })) {
-                                    if (thisChar_isNotAlreadyInTheKey(third)) {
+                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                         key[_w] = third.toLowerCase();
                                         hasW = true;
                                         System.err.println("hasW = true;");
@@ -394,7 +396,7 @@ public class SubstitutionCracker {
                                     String fifth = String.valueOf(next.charAt(4));
                                     if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                             new int[] { _h, _i, _t, _e })) {
-                                        if (thisChar_isNotAlreadyInTheKey(first)) {
+                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                             key[_w] = first.toLowerCase();
                                             hasW = true;
                                             System.err.println("hasW = true;");
@@ -418,7 +420,7 @@ public class SubstitutionCracker {
                                         String fourth = String.valueOf(next.charAt(3));
                                         if (massCalc_notAnyOther(new String[] { second, third, fourth },
                                                 new int[] { _i, _s, _h })) {
-                                            if (thisChar_isNotAlreadyInTheKey(first)) {
+                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                 key[_w] = first.toLowerCase();
                                                 hasW = true;
                                                 System.err.println("hasW = true;");
@@ -442,7 +444,7 @@ public class SubstitutionCracker {
                                             String fourth = String.valueOf(next.charAt(3));
                                             if (massCalc_notAnyOther(new String[] { second, third, fourth },
                                                     new int[] { _a, _i, _t })) {
-                                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                     key[_w] = first.toLowerCase();
                                                     hasW = true;
                                                     System.err.println("hasW = true;");
@@ -466,7 +468,7 @@ public class SubstitutionCracker {
                                                 String fourth = String.valueOf(next.charAt(3));
                                                 if (massCalc_notAnyOther(new String[] { second, third, fourth },
                                                         new int[] { _e, _s, _t })) {
-                                                    if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                         key[_w] = first.toLowerCase();
                                                         hasW = true;
                                                         System.err.println("hasW = true;");
@@ -489,7 +491,7 @@ public class SubstitutionCracker {
                                                     String third = String.valueOf(next.charAt(2));
                                                     if (massCalc_notAnyOther(new String[] { second, third },
                                                             new int[] { _e, _t })) {
-                                                        if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                             key[_w] = first.toLowerCase();
                                                             hasW = true;
                                                             System.err.println("hasW = true;");
@@ -516,7 +518,7 @@ public class SubstitutionCracker {
                                                         if (massCalc_notAnyOther(
                                                                 new String[] { second, third, fourth, fifth, sixth },
                                                                 new int[] { _h, _i, _t, _e, _s })) {
-                                                            if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                 key[_w] = first.toLowerCase();
                                                                 hasW = true;
                                                                 System.err.println("hasW = true;");
@@ -544,7 +546,7 @@ public class SubstitutionCracker {
                                                                     new String[] { second, third, fourth, fifth,
                                                                             sixth },
                                                                     new int[] { _i, _s, _h, _e, _s })) {
-                                                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                     key[_w] = first.toLowerCase();
                                                                     hasW = true;
                                                                     System.err.println("hasW = true;");
@@ -569,7 +571,7 @@ public class SubstitutionCracker {
                                                                 if (massCalc_notAnyOther(
                                                                         new String[] { second, third, fourth },
                                                                         new int[] { _i, _s, _e })) {
-                                                                    if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                         key[_w] = first.toLowerCase();
                                                                         hasW = true;
                                                                         System.err.println("hasW = true;");
@@ -597,7 +599,7 @@ public class SubstitutionCracker {
                                                                             new String[] { first, second, fourth, fifth,
                                                                                     sixth },
                                                                             new int[] { _h, _a, _a, _i, _i })) {
-                                                                        if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                             key[_w] = third.toLowerCase();
                                                                             hasW = true;
                                                                             System.err.println("hasW = true;");
@@ -624,7 +626,7 @@ public class SubstitutionCracker {
                                                                                 new String[] { first, third, fourth,
                                                                                         fifth },
                                                                                 new int[] { _s, _e, _e, _t })) {
-                                                                            if (thisChar_isNotAlreadyInTheKey(second)) {
+                                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                                 key[_w] = second.toLowerCase();
                                                                                 hasW = true;
                                                                                 System.err.println("hasW = true;");
@@ -667,7 +669,7 @@ public class SubstitutionCracker {
                         hasR = true;
                         System.err.println("hasR = true;");
                         r.close();
-                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                         System.err.println(correctKey);
 
                         break;
@@ -693,14 +695,17 @@ public class SubstitutionCracker {
                     // new int[] { _t, _h, _e, _e })) {
                     if (first.equalsIgnoreCase(key[_t]) && second.equalsIgnoreCase(key[_h])
                             && third.equalsIgnoreCase(key[_e]) && fifth.equalsIgnoreCase(key[_e])) {
-                        key[_r] = fourth.toLowerCase();
-                        hasR = true;
-                        System.err.println("hasR = true;");
-                        r_there.close();
-                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
-                        System.err.println(correctKey);
+                        if (!fourth.equalsIgnoreCase(key[_s])) { //eliminate "these"
+                            key[_r] = fourth.toLowerCase();
+                            hasR = true;
+                            //jhewe
+                            System.err.println("hasR = true;");
+                            r_there.close();
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
+                            System.err.println(correctKey);
 
-                        break;
+                            break;
+                        }
                     }
                     // }
                 }
@@ -723,7 +728,7 @@ public class SubstitutionCracker {
                             hasR = true;
                             System.err.println("hasR = true;");
                             r_their.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -753,7 +758,7 @@ public class SubstitutionCracker {
                             hasV = true;
                             System.err.println("hasV = " + hasV + ";");
                             v.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -780,7 +785,7 @@ public class SubstitutionCracker {
                         hasV = true;
                         System.err.println("hasV = " + hasV + ";");
                         v_river.close();
-                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                         System.err.println(correctKey);
 
                         break;
@@ -803,7 +808,7 @@ public class SubstitutionCracker {
                             hasV = true;
                             System.err.println("hasV = " + hasV + ";");
                             v_ever.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                         }
@@ -825,7 +830,7 @@ public class SubstitutionCracker {
                                     new int[] { _s, _e, _r, _e })) {
                                 key[_v] = fourth.toLowerCase();
                                 v_serve.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 hasV = true;
@@ -857,7 +862,7 @@ public class SubstitutionCracker {
                             hasY = true;
                             System.err.println("hasY = true;");
                             y.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -887,7 +892,7 @@ public class SubstitutionCracker {
                                 hasN = true;
                                 System.err.println("hasN = true;");
                                 n.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -914,7 +919,7 @@ public class SubstitutionCracker {
                         hasN = true;
                         System.err.println("hasN = true;");
                         n_never.close();
-                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                         System.err.println(correctKey);
 
                         break;
@@ -944,8 +949,9 @@ public class SubstitutionCracker {
                                     key[_m] = fourth.toLowerCase();
                                     hasM = true;
                                     System.err.println("hasM = true;");
+                                    System.err.println("via Scanner m");
                                     m.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -972,8 +978,10 @@ public class SubstitutionCracker {
                         key[_m] = third.toLowerCase();
                         hasM = true;
                         System.err.println("hasM = true;");
+                        System.err.println("via Scanner m_time");
+
                         m_time.close();
-                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                         System.err.println(correctKey);
 
                         break;
@@ -998,7 +1006,7 @@ public class SubstitutionCracker {
                             hasL = true;
                             System.err.println("hasL = true;");
                             l.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -1025,7 +1033,7 @@ public class SubstitutionCracker {
                                 hasL = true;
                                 System.err.println("hasL = true;");
                                 l_all.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
                                 break;
                             }
@@ -1054,7 +1062,7 @@ public class SubstitutionCracker {
                                     hasL = true;
                                     System.err.println("hasL = true;");
                                     l_little.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -1082,7 +1090,7 @@ public class SubstitutionCracker {
                                     hasL = true;
                                     System.err.println("hasL = true;");
                                     l_small.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -1107,7 +1115,7 @@ public class SubstitutionCracker {
                                     hasL = true;
                                     System.err.println("hasL = true;");
                                     l_later.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -1132,7 +1140,7 @@ public class SubstitutionCracker {
                                         hasL = true;
                                         System.err.println("hasL = true;");
                                         l_learn.close();
-                                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                         System.err.println(correctKey);
 
                                         break;
@@ -1158,7 +1166,7 @@ public class SubstitutionCracker {
                                             System.err.println("hasL = true;");
                                             l_leave.close();
                                             System.err
-                                                    .println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                    .println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                             System.err.println(correctKey);
 
                                             break;
@@ -1195,7 +1203,7 @@ public class SubstitutionCracker {
                             hasG = true;
                             System.err.println("hasG = true;");
                             g.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -1224,7 +1232,7 @@ public class SubstitutionCracker {
                         hasG = true;
                         System.err.println("hasG = true;");
                         g_revenge.close();
-                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                         System.err.println(correctKey);
 
                         break;
@@ -1249,7 +1257,7 @@ public class SubstitutionCracker {
                             hasG = true;
                             System.err.println("hasG = true;");
                             g_great.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -1274,7 +1282,7 @@ public class SubstitutionCracker {
                                 hasG = true;
                                 System.err.println("hasG = true;");
                                 g_large.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -1299,7 +1307,7 @@ public class SubstitutionCracker {
                                     hasG = true;
                                     System.err.println("hasG = true;");
                                     g_light.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -1324,7 +1332,7 @@ public class SubstitutionCracker {
                                         hasG = true;
                                         System.err.println("hasG = true;");
                                         g_right.close();
-                                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                         System.err.println(correctKey);
 
                                         break;
@@ -1350,7 +1358,7 @@ public class SubstitutionCracker {
                                             System.err.println("hasG = true;");
                                             g_might.close();
                                             System.err
-                                                    .println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                    .println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                             System.err.println(correctKey);
 
                                             break;
@@ -1376,7 +1384,7 @@ public class SubstitutionCracker {
                                                 System.err.println("hasG = true;");
                                                 g_night.close();
                                                 System.err.println(
-                                                        (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                        (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                 System.err.println(correctKey);
 
                                                 break;
@@ -1412,7 +1420,7 @@ public class SubstitutionCracker {
                                 System.err.println("via Scanner b");
                                 System.err.println(next);
                                 b.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -1434,17 +1442,27 @@ public class SubstitutionCracker {
                     String third = String.valueOf(next.charAt(2));
                     String fourth = String.valueOf(next.charAt(3));
                     String fifth = String.valueOf(next.charAt(4));
-                    if (massCalc_notAnyOther(new String[] { first, second, fourth, fifth },
-                            new int[] { _t, _a, _l, _e })) {
-                        key[_b] = third.toLowerCase();
-                        hasB = true;
-                        System.err.println("hasB = true;");
-                        System.err.println("via Scanner b_table");
-                        b_table.close();
-                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
-                        System.err.println(correctKey);
+//                    if (massCalc_notAnyOther(new String[] { first, second, fourth, fifth },
+//                            new int[] { _t, _a, _l, _e })) {
+                    if (first.equalsIgnoreCase(key[_t])) {
+                        if (second.equalsIgnoreCase(key[_a])) {
+                            if (fourth.equalsIgnoreCase(key[_l])) {
+                                if (fifth.equalsIgnoreCase(key[_e])) {
+                                    key[_b] = third.toLowerCase();
+                                    hasB = true;
+                                    //jf_ue
+                                    //jfdue = correct
+                                    //jfwue = wron
+                                    System.err.println("hasB = true;");
+                                    System.err.println("via Scanner b_table");
+                                    b_table.close();
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
+                                    System.err.println(correctKey);
 
-                        break;
+                                    break;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -1464,10 +1482,13 @@ public class SubstitutionCracker {
                                 new int[] { _r, _i, _n, _g })) {
                             key[_b] = first.toLowerCase();
                             hasB = true;
+                            //_qsin
+                            //yqsin = wrong
+                            //dqsin = right
                             System.err.println("hasB = true;");
                             System.err.println("via Scanner b_bring");
                             b_bring.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -1493,7 +1514,7 @@ public class SubstitutionCracker {
                                 System.err.println("hasB = true;");
                                 System.err.println("via Scanner b_began");
                                 b_began.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -1519,7 +1540,7 @@ public class SubstitutionCracker {
                                     System.err.println("hasB = true;");
                                     System.err.println("via Scanner b_begin");
                                     b_begin.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -1543,12 +1564,13 @@ public class SubstitutionCracker {
                     String second = String.valueOf(next.charAt(1));
                     String third = String.valueOf(next.charAt(2));
                     if (massCalc_notAnyOther(new String[] { first, second }, new int[] { _a, _n })) {
-                        if (thisChar_isNotAlreadyInTheKey(third)) {
+                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                             key[_d] = third.toLowerCase();
                             hasD = true;
                             System.err.println("hasD = true;");
+                            System.err.println("via Scanner d_and");
                             d_and.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -1568,12 +1590,13 @@ public class SubstitutionCracker {
                         String second = String.valueOf(next.charAt(1));
                         String third = String.valueOf(next.charAt(2));
                         if (massCalc_notAnyOther(new String[] { first, second }, new int[] { _h, _a })) {
-                            if (thisChar_isNotAlreadyInTheKey(third)) {
+                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                 key[_d] = third.toLowerCase();
                                 hasD = true;
                                 System.err.println("hasD = true;");
+                                System.err.println("via Scanner d_had");
                                 d_had.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -1594,12 +1617,13 @@ public class SubstitutionCracker {
                             String third = String.valueOf(next.charAt(2));
                             String fourth = String.valueOf(next.charAt(3));
                             if (massCalc_notAnyOther(new String[] { first, second, third }, new int[] { _s, _a, _i })) {
-                                if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                     key[_d] = fourth.toLowerCase();
                                     hasD = true;
                                     System.err.println("hasD = true;");
+                                    System.err.println("via Scanner d_said");
                                     d_said.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -1619,12 +1643,13 @@ public class SubstitutionCracker {
                                 String second = String.valueOf(next.charAt(1));
                                 String third = String.valueOf(next.charAt(2));
                                 if (massCalc_notAnyOther(new String[] { second }, new int[] { _i })) {
-                                    if (thisChar_isNotAlreadyInTheKey(first)) {
+                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                         key[_d] = first.toLowerCase();
                                         hasD = true;
                                         System.err.println("hasD = true;");
+                                        System.err.println("via Scanner d_did");
                                         d_did.close();
-                                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                         System.err.println(correctKey);
 
                                         break;
@@ -1646,13 +1671,14 @@ public class SubstitutionCracker {
                                     String fourth = String.valueOf(next.charAt(3));
                                     if (massCalc_notAnyOther(new String[] { first, second, fourth },
                                             new int[] { _m, _a, _e })) {
-                                        if (thisChar_isNotAlreadyInTheKey(third)) {
+                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                             key[_d] = third.toLowerCase();
                                             hasD = true;
                                             System.err.println("hasD = true;");
+                                            System.err.println("via Scanner d_made");
                                             d_made.close();
                                             System.err
-                                                    .println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                    .println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                             System.err.println(correctKey);
 
                                             break;
@@ -1676,13 +1702,14 @@ public class SubstitutionCracker {
                                         String sixth = String.valueOf(next.charAt(5));
                                         if (massCalc_notAnyOther(new String[] { first, second, third, fourth, fifth },
                                                 new int[] { _s, _e, _e, _m, _e })) {
-                                            if (thisChar_isNotAlreadyInTheKey(sixth)) {
+                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                 key[_d] = sixth.toLowerCase();
                                                 hasD = true;
                                                 System.err.println("hasD = true;");
+                                                System.err.println("via Scanner d_seemed");
                                                 d_seemed.close();
                                                 System.err.println(
-                                                        (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                        (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                 System.err.println(correctKey);
 
                                                 break;
@@ -1704,13 +1731,14 @@ public class SubstitutionCracker {
                                             String fourth = String.valueOf(next.charAt(3));
                                             if (massCalc_notAnyOther(new String[] { first, second, third },
                                                     new int[] { _h, _e, _a })) {
-                                                if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                     key[_d] = fourth.toLowerCase();
                                                     hasD = true;
                                                     System.err.println("hasD = true;");
+                                                    System.err.println("via Scanner d_head");
                                                     d_head.close();
                                                     System.err.println(
-                                                            (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                            (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                     System.err.println(correctKey);
 
                                                     break;
@@ -1733,12 +1761,13 @@ public class SubstitutionCracker {
                                                 String fifth = String.valueOf(next.charAt(4));
                                                 if (massCalc_notAnyOther(new String[] { first, second, third, fourth },
                                                         new int[] { _h, _e, _a, _r })) {
-                                                    if (thisChar_isNotAlreadyInTheKey(fifth)) {
+                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                         key[_d] = fifth.toLowerCase();
                                                         hasD = true;
                                                         System.err.println("hasD = true;");
+                                                        System.err.println("via Scanner d_heard");
                                                         d_heard.close();
-                                                        System.err.println((Arrays.toString(this.key))
+                                                        System.err.println((Arrays.toString(key))
                                                                 .replaceAll("null", "\u0000"));
                                                         System.err.println(correctKey);
 
@@ -1760,12 +1789,13 @@ public class SubstitutionCracker {
                                                     String third = String.valueOf(next.charAt(2));
                                                     if (massCalc_notAnyOther(new String[] { second, third },
                                                             new int[] { _a, _y })) {
-                                                        if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                             key[_d] = first.toLowerCase();
                                                             hasD = true;
                                                             System.err.println("hasD = true;");
+                                                            System.err.println("via Scanner d_day");
                                                             d_day.close();
-                                                            System.err.println((Arrays.toString(this.key))
+                                                            System.err.println((Arrays.toString(key))
                                                                     .replaceAll("null", "\u0000"));
                                                             System.err.println(correctKey);
 
@@ -1791,12 +1821,13 @@ public class SubstitutionCracker {
                                                         if (massCalc_notAnyOther(
                                                                 new String[] { first, second, fourth, fifth, sixth },
                                                                 new int[] { _a, _n, _r, _e, _w })) {
-                                                            if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                 key[_d] = third.toLowerCase();
                                                                 hasD = true;
                                                                 System.err.println("hasD = true;");
+                                                                System.err.println("via Scanner d_andrew");
                                                                 d_andrew.close();
-                                                                System.err.println((Arrays.toString(this.key))
+                                                                System.err.println((Arrays.toString(key))
                                                                         .replaceAll("null", "\u0000"));
                                                                 System.err.println(correctKey);
 
@@ -1820,12 +1851,13 @@ public class SubstitutionCracker {
                                                             if (massCalc_notAnyOther(
                                                                     new String[] { first, second, third },
                                                                     new int[] { _h, _a, _n })) {
-                                                                if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                     key[_d] = fourth.toLowerCase();
                                                                     hasD = true;
                                                                     System.err.println("hasD = true;");
+                                                                    System.err.println("via Scanner d_hand");
                                                                     d_hand.close();
-                                                                    System.err.println((Arrays.toString(this.key))
+                                                                    System.err.println((Arrays.toString(key))
                                                                             .replaceAll("null", "\u0000"));
                                                                     System.err.println(correctKey);
 
@@ -1852,12 +1884,13 @@ public class SubstitutionCracker {
                                                                         new String[] { first, second, third, fourth,
                                                                                 fifth },
                                                                         new int[] { _b, _e, _h, _i, _n })) {
-                                                                    if (thisChar_isNotAlreadyInTheKey(sixth)) {
+                                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                         key[_d] = sixth.toLowerCase();
                                                                         hasD = true;
                                                                         System.err.println("hasD = true;");
+                                                                        System.err.println("via Scanner d_behind");
                                                                         d_behind.close();
-                                                                        System.err.println((Arrays.toString(this.key))
+                                                                        System.err.println((Arrays.toString(key))
                                                                                 .replaceAll("null", "\u0000"));
                                                                         System.err.println(correctKey);
 
@@ -1885,13 +1918,14 @@ public class SubstitutionCracker {
                                                                             new String[] { first, second, third, fourth,
                                                                                     fifth, seventh },
                                                                             new int[] { _a, _l, _r, _e, _a, _y })) {
-                                                                        if (thisChar_isNotAlreadyInTheKey(sixth)) {
+                                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                             key[_d] = sixth.toLowerCase();
                                                                             hasD = true;
                                                                             System.err.println("hasD = true;");
+                                                                            System.err.println("via Scanner d_already");
                                                                             d_already.close();
                                                                             System.err
-                                                                                    .println((Arrays.toString(this.key))
+                                                                                    .println((Arrays.toString(key))
                                                                                             .replaceAll("null",
                                                                                                     "\u0000"));
                                                                             System.err.println(correctKey);
@@ -1916,13 +1950,14 @@ public class SubstitutionCracker {
                                                                         if (massCalc_notAnyOther(
                                                                                 new String[] { second, third, fourth },
                                                                                 new int[] { _e, _a, _r })) {
-                                                                            if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                                 key[_d] = first.toLowerCase();
                                                                                 hasD = true;
                                                                                 System.err.println("hasD = true;");
+                                                                                System.err.println("via Scanner d_dear");
                                                                                 d_dear.close();
                                                                                 System.err.println(
-                                                                                        (Arrays.toString(this.key))
+                                                                                        (Arrays.toString(key))
                                                                                                 .replaceAll("null",
                                                                                                         "\u0000"));
                                                                                 System.err.println(correctKey);
@@ -1952,14 +1987,14 @@ public class SubstitutionCracker {
                                                                                     new String[] { first, second,
                                                                                             fourth },
                                                                                     new int[] { _s, _i, _e })) {
-                                                                                if (thisChar_isNotAlreadyInTheKey(
-                                                                                        third)) {
+                                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                                     key[_d] = third.toLowerCase();
                                                                                     hasD = true;
                                                                                     System.err.println("hasD = true;");
+                                                                                    System.err.println("via Scanner d_side");
                                                                                     d_side.close();
                                                                                     System.err.println(
-                                                                                            (Arrays.toString(this.key))
+                                                                                            (Arrays.toString(key))
                                                                                                     .replaceAll("null",
                                                                                                             "\u0000"));
                                                                                     System.err.println(correctKey);
@@ -2004,7 +2039,7 @@ public class SubstitutionCracker {
                                 System.err.println("hasO = true;");
                                 System.err.println("via Scanner o");
                                 o.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -2032,7 +2067,7 @@ public class SubstitutionCracker {
                                 System.err.println("hasO = true;");
                                 System.err.println("via Scanner o_not");
                                 o_not.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -2058,7 +2093,7 @@ public class SubstitutionCracker {
                             System.err.println("hasO = true;");
                             System.err.println("via Scanner o_one");
                             o_one.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -2082,7 +2117,7 @@ public class SubstitutionCracker {
                                 System.err.println("hasO = true;");
                                 System.err.println("via Scanner o_old");
                                 o_old.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -2111,7 +2146,7 @@ public class SubstitutionCracker {
                                     System.err.println("hasO = true;");
                                     System.err.println("via Scanner o_diamond");
                                     o_diamond.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -2138,7 +2173,7 @@ public class SubstitutionCracker {
                                         System.err.println("hasO = true;");
                                         System.err.println("via Scanner o_other");
                                         o_other.close();
-                                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                         System.err.println(correctKey);
 
                                         break;
@@ -2156,14 +2191,14 @@ public class SubstitutionCracker {
                                     String third = String.valueOf(next.charAt(2));
                                     if (first.equalsIgnoreCase(key[_t])) {
                                         if (second.equalsIgnoreCase(third)) {
-                                            if (thisChar_isNotAlreadyInTheKey(second)) {
+                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                 key[_o] = second.toLowerCase();
                                                 hasO = true;
                                                 System.err.println("hasO = true;");
                                                 System.err.println("via Scanner o_too");
                                                 o_too.close();
                                                 System.err.println(
-                                                        (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                        (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                 System.err.println(correctKey);
 
                                                 break;
@@ -2201,7 +2236,7 @@ public class SubstitutionCracker {
                                     System.err.println("hasU = true;");
                                     System.err.println("via Scanner u");
                                     u.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -2232,7 +2267,7 @@ public class SubstitutionCracker {
                                 System.err.println("hasU = true;");
                                 System.err.println("via Scanner u_but");
                                 u_but.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -2254,13 +2289,13 @@ public class SubstitutionCracker {
                         String second = String.valueOf(next.charAt(1));
                         String third = String.valueOf(next.charAt(2));
                         if (massCalc_notAnyOther(new String[] { first, third }, new int[] { _o, _r })) {
-                            if (thisChar_isNotAlreadyInTheKey(second)) {
+                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                 key[_u] = second.toLowerCase();
                                 hasU = true;
                                 System.err.println("hasU = true;");
                                 System.err.println("via Scanner u_our");
                                 u_our.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -2280,13 +2315,13 @@ public class SubstitutionCracker {
                             String second = String.valueOf(next.charAt(1));
                             String third = String.valueOf(next.charAt(2));
                             if (massCalc_notAnyOther(new String[] { first, third }, new int[] { _o, _t })) {
-                                if (thisChar_isNotAlreadyInTheKey(second)) {
+                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                     key[_u] = second.toLowerCase();
                                     hasU = true;
                                     System.err.println("hasU = true;");
                                     System.err.println("via Scanner u_out");
                                     u_out.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -2306,13 +2341,13 @@ public class SubstitutionCracker {
                                 String second = String.valueOf(next.charAt(1));
                                 String third = String.valueOf(next.charAt(2));
                                 if (massCalc_notAnyOther(new String[] { second, third }, new int[] { _s, _e })) {
-                                    if (thisChar_isNotAlreadyInTheKey(first)) {
+                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                         key[_u] = first.toLowerCase();
                                         hasU = true;
                                         System.err.println("hasU = true;");
                                         System.err.println("via Scanner u_use");
                                         u_use.close();
-                                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                         System.err.println(correctKey);
 
                                         break;
@@ -2335,14 +2370,14 @@ public class SubstitutionCracker {
                                     String fifth = String.valueOf(next.charAt(4));
                                     if (massCalc_notAnyOther(new String[] { first, second, fourth, fifth },
                                             new int[] { _n, _o, _n, _s })) {
-                                        if (thisChar_isNotAlreadyInTheKey(third)) {
+                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                             key[_u] = third.toLowerCase();
                                             hasU = true;
                                             System.err.println("hasU = true;");
                                             System.err.println("via Scanner u_nouns");
                                             u_nouns.close();
                                             System.err
-                                                    .println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                    .println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                             System.err.println(correctKey);
 
                                             break;
@@ -2365,14 +2400,14 @@ public class SubstitutionCracker {
                                         String fifth = String.valueOf(next.charAt(4));
                                         if (massCalc_notAnyOther(new String[] { first, second, fourth, fifth },
                                                 new int[] { _h, _o, _s, _e })) {
-                                            if (thisChar_isNotAlreadyInTheKey(third)) {
+                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                 key[_u] = third.toLowerCase();
                                                 hasU = true;
                                                 System.err.println("hasU = true;");
                                                 System.err.println("via Scanner u_house");
                                                 u_house.close();
                                                 System.err.println(
-                                                        (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                        (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                 System.err.println(correctKey);
 
                                                 break;
@@ -2395,7 +2430,7 @@ public class SubstitutionCracker {
                                             String fifth = String.valueOf(next.charAt(4));
                                             if (massCalc_notAnyOther(new String[] { first, second, fourth, fifth },
                                                     new int[] { _l, _a, _g, _h })) {
-                                                if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                     key[_u] = third.toLowerCase();
                                                     hasU = true;
                                                     System.err.println("hasU = true;");
@@ -2403,7 +2438,7 @@ public class SubstitutionCracker {
                                                     u_laugh.close();
 
                                                     System.err.println(
-                                                            (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                            (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                     System.err.println(correctKey);
 
                                                     break;
@@ -2426,13 +2461,13 @@ public class SubstitutionCracker {
                                                 String fifth = String.valueOf(next.charAt(4));
                                                 if (massCalc_notAnyOther(new String[] { first, second, fourth, fifth },
                                                         new int[] { _r, _o, _n, _d })) {
-                                                    if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                         key[_u] = third.toLowerCase();
                                                         hasU = true;
                                                         System.err.println("hasU = true;");
                                                         System.err.println("via Scanner u_round");
                                                         u_round.close();
-                                                        System.err.println((Arrays.toString(this.key))
+                                                        System.err.println((Arrays.toString(key))
                                                                 .replaceAll("null", "\u0000"));
                                                         System.err.println(correctKey);
 
@@ -2457,13 +2492,13 @@ public class SubstitutionCracker {
                                                     if (massCalc_notAnyOther(
                                                             new String[] { first, second, fourth, fifth },
                                                             new int[] { _s, _o, _n, _d })) {
-                                                        if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                             key[_u] = third.toLowerCase();
                                                             hasU = true;
                                                             System.err.println("hasU = true;");
                                                             System.err.println("via Scanner u_sound");
                                                             u_sound.close();
-                                                            System.err.println((Arrays.toString(this.key))
+                                                            System.err.println((Arrays.toString(key))
                                                                     .replaceAll("null", "\u0000"));
                                                             System.err.println(correctKey);
 
@@ -2488,13 +2523,13 @@ public class SubstitutionCracker {
                                                         if (massCalc_notAnyOther(
                                                                 new String[] { first, second, fourth, fifth },
                                                                 new int[] { _s, _o, _t, _h })) {
-                                                            if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                 key[_u] = third.toLowerCase();
                                                                 hasU = true;
                                                                 System.err.println("hasU = true;");
                                                                 System.err.println("via Scanner u_south");
                                                                 u_south.close();
-                                                                System.err.println((Arrays.toString(this.key))
+                                                                System.err.println((Arrays.toString(key))
                                                                         .replaceAll("null", "\u0000"));
                                                                 System.err.println(correctKey);
 
@@ -2519,13 +2554,13 @@ public class SubstitutionCracker {
                                                             if (massCalc_notAnyOther(
                                                                     new String[] { second, third, fourth, fifth },
                                                                     new int[] { _n, _d, _e, _r })) {
-                                                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                     key[_u] = first.toLowerCase();
                                                                     hasU = true;
                                                                     System.err.println("hasU = true;");
                                                                     System.err.println("via Scanner u_under");
                                                                     u_under.close();
-                                                                    System.err.println((Arrays.toString(this.key))
+                                                                    System.err.println((Arrays.toString(key))
                                                                             .replaceAll("null", "\u0000"));
                                                                     System.err.println(correctKey);
 
@@ -2550,13 +2585,13 @@ public class SubstitutionCracker {
                                                                 if (massCalc_notAnyOther(
                                                                         new String[] { second, third, fourth, fifth },
                                                                         new int[] { _n, _t, _i, _l })) {
-                                                                    if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                         key[_u] = first.toLowerCase();
                                                                         hasU = true;
                                                                         System.err.println("hasU = true;");
                                                                         System.err.println("via Scanner u_until");
                                                                         u_until.close();
-                                                                        System.err.println((Arrays.toString(this.key))
+                                                                        System.err.println((Arrays.toString(key))
                                                                                 .replaceAll("null", "\u0000"));
                                                                         System.err.println(correctKey);
 
@@ -2582,14 +2617,14 @@ public class SubstitutionCracker {
                                                                             new String[] { first, second, fourth,
                                                                                     fifth },
                                                                             new int[] { _w, _o, _l, _d })) {
-                                                                        if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                             key[_u] = third.toLowerCase();
                                                                             hasU = true;
                                                                             System.err.println("hasU = true;");
                                                                             System.err.println("via Scanner u_would");
                                                                             u_would.close();
                                                                             System.err
-                                                                                    .println((Arrays.toString(this.key))
+                                                                                    .println((Arrays.toString(key))
                                                                                             .replaceAll("null",
                                                                                                     "\u0000"));
                                                                             System.err.println(correctKey);
@@ -2617,7 +2652,7 @@ public class SubstitutionCracker {
                                                                                 new String[] { first, third, fourth,
                                                                                         fifth, sixth },
                                                                                 new int[] { _d, _r, _i, _n, _g })) {
-                                                                            if (thisChar_isNotAlreadyInTheKey(second)) {
+                                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                                 key[_u] = second.toLowerCase();
                                                                                 hasU = true;
                                                                                 System.err.println("hasU = true;");
@@ -2625,7 +2660,7 @@ public class SubstitutionCracker {
                                                                                         "via Scanner u_during");
                                                                                 u_during.close();
                                                                                 System.err.println(
-                                                                                        (Arrays.toString(this.key))
+                                                                                        (Arrays.toString(key))
                                                                                                 .replaceAll("null",
                                                                                                         "\u0000"));
                                                                                 System.err.println(correctKey);
@@ -2659,8 +2694,7 @@ public class SubstitutionCracker {
                                                                                     new String[] { first, third, fourth,
                                                                                             fifth, sixth },
                                                                                     new int[] { _n, _m, _b, _e, _r })) {
-                                                                                if (thisChar_isNotAlreadyInTheKey(
-                                                                                        second)) {
+                                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                                     key[_u] = second.toLowerCase();
                                                                                     hasU = true;
                                                                                     System.err.println("hasU = true;");
@@ -2668,7 +2702,7 @@ public class SubstitutionCracker {
                                                                                             "via Scanner u_number");
                                                                                     u_number.close();
                                                                                     System.err.println(
-                                                                                            (Arrays.toString(this.key))
+                                                                                            (Arrays.toString(key))
                                                                                                     .replaceAll("null",
                                                                                                             "\u0000"));
                                                                                     System.err.println(correctKey);
@@ -2706,8 +2740,7 @@ public class SubstitutionCracker {
                                                                                                 seventh },
                                                                                         new int[] { _h, _n, _d, _r, _e,
                                                                                                 _d })) {
-                                                                                    if (thisChar_isNotAlreadyInTheKey(
-                                                                                            second)) {
+                                                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                                         key[_u] = second.toLowerCase();
                                                                                         hasU = true;
                                                                                         System.err.println(
@@ -2716,7 +2749,7 @@ public class SubstitutionCracker {
                                                                                         System.err.println(
                                                                                                 "via Scanner u_hundred");
                                                                                         System.err.println((Arrays
-                                                                                                .toString(this.key))
+                                                                                                .toString(key))
                                                                                                         .replaceAll(
                                                                                                                 "null",
                                                                                                                 "\u0000"));
@@ -2768,7 +2801,7 @@ public class SubstitutionCracker {
                                     hasP = true;
                                     System.err.println("hasP = true;");
                                     p.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -2794,12 +2827,12 @@ public class SubstitutionCracker {
                     String fifth = String.valueOf(next.charAt(4));
                     if (massCalc_notAnyOther(new String[] { first, second, third, fourth },
                             new int[] { _g, _r, _o, _u })) {
-                        if (thisChar_isNotAlreadyInTheKey(fifth)) {
+                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                             key[_p] = fifth.toLowerCase();
                             hasP = true;
                             System.err.println("hasP = true;");
                             p_group.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -2822,12 +2855,12 @@ public class SubstitutionCracker {
                         String fifth = String.valueOf(next.charAt(4));
                         if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                 new int[] { _o, _w, _e, _r })) {
-                            if (thisChar_isNotAlreadyInTheKey(first)) {
+                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                 key[_p] = first.toLowerCase();
                                 hasP = true;
                                 System.err.println("hasP = true;");
                                 p_power.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -2850,12 +2883,12 @@ public class SubstitutionCracker {
                             String fifth = String.valueOf(next.charAt(4));
                             if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                     new int[] { _l, _a, _n, _e })) {
-                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                     key[_p] = first.toLowerCase();
                                     hasP = true;
                                     System.err.println("hasP = true;");
                                     p_plane.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -2878,12 +2911,12 @@ public class SubstitutionCracker {
                                 String fifth = String.valueOf(next.charAt(4));
                                 if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                         new int[] { _l, _a, _n, _t })) {
-                                    if (thisChar_isNotAlreadyInTheKey(first)) {
+                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                         key[_p] = first.toLowerCase();
                                         hasP = true;
                                         System.err.println("hasP = true;");
                                         p_plant.close();
-                                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                         System.err.println(correctKey);
 
                                         break;
@@ -2906,13 +2939,13 @@ public class SubstitutionCracker {
                                     String fifth = String.valueOf(next.charAt(4));
                                     if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                             new int[] { _o, _i, _n, _t })) {
-                                        if (thisChar_isNotAlreadyInTheKey(first)) {
+                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                             key[_p] = first.toLowerCase();
                                             hasP = true;
                                             System.err.println("hasP = true;");
                                             p_point.close();
                                             System.err
-                                                    .println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                    .println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                             System.err.println(correctKey);
 
                                             break;
@@ -2935,13 +2968,13 @@ public class SubstitutionCracker {
                                         String fifth = String.valueOf(next.charAt(4));
                                         if (massCalc_notAnyOther(new String[] { first, second, third, fifth },
                                                 new int[] { _s, _h, _a, _e })) {
-                                            if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                 key[_p] = fourth.toLowerCase();
                                                 hasP = true;
                                                 System.err.println("hasP = true;");
                                                 p_shape.close();
                                                 System.err.println(
-                                                        (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                        (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                 System.err.println(correctKey);
 
                                                 break;
@@ -2964,13 +2997,13 @@ public class SubstitutionCracker {
                                             String fifth = String.valueOf(next.charAt(4));
                                             if (massCalc_notAnyOther(new String[] { first, second, third, fourth },
                                                     new int[] { _s, _l, _e, _e })) {
-                                                if (thisChar_isNotAlreadyInTheKey(fifth)) {
+                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                     key[_p] = fifth.toLowerCase();
                                                     hasP = true;
                                                     System.err.println("hasP = true;");
                                                     p_sleep.close();
                                                     System.err.println(
-                                                            (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                            (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                     System.err.println(correctKey);
 
                                                     break;
@@ -2993,12 +3026,12 @@ public class SubstitutionCracker {
                                                 String fifth = String.valueOf(next.charAt(4));
                                                 if (massCalc_notAnyOther(new String[] { first, third, fourth, fifth },
                                                         new int[] { _s, _e, _l, _l })) {
-                                                    if (thisChar_isNotAlreadyInTheKey(second)) {
+                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                         key[_p] = second.toLowerCase();
                                                         hasP = true;
                                                         System.err.println("hasP = true;");
                                                         p_spell.close();
-                                                        System.err.println((Arrays.toString(this.key))
+                                                        System.err.println((Arrays.toString(key))
                                                                 .replaceAll("null", "\u0000"));
                                                         System.err.println(correctKey);
 
@@ -3024,12 +3057,12 @@ public class SubstitutionCracker {
                                                     String seventh = String.valueOf(next.charAt(6));
                                                     if (massCalc_notAnyOther(new String[] { first, second, third, fifth,
                                                             sixth, seventh }, new int[] { _d, _o, _l, _h, _i, _n })) {
-                                                        if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                             key[_p] = fourth.toLowerCase();
                                                             hasP = true;
                                                             System.err.println("hasP = true;");
                                                             p_dolphin.close();
-                                                            System.err.println((Arrays.toString(this.key))
+                                                            System.err.println((Arrays.toString(key))
                                                                     .replaceAll("null", "\u0000"));
                                                             System.err.println(correctKey);
 
@@ -3057,12 +3090,12 @@ public class SubstitutionCracker {
                                                                 new String[] { second, third, fourth, fifth, sixth,
                                                                         seventh },
                                                                 new int[] { _r, _o, _b, _l, _e, _m })) {
-                                                            if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                 key[_p] = first.toLowerCase();
                                                                 hasP = true;
                                                                 System.err.println("hasP = true;");
                                                                 p_problem.close();
-                                                                System.err.println((Arrays.toString(this.key))
+                                                                System.err.println((Arrays.toString(key))
                                                                         .replaceAll("null", "\u0000"));
                                                                 System.err.println(correctKey);
 
@@ -3090,12 +3123,12 @@ public class SubstitutionCracker {
                                                                     new String[] { second, third, fourth, fifth, sixth,
                                                                             seventh },
                                                                     new int[] { _e, _n, _g, _u, _i, _n })) {
-                                                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                     key[_p] = first.toLowerCase();
                                                                     hasP = true;
                                                                     System.err.println("hasP = true;");
                                                                     p_penguin.close();
-                                                                    System.err.println((Arrays.toString(this.key))
+                                                                    System.err.println((Arrays.toString(key))
                                                                             .replaceAll("null", "\u0000"));
                                                                     System.err.println(correctKey);
 
@@ -3137,7 +3170,7 @@ public class SubstitutionCracker {
                                 hasC = true;
                                 System.err.println("hasC = true;");
                                 c_close__.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -3159,12 +3192,12 @@ public class SubstitutionCracker {
                     String third = String.valueOf(next.charAt(2));
                     String fourth = String.valueOf(next.charAt(3));
                     if (massCalc_notAnyOther(new String[] { first, second, fourth }, new int[] { _m, _u, _h })) {
-                        if (thisChar_isNotAlreadyInTheKey(third)) {
+                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                             key[_c] = third.toLowerCase();
                             hasC = true;
                             System.err.println("hasC = true;");
                             c_much.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -3188,12 +3221,12 @@ public class SubstitutionCracker {
                         String sixth = String.valueOf(next.charAt(5));
                         if (massCalc_notAnyOther(new String[] { first, second, fourth, fifth, sixth },
                                 new int[] { _s, _o, _i, _a, _l })) {
-                            if (thisChar_isNotAlreadyInTheKey(third)) {
+                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                 key[_c] = third.toLowerCase();
                                 hasC = true;
                                 System.err.println("hasC = true;");
                                 c_social.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -3216,12 +3249,12 @@ public class SubstitutionCracker {
                             String fifth = String.valueOf(next.charAt(4));
                             if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                     new int[] { _h, _i, _l, _d })) {
-                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                     key[_c] = first.toLowerCase();
                                     hasC = true;
                                     System.err.println("hasC = true;");
                                     c_child.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -3244,12 +3277,12 @@ public class SubstitutionCracker {
                                 String fifth = String.valueOf(next.charAt(4));
                                 if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                         new int[] { _l, _a, _s, _s })) {
-                                    if (thisChar_isNotAlreadyInTheKey(first)) {
+                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                         key[_c] = first.toLowerCase();
                                         hasC = true;
                                         System.err.println("hasC = true;");
                                         c_class.close();
-                                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                         System.err.println(correctKey);
 
                                         break;
@@ -3272,13 +3305,13 @@ public class SubstitutionCracker {
                                     String fifth = String.valueOf(next.charAt(4));
                                     if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                             new int[] { _l, _e, _a, _r })) {
-                                        if (thisChar_isNotAlreadyInTheKey(first)) {
+                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                             key[_c] = first.toLowerCase();
                                             hasC = true;
                                             System.err.println("hasC = true;");
                                             c_clear.close();
                                             System.err
-                                                    .println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                    .println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                             System.err.println(correctKey);
 
                                             break;
@@ -3301,13 +3334,13 @@ public class SubstitutionCracker {
                                         String fifth = String.valueOf(next.charAt(4));
                                         if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                                 new int[] { _o, _u, _l, _d })) {
-                                            if (thisChar_isNotAlreadyInTheKey(first)) {
+                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                 key[_c] = first.toLowerCase();
                                                 hasC = true;
                                                 System.err.println("hasC = true;");
                                                 c_could.close();
                                                 System.err.println(
-                                                        (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                        (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                 System.err.println(correctKey);
 
                                                 break;
@@ -3330,13 +3363,13 @@ public class SubstitutionCracker {
                                             String fifth = String.valueOf(next.charAt(4));
                                             if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                                     new int[] { _r, _i, _e, _d })) {
-                                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                     key[_c] = first.toLowerCase();
                                                     hasC = true;
                                                     System.err.println("hasC = true;");
                                                     c_cried.close();
                                                     System.err.println(
-                                                            (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                            (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                     System.err.println(correctKey);
 
                                                     break;
@@ -3359,12 +3392,12 @@ public class SubstitutionCracker {
                                                 String fifth = String.valueOf(next.charAt(4));
                                                 if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                                         new int[] { _r, _o, _s, _s })) {
-                                                    if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                         key[_c] = first.toLowerCase();
                                                         hasC = true;
                                                         System.err.println("hasC = true;");
                                                         c_cross.close();
-                                                        System.err.println((Arrays.toString(this.key))
+                                                        System.err.println((Arrays.toString(key))
                                                                 .replaceAll("null", "\u0000"));
                                                         System.err.println(correctKey);
 
@@ -3389,12 +3422,12 @@ public class SubstitutionCracker {
                                                     if (massCalc_notAnyOther(
                                                             new String[] { first, second, third, fourth },
                                                             new int[] { _m, _u, _s, _i })) {
-                                                        if (thisChar_isNotAlreadyInTheKey(fifth)) {
+                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                             key[_c] = fifth.toLowerCase();
                                                             hasC = true;
                                                             System.err.println("hasC = true;");
                                                             c_music.close();
-                                                            System.err.println((Arrays.toString(this.key))
+                                                            System.err.println((Arrays.toString(key))
                                                                     .replaceAll("null", "\u0000"));
                                                             System.err.println(correctKey);
 
@@ -3419,12 +3452,12 @@ public class SubstitutionCracker {
                                                         if (massCalc_notAnyOther(
                                                                 new String[] { first, second, third, fifth },
                                                                 new int[] { _r, _e, _a, _h })) {
-                                                            if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                 key[_c] = fourth.toLowerCase();
                                                                 hasC = true;
                                                                 System.err.println("hasC = true;");
                                                                 c_reach.close();
-                                                                System.err.println((Arrays.toString(this.key))
+                                                                System.err.println((Arrays.toString(key))
                                                                         .replaceAll("null", "\u0000"));
                                                                 System.err.println(correctKey);
 
@@ -3449,12 +3482,12 @@ public class SubstitutionCracker {
                                                             if (massCalc_notAnyOther(
                                                                     new String[] { first, second, third, fifth },
                                                                     new int[] { _s, _p, _a, _e })) {
-                                                                if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                     key[_c] = fourth.toLowerCase();
                                                                     hasC = true;
                                                                     System.err.println("hasC = true;");
                                                                     c_space.close();
-                                                                    System.err.println((Arrays.toString(this.key))
+                                                                    System.err.println((Arrays.toString(key))
                                                                             .replaceAll("null", "\u0000"));
                                                                     System.err.println(correctKey);
 
@@ -3479,12 +3512,12 @@ public class SubstitutionCracker {
                                                                 if (massCalc_notAnyOther(
                                                                         new String[] { first, second, third, fifth },
                                                                         new int[] { _t, _e, _a, _h })) {
-                                                                    if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                         key[_c] = fourth.toLowerCase();
                                                                         hasC = true;
                                                                         System.err.println("hasC = true;");
                                                                         c_teach.close();
-                                                                        System.err.println((Arrays.toString(this.key))
+                                                                        System.err.println((Arrays.toString(key))
                                                                                 .replaceAll("null", "\u0000"));
                                                                         System.err.println(correctKey);
 
@@ -3510,13 +3543,13 @@ public class SubstitutionCracker {
                                                                             new String[] { first, second, third,
                                                                                     fifth },
                                                                             new int[] { _w, _a, _t, _h })) {
-                                                                        if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                             key[_c] = fourth.toLowerCase();
                                                                             hasC = true;
                                                                             System.err.println("hasC = true;");
                                                                             c_watch.close();
                                                                             System.err
-                                                                                    .println((Arrays.toString(this.key))
+                                                                                    .println((Arrays.toString(key))
                                                                                             .replaceAll("null",
                                                                                                     "\u0000"));
                                                                             System.err.println(correctKey);
@@ -3543,13 +3576,13 @@ public class SubstitutionCracker {
                                                                                 new String[] { first, second, third,
                                                                                         fifth },
                                                                                 new int[] { _w, _h, _i, _h })) {
-                                                                            if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                                 key[_c] = fourth.toLowerCase();
                                                                                 hasC = true;
                                                                                 System.err.println("hasC = true;");
                                                                                 c_which.close();
                                                                                 System.err.println(
-                                                                                        (Arrays.toString(this.key))
+                                                                                        (Arrays.toString(key))
                                                                                                 .replaceAll("null",
                                                                                                         "\u0000"));
                                                                                 System.err.println(correctKey);
@@ -3599,7 +3632,7 @@ public class SubstitutionCracker {
                                     System.err.println("hasF = true;");
                                     f.close();
 
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -3623,12 +3656,12 @@ public class SubstitutionCracker {
                     String third = String.valueOf(next.charAt(2));
                     String fourth = String.valueOf(next.charAt(3));
                     if (massCalc_notAnyOther(new String[] { second, third, fourth }, new int[] { _r, _o, _m })) {
-                        if (thisChar_isNotAlreadyInTheKey(first)) {
+                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                             key[_f] = first.toLowerCase();
                             hasF = true;
                             System.err.println("hasF = true;");
                             f_from.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -3651,12 +3684,12 @@ public class SubstitutionCracker {
                         String fifth = String.valueOf(next.charAt(4));
                         if (massCalc_notAnyOther(new String[] { first, third, fourth, fifth },
                                 new int[] { _a, _t, _e, _r })) {
-                            if (thisChar_isNotAlreadyInTheKey(second)) {
+                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                 key[_f] = second.toLowerCase();
                                 hasF = true;
                                 System.err.println("hasF = true;");
                                 f_after.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -3679,12 +3712,12 @@ public class SubstitutionCracker {
                             String fifth = String.valueOf(next.charAt(4));
                             if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                     new int[] { _i, _r, _s, _t })) {
-                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                     key[_f] = first.toLowerCase();
                                     hasF = true;
                                     System.err.println("hasF = true;");
                                     f_first.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -3707,12 +3740,12 @@ public class SubstitutionCracker {
                                 String fifth = String.valueOf(next.charAt(4));
                                 if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                         new int[] { _o, _u, _n, _d })) {
-                                    if (thisChar_isNotAlreadyInTheKey(first)) {
+                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                         key[_f] = first.toLowerCase();
                                         hasF = true;
                                         System.err.println("hasF = true;");
                                         f_found.close();
-                                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                         System.err.println(correctKey);
 
                                         break;
@@ -3735,13 +3768,13 @@ public class SubstitutionCracker {
                                     String fifth = String.valueOf(next.charAt(4));
                                     if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                             new int[] { _r, _o, _n, _t })) {
-                                        if (thisChar_isNotAlreadyInTheKey(first)) {
+                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                             key[_f] = first.toLowerCase();
                                             hasF = true;
                                             System.err.println("hasF = true;");
                                             f_front.close();
                                             System.err
-                                                    .println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                    .println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                             System.err.println(correctKey);
 
                                             break;
@@ -3764,13 +3797,13 @@ public class SubstitutionCracker {
                                         String fifth = String.valueOf(next.charAt(4));
                                         if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                                 new int[] { _a, _l, _s, _e })) {
-                                            if (thisChar_isNotAlreadyInTheKey(first)) {
+                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                 key[_f] = first.toLowerCase();
                                                 hasF = true;
                                                 System.err.println("hasF = true;");
                                                 f_false.close();
                                                 System.err.println(
-                                                        (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                        (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                 System.err.println(correctKey);
 
                                                 break;
@@ -3793,13 +3826,13 @@ public class SubstitutionCracker {
                                             String fifth = String.valueOf(next.charAt(4));
                                             if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                                     new int[] { _i, _e, _l, _d })) {
-                                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                     key[_f] = first.toLowerCase();
                                                     hasF = true;
                                                     System.err.println("hasF = true;");
                                                     f_field.close();
                                                     System.err.println(
-                                                            (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                            (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                     System.err.println(correctKey);
 
                                                     break;
@@ -3822,12 +3855,12 @@ public class SubstitutionCracker {
                                                 String fifth = String.valueOf(next.charAt(4));
                                                 if (massCalc_notAnyOther(new String[] { first, third, fourth, fifth },
                                                         new int[] { _o, _t, _e, _n })) {
-                                                    if (thisChar_isNotAlreadyInTheKey(second)) {
+                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                         key[_f] = second.toLowerCase();
                                                         hasF = true;
                                                         System.err.println("hasF = true;");
                                                         f_often.close();
-                                                        System.err.println((Arrays.toString(this.key))
+                                                        System.err.println((Arrays.toString(key))
                                                                 .replaceAll("null", "\u0000"));
                                                         System.err.println(correctKey);
 
@@ -3853,12 +3886,12 @@ public class SubstitutionCracker {
                                                     String seventh = String.valueOf(next.charAt(6));
                                                     if (massCalc_notAnyOther(new String[] { first, second, third, fifth,
                                                             sixth, seventh }, new int[] { _p, _e, _r, _e, _c, _t })) {
-                                                        if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                             key[_f] = fourth.toLowerCase();
                                                             hasF = true;
                                                             System.err.println("hasF = true;");
                                                             f_perfect.close();
-                                                            System.err.println((Arrays.toString(this.key))
+                                                            System.err.println((Arrays.toString(key))
                                                                     .replaceAll("null", "\u0000"));
                                                             System.err.println(correctKey);
 
@@ -3886,12 +3919,12 @@ public class SubstitutionCracker {
                                                                 new String[] { second, third, fourth, fifth, sixth,
                                                                         seventh },
                                                                 new int[] { _r, _e, _e, _d, _o, _m })) {
-                                                            if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                 key[_f] = first.toLowerCase();
                                                                 hasF = true;
                                                                 System.err.println("hasF = true;");
                                                                 f_freedom.close();
-                                                                System.err.println((Arrays.toString(this.key))
+                                                                System.err.println((Arrays.toString(key))
                                                                         .replaceAll("null", "\u0000"));
                                                                 System.err.println(correctKey);
 
@@ -3919,12 +3952,12 @@ public class SubstitutionCracker {
                                                                     new String[] { second, third, fourth, fifth, sixth,
                                                                             seventh },
                                                                     new int[] { _o, _r, _e, _v, _e, _r })) {
-                                                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                     key[_f] = first.toLowerCase();
                                                                     hasF = true;
                                                                     System.err.println("hasF = true;");
                                                                     f_forever.close();
-                                                                    System.err.println((Arrays.toString(this.key))
+                                                                    System.err.println((Arrays.toString(key))
                                                                             .replaceAll("null", "\u0000"));
                                                                     System.err.println(correctKey);
 
@@ -3956,13 +3989,25 @@ public class SubstitutionCracker {
                     String second = String.valueOf(next.charAt(1));
                     String third = String.valueOf(next.charAt(2));
                     String fourth = String.valueOf(next.charAt(3));
-                    if (massCalc_notAnyOther(new String[]{first,second,fourth},
-                            new int[]{_l,_i,_e})){
-                        if (thisChar_isNotAlreadyInTheKey(third)){
-                            key[_k]=third.toLowerCase();
-                            hasK=true;
-                            k_like.close();
-                            break;
+                    if (first.equalsIgnoreCase(key[_l])) {
+                        if (second.equalsIgnoreCase(key[_i])) {
+                            if (fourth.equalsIgnoreCase(key[_e])) {
+                                if (!third.equalsIgnoreCase(key[_f]) && ! third.equalsIgnoreCase(key[_v])) {
+                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
+                                        key[_k] = third.toLowerCase();
+                                        hasK = true;
+                                        System.err.println("via Scanner k_like");
+                                        k_like.close();
+                                        break;
+                                        //ho_z
+                                        //hoxz = correct
+                                        //howz = wrong
+                                        //howz = life
+                                        //honz = wrong
+                                        //honz = live
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -3980,9 +4025,10 @@ public class SubstitutionCracker {
                         String fourth = String.valueOf(next.charAt(3));
                         if (massCalc_notAnyOther(new String[]{second,third,fourth},
                                 new int[]{_n,_o,_w})){
-                            if (thisChar_isNotAlreadyInTheKey(first)){
+                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                 key[_k]=first.toLowerCase();
                                 hasK=true;
+                                System.err.println("via Scanner k_kno");
                                 k_know.close();
                                 break;
                             }
@@ -4004,7 +4050,7 @@ public class SubstitutionCracker {
                             String sixth = String.valueOf(next.charAt(5));
                             if (massCalc_notAnyOther(new String[]{first,second,third,fifth,sixth},
                                     new int[]{_l,_o,_o,_e,_d})){
-                                if (thisChar_isNotAlreadyInTheKey(fourth)){
+                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                     key[_k]=fourth.toLowerCase();
                                     hasK=true;
                                     k_looked.close();
@@ -4026,7 +4072,7 @@ public class SubstitutionCracker {
                                 String fourth = String.valueOf(next.charAt(3));
                                 if (massCalc_notAnyOther(new String[]{first,second,third},
                                         new int[]{_b,_a,_c})){
-                                    if (thisChar_isNotAlreadyInTheKey(fourth)){
+                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                         key[_k]=fourth.toLowerCase();
                                         hasK=true;
                                         k_back.close();
@@ -4049,7 +4095,7 @@ public class SubstitutionCracker {
                                     String fifth = String.valueOf(next.charAt(4));
                                     if (massCalc_notAnyOther(new String[]{first,second,fourth,fifth},
                                             new int[]{_a,_s,_e,_d})){
-                                        if (thisChar_isNotAlreadyInTheKey(third)){
+                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                             key[_k]=third.toLowerCase();
                                             hasK=true;
                                             k_asked.close();
@@ -4071,7 +4117,7 @@ public class SubstitutionCracker {
                                         String fourth = String.valueOf(next.charAt(3));
                                         if (massCalc_notAnyOther(new String[]{first,second,third},
                                                 new int[]{_t,_o,_o})){
-                                            if (thisChar_isNotAlreadyInTheKey(fourth)){
+                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                                 key[_k]=fourth.toLowerCase();
                                                 hasK=true;
                                                 k_took.close();
@@ -4094,7 +4140,7 @@ public class SubstitutionCracker {
                                             String fifth = String.valueOf(next.charAt(4));
                                             if (massCalc_notAnyOther(new String[]{first,second,third,fourth},
                                                     new int[]{_t,_h,_i,_n})){
-                                                if (thisChar_isNotAlreadyInTheKey(fifth)){
+                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                                     key[_k]=fifth.toLowerCase();
                                                     hasK=true;
                                                     k_think.close();
@@ -4116,7 +4162,7 @@ public class SubstitutionCracker {
                                                 String fourth = String.valueOf(next.charAt(3));
                                                 if (massCalc_notAnyOther(new String[]{second,third,fourth},
                                                         new int[]{_n,_e,_w})){
-                                                    if (thisChar_isNotAlreadyInTheKey(first)){
+                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                                         key[_k]=first.toLowerCase();
                                                         hasK=true;
                                                         k_knew.close();
@@ -4138,7 +4184,7 @@ public class SubstitutionCracker {
                                                     String fourth = String.valueOf(next.charAt(3));
                                                     if (massCalc_notAnyOther(new String[]{first,second,fourth},
                                                             new int[]{_m,_a,_e})){
-                                                        if (thisChar_isNotAlreadyInTheKey(third)){
+                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                                             key[_k]=third.toLowerCase();
                                                             hasK=true;
                                                             k_make.close();
@@ -4160,7 +4206,7 @@ public class SubstitutionCracker {
                                                         String fourth = String.valueOf(next.charAt(3));
                                                         if (massCalc_notAnyOther(new String[]{first,second,third},
                                                                 new int[]{_l,_o,_o})){
-                                                            if (thisChar_isNotAlreadyInTheKey(fourth)){
+                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                                                 key[_k]=fourth.toLowerCase();
                                                                 hasK=true;
                                                                 k_look.close();
@@ -4182,7 +4228,7 @@ public class SubstitutionCracker {
                                                             String fourth = String.valueOf(next.charAt(3));
                                                             if (massCalc_notAnyOther(new String[]{first,second,fourth},
                                                                     new int[]{_t,_a,_e})){
-                                                                if (thisChar_isNotAlreadyInTheKey(third)){
+                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                                                     key[_k]=third.toLowerCase();
                                                                     hasK=true;
                                                                     k_take.close();
@@ -4207,7 +4253,7 @@ public class SubstitutionCracker {
                                                                 String seventh = String.valueOf(next.charAt(6));
                                                                 if (massCalc_notAnyOther(new String[]{first,second,third,fifth,sixth,seventh},
                                                                         new int[]{_l,_o,_o,_i,_n,_g})){
-                                                                    if (thisChar_isNotAlreadyInTheKey(fourth)){
+                                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                                                         key[_k]=fourth.toLowerCase();
                                                                         hasK=true;
                                                                         k_looking.close();
@@ -4230,7 +4276,7 @@ public class SubstitutionCracker {
                                                                     String fifth = String.valueOf(next.charAt(4));
                                                                     if (massCalc_notAnyOther(new String[]{first,second,third,fourth},
                                                                             new int[]{_b,_l,_a,_c})){
-                                                                        if (thisChar_isNotAlreadyInTheKey(fifth)){
+                                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                                                             key[_k]=fifth.toLowerCase();
                                                                             hasK=true;
                                                                             k_black.close();
@@ -4253,7 +4299,7 @@ public class SubstitutionCracker {
                                                                         String fifth = String.valueOf(next.charAt(4));
                                                                         if (massCalc_notAnyOther(new String[]{first,second,fourth,fifth},
                                                                                 new int[]{_t,_a,_e,_n})){
-                                                                            if (thisChar_isNotAlreadyInTheKey(third)){
+                                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                                                                 key[_k]=third.toLowerCase();
                                                                                 hasK=true;
                                                                                 k_taken.close();
@@ -4275,7 +4321,7 @@ public class SubstitutionCracker {
                                                                             String fourth = String.valueOf(next.charAt(3));
                                                                             if (massCalc_notAnyOther(new String[]{first,second,third},
                                                                                     new int[]{_w,_o,_r})){
-                                                                                if (thisChar_isNotAlreadyInTheKey(fourth)){
+                                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                                                                     key[_k]=fourth.toLowerCase();
                                                                                     hasK=true;
                                                                                     k_work.close();
@@ -4297,7 +4343,7 @@ public class SubstitutionCracker {
                                                                                 String fourth = String.valueOf(next.charAt(3));
                                                                                 if (massCalc_notAnyOther(new String[]{first,second,third},
                                                                                         new int[]{_t,_a,_l})){
-                                                                                    if (thisChar_isNotAlreadyInTheKey(fourth)){
+                                                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                                                                         key[_k]=fourth.toLowerCase();
                                                                                         hasK=true;
                                                                                         k_talk.close();
@@ -4321,7 +4367,7 @@ public class SubstitutionCracker {
                                                                                     String sixth = String.valueOf(next.charAt(5));
                                                                                     if (massCalc_notAnyOther(new String[]{first,second,fourth,fifth,sixth},
                                                                                             new int[]{_t,_a,_i,_n,_g})){
-                                                                                        if (thisChar_isNotAlreadyInTheKey(third)){
+                                                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                                                                             key[_k]=third.toLowerCase();
                                                                                             hasK=true;
                                                                                             k_taking.close();
@@ -4342,7 +4388,7 @@ public class SubstitutionCracker {
                                                                                         String third = String.valueOf(next.charAt(2));
                                                                                         if (massCalc_notAnyOther(new String[]{first,second},
                                                                                                 new int[]{_a,_s})){
-                                                                                            if (thisChar_isNotAlreadyInTheKey(third)){
+                                                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/){
                                                                                                 key[_k]=third.toLowerCase();
                                                                                                 hasK=true;
                                                                                                 k_ask.close();
@@ -4389,7 +4435,7 @@ public class SubstitutionCracker {
                     System.err.println("hasJ = true;");
                     j.close();
 
-                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                     System.err.println(correctKey);
 
                     break;
@@ -4408,12 +4454,12 @@ public class SubstitutionCracker {
                     String third = String.valueOf(next.charAt(2));
                     String fourth = String.valueOf(next.charAt(3));
                     if (massCalc_notAnyOther(new String[] { second, third, fourth }, new int[] { _u, _s, _t })) {
-                        if (thisChar_isNotAlreadyInTheKey(first)) {
+                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                             key[_j] = first.toLowerCase();
                             hasJ = true;
                             System.err.println("hasJ = true;");
                             j_just.close();
-                            System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                            System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                             System.err.println(correctKey);
 
                             break;
@@ -4433,12 +4479,12 @@ public class SubstitutionCracker {
                         String second = String.valueOf(next.charAt(1));
                         String third = String.valueOf(next.charAt(2));
                         if (massCalc_notAnyOther(new String[] { second, third }, new int[] { _o, _e })) {
-                            if (thisChar_isNotAlreadyInTheKey(first)) {
+                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                 key[_j] = first.toLowerCase();
                                 hasJ = true;
                                 System.err.println("hasJ = true;");
                                 j_joe.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -4463,12 +4509,12 @@ public class SubstitutionCracker {
                             String seventh = String.valueOf(next.charAt(6));
                             if (massCalc_notAnyOther(new String[] { first, second, third, fifth, sixth, seventh },
                                     new int[] { _s, _u, _b, _e, _c, _t })) {
-                                if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                     key[_j] = fourth.toLowerCase();
                                     hasJ = true;
                                     System.err.println("hasJ = true;");
                                     j_subject.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -4493,12 +4539,12 @@ public class SubstitutionCracker {
                                 String seventh = String.valueOf(next.charAt(6));
                                 if (massCalc_notAnyOther(new String[] { first, second, third, fifth, sixth, seventh },
                                         new int[] { _p, _r, _o, _e, _c, _t })) {
-                                    if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                         key[_j] = fourth.toLowerCase();
                                         hasJ = true;
                                         System.err.println("hasJ = true;");
                                         j_project.close();
-                                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                         System.err.println(correctKey);
 
                                         break;
@@ -4525,13 +4571,13 @@ public class SubstitutionCracker {
                                     if (massCalc_notAnyOther(
                                             new String[] { first, second, fourth, fifth, sixth, seventh, eighth },
                                             new int[] { _a, _d, _u, _t, _a, _n, _t })) {
-                                        if (thisChar_isNotAlreadyInTheKey(third)) {
+                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                             key[_j] = third.toLowerCase();
                                             hasJ = true;
                                             System.err.println("hasJ = true;");
                                             j_adjutant.close();
                                             System.err
-                                                    .println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                    .println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                             System.err.println(correctKey);
 
                                             break;
@@ -4552,13 +4598,13 @@ public class SubstitutionCracker {
                                         String third = String.valueOf(next.charAt(2));
                                         if (massCalc_notAnyOther(new String[] { second, third },
                                                 new int[] { _o, _b })) {
-                                            if (thisChar_isNotAlreadyInTheKey(first)) {
+                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                 key[_j] = first.toLowerCase();
                                                 hasJ = true;
                                                 System.err.println("hasJ = true;");
                                                 j_job.close();
                                                 System.err.println(
-                                                        (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                        (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                 System.err.println(correctKey);
 
                                                 break;
@@ -4584,13 +4630,13 @@ public class SubstitutionCracker {
                                             if (massCalc_notAnyOther(
                                                     new String[] { second, third, fourth, fifth, sixth, seventh },
                                                     new int[] { _a, _g, _g, _e, _r, _s })) {
-                                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                     key[_j] = first.toLowerCase();
                                                     hasJ = true;
                                                     System.err.println("hasJ = true;");
                                                     j_jaggers.close();
                                                     System.err.println(
-                                                            (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                            (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                     System.err.println(correctKey);
 
                                                     break;
@@ -4615,12 +4661,12 @@ public class SubstitutionCracker {
                                                 if (massCalc_notAnyOther(
                                                         new String[] { second, third, fourth, fifth, sixth },
                                                         new int[] { _o, _i, _n, _e, _d })) {
-                                                    if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                         key[_j] = first.toLowerCase();
                                                         hasJ = true;
                                                         System.err.println("hasJ = true;");
                                                         j_joined.close();
-                                                        System.err.println((Arrays.toString(this.key))
+                                                        System.err.println((Arrays.toString(key))
                                                                 .replaceAll("null", "\u0000"));
                                                         System.err.println(correctKey);
 
@@ -4646,12 +4692,12 @@ public class SubstitutionCracker {
                                                     if (massCalc_notAnyOther(
                                                             new String[] { first, second, fourth, fifth, sixth },
                                                             new int[] { _o, _b, _e, _c, _t })) {
-                                                        if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                             key[_j] = third.toLowerCase();
                                                             hasJ = true;
                                                             System.err.println("hasJ = true;");
                                                             j_object.close();
-                                                            System.err.println((Arrays.toString(this.key))
+                                                            System.err.println((Arrays.toString(key))
                                                                     .replaceAll("null", "\u0000"));
                                                             System.err.println(correctKey);
 
@@ -4677,12 +4723,12 @@ public class SubstitutionCracker {
                                                         if (massCalc_notAnyOther(
                                                                 new String[] { second, third, fourth, fifth, sixth },
                                                                 new int[] { _u, _m, _p, _e, _d })) {
-                                                            if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                 key[_j] = first.toLowerCase();
                                                                 hasJ = true;
                                                                 System.err.println("hasJ = true;");
                                                                 j_jumped.close();
-                                                                System.err.println((Arrays.toString(this.key))
+                                                                System.err.println((Arrays.toString(key))
                                                                         .replaceAll("null", "\u0000"));
                                                                 System.err.println(correctKey);
 
@@ -4722,7 +4768,7 @@ public class SubstitutionCracker {
                     System.err.println("hasX = true;");
                     System.err.println("via Scanner x");
                     x.close();
-                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                     System.err.println(correctKey);
 
                     break;
@@ -4748,7 +4794,7 @@ public class SubstitutionCracker {
                                 System.err.println("hasX = true;");
                                 System.err.println("via Scanner x_next");
                                 x_next.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -4778,13 +4824,13 @@ public class SubstitutionCracker {
                         if (massCalc_notAnyOther(
                                 new String[] { first, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth },
                                 new int[] { _e, _p, _r, _e, _s, _s, _i, _o, _n })) {
-                            if (thisChar_isNotAlreadyInTheKey(second)) {
+                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                 key[_x] = second.toLowerCase();
                                 hasX = true;
                                 System.err.println("hasX = true;");
                                 System.err.println("via Scanner x_expression");
                                 x_expression.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -4808,13 +4854,13 @@ public class SubstitutionCracker {
                             String sixth = String.valueOf(next.charAt(5));
                             if (massCalc_notAnyOther(new String[] { first, third, fourth, fifth, sixth },
                                     new int[] { _e, _c, _e, _p, _t })) {
-                                if (thisChar_isNotAlreadyInTheKey(second)) {
+                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                     key[_x] = second.toLowerCase();
                                     hasX = true;
                                     System.err.println("hasX = true;");
                                     System.err.println("via Scanner x_except");
                                     x_except.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -4842,13 +4888,13 @@ public class SubstitutionCracker {
                                 if (massCalc_notAnyOther(
                                         new String[] { first, third, fourth, fifth, sixth, seventh, eighth, ninth },
                                         new int[] { _e, _p, _r, _e, _s, _s, _e, _d })) {
-                                    if (thisChar_isNotAlreadyInTheKey(second)) {
+                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                         key[_x] = second.toLowerCase();
                                         hasX = true;
                                         System.err.println("hasX = true;");
                                         System.err.println("via Scanner x_expressed");
                                         x_expressed.close();
-                                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                         System.err.println(correctKey);
 
                                         break;
@@ -4868,14 +4914,14 @@ public class SubstitutionCracker {
                                     String second = String.valueOf(next.charAt(1));
                                     String third = String.valueOf(next.charAt(2));
                                     if (massCalc_notAnyOther(new String[] { first, second }, new int[] { _s, _i })) {
-                                        if (thisChar_isNotAlreadyInTheKey(third)) {
+                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                             key[_x] = third.toLowerCase();
                                             hasX = true;
                                             System.err.println("hasX = true;");
                                             System.err.println("via Scanner x_six");
                                             x_six.close();
                                             System.err
-                                                    .println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                    .println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                             System.err.println(correctKey);
 
                                             break;
@@ -4902,14 +4948,14 @@ public class SubstitutionCracker {
                                         if (massCalc_notAnyOther(
                                                 new String[] { first, third, fourth, fifth, sixth, seventh, eighth },
                                                 new int[] { _e, _p, _e, _c, _t, _e, _d })) {
-                                            if (thisChar_isNotAlreadyInTheKey(second)) {
+                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                 key[_x] = second.toLowerCase();
                                                 hasX = true;
                                                 System.err.println("hasX = true;");
                                                 System.err.println("via Scanner x_expected");
                                                 x_expected.close();
                                                 System.err.println(
-                                                        (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                        (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                 System.err.println(correctKey);
 
                                                 break;
@@ -4935,14 +4981,14 @@ public class SubstitutionCracker {
                                             if (massCalc_notAnyOther(
                                                     new String[] { first, third, fourth, fifth, sixth, seventh },
                                                     new int[] { _e, _p, _l, _a, _i, _n })) {
-                                                if (thisChar_isNotAlreadyInTheKey(second)) {
+                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                     key[_x] = second.toLowerCase();
                                                     hasX = true;
                                                     System.err.println("hasX = true;");
                                                     System.err.println("via Scanner x_explain");
                                                     x_explain.close();
                                                     System.err.println(
-                                                            (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                            (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                     System.err.println(correctKey);
 
                                                     break;
@@ -4965,13 +5011,13 @@ public class SubstitutionCracker {
                                                 String fifth = String.valueOf(next.charAt(4));
                                                 if (massCalc_notAnyOther(new String[] { first, second, fourth, fifth },
                                                         new int[] { _f, _i, _e, _d })) {
-                                                    if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                         key[_x] = third.toLowerCase();
                                                         hasX = true;
                                                         System.err.println("hasX = true;");
                                                         System.err.println("via Scanner x_fixed");
                                                         x_fixed.close();
-                                                        System.err.println((Arrays.toString(this.key))
+                                                        System.err.println((Arrays.toString(key))
                                                                 .replaceAll("null", "\u0000"));
                                                         System.err.println(correctKey);
 
@@ -5001,13 +5047,13 @@ public class SubstitutionCracker {
                                                             new String[] { first, third, fourth, fifth, sixth, seventh,
                                                                     eighth, ninth },
                                                             new int[] { _e, _p, _l, _a, _i, _n, _e, _d })) {
-                                                        if (thisChar_isNotAlreadyInTheKey(second)) {
+                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                             key[_x] = second.toLowerCase();
                                                             hasX = true;
                                                             System.err.println("hasX = true;");
                                                             System.err.println("via Scanner x_explained");
                                                             x_explained.close();
-                                                            System.err.println((Arrays.toString(this.key))
+                                                            System.err.println((Arrays.toString(key))
                                                                     .replaceAll("null", "\u0000"));
                                                             System.err.println(correctKey);
 
@@ -5039,13 +5085,13 @@ public class SubstitutionCracker {
                                                                 new String[] { first, third, fourth, fifth, sixth,
                                                                         seventh, eighth, ninth, tenth, eleventh },
                                                                 new int[] { _e, _p, _e, _r, _i, _e, _n, _c, _e, _d })) {
-                                                            if (thisChar_isNotAlreadyInTheKey(second)) {
+                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                 key[_x] = second.toLowerCase();
                                                                 hasX = true;
                                                                 System.err.println("hasX = true;");
                                                                 System.err.println("via Scanner x_experienced");
                                                                 x_experienced.close();
-                                                                System.err.println((Arrays.toString(this.key))
+                                                                System.err.println((Arrays.toString(key))
                                                                         .replaceAll("null", "\u0000"));
                                                                 System.err.println(correctKey);
 
@@ -5075,13 +5121,13 @@ public class SubstitutionCracker {
                                                                     new String[] { first, second, third, fifth, sixth,
                                                                             seventh, eighth, ninth },
                                                                     new int[] { _a, _l, _e, _a, _n, _d, _e, _r })) {
-                                                                if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                     key[_x] = fourth.toLowerCase();
                                                                     hasX = true;
                                                                     System.err.println("hasX = true;");
                                                                     System.err.println("via Scanner x_alexander");
                                                                     x_alexander.close();
-                                                                    System.err.println((Arrays.toString(this.key))
+                                                                    System.err.println((Arrays.toString(key))
                                                                             .replaceAll("null", "\u0000"));
                                                                     System.err.println(correctKey);
 
@@ -5109,13 +5155,13 @@ public class SubstitutionCracker {
                                                                         new String[] { first, third, fourth, fifth,
                                                                                 sixth, seventh },
                                                                         new int[] { _e, _p, _r, _e, _s, _s })) {
-                                                                    if (thisChar_isNotAlreadyInTheKey(second)) {
+                                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                         key[_x] = second.toLowerCase();
                                                                         hasX = true;
                                                                         System.err.println("hasX = true;");
                                                                         System.err.println("via Scanner x_express");
                                                                         x_express.close();
-                                                                        System.err.println((Arrays.toString(this.key))
+                                                                        System.err.println((Arrays.toString(key))
                                                                                 .replaceAll("null", "\u0000"));
                                                                         System.err.println(correctKey);
 
@@ -5138,14 +5184,14 @@ public class SubstitutionCracker {
                                                                     if (massCalc_notAnyOther(
                                                                             new String[] { first, second },
                                                                             new int[] { _t, _a })) {
-                                                                        if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                             key[_x] = third.toLowerCase();
                                                                             hasX = true;
                                                                             System.err.println("hasX = true;");
                                                                             System.err.println("via Scanner x_tax");
                                                                             x_tax.close();
                                                                             System.err
-                                                                                    .println((Arrays.toString(this.key))
+                                                                                    .println((Arrays.toString(key))
                                                                                             .replaceAll("null",
                                                                                                     "\u0000"));
                                                                             System.err.println(correctKey);
@@ -5173,7 +5219,7 @@ public class SubstitutionCracker {
                                                                                 new String[] { first, third, fourth,
                                                                                         fifth, sixth },
                                                                                 new int[] { _e, _p, _e, _c, _t })) {
-                                                                            if (thisChar_isNotAlreadyInTheKey(second)) {
+                                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                                 key[_x] = second.toLowerCase();
                                                                                 hasX = true;
                                                                                 System.err.println("hasX = true;");
@@ -5181,7 +5227,7 @@ public class SubstitutionCracker {
                                                                                         "via Scanner x_expect");
                                                                                 x_expect.close();
                                                                                 System.err.println(
-                                                                                        (Arrays.toString(this.key))
+                                                                                        (Arrays.toString(key))
                                                                                                 .replaceAll("null",
                                                                                                         "\u0000"));
                                                                                 System.err.println(correctKey);
@@ -5223,8 +5269,7 @@ public class SubstitutionCracker {
                                                                                             eighth, ninth },
                                                                                     new int[] { _e, _c, _l, _a, _i, _m,
                                                                                             _e, _d })) {
-                                                                                if (thisChar_isNotAlreadyInTheKey(
-                                                                                        second)) {
+                                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                                     key[_x] = second.toLowerCase();
                                                                                     hasX = true;
                                                                                     System.err.println("hasX = true;");
@@ -5232,7 +5277,7 @@ public class SubstitutionCracker {
                                                                                             "via Scanner x_exclaimed");
                                                                                     x_exclaimed.close();
                                                                                     System.err.println(
-                                                                                            (Arrays.toString(this.key))
+                                                                                            (Arrays.toString(key))
                                                                                                     .replaceAll("null",
                                                                                                             "\u0000"));
                                                                                     System.err.println(correctKey);
@@ -5278,7 +5323,7 @@ public class SubstitutionCracker {
                     System.err.println("hasZ = true;");
                     System.err.println("via Scanner z");
                     z.close();
-                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                     System.err.println(correctKey);
 
                     break;
@@ -5306,7 +5351,7 @@ public class SubstitutionCracker {
                                     System.err.println("hasZ = true;");
                                     System.err.println("via Scanner z_gazed");
                                     z_gazed.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -5332,13 +5377,13 @@ public class SubstitutionCracker {
                         String sixth = String.valueOf(next.charAt(5));
                         if (massCalc_notAnyOther(new String[] { first, second, third, fifth, sixth },
                                 new int[] { _s, _e, _i, _e, _d })) {
-                            if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                 key[_z] = fourth.toLowerCase();
                                 hasZ = true;
                                 System.err.println("hasZ = true;");
                                 System.err.println("via Scanner z_seized");
                                 z_seized.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -5367,13 +5412,13 @@ public class SubstitutionCracker {
                             if (massCalc_notAnyOther(
                                     new String[] { first, second, third, fourth, fifth, sixth, seventh, ninth, tenth },
                                     new int[] { _r, _e, _c, _o, _g, _n, _i, _e, _d })) {
-                                if (thisChar_isNotAlreadyInTheKey(eighth)) {
+                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                     key[_z] = eighth.toLowerCase();
                                     hasZ = true;
                                     System.err.println("hasZ = true;");
                                     System.err.println("via Scanner z_recognized");
                                     z_recognized.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -5400,13 +5445,13 @@ public class SubstitutionCracker {
                                 if (massCalc_notAnyOther(
                                         new String[] { first, second, third, fourth, fifth, seventh, eighth },
                                         new int[] { _r, _e, _a, _l, _i, _e, _d })) {
-                                    if (thisChar_isNotAlreadyInTheKey(sixth)) {
+                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                         key[_z] = sixth.toLowerCase();
                                         hasZ = true;
                                         System.err.println("hasZ = true;");
                                         System.err.println("via Scanner z_realized");
                                         z_realized.close();
-                                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                         System.err.println(correctKey);
 
                                         break;
@@ -5434,14 +5479,14 @@ public class SubstitutionCracker {
                                     if (massCalc_notAnyOther(
                                             new String[] { first, second, third, fourth, fifth, sixth, seventh, ninth },
                                             new int[] { _r, _e, _c, _o, _g, _n, _i, _e })) {
-                                        if (thisChar_isNotAlreadyInTheKey(eighth)) {
+                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                             key[_z] = eighth.toLowerCase();
                                             hasZ = true;
                                             System.err.println("hasZ = true;");
                                             System.err.println("via Scanner z_recognize");
                                             z_recognize.close();
                                             System.err
-                                                    .println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                    .println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                             System.err.println(correctKey);
 
                                             break;
@@ -5465,14 +5510,14 @@ public class SubstitutionCracker {
                                         String sixth = String.valueOf(next.charAt(5));
                                         if (massCalc_notAnyOther(new String[] { first, second, fourth, fifth, sixth },
                                                 new int[] { _g, _a, _i, _n, _g })) {
-                                            if (thisChar_isNotAlreadyInTheKey(third)) {
+                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                 key[_z] = third.toLowerCase();
                                                 hasZ = true;
                                                 System.err.println("hasZ = true;");
                                                 System.err.println("via Scanner z_gazing");
                                                 z_gazing.close();
                                                 System.err.println(
-                                                        (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                        (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                 System.err.println(correctKey);
 
                                                 break;
@@ -5498,14 +5543,14 @@ public class SubstitutionCracker {
                                             if (massCalc_notAnyOther(
                                                     new String[] { second, third, fourth, fifth, sixth, seventh },
                                                     new int[] { _e, _i, _t, _u, _n, _i })) {
-                                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                     key[_z] = first.toLowerCase();
                                                     hasZ = true;
                                                     System.err.println("hasZ = true;");
                                                     System.err.println("via Scanner z_zeituni");
                                                     z_zeituni.close();
                                                     System.err.println(
-                                                            (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                            (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                     System.err.println(correctKey);
 
                                                     break;
@@ -5531,13 +5576,13 @@ public class SubstitutionCracker {
                                                 if (massCalc_notAnyOther(
                                                         new String[] { first, second, third, fourth, fifth, seventh },
                                                         new int[] { _r, _e, _a, _l, _i, _e })) {
-                                                    if (thisChar_isNotAlreadyInTheKey(sixth)) {
+                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                         key[_z] = sixth.toLowerCase();
                                                         hasZ = true;
                                                         System.err.println("hasZ = true;");
                                                         System.err.println("via Scanner z_realize");
                                                         z_realize.close();
-                                                        System.err.println((Arrays.toString(this.key))
+                                                        System.err.println((Arrays.toString(key))
                                                                 .replaceAll("null", "\u0000"));
                                                         System.err.println(correctKey);
 
@@ -5562,13 +5607,13 @@ public class SubstitutionCracker {
                                                     if (massCalc_notAnyOther(
                                                             new String[] { first, second, fourth, fifth },
                                                             new int[] { _d, _o, _e, _n })) {
-                                                        if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                             key[_z] = third.toLowerCase();
                                                             hasZ = true;
                                                             System.err.println("hasZ = true;");
                                                             System.err.println("via Scanner z_dozen");
                                                             z_dozen.close();
-                                                            System.err.println((Arrays.toString(this.key))
+                                                            System.err.println((Arrays.toString(key))
                                                                     .replaceAll("null", "\u0000"));
                                                             System.err.println(correctKey);
 
@@ -5600,13 +5645,13 @@ public class SubstitutionCracker {
                                                                 new String[] { first, second, third, fourth, fifth,
                                                                         sixth, seventh, ninth, tenth, eleventh },
                                                                 new int[] { _r, _e, _c, _o, _g, _n, _i, _i, _n, _g })) {
-                                                            if (thisChar_isNotAlreadyInTheKey(eighth)) {
+                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                 key[_z] = eighth.toLowerCase();
                                                                 hasZ = true;
                                                                 System.err.println("hasZ = true;");
                                                                 System.err.println("via Scanner z_recognizing");
                                                                 z_recognizing.close();
-                                                                System.err.println((Arrays.toString(this.key))
+                                                                System.err.println((Arrays.toString(key))
                                                                         .replaceAll("null", "\u0000"));
                                                                 System.err.println(correctKey);
 
@@ -5634,13 +5679,13 @@ public class SubstitutionCracker {
                                                                     new String[] { first, second, third, fifth, sixth,
                                                                             seventh },
                                                                     new int[] { _s, _e, _i, _i, _n, _g })) {
-                                                                if (thisChar_isNotAlreadyInTheKey(fourth)) {
+                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                     key[_z] = fourth.toLowerCase();
                                                                     hasZ = true;
                                                                     System.err.println("hasZ = true;");
                                                                     System.err.println("via Scanner z_seizing");
                                                                     z_seizing.close();
-                                                                    System.err.println((Arrays.toString(this.key))
+                                                                    System.err.println((Arrays.toString(key))
                                                                             .replaceAll("null", "\u0000"));
                                                                     System.err.println(correctKey);
 
@@ -5664,12 +5709,12 @@ public class SubstitutionCracker {
                                                                 if (massCalc_notAnyOther(
                                                                         new String[] { first, second, fourth },
                                                                         new int[] { _s, _i, _e })) {
-                                                                    if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                         key[_z] = third.toLowerCase();
                                                                         hasZ = true;
                                                                         System.err.println("hasZ = true;");
                                                                         z_size.close();
-                                                                        System.err.println((Arrays.toString(this.key))
+                                                                        System.err.println((Arrays.toString(key))
                                                                                 .replaceAll("null", "\u0000"));
                                                                         System.err.println(correctKey);
 
@@ -5695,14 +5740,14 @@ public class SubstitutionCracker {
                                                                             new String[] { first, second, fourth,
                                                                                     fifth },
                                                                             new int[] { _k, _e, _i, _a })) {
-                                                                        if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                             key[_z] = third.toLowerCase();
                                                                             hasZ = true;
                                                                             System.err.println("hasZ = true;");
                                                                             System.err.println("via Scanner z_kezia");
                                                                             z_kezia.close();
                                                                             System.err
-                                                                                    .println((Arrays.toString(this.key))
+                                                                                    .println((Arrays.toString(key))
                                                                                             .replaceAll("null",
                                                                                                     "\u0000"));
                                                                             System.err.println(correctKey);
@@ -5736,7 +5781,7 @@ public class SubstitutionCracker {
                                                                                         eighth, ninth },
                                                                                 new int[] { _a, _u, _s, _t, _e, _r, _l,
                                                                                         _i, _t })) {
-                                                                            if (thisChar_isNotAlreadyInTheKey(tenth)) {
+                                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                                 key[_z] = tenth.toLowerCase();
                                                                                 hasZ = true;
                                                                                 System.err.println("hasZ = true;");
@@ -5744,7 +5789,7 @@ public class SubstitutionCracker {
                                                                                         "via Scanner z_austerlitz");
                                                                                 z_austerlitz.close();
                                                                                 System.err.println(
-                                                                                        (Arrays.toString(this.key))
+                                                                                        (Arrays.toString(key))
                                                                                                 .replaceAll("null",
                                                                                                         "\u0000"));
                                                                                 System.err.println(correctKey);
@@ -5786,8 +5831,7 @@ public class SubstitutionCracker {
                                                                                             eighth, ninth },
                                                                                     new int[] { _o, _r, _g, _a, _n, _i,
                                                                                             _e, _d })) {
-                                                                                if (thisChar_isNotAlreadyInTheKey(
-                                                                                        seventh)) {
+                                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                                     key[_z] = seventh.toLowerCase();
                                                                                     hasZ = true;
                                                                                     System.err.println("hasZ = true;");
@@ -5795,7 +5839,7 @@ public class SubstitutionCracker {
                                                                                             "via Scanner z_organized");
                                                                                     z_organized.close();
                                                                                     System.err.println(
-                                                                                            (Arrays.toString(this.key))
+                                                                                            (Arrays.toString(key))
                                                                                                     .replaceAll("null",
                                                                                                             "\u0000"));
                                                                                     System.err.println(correctKey);
@@ -5841,7 +5885,7 @@ public class SubstitutionCracker {
                                     System.err.println("hasQ = true;");
                                     System.err.println("via Scanner q_quite");
                                     q_quite.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -5869,13 +5913,13 @@ public class SubstitutionCracker {
                         String eighth = String.valueOf(next.charAt(7));
                         if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth, sixth, seventh, eighth },
                                 new int[] { _u, _e, _s, _t, _i, _o, _n })) {
-                            if (thisChar_isNotAlreadyInTheKey(first)) {
+                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                 key[_q] = first.toLowerCase();
                                 hasQ = true;
                                 System.err.println("hasQ = true;");
                                 System.err.println("via Scanner q_question");
                                 q_question.close();
-                                System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                 System.err.println(correctKey);
 
                                 break;
@@ -5900,13 +5944,13 @@ public class SubstitutionCracker {
                             String seventh = String.valueOf(next.charAt(6));
                             if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth, sixth, seventh },
                                     new int[] { _u, _i, _c, _k, _l, _y })) {
-                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                     key[_q] = first.toLowerCase();
                                     hasQ = true;
                                     System.err.println("hasQ = true;");
                                     System.err.println("via Scanner q_quickly");
                                     q_quickly.close();
-                                    System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                    System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                     System.err.println(correctKey);
 
                                     break;
@@ -5934,13 +5978,13 @@ public class SubstitutionCracker {
                                 if (massCalc_notAnyOther(
                                         new String[] { second, third, fourth, fifth, sixth, seventh, eighth, ninth },
                                         new int[] { _u, _e, _s, _t, _i, _o, _n, _s })) {
-                                    if (thisChar_isNotAlreadyInTheKey(first)) {
+                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                         key[_q] = first.toLowerCase();
                                         hasQ = true;
                                         System.err.println("hasQ = true;");
                                         System.err.println("via Scanner q_questions");
                                         q_questions.close();
-                                        System.err.println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                        System.err.println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                         System.err.println(correctKey);
 
                                         break;
@@ -5963,19 +6007,18 @@ public class SubstitutionCracker {
                                     String fifth = String.valueOf(next.charAt(4));
                                     if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                             new int[] { _u, _i, _e, _t })) {
-                                        if (thisChar_isNotAlreadyInTheKey(first)) {
                                             key[_q] = first.toLowerCase();
                                             hasQ = true;
                                             System.err.println("hasQ = true;");
                                             System.err.println("via Scanner q_quiet");
                                             q_quiet.close();
                                             System.err
-                                                    .println((Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                    .println((Arrays.toString(key)).replaceAll("null", "\u0000"));
                                             System.err.println(correctKey);
 
                                             break;
                                         }
-                                    }
+
                                 }
                             }
 
@@ -5996,14 +6039,14 @@ public class SubstitutionCracker {
                                         if (massCalc_notAnyOther(
                                                 new String[] { second, third, fourth, fifth, sixth, seventh },
                                                 new int[] { _u, _i, _e, _t, _l, _y })) {
-                                            if (thisChar_isNotAlreadyInTheKey(first)) {
+                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                 key[_q] = first.toLowerCase();
                                                 hasQ = true;
                                                 System.err.println("hasQ = true;");
                                                 System.err.println("via Scanner q_quietly");
                                                 q_quietly.close();
                                                 System.err.println(
-                                                        (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                        (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                 System.err.println(correctKey);
 
                                                 break;
@@ -6026,14 +6069,14 @@ public class SubstitutionCracker {
                                             String fifth = String.valueOf(next.charAt(4));
                                             if (massCalc_notAnyOther(new String[] { second, third, fourth, fifth },
                                                     new int[] { _u, _i, _c, _k })) {
-                                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                     key[_q] = first.toLowerCase();
                                                     hasQ = true;
                                                     System.err.println("hasQ = true;");
                                                     System.err.println("via Scanner q_quick");
                                                     q_quick.close();
                                                     System.err.println(
-                                                            (Arrays.toString(this.key)).replaceAll("null", "\u0000"));
+                                                            (Arrays.toString(key)).replaceAll("null", "\u0000"));
                                                     System.err.println(correctKey);
 
                                                     break;
@@ -6056,13 +6099,13 @@ public class SubstitutionCracker {
                                                 String fifth = String.valueOf(next.charAt(4));
                                                 if (massCalc_notAnyOther(new String[] { first, third, fourth, fifth },
                                                         new int[] { _e, _u, _a, _l })) {
-                                                    if (thisChar_isNotAlreadyInTheKey(second)) {
+                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                         key[_q] = second.toLowerCase();
                                                         hasQ = true;
                                                         System.err.println("hasQ = true;");
                                                         q_equal.close();
                                                         System.err.println("via Scanner q_equal");
-                                                        System.err.println((Arrays.toString(this.key))
+                                                        System.err.println((Arrays.toString(key))
                                                                 .replaceAll("null", "\u0000"));
                                                         System.err.println(correctKey);
 
@@ -6091,13 +6134,13 @@ public class SubstitutionCracker {
                                                             new String[] { first, third, fourth, fifth, sixth, seventh,
                                                                     eighth },
                                                             new int[] { _s, _u, _a, _d, _r, _o, _n })) {
-                                                        if (thisChar_isNotAlreadyInTheKey(second)) {
+                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                             key[_q] = second.toLowerCase();
                                                             hasQ = true;
                                                             System.err.println("hasQ = true;");
                                                             System.err.println("via Scanner q_squadron");
                                                             q_squadron.close();
-                                                            System.err.println((Arrays.toString(this.key))
+                                                            System.err.println((Arrays.toString(key))
                                                                     .replaceAll("null", "\u0000"));
                                                             System.err.println(correctKey);
 
@@ -6126,13 +6169,13 @@ public class SubstitutionCracker {
                                                                 new String[] { first, second, fourth, fifth, sixth,
                                                                         seventh, eighth },
                                                                 new int[] { _i, _n, _u, _i, _r, _e, _d })) {
-                                                            if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                 key[_q] = third.toLowerCase();
                                                                 hasQ = true;
                                                                 System.err.println("hasQ = true;");
                                                                 System.err.println("via Scanner q_inquired");
                                                                 q_inquired.close();
-                                                                System.err.println((Arrays.toString(this.key))
+                                                                System.err.println((Arrays.toString(key))
                                                                         .replaceAll("null", "\u0000"));
                                                                 System.err.println(correctKey);
 
@@ -6160,13 +6203,13 @@ public class SubstitutionCracker {
                                                                     new String[] { second, third, fourth, fifth, sixth,
                                                                             seventh },
                                                                     new int[] { _u, _a, _l, _i, _t, _y })) {
-                                                                if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                     key[_q] = first.toLowerCase();
                                                                     hasQ = true;
                                                                     System.err.println("hasQ = true;");
                                                                     System.err.println("via Scanner q_quality");
                                                                     q_quality.close();
-                                                                    System.err.println((Arrays.toString(this.key))
+                                                                    System.err.println((Arrays.toString(key))
                                                                             .replaceAll("null", "\u0000"));
                                                                     System.err.println(correctKey);
 
@@ -6194,13 +6237,13 @@ public class SubstitutionCracker {
                                                                         new String[] { second, third, fourth, fifth,
                                                                                 sixth, seventh },
                                                                         new int[] { _u, _a, _r, _t, _e, _r })) {
-                                                                    if (thisChar_isNotAlreadyInTheKey(first)) {
+                                                                    if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                         key[_q] = first.toLowerCase();
                                                                         hasQ = true;
                                                                         System.err.println("hasQ = true;");
                                                                         System.err.println("via Scanner q_quarter");
                                                                         q_quarter.close();
-                                                                        System.err.println((Arrays.toString(this.key))
+                                                                        System.err.println((Arrays.toString(key))
                                                                                 .replaceAll("null", "\u0000"));
                                                                         System.err.println(correctKey);
 
@@ -6229,7 +6272,7 @@ public class SubstitutionCracker {
                                                                             new String[] { first, second, fourth, fifth,
                                                                                     sixth, seventh, eighth },
                                                                             new int[] { _r, _e, _u, _i, _r, _e, _d })) {
-                                                                        if (thisChar_isNotAlreadyInTheKey(third)) {
+                                                                        if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                             key[_q] = third.toLowerCase();
                                                                             hasQ = true;
                                                                             System.err.println("hasQ = true;");
@@ -6237,7 +6280,7 @@ public class SubstitutionCracker {
                                                                                     .println("via Scanner q_required");
                                                                             q_required.close();
                                                                             System.err
-                                                                                    .println((Arrays.toString(this.key))
+                                                                                    .println((Arrays.toString(key))
                                                                                             .replaceAll("null",
                                                                                                     "\u0000"));
                                                                             System.err.println(correctKey);
@@ -6265,7 +6308,7 @@ public class SubstitutionCracker {
                                                                                 new String[] { first, third, fourth,
                                                                                         fifth, sixth },
                                                                                 new int[] { _s, _u, _a, _r, _e })) {
-                                                                            if (thisChar_isNotAlreadyInTheKey(second)) {
+                                                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                                 key[_q] = second.toLowerCase();
                                                                                 hasQ = true;
                                                                                 System.err.println("hasQ = true;");
@@ -6273,7 +6316,7 @@ public class SubstitutionCracker {
                                                                                         "via Scanner q_square");
                                                                                 q_square.close();
                                                                                 System.err.println(
-                                                                                        (Arrays.toString(this.key))
+                                                                                        (Arrays.toString(key))
                                                                                                 .replaceAll("null",
                                                                                                         "\u0000"));
                                                                                 System.err.println(correctKey);
@@ -6310,8 +6353,7 @@ public class SubstitutionCracker {
                                                                                             fifth, sixth, seventh },
                                                                                     new int[] { _e, _u, _a, _l, _l,
                                                                                             _y })) {
-                                                                                if (thisChar_isNotAlreadyInTheKey(
-                                                                                        second)) {
+                                                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
                                                                                     key[_q] = second.toLowerCase();
                                                                                     hasQ = true;
                                                                                     System.err.println("hasQ = true;");
@@ -6319,7 +6361,7 @@ public class SubstitutionCracker {
                                                                                             "via Scanner q_equally");
                                                                                     q_equally.close();
                                                                                     System.err.println(
-                                                                                            (Arrays.toString(this.key))
+                                                                                            (Arrays.toString(key))
                                                                                                     .replaceAll("null",
                                                                                                             "\u0000"));
                                                                                     System.err.println(correctKey);
@@ -6357,243 +6399,22 @@ public class SubstitutionCracker {
                 hasAll = false;
             }
         }
-//        if (!hasAll) {
-//            System.err.println("missing " + numLacking + " decoded equivalents");
-//            if (numLacking < 12) {
-//                System.err.println("Now attempting to brute force the remainder.");
-//                boolean Break = false;
-//                double reps = 0;
-//                ArrayList<String> a0 = new ArrayList<>();
-//                for (int i = 0; i < key.length; i++) {
-//                    if (key[i] != null) {
-//                        a0.add(key[i]);
-//                    }
-//                }
-//                ArrayList<String> a1 = charSet.StringToStringArrayList(charSet.charToStringArray(alphabet));
-//                ArrayList<String> a2 = charSet.inversionOf(a1, a0);
-//                int size = a2.size();
-//                String[] tempKey = key;
-//                for (int ax = 0; ax < size; ax++) {
-//                    tempKey[hasNot.get(0)] = a2.get(ax);
-//                    ArrayList<String> a3 = a2;
-//                    a3.remove(ax);
-//                    if (numLacking > 1) {
-//                        for (int bx = 0; bx < a3.size(); bx++) {
-//                            tempKey[hasNot.get(1)] = a3.get(bx);
-//                            ArrayList<String> a4 = a3;
-//                            a4.remove(ax);
-//                            if (numLacking > 2){
-//                                for (int cx = 0; cx < a4.size(); cx++) {
-//                                    tempKey[hasNot.get(2)] = a4.get(cx);
-//                                    ArrayList<String> a5 = a4;
-//                                    a4.remove(cx);
-//                                    if (numLacking > 3){
-//                                        for (int dx = 0; dx < a5.size(); dx++) {
-//                                            tempKey[hasNot.get(3)] = a5.get(dx);
-//                                            ArrayList<String> a6 = a5;
-//                                            a6.remove(dx);
-//                                            if (numLacking > 4) {
-//                                                for (int ex = 0; ex < a6.size(); ex++) {
-//                                                    tempKey[hasNot.get(4)] = a6.get(ex);
-//                                                    ArrayList<String> a7 = a6;
-//                                                    a7.remove(ex);
-//                                                    if (numLacking > 5) {
-//                                                        for (int fx = 0; fx < a7.size(); fx++) {
-//                                                            tempKey[hasNot.get(5)] = a7.get(fx);
-//                                                            ArrayList<String> a8 = a7;
-//                                                            a8.remove(fx);
-//                                                            if (numLacking > 6){
-//                                                                for (int gx = 0; gx < a8.size(); gx++) {
-//                                                                    tempKey[hasNot.get(6)] = a8.get(gx);
-//                                                                    ArrayList<String> a9 = a8;
-//                                                                    a9.remove(gx);
-//                                                                    if (numLacking > 7){
-//                                                                        for (int hx = 0; hx < a9.size(); hx++) {
-//                                                                            tempKey[hasNot.get(7)] = a9.get(hx);
-//                                                                            ArrayList<String> a10 = a9;
-//                                                                            a10.remove(hx);
-//                                                                            if (numLacking > 8) {
-//                                                                                for (int ix = 0; ix < a10.size(); ix++) {
-//                                                                                    tempKey[hasNot.get(8)] = a10.get(ix);
-//                                                                                    ArrayList<String> a11 = a10;
-//                                                                                    a11.remove(ix);
-//                                                                                    if (numLacking > 9) {
-//                                                                                        for (int jx = 0; jx < a11.size(); jx++) {
-//                                                                                            tempKey[hasNot.get(9)] = a11.get(jx);
-//                                                                                            ArrayList<String> a12 = a11;
-//                                                                                            a12.remove(jx);
-//                                                                                            if (numLacking == 11){
-//                                                                                                for (int kx = 0; kx < a12.size(); kx++) {
-//                                                                                                    tempKey[hasNot.get(10)] = a12.get(kx);
-//                                                                                                    if (check(tempKey)) {
-//                                                                                                        this.key = tempKey;
-//                                                                                                        this.isSolved = true;
-//                                                                                                        this.hasAll = true;
-//                                                                                                        Break = true;
-//                                                                                                        break;
-//                                                                                                    }
-//                                                                                                }
-//                                                                                            }
-//                                                                                            else {
-//                                                                                                if (check(tempKey)) {
-//                                                                                                    this.key = tempKey;
-//                                                                                                    this.isSolved = true;
-//                                                                                                    this.hasAll = true;
-//                                                                                                    Break = true;
-//                                                                                                    break;
-//                                                                                                }
-//                                                                                            }
-//                                                                                            if (Break){
-//                                                                                                break;
-//                                                                                            }
-//                                                                                        }
-//                                                                                    } else {
-//                                                                                        if (check(tempKey)) {
-//                                                                                            this.key = tempKey;
-//                                                                                            this.isSolved = true;
-//                                                                                            this.hasAll = true;
-//                                                                                            Break = true;
-//                                                                                            break;
-//                                                                                        }
-//                                                                                    }
-//                                                                                    if (Break) {
-//                                                                                        break;
-//                                                                                    }
-//                                                                                }
-//                                                                            }
-//                                                                            else {
-//                                                                                if (check(tempKey)) {
-//                                                                                    this.key = tempKey;
-//                                                                                    this.isSolved = true;
-//                                                                                    this.hasAll = true;
-//                                                                                    Break = true;
-//                                                                                    break;
-//                                                                                }
-//                                                                            }
-//                                                                            if (Break){
-//                                                                                break;
-//                                                                            }
-//                                                                        }
-//                                                                    }
-//                                                                    else {
-//                                                                        if (check(tempKey)) {
-//                                                                            this.key = tempKey;
-//                                                                            this.isSolved = true;
-//                                                                            this.hasAll = true;
-//                                                                            Break = true;
-//                                                                            break;
-//                                                                        }
-//                                                                    }
-//                                                                    if (Break){
-//                                                                        break;
-//                                                                    }
-//                                                                }
-//                                                            }
-//                                                            else {
-//                                                                if (check(tempKey)) {
-//                                                                    this.key = tempKey;
-//                                                                    this.isSolved = true;
-//                                                                    this.hasAll = true;
-//                                                                    Break = true;
-//                                                                    break;
-//                                                                }
-//                                                            }
-//                                                            if (Break){
-//                                                                break;
-//                                                            }
-//                                                        }
-//                                                    } else {
-//                                                        if (check(tempKey)) {
-//                                                            this.key = tempKey;
-//                                                            this.isSolved = true;
-//                                                            this.hasAll = true;
-//                                                            Break = true;
-//                                                            break;
-//                                                        }
-//                                                    }
-//                                                    if (Break) {
-//                                                        break;
-//                                                    }
-//                                                }
-//                                            }
-//                                            else {
-//                                                if (check(tempKey)) {
-//                                                    this.key = tempKey;
-//                                                    this.isSolved = true;
-//                                                    this.hasAll = true;
-//                                                    Break = true;
-//                                                    break;
-//                                                }
-//                                            }
-//                                            if (Break){
-//                                                break;
-//                                            }
-//                                        }
-//                                    }
-//                                    else {
-//                                        if (check(tempKey)) {
-//                                            this.key = tempKey;
-//                                            this.isSolved = true;
-//                                            this.hasAll = true;
-//                                            Break = true;
-//                                            break;
-//                                        }
-//                                    }
-//                                    if (Break){
-//                                        break;
-//                                    }
-//                                }
-//                            }
-//                            else {
-//                                if (check(tempKey)) {
-//                                    this.key = tempKey;
-//                                    this.isSolved = true;
-//                                    this.hasAll = true;
-//                                    Break = true;
-//                                    break;
-//                                }
-//                            }
-//                            if (Break){
-//                                break;
-//                            }
-//                        }
-//                    } else {
-//                        if (check(tempKey)) {
-//                            this.key = tempKey;
-//                            this.isSolved = true;
-//                            this.hasAll = true;
-//                            Break = true;
-//                            break;
-//                        }
-//                    }
-//                    if (Break) {
-//                        break;
-//                    }
-//                }
-//            }
-//            else {
-//                System.err.println("too many to brute force.");
-//            }
-//        }
+        if (hasAll){
+            SubstitutionDeciphered decipherer = new SubstitutionDeciphered(cipher, key);
+            solved = decipherer.get();
+            isSolved = true;
+        }
+        if (!hasAll) {
+            System.err.println("attempting brute force");
+            SubstitutionBruteForcer bruteForcer = new SubstitutionBruteForcer(cipher, key);
+            isSolved = bruteForcer.isSolved();
 
-        StringBuilder solver = new StringBuilder();
-        for (int index = 0; index < cipher.length(); index++) {
-            String Char = String.valueOf(cipher.charAt(index));
-            if (isIgnorer(Char)) {
-                solver.append(Char);
-            } else {
-                for (int keyIndex = 0; keyIndex < alphabet.length; keyIndex++) {
-                    if (Char.equalsIgnoreCase(String.valueOf(alphabet[keyIndex]))) {
-                        solver.append(key[keyIndex]);
-                        break;
-                    }
-                }
+            if (isSolved) {
+                System.err.println("brute force successful");
+                key = bruteForcer.getKey();
+                solved = bruteForcer.getSolved();
             }
         }
-        this.isSolved = true;
-        this.solved = solver.toString();
-
-        System.err.println(Arrays.toString(this.key));
     }
 
     // 'a','b','c','d','e','f','g', red <--6
@@ -6602,7 +6423,7 @@ public class SubstitutionCracker {
     // 'u','v','w','x','y','z' blue <--25
     private boolean check(String[] tempKey) {
         boolean rtn = false;
-        Scramble scramble = new Scramble(tempKey, this.getCipher());
+        Scramble scramble = new Scramble(tempKey, getCipher());
         not_english not_english = new not_english(scramble.get());
         if (!not_english.not_english()) {
             rtn = true;
@@ -6634,28 +6455,40 @@ public class SubstitutionCracker {
         }
         return rtn;
     }
-
-    private boolean massCalc_notAnyOther(String[] these, int[] spotsOfThese) {
+    private boolean AliasAdaptedMassCalcNotAnyOther(String[] these, int[] spotsOfThese){
         boolean rtn = true;
-        boolean Break = false;
         for (int i = 0; i < these.length; i++) {
-            String ThisString = these[i];
-            int indexException = spotsOfThese[i];
-            for (int j = 0; j < key.length; j++) {
-                String KeyString = key[j];
-                if (KeyString != null) {
-                    if (KeyString.equalsIgnoreCase(ThisString) && j != indexException) {
-                        rtn = false;
-                        Break = true;
-                        break;
-                    }
-                }
-            }
-            if (Break) {
+            if (!(these[i].equalsIgnoreCase(key[spotsOfThese[i]]))){
+                rtn = false;
                 break;
             }
         }
         return rtn;
+    }
+    private boolean massCalc_notAnyOther(String[] these, int[] spotsOfThese) {
+        boolean rtn = true;
+        boolean Break = false;
+        if (1 != 1) {
+            for (int i = 0; i < these.length; i++) {
+                String ThisString = these[i];
+                int indexException = spotsOfThese[i];
+                for (int j = 0; j < key.length; j++) {
+                    String KeyString = key[j];
+                    if (KeyString != null) {
+                        if (KeyString.equalsIgnoreCase(ThisString) && j != indexException) {
+                            rtn = false;
+                            Break = true;
+                            break;
+                        }
+                    }
+                }
+                if (Break) {
+                    break;
+                }
+            }
+            return rtn;
+        }
+        return AliasAdaptedMassCalcNotAnyOther(these, spotsOfThese);
     }
 
     private boolean notAnotherVowel(String a, int b) {
@@ -6744,211 +6577,36 @@ public class SubstitutionCracker {
     }
 
     public static void main(String[] args) {
-        test0();
-        test1();
-        test2();
-    }
-    //green a vigenere cipher
-    public static void test2(){
-        SubstitutionCracker sc = new SubstitutionCracker("""
-                Hsyzz sgi gcdn eabojk, bs xftczsm. Sg T juhnwbpb fd Lszaf Mqyjblrtn ufr sge tfgefczi ufr rcztlgid gzilgrfafxif oyb
-                fwyf hsmgvbl ommgi gqgpjr, X qgbocdtx ovz fq luk hljwxhy ommgi. Cl'g ljipsk uzmp ii zogc kdoj qwmetml tcgqcx sbo
-                yehiuwlrq ii koj qabylvtls vigr lzajn qcf. Yzs Lszaf Mqyjblrtn ck hsc ntml tcgqcx lvlr U wuns tl fwy occjp. X'g
-                vswgswnwr em ety wonf au sgi scdt ngbteti cf gagft ix o dragg oocluca. Qcf pqkysz efmi sgi lpq sylsckucyv hz ea dh
-                sbjfal.
-                Mgaprtxhy wd fmejwbtls xh Esxntxm; kcxcfwcfu tq tpjhsygzv cf cfp idldr. Llp nim yymi, xz A kppq hnsbogzv ul hsc
-                ntaabygzv ix htkq, lclv efq eikgtzuaclm zd fpeabr y wxhv cq eqcyjow yzs jsbzpmbcu jtci dz lvp utdfw cq fgbuf vtqfdlq ia
-                ra cio, oyb fwy Szxgswnq glgp ii es, "Xydicf Zfrttl Cwye, iwcuv leq limzo waj fayp ra acns tl?" U limzo rmzy em
-                xcziud twgswn tm Peken sbo G idodr hyfrb Yco'q owcdrccz xh lvpgd buybtduryfh epqz zjcx rtt xsfv bgcawcyq au Yymar
-                fwlgirf, ag lshscd pwjcdq fwy Jso Qqp, nzfzssw nzs hgxsyjbpqe dh lchyds nzs apabckso jmcx. Sbo gz hjahp mr xnk
-                alezxzaqplot, C ocfjpc'n khzn fwyjs.
-                T uajfv aztq dh tm Rpqtww oyb fpew aj kucx lc Xmgcn Gzjkbjm. Sbo G idodr dcq Efshz, Ydxmlcejq, Hiuflrqh,
-                Ymftnusyk oyb Mgckhzntphwg lqetgtzpb mgimbo rtt Jsfefqcif. Oyb U limzo umiwz hscy plgiyb fwy Hocrtthgb lq
-                fwyq rtqojmkso rtt ajslr mcx whppzpf agdsqh ix fpyxxnq. Pfr U limzol'f hngd efqgy.
-                A kzsxs ag cy, chth lc efq vlwoe fqnxsm zd fwy Jcxyz Tghwcc. Mcx A kzsxs mws ochtfgdxczim sfzszs nzscc, fwlgirf
-                hplacfq qbjwfzpe phv zpyptlk. Pfr U limzol'f hngd efqgy.
-                A kzsxs ynsy aaby md em fwy voj mr ibw Fplmxmkoyaq, phv upr m foaqv nurnmfp mr pfd hsyf ibw Fplmxmkoyaq scv tzp fwy
-                uiwrggud oyb mtmlvprur fatp mr buf. Pfr U limzol'f hngd efqgy.
-                A kzsxs ynsy ea qs lvp umn nzoe rtt gsb qmd lbga T yy cueso fms bag synxnsh. Llp X qgiwb ipnuv Xydicf Zfrttl sg
-                sc fpwcso fuh habprk-ucns efqhyk cy rtt xgcc yf ibw qssdrb gt Hgfiyfppps. Qol W hmgaxf'h drae nzscc.
-                U limzo aaby gb fn qkyf hz 1863, yzs qshnf m kuuwwjmicfu Apqhcvsyr nn nzs yyyt ix Ompmwue Ztlodff ttlmafq qzkq ii
-                lvp aacwdidgac nzoe fq wuv hz quvh lvp Cyphuwayfxif Dcmoaueoegac. Vmh T uajfvb'e qfdj lvppq.
-                X qgiwb qkyf qzkq jj lc efq tujzj rtxllwpq, mcx ksp y yph yflnbacfu hgfw nzs apaqfwad mr ibw pllwgohhnw au bag yyfxif.
-                Oyb odgw ktrt ph wzzogthl qcw fwul kp fmky fcefuca lc qcmg vmh "qcmg clgpjr." Qol W hmgaxf'h drae nzscc.
-                Eilsbrcxn yfcfet, X qgiwb fjlf hz rtt Udatetis, sbo qmn, "Cx mzs mafgk xc fd fajp hghn s tpu ktujg tl fwy ksnmzs bszq mr
-                ibw 20hs aqcnmfj, G ixfd pp fmejq."
-                Bzu fwul'g l qfgufup qfpnwaplf ii eovc, ntwsidc fwy occjp xm szw kqhmwr fn. Fwy foegac ck gtaw. Ilgimjq xm ab efq
-                aufr; nmzuokwzl maf sfzszs. Nzoe'q m hnjoyeq hnshpkqcn. Tie G wcio, gzkqwio, hsyf dhdm hfqc cl wd bmge wbzssw wsb
-                jmg hyw hsc eiujg. Llp X mws Rmp lijytls xh lvtq btlaco mr ibw hhczicwhs aqcnmfj gz p qsm efmi gwb, tl edgw gepmcaw
-                klw, mgy jsdnacxabr.\s
-                                
-                59
-                Qabylvtls xm zoanqccfu tl ajl occjp. Ibw alqetm gt acaefw occ dxmabr sb. Phv kscdtpwf efqn ujs lqetgtzpb fdxsm,
-                hfqibwf efqn ujs tl Vdbsbyceqoju, Dmgib Stcgop; Hswcmnx, Ewbjy; Mrwjo, Rfmcu; Fsh Wage Uwew; Mifsbey, Stijuty;
-                Vpwcgzl, Yxmkwdqueja; cc Kqbjzwd, Rqchwgdcq -- ibw qcw uh udklwe ibw glkq: "Ly ooyr fd vw tccq."
-                Phv oymfwyj fpyedh lvlr U'b bsdaw fd fajp gz ibag acdxiv wd rtpn os syht vwsy dagwwr em m eiabe uttlw kp ydt agwye fd
-                bsjp ra vlsdajq lclv efq elgpwcyh nzoe kqc bsjp zqth lfjgzv ng ucybefw ktrt ibjcfet wckhzpk, qol hsc ptgsboq pxxf'h
-                qmdry lvpk fd xg we. Qggpajlj ptgsboq fwul kp edpjhzp uuib lvpk. Yth, xcc wqplk bzu, tppw ppcz iudytls pvgie umg
-                ufr acmry. Tie lal, hg zzlstl uoy rtts bidr fpfc ommgi cl. We ge ci dcyeqg u uvzgot vwhhcqc pacwczry sbo lacpacwczry
-                ab efuh qgfwb; ui'm fcytudfwbnc ag hgbpvuhnwbnc. Fwul wd uttlw kp ydt ngrlw.
-                Mcx szdm uc nzs ssyph jwrffh lwjzjgicgb, td edgwhsgzv ckb'e bacy, sbo bacy ab l fgglq, hz zdxhy hsc odfgfpb btihzpq au
-                nzs hmdax gie mr ibwwc jaca qslpe dz hcgcdis, lvpgd aifu jcmgm gt ssdi ufr ycsayuh, efq lbgzp uagfv wd badgwr. Ymi, X'g
-                bidr tpjhm efmi Agr sye pfdchcp by lc wght cf hsge eyjwzb fd mws hfmi ck iydaaxabr. Yzs C'e vlnbn nzoe Fq'h udzzuqs
-                gw hz zq xh Esxntxm.
-                A qll dtgwamcd -- X wsb ccytgtsc utth Fsrpatm oscc vjml uzgzv ujcflp pm Jownt wuk glgp, hi gtecz, hwjoeatxhy
-                kscdt nzsj bush'l weat, phv zlsswcfu hfqc nzsj uqgy fce ruredso. Zgi nzoe bmn ck owj akyj. Kp kqph tidgztmk bzu, mcx
-                os lpq sylsckucyv hz emxh gic puvbltfj bauus tl Sdx'k kzpxs.
-                Ufr efmi'm szw rtxm ovzjq ibabr ge pvgie. Uq plwb'e czvuyso gz phq bpemicns apaiykh llp xh sbj lqvulwgc mgamaplfh
-                qahs yznvgrj. Uq plw glwuca lvlr it ujs ocftlewycp ii ts xcz. Ly sfp bqiyjatlqs ng pp nqdjds. Hc mgy kojgzv --
-                Qw occ epsabr rtpn os lpq Viv'g nfuaxjsy. Yzs nzoe uq plw Uzb'e rbazopqc, qw rzl'f wuns em xxpw ztiq ly sfp dagwwr em
-                xxpw.
-                """, "");
-    }
-    public static void test1() {
-        SubstitutionCracker sc = new SubstitutionCracker(
-                """
-                        Cffl zyzeoec.
-                        Nflti, fpj wzhhfs donomzeq, fpj sti fw howz, fpj yzji wjzzlfa dtaz pelzj tnntdx oe t qzjozq fw\s
-                        lzhokzjtnz tel lztlhi nzjjfjoqn tdnq. Nuz yodnoaq szjz oe tojghtezq fj oe nuzoj fwwodzq:\s
-                        qzdjzntjozq, kpqoezqq aze tel sfaze, aohontji tel wzlzjth sfjxzjq, afaq tel ltlq, wjozelq\s
-                        tel ezocukfjq. Nufpqtelq fw hoyzq szjz qpllzehi zelzl ki zyoh, lzqgodtkhz tdnq fw nzjjfj. Nuz\s
-                        godnpjzq fw tojghtezq whioec oenf kpohloecq, wojzq kpjeoec, upcz ­­ upcz qnjpdnpjzq dfhhtgqoec\s
-                        utyz wohhzl pq sonu loqkzhozw, nzjjokhz qtlezqq, tel t rpozn, peiozhloec teczj. Nuzqz tdnq fw\s
-                        atqq apjlzj szjz oenzelzl nf wjocunze fpj etnofe oenf dutfq tel jznjztn. Kpn nuzi utyz\s
-                        wtohzl. Fpj dfpenji oq qnjfec.
-                        T cjztn gzfghz utq kzze afyzl nf lzwzel t cjztn etnofe. Nzjjfjoqn tnntdxq dte qutxz nuz\s
-                        wfpeltnofeq fw fpj kocczqn kpohloecq, kpn nuzi dteefn nfpdu nuz wfpeltnofe fw Tazjodt. Nuzqz\s
-                        tdnq qutnnzj qnzzh, kpn nuzi dteefn lzen nuz qnzzh fw Tazjodte jzqfhyz. Tazjodt stq ntjcznzl\s
-                        wfj tnntdx kzdtpqz sz'jz nuz kjocunzqn kztdfe wfj wjzzlfa tel fggfjnpeoni oe nuz sfjhl. Tel\s
-                        ef fez sohh xzzg nutn hocun wjfa quoeoec. Nflti, fpj etnofe qts zyoh ­­ nuz yzji sfjqn fw upate
-                        etnpjz ­­ tel sz jzqgfelzl sonu nuz kzqn fw Tazjodt. Sonu nuz ltjoec fw fpj jzqdpz sfjxzjq,  sonu nuz dtjoec wfj qnjteczjq tel ezocukfjq suf dtaz nf coyz khffl tel uzhg oe tei sti nuzi\s
-                        dfphl.
-                        Oaazlotnzhi wfhhfsoec nuz wojqn tnntdx, O oaghzazenzl fpj cfyzjeazen'q zazjczedi jzqgfeqz\s
-                        ghteq. Fpj aohontji oq gfszjwph, tel on'q gjzgtjzl. Fpj zazjczedi nztaq tjz sfjxoec oe Ezs
-                        Ifjx Doni tel Stquoecnfe L.D. nf uzhg sonu hfdth jzqdpz zwwfjnq. Fpj wojqn gjofjoni oq nf czn uzhg\s
-                        nf nufqz suf utyz kzze oebpjzl, tel nf ntxz zyzji gjzdtpnofe nf gjfnzdn fpj donomzeq tn ufaz\s
-                        tel tjfpel nuz sfjhl wjfa wpjnuzj tnntdxq. Nuz wpednofeq fw fpj cfyzjeazen dfenoepz sonufpn
-                        oenzjjpgnofe. Wzlzjth tczedozq oe Stquoecnfe suodu utl nf kz zytdptnzl nflti tjz jzfgzeoec\s
-                        wfj zqqzenoth gzjqfeezh nfeocun tel sohh kz fgze wfj kpqoezqq nfafjjfs. Fpj woetedoth
-                        oeqnonpnofeq jzatoe qnjfec, tel nuz Tazjodte zdfefai sohh kz fgze wfj kpqoezqq tq szhh.
-                        Nuz qztjdu oq pelzjsti wfj nufqz suf szjz kzuoel nuzqz zyoh tdnq. O utyz lojzdnzl nuz wphh
-                        jzqfpjdzq fw fpj oenzhhoczedz tel hts zewfjdzazen dfaapeonozq nf woel nufqz jzqgfeqokhz tel\s
-                        nf kjoec nuza nf bpqnodz. Sz sohh atxz ef loqnoednofe kznszze nuz nzjjfjoqnq suf dfaaonnzl\s
-                        nuzqz tdnq tel nufqz suf utjkfj nuza.\s
-                        O tggjzdotnz qf yzji apdu nuz azakzjq fw Dfecjzqq suf utyz bfoezl az oe qnjfechi\s
-                        dfelzaeoec nuzqz tnntdxq. Tel fe kzuthw fw nuz Tazjodte gzfghz, O nutex nuz atei sfjhl\s
-                        hztlzjq suf utyz dthhzl nf fwwzj nuzoj dfelfhzedzq tel tqqoqntedz. Tazjodt tel fpj wjozelq\s
-                        tel thhozq bfoe sonu thh nufqz suf sten gztdz tel qzdpjoni oe nuz sfjhl, tel sz qntel nfcznuzj\s
-                        nf soe nuz stj tctoeqn nzjjfjoqa.\s
-                        Nfeocun, O tqx wfj ifpj gjtizjq wfj thh nufqz suf cjozyz, wfj nuz duohljze sufqz sfjhlq utyz\s
-                        kzze qutnnzjzl, wfj thh sufqz qzeqz fw qtwzni tel qzdpjoni utq kzze nujztnzezl. Tel O gjti\s
-                        nuzi sohh kz dfawfjnzl ki t Gfszj cjztnzj nute tei fw pq, qgfxze nujfpcu nuz tczq oe Gqtha\s
-                        23:
-                        Zyze nufpcu O sthx nujfpcu nuz ythhzi fw nuz qutlfs fw lztnu, O wztj ef zyoh wfj ifp tjz sonu
-                        az.
-                        Nuoq oq t lti suze thh Tazjodteq wjfa zyzji sthx fw howz peonz oe fpj jzqfhyz wfj bpqnodz tel\s
-                        gztdz. Tazjodt utq qnffl lfse zezaozq kzwfjz, tel sz sohh lf qf nuoq noaz. Efez fw pq sohh
-                        zyzj wfjczn nuoq lti, izn sz cf wfjstjl nf lzwzel wjzzlfa tel thh nutn oq cffl tel bpqn oe fpj\s
-                        sfjhl.
-                        Nutex ifp. Cffl eocun. Tel Cfl khzqq Tazjodt.
-                        """,
-                "tkdlzwcuobxhaefgrjqnpysvim");
-    }
 
-    public static void test0() {
-        // exkfyvbromspzdcqaihlugwjtn
-        SubstitutionCracker sc = new SubstitutionCracker(
-                """
-                        Qicpcbuy
-                                                     \s
-                                       OL’H XYYD EPZCHL lyd tyeih hodky O voihl ied vci qcpolokep cvvoky. O weh lroilt-vogy el lry lozy, vcui tyeih cul cv pew hkrccp, iykydlpt zeiioyf, edf bydyieppt ozqeloydl wolr povy. E hyel od lry Oppodcoh pybohpeluiy ref cqydyf uq, edf hygyiep vioydfh hubbyhlyf lrel O iud, lrodsodb lrel zt wcis eh e kogop iobrlh pewtyi, edf kcdleklh vicz zt feth eh e kczzudolt cibedonyi, wcupf zesy zy e goexpy kedfofely. Evlyi fohkuhhodb ol wolr zt wovy, O ydlyiyf lry ieky edf qickyyfyf lc fc wrel ygyit voihl-lozy kedfofely fcyh: O lepsyf lc edtcdy wrc wcupf pohlyd. O wydl lc xpcks kpux zyylodbh edf kruikr hckoeph, xyeult hrcqh edf xeixyihrcqh. Ov lwc buth wyiy hledfodb cd e kcidyi, O wcupf kichh lry hliyyl lc redf lryz kezqeobd polyieluiy. Edf ygyitwryiy O wydl, O’f byl hczy gyihocd cv lry hezy lwc auyhlocdh.
-                                                     \s
-                                       “Wryiy’f tcu byl lrel vuddt dezy?”
-                                                     \s
-                                       Edf lryd: “Tcu hyyz posy e doky ydcubr but. Wrt fc tcu wedl lc bc odlc hczylrodb foilt edf dehlt posy qcpolokh?”
-                                                     \s
-                                       O weh vezopoei wolr lry auyhlocd, e geioedl cd lry auyhlocdh ehsyf cv zy tyeih yeipoyi, wryd O’f voihl eiiogyf od Krokebc lc wcis od pcw-odkczy dyobrxcirccfh. Ol hobdepyf e ktdokohz dcl hozqpt wolr qcpolokh xul wolr lry gyit dclocd cv e quxpok povy, e ktdokohz lrel—el pyehl od lry Hculr Hofy dyobrxcirccfh O hcubrl lc iyqiyhydl—ref xyyd dcuiohryf xt e bydyielocd cv xicsyd qiczohyh. Od iyhqcdhy, O wcupf uhueppt hzopy edf dcf edf het lrel O udfyihlccf lry hsyqlokohz, xul lrel lryiy weh—edf epweth ref xyyd—edclryi liefolocd lc qcpolokh, e liefolocd lrel hliylkryf vicz lry feth cv lry kcudlit’h vcudfodb lc lry bpcit cv lry kogop iobrlh zcgyzydl, e liefolocd xehyf cd lry hozqpy ofye lrel wy regy e hlesy od cdy edclryi, edf lrel wrel xodfh uh lcbylryi oh biyelyi lred wrel fiogyh uh eqeil, edf lrel ov ydcubr qycqpy xypoygy od lry liulr cv lrel qicqcholocd edf ekl cd ol, lryd wy zobrl dcl hcpgy ygyit qicxpyz, xul wy ked byl hczylrodb zyedodbvup fcdy.
-                                                     \s
-                                       Ol weh e qiyllt kcdgodkodb hqyykr, O lrcubrl. Edf eplrcubr O’z dcl huiy lrel lry qycqpy wrc ryeif zy fypogyi ol wyiy hozopeipt ozqiyhhyf, ydcubr cv lryz eqqiykoelyf zt yeidyhldyhh edf tculrvup hwebbyi lrel O zefy ol lc lry Oppodcoh pybohpeluiy.
-                                                     \s
-                                               h
-                                                     \s
-                                       HOJ TYEIH PELYI, wryd O fykofyf lc iud vci lry Udolyf Hlelyh Hydely, O wehd’l hc huiy cv zthypv.
-                                                     \s
-                                       Xt epp eqqyeiedkyh, zt krcoky cv keiyyih hyyzyf lc regy wcisyf cul. Evlyi lwc lyizh fuiodb wrokr O pexciyf od lry zodciolt, Fyzckielh ref beodyf kcdlicp cv lry hlely hydely, edf O ref huxhyauydlpt qehhyf e hpyw cv xopph, vicz iyvcizh cv lry Oppodcoh fyelr qydeplt hthlyz lc ed yjqedhocd cv lry hlely’h ryeplr qicbiez vci sofh. O ref kcdloduyf lc lyekr el lry Udogyiholt cv Krokebc Pew Hkrccp, e mcx O ydmctyf, edf weh viyauydlpt odgolyf lc hqyes eicudf lcwd. O ref qiyhyigyf zt odfyqydfydky, zt bccf dezy, edf zt zeiioeby, epp cv wrokr, hlelohlokeppt hqyesodb, ref xyyd qpekyf el iohs lry zczydl O hyl vccl od lry hlely keqolep.
-                                                     \s
-                                       Xul lry tyeih ref ephc lesyd lryoi lcpp. Hczy cv ol weh muhl e vudklocd cv zt byllodb cpfyi, O huqqchy, vci ov tcu eiy qetodb ellydlocd, yekr hukkyhhogy tyei wopp zesy tcu zciy odlozelypt ekaueodlyf wolr epp cv tcui vpewh—lry xpodf hqclh, lry iykuiiodb rexolh cv lrcubrl lrel zet xy bydylok ci zet xy ydgoicdzydlep, xul lrel wopp epzchl kyileodpt wcihyd wolr lozy, eh huiypt eh lry rolkr od tcui weps luidh lc qeod od tcui roq. Od zy, cdy cv lrchy vpewh ref qicgyd lc xy e kricdok iyhlpyhhdyhh; ed odexopolt lc eqqiykoely, dc zellyi rcw wypp lrodbh wyiy bcodb, lrchy xpyhhodbh lrel wyiy iobrl lryiy od vicdl cv zy. Ol’h e vpew lrel oh ydfyzok lc zcfyid povy, O lrods—ydfyzok, lcc, od lry Ezyioked kreieklyi—edf cdy lrel oh dcwryiy zciy ygofydl lred od lry voypf cv qcpolokh. Wrylryi qcpolokh eklueppt ydkcuiebyh lry lieol ci hozqpt ellieklh lrchy wrc qchhyhh ol oh udkpyei. Hczycdy cdky heof lrel ygyit zed oh litodb lc yolryi pogy uq lc roh velryi’h yjqyklelocdh ci zesy uq vci roh velryi’h zohlesyh, edf O huqqchy lrel zet yjqpeod zt qeilokupei zepeft eh wypp eh edtlrodb yphy.
-                                                     \s
-                                       Od edt ygydl, ol weh eh e kcdhyauydky cv lrel iyhlpyhhdyhh lrel O fykofyf lc kreppydby e hollodb Fyzckielok odkuzxydl vci roh kcdbiyhhocdep hyel od lry 2000 ypyklocd ktkpy. Ol weh ed opp-kcdhofyiyf ieky, edf O pchl xefpt—lry hcil cv fiuxxodb lrel ewesydh tcu lc lry vekl lrel povy oh dcl cxpobyf lc wcis cul eh tcu’f qpeddyf. E tyei edf e repv pelyi, lry hkeih cv lrel pchh huvvokoydlpt ryepyf, O ref pudkr wolr e zyfoe kcdhupledl wrc ref xyyd ydkcuiebodb zy vci hczy lozy lc iud vci hlelywofy cvvoky. Eh ol reqqydyf, lry pudkr weh hkryfupyf vci pely Hyqlyzxyi 2001.
-                                                     \s
-                                       “Tcu iyepony, fcd’l tcu, lrel lry qcpolokep ftdezokh regy kredbyf,” ry heof eh ry qoksyf el roh hepef.
-                                                     \s
-                                       “Wrel fc tcu zyed?” O ehsyf, sdcwodb vupp wypp wrel ry zyedl. Wy xclr pccsyf fcwd el lry dywhqeqyi xyhofy roz. Lryiy, cd lry vicdl qeby, weh Cheze xod Pefyd.
-                                                     \s
-                                       “Rypp cv e lrodb, ohd’l ol?” ry heof, hresodb roh ryef. “Iyeppt xef puks. Tcu ked’l kredby tcui dezy, cv kcuihy. Gclyih eiy huhqokocuh cv lrel sodf cv lrodb. Zetxy ov tcu wyiy el lry hleil cv tcui keiyyi, tcu sdcw, tcu kcupf uhy e doksdezy ci hczylrodb. Xul dcw…” Roh gcoky lieopyf cvv edf ry hriubbyf eqcpcbylokeppt xyvciy hobdepodb lry weolyi lc xiodb uh lry kryks.
-                                                     \s
-                                       O huhqyklyf ry weh iobrl, edf lrel iyeponelocd ely ewet el zy. Vci lry voihl lozy od zt keiyyi, O xybed lc yjqyioydky lry ydgt cv hyyodb tcudbyi qcpolokoedh hukkyyf wryiy O ref veopyf, zcgodb odlc robryi cvvokyh, byllodb zciy lrodbh fcdy. Lry qpyehuiyh cv qcpolokh—lry efiydepody cv fyxely, lry edozep weizlr cv hresodb redfh edf qpudbodb odlc e kicwf—xybed lc qepy ebeodhl lry zyedyi lehsh cv lry mcx: lry xybbodb vci zcdyt, lry pcdb fiogyh rczy evlyi lry xedauyl ref iud lwc rcuih pcdbyi lred hkryfupyf, lry xef vccf edf hlepy eoi edf kpoqqyf qrcdy kcdgyihelocdh wolr e wovy wrc ref hluks xt zy hc vei xul weh qiyllt vyf uq wolr ieohodb cui kropfiyd epcdy edf weh xyboddodb lc auyhlocd zt qiocioloyh. Ygyd lry pybohpelogy wcis, lry qcpokt zesodb lrel ref bcllyd zy lc iud od lry voihl qpeky, xybed lc vyyp lcc odkiyzydlep, lcc iyzcgyf vicz lry peibyi xellpyh—cgyi lejyh, hykuiolt, ryeplr keiy, edf mcxh—lrel wyiy xyodb webyf cd e delocdep hleby. O xybed lc reixci fcuxlh excul lry qelr O ref krchyd; O xybed vyypodb lry wet O ozebody ed eklci ci elrpyly zuhl vyyp wryd, evlyi tyeih cv kczzolzydl lc e qeilokupei fiyez, evlyi tyeih cv weolodb lexpyh xylwyyd eufolocdh ci hkielkrodb cul rolh od lry zodci pyebuyh, ry iyeponyh lrel ry’h bcdy muhl excul eh vei eh lepydl ci vciludy wopp lesy roz. Lry fiyez wopp dcl reqqyd, edf ry dcw vekyh lry krcoky cv ekkyqlodb lroh vekl posy e bicwduq edf zcgodb cd lc zciy hydhoxpy quihuolh, ci iyvuhodb lry liulr edf ydfodb uq xollyi, aueiiyphczy, edf hpobrlpt qelrylok.
-                                                     \s
-                                               h
-                                                     \s
-                                       FYDOEP, EDBYI, xeibeododb, fyhqeoi—O’z dcl huiy O wydl lricubr epp lry hlebyh qiyhkioxyf xt lry yjqyilh. El hczy qcodl, lrcubr, O eiiogyf el ekkyqledky—cv zt pozolh, edf, od e wet, zt zcilepolt. O iyvckuhyf cd zt wcis od lry hlely hydely edf lccs helohveklocd vicz lry iyvcizh edf odoloelogyh lrel zt qcholocd evvcifyf. O hqydl zciy lozy el rczy, edf welkryf zt feubrlyih bicw, edf qicqyipt kryiohryf zt wovy, edf lrcubrl excul zt pcdb-lyiz vodedkoep cxpobelocdh. O yjyikohyf, edf iyef dcgyph, edf kezy lc eqqiykoely rcw lry yeilr iclelyf eicudf lry hud edf lry hyehcdh kezy edf wydl wolrcul edt qeilokupei yjyilocdh cd zt qeil.
-                                                     \s
-                                       Edf ol weh lroh ekkyqledky, O lrods, lrel eppcwyf zy lc kczy uq wolr lry lrcicubrpt kcksytyf ofye cv iuddodb vci lry Udolyf Hlelyh Hydely. Ed uq-ci-cul hlielybt weh rcw O fyhkioxyf ol lc zt wovy, cdy pehl hrcl lc lyhl cul zt ofyeh xyvciy O hyllpyf odlc e kepzyi, zciy hlexpy, edf xyllyi-qetodb yjohlydky. Edf hry—qyireqh zciy cul cv qolt lred kcdgoklocd—ebiyyf lc lroh cdy pehl ieky, lrcubr hry ephc hubbyhlyf lrel bogyd lry cifyipt povy hry qiyvyiiyf vci cui vezopt, O hrcupfd’l dykyhheiopt kcudl cd ryi gcly.
-                                                     \s
-                                       O pyl ryi lesy kczvcil od lry pcdb cffh ebeodhl zy. Lry Iyquxpoked odkuzxydl, Qylyi Volnbyiepf, ref hqydl $19 zoppocd cv roh qyihcdep wyeplr lc udhyel lry qiygocuh hydelci, Keicp Zchypyt Xieud. Ry wehd’l wofypt qcqupei; od vekl ry fofd’l iyeppt hyyz lc ydmct qcpolokh epp lrel zukr. Xul ry hlopp ref udpozolyf zcdyt od roh vezopt, eh wypp eh e byduody odlybiolt lrel ref yeidyf roz biufbodb iyhqykl vicz lry gclyih.
-                                                     \s
-                                       Vci e lozy Keicp Zchypyt Xieud iyeqqyeiyf, xeks vicz ed ezxehhefcihroq od Dyw Nyepedf edf wolr lrcubrlh cv litodb lc iykpeoz ryi cpf hyel; ryi qchhoxpy kedfofekt qul zt cwd qpedh cd rcpf. Wryd hry fykofyf lc iud vci lry qiyhofydkt odhlyef, ygyitcdy yphy hleilyf pccsodb el lry Hydely ieky. Xt lry lozy Volnbyiepf eddcudkyf ry wcupf dcl hyys iyypyklocd, O weh hleiodb el hoj qiozeit cqqcdydlh, odkpufodb lry hollodb hlely kczqlicppyi; e xuhodyhhzed wcilr rudfiyfh cv zoppocdh cv fcppeih; Krokebc Zetci Iokreif Fepyt’h vcizyi kroyv cv hlevv; edf e xpeks, vyzepy ryeplr-keiy qicvyhhocdep wrc lry hzeil zcdyt ehhuzyf wcupf hqpol lry xpeks gcly edf fccz wrelygyi hpoz kredkyh O’f ref od lry voihl qpeky.
-                                                     \s
-                                       O fofd’l keiy. Viyyf vicz wciit xt pcw yjqyklelocdh, zt kiyfoxopolt xcphlyiyf xt hygyiep rypqvup ydfcihyzydlh, O lriyw zthypv odlc lry ieky wolr ed ydyibt edf mct lrel O’f lrcubrl O ref pchl. O roiyf vcui hlevvyih, epp cv lryz hzeil, od lryoi lwydloyh ci yeipt lroiloyh, edf huolexpt kryeq. Wy vcudf e hzepp cvvoky, qiodlyf pyllyiryef, odhleppyf qrcdy podyh edf hygyiep kczqulyih. Vcui ci vogy rcuih e fet, O keppyf zemci Fyzckielok fcdcih edf lioyf lc byl zt kepph iyluidyf. O rypf qiyhh kcdvyiydkyh lc wrokr dcxcft kezy. Wy hobdyf uq vci lry edduep Hl. Qelioks’h Fet Qeiefy edf wyiy ehhobdyf lry qeiefy’h gyit pehl hpcl, hc zt lyd gcpudlyyih edf O vcudf cuihypgyh zeikrodb muhl e vyw qekyh eryef cv lry kolt’h hedolelocd liuksh, wegodb lc lry vyw hliebbpyih wrc iyzeodyf cd lry iculy wropy wcisyih hwyql uq beixeby edf qyypyf biyyd hrezicks hloksyih cvv lry pezqqchlh.
-                                                     \s
-                                       Zchlpt, lrcubr, O muhl liegypyf, cvlyd fiogodb epcdy, voihl vicz weif lc weif od Krokebc, lryd vicz kcudlt lc kcudlt edf lcwd lc lcwd, ygydlueppt uq edf fcwd lry hlely, qehl zopyh edf zopyh cv kcidvoypfh edf xyedvoypfh edf lieod lieksh edf hopch. Ol wehd’l ed yvvokoydl qickyhh. Wolrcul lry zekrodyit cv lry hlely’h Fyzckielok Qeilt cibedonelocd, wolrcul edt iyep zeopodb pohl ci Odlyidyl cqyielocd, O ref lc iypt cd vioydfh ci ekaueodledkyh lc cqyd lryoi rcuhyh lc wrcygyi zobrl kczy, ci lc eiiedby vci zt gohol lc lryoi kruikr, udocd repp, xiofby bicuq, ci Icleit Kpux. Hczylozyh, evlyi hygyiep rcuih cv fiogodb, O wcupf vodf muhl lwc ci lriyy qycqpy weolodb vci zy eicudf e solkryd lexpy. O wcupf regy lc ehhuiy lry rchlh lrel lry luidcul weh vody edf kczqpozydl lryz cd lry iyviyhrzydlh lryt’f qiyqeiyf. Hczylozyh O wcupf hol lricubr e kruikr hyigoky edf lry qehlci wcupf vcibyl lc iykcbdony zy, ci lry ryef cv lry udocd pckep wcupf pyl zy hqyes lc roh zyzxyih muhl xyvciy eddcudkodb lrel lry udocd ref fykofyf lc ydfcihy hczycdy yphy.
-                                                     \s
-                                       Xul wrylryi O weh zyylodb wolr lwc qycqpy ci vovlt, wrylryi O weh od cdy cv lry wypp-hrefyf, hlelypt rczyh cv lry Dcilr Hrciy, e weps-uq eqeilzydl cd lry Wyhl Hofy, ci e veizrcuhy culhofy Xpcczodblcd, wrylryi qycqpy wyiy vioydfpt, odfovvyiydl, ci ckkehocdeppt rchlopy, O lioyf zt xyhl lc syyq zt zculr hrul edf ryei wrel lryt ref lc het. O pohlydyf lc qycqpy leps excul lryoi mcxh, lryoi xuhodyhhyh, lry pckep hkrccp; lryoi edbyi el Xuhr edf lryoi edbyi el Fyzckielh; lryoi fcbh, lryoi xeks qeod, lryoi wei hyigoky, edf lry lrodbh lryt iyzyzxyiyf vicz kropfrccf. Hczy ref wypp-fygypcqyf lrycioyh lc yjqpeod lry pchh cv zeduvekluiodb mcxh ci lry robr kchl cv ryeplr keiy. Hczy iykolyf wrel lryt ref ryeif cd Iuhr Pozxeubr ci DQI. Xul zchl cv lryz wyiy lcc xuht wolr wcis ci lryoi sofh lc qet zukr ellydlocd lc qcpolokh, edf lryt hqcsy odhlyef cv wrel lryt hew xyvciy lryz: e qpedl kpchyf, e qiczclocd, e robr ryelodb xopp, e qeiydl od e duihodb rczy, e kropf’h voihl hlyq.
-                                                     \s
-                                       Dc xpodfodb odhobrlh yzyibyf vicz lryhy zcdlrh cv kcdgyihelocd. Ov edtlrodb, wrel hliuks zy weh muhl rcw zcfyhl qycqpy’h rcqyh wyiy, edf rcw zukr cv wrel lryt xypoygyf hyyzyf lc rcpf kcdhledl ekichh ieky, iybocd, iypobocd, edf kpehh. Zchl cv lryz lrcubrl lrel edtxcft woppodb lc wcis hrcupf xy expy lc vodf e mcx lrel qeof e pogodb weby. Lryt vobuiyf lrel qycqpy hrcupfd’l regy lc vopy vci xedsiuqlkt xykeuhy lryt bcl hoks. Lryt xypoygyf lrel ygyit kropf hrcupf regy e byduodypt bccf yfukelocd—lrel ol hrcupfd’l muhl xy e xudkr cv leps—edf lrel lrchy hezy kropfiyd hrcupf xy expy lc bc lc kcppyby ygyd ov lryoi qeiydlh wyiyd’l iokr. Lryt wedlyf lc xy hevy, vicz kiozodeph edf vicz lyiiciohlh; lryt wedlyf kpyed eoi, kpyed welyi, edf lozy wolr lryoi sofh. Edf wryd lryt bcl cpf, lryt wedlyf lc xy expy lc iyloiy wolr hczy fobdolt edf iyhqykl.
-                                                     \s
-                                       Lrel weh excul ol. Ol wehd’l zukr. Edf eplrcubr lryt udfyihlccf lrel rcw lryt fof od povy fyqydfyf zchlpt cd lryoi cwd yvvcilh—eplrcubr lryt fofd’l yjqykl bcgyidzydl lc hcpgy epp lryoi qicxpyzh, edf kyileodpt fofd’l posy hyyodb lryoi lej fcppeih wehlyf—lryt vobuiyf lrel bcgyidzydl hrcupf rypq.
-                                                     \s
-                                       O lcpf lryz lrel lryt wyiy iobrl: bcgyidzydl kcupfd’l hcpgy epp lryoi qicxpyzh. Xul wolr e hpobrl kredby od qiocioloyh wy kcupf zesy huiy ygyit kropf ref e fykydl hrcl el povy edf zyyl lry kreppydbyh wy vekyf eh e delocd. Zciy cvlyd lred dcl, vcpsh wcupf dcf od ebiyyzydl edf ehs rcw lryt kcupf byl odgcpgyf. Edf xt lry lozy O weh xeks cd lry icef, wolr e zeq cd lry qehhydbyi’h hyel, cd zt wet lc zt dyjl hlcq, O sdyw cdky ebeod muhl wrt O’f bcdy odlc qcpolokh.
-                                                     \s
-                                       O vypl posy wcisodb reifyi lred O’f ygyi wcisyf od zt povy.
-                                                     \s
-                                                     \s
-                                       ozeby
-                                                     \s
-                                                     \s
-                                       LROH XCCS BICWH foiyklpt cul cv lrchy kcdgyihelocdh cd lry kezqeobd lieop. Dcl cdpt fof zt ydkcudlyih wolr gclyih kcdvoiz lry vudfezydlep fykydkt cv lry Ezyioked qycqpy, lryt ephc iyzodfyf zy lrel el lry kciy cv lry Ezyioked yjqyioydky eiy e hyl cv ofyeph lrel kcdloduy lc hloi cui kcppyklogy kcdhkoydky; e kczzcd hyl cv gepuyh lrel xodf uh lcbylryi fyhqoly cui fovvyiydkyh; e iuddodb lriyef cv rcqy lrel zesyh cui ozqicxexpy yjqyiozydl od fyzckiekt wcis. Lryhy gepuyh edf ofyeph vodf yjqiyhhocd dcl muhl od lry zeixpy hpexh cv zcduzydlh ci od lry iykolelocd cv rohlcit xccsh. Lryt iyzeod epogy od lry ryeilh edf zodfh cv zchl Ezyiokedh—edf ked odhqoiy uh lc qiofy, fult, edf hekiovoky.
-                                                     \s
-                                       O iykcbdony lry iohsh cv lepsodb lroh wet. Od ed yie cv bpcxeponelocd edf fonntodb lykrdcpcbokep kredby, kullricel qcpolokh edf udiyzollodb kupluiy weih, wy fcd’l ygyd hyyz lc qchhyhh e hreiyf pedbueby wolr wrokr lc fohkuhh cui ofyeph, zukr pyhh lry lccph lc eiiogy el hczy icubr kcdhydhuh excul rcw, eh e delocd, wy zobrl wcis lcbylryi lc xiodb lrchy ofyeph excul. Zchl cv uh eiy wohy lc lry weth cv efzyd, qcpphlyih, hqyykrwiolyih, edf qudfolh. Wy sdcw rcw robr-vptodb wcifh ked xy fyqpctyf od lry hyigoky cv ktdokep eozh, edf rcw lry dcxpyhl hydlozydlh ked xy huxgyilyf od lry dezy cv qcwyi, yjqyfoydky, biyyf, ci odlcpyiedky. Ygyd lry hledfeif robr hkrccp rohlcit lyjlxccs dclyh lry fybiyy lc wrokr, vicz olh gyit odkyqlocd, lry iyepolt cv Ezyioked povy reh hlietyf vicz olh ztlrh. Od hukr e kpozely, edt ehhyilocd cv hreiyf ofyeph ci kczzcd gepuyh zobrl hyyz rcqypyhhpt deïgy, ov dcl fcwdiobrl fedbyicuh—ed ellyzql lc bpchh cgyi hyiocuh fovvyiydkyh od qcpokt edf qyivcizedky ci, wcihy, e zyedh cv zuvvpodb lry kczqpeodlh cv lrchy wrc vyyp opp hyigyf xt cui kuiiydl odhlolulocdep eiiedbyzydlh.
-                                                     \s
-                                       Zt eibuzydl, rcwygyi, oh lrel wy regy dc krcoky. Tcu fcd’l dyyf e qcpp lc sdcw lrel lry gehl zemciolt cv Ezyiokedh—Iyquxpoked, Fyzckiel, edf odfyqydfydl—eiy wyeit cv lry fyef ncdy lrel qcpolokh reh xykczy, od wrokr deiicw odlyiyhlh goy vci efgedleby edf ofycpcbokep zodcioloyh hyys lc ozqchy lryoi cwd gyihocdh cv exhcpuly liulr. Wrylryi wy’iy vicz iyf hlelyh ci xpuy hlelyh, wy vyyp od cui bul lry peks cv rcdyhlt, iobci, edf kczzcd hydhy od cui qcpokt fyxelyh, edf fohposy wrel eqqyeih lc xy e kcdloducuh zydu cv vephy ci kiezqyf krcokyh. Iypobocuh ci hykupei, xpeks, wroly, ci xicwd, wy hydhy—kciiyklpt—lrel lry delocd’h zchl hobdovokedl kreppydbyh eiy xyodb obdciyf, edf lrel ov wy fcd’l kredby kcuihy hccd, wy zet xy lry voihl bydyielocd od e gyit pcdb lozy lrel pyegyh xyrodf e wyesyi edf zciy viekluiyf Ezyioke lred lry cdy wy odryiolyf. Qyireqh zciy lred edt clryi lozy od cui iykydl rohlcit, wy dyyf e dyw sodf cv qcpolokh, cdy lrel ked yjkegely edf xuopf uqcd lrchy hreiyf udfyihledfodbh lrel qupp uh lcbylryi eh Ezyiokedh.
-                                                     \s
-                                       Lrel’h lry lcqok cv lroh xccs: rcw wy zobrl xybod lry qickyhh cv kredbodb cui qcpolokh edf cui kogok povy. Lroh ohd’l lc het lrel O sdcw yjeklpt rcw lc fc ol. O fcd’l. Eplrcubr O fohkuhh od yekr kreqlyi e duzxyi cv cui zchl qiyhhodb qcpokt kreppydbyh, edf hubbyhl od xicef hlicsyh lry qelr O xypoygy wy hrcupf vcppcw, zt liyelzydl cv lry ohhuyh oh cvlyd qeiloep edf odkczqpyly. O cvvyi dc udovtodb lrycit cv Ezyioked bcgyidzydl, dci fc lryhy qebyh qicgofy e zedovyhlc vci eklocd, kczqpyly wolr kreilh edf bieqrh, lozylexpyh edf lyd-qcodl qpedh.
-                                                     \s
-                                       Odhlyef wrel O cvvyi oh hczylrodb zciy zcfyhl: qyihcdep iyvpyklocdh cd lrchy gepuyh edf ofyeph lrel regy pyf zy lc quxpok povy, hczy lrcubrlh cd lry weth lrel cui kuiiydl qcpolokep fohkcuihy uddykyhheiopt fogofyh uh, edf zt cwd xyhl ehhyhhzydl—xehyf cd zt yjqyioydky eh e hydelci edf pewtyi, ruhxedf edf velryi, Kriohloed edf hsyqlok—cv lry weth wy ked bicudf cui qcpolokh od lry dclocd cv e kczzcd bccf.
-                                                     \s
-                                       Pyl zy xy zciy hqykovok excul rcw lry xccs oh cibedonyf. Kreqlyi Cdy lesyh hlcks cv cui iykydl qcpolokep rohlcit edf lioyh lc yjqpeod hczy cv lry hcuikyh vci lcfet’h xollyi qeilohedhroq. Od Kreqlyi Lwc, O fohkuhh lrchy kczzcd gepuyh lrel zobrl hyigy eh lry vcudfelocd vci e dyw qcpolokep kcdhydhuh. Kreqlyi Lriyy yjqpciyh lry Kcdhlolulocd dcl muhl eh e hcuiky cv odfogofuep iobrlh, xul ephc eh e zyedh cv cibedonodb e fyzckielok kcdgyihelocd eicudf cui kcppyklogy vuluiy. Od Kreqlyi Vcui, O lit lc kcdgyt hczy cv lry odhlolulocdep vcikyh—zcdyt, zyfoe, odlyiyhl bicuqh, edf lry pybohpelogy qickyhh—lrel hlovpy ygyd lry xyhl-odlydlocdyf qcpolokoed. Edf od lry iyzeododb vogy kreqlyih, O hubbyhl rcw wy zobrl zcgy xytcdf cui fogohocdh lc yvvyklogypt lekspy kcdkiyly qicxpyzh: lry bicwodb ykcdczok odhykuiolt cv zedt Ezyioked vezopoyh, lry iekoep edf iypobocuh lydhocdh wolrod lry xcft qcpolok, edf lry liedhdelocdep lriyelh—vicz lyiiciohz lc qedfyzok—lrel belryi xytcdf cui hrciyh.
-                                                     \s
-                                       O huhqykl lrel hczy iyefyih zet vodf zt qiyhydlelocd cv lryhy ohhuyh lc xy odhuvvokoydlpt xepedkyf. Lc lroh ekkuhelocd, O hledf buoplt eh kreibyf. O ez e Fyzckiel, evlyi epp; zt goywh cd zchl lcqokh kciiyhqcdf zciy kpchypt lc lry yfolcioep qebyh cv lry Dyw Tcis Lozyh lred lrchy cv lry Wepp Hliyyl Mcuidep. O ez edbit excul qcpokoyh lrel kcdhohlydlpt vegci lry wyeplrt edf qcwyivup cgyi egyieby Ezyiokedh, edf odhohl lrel bcgyidzydl reh ed ozqciledl icpy od cqydodb uq cqqciludolt lc epp. O xypoygy od ygcpulocd, hkoydlovok odauoit, edf bpcxep weizodb; O xypoygy od viyy hqyykr, wrylryi qcpolokeppt kciiykl ci qcpolokeppt odkciiykl, edf O ez huhqokocuh cv uhodb bcgyidzydl lc ozqchy edtxcft’h iypobocuh xypoyvh—odkpufodb zt cwd—cd dcdxypoygyih. Vuilryizciy, O ez e qiohcdyi cv zt cwd xocbieqrt: O ked’l rypq xul goyw lry Ezyioked yjqyioydky lricubr lry pydh cv e xpeks zed cv zojyf ryioleby, vciygyi zodfvup cv rcw bydyielocdh cv qycqpy wrc pccsyf posy zy wyiy huxmubelyf edf hlobzelonyf, edf lry huxlpy edf dcl hc huxlpy weth lrel ieky edf kpehh kcdloduy lc hreqy cui pogyh.
-                                                     \s
-                                       Xul lrel oh dcl epp lrel O ez. O ephc lrods zt qeilt ked xy hzub, fylekryf, edf fcbzelok el lozyh. O xypoygy od lry viyy zeisyl, kczqylolocd, edf ydliyqiydyuihroq, edf lrods dc hzepp duzxyi cv bcgyidzydl qicbiezh fcd’l wcis eh efgyilohyf. O wohr lry kcudlit ref vywyi pewtyih edf zciy ydbodyyih. O lrods Ezyioke reh zciy cvlyd xyyd e vciky vci bccf lred vci opp od lry wcipf; O keiit vyw oppuhocdh excul cui ydyzoyh, edf iygyiy lry kcuieby edf kczqylydky cv cui zopoleit. O iymykl e qcpolokh lrel oh xehyf hcpypt cd iekoep ofydlolt, bydfyi ofydlolt, hyjuep cioydlelocd, ci goklozrccf bydyieppt. O lrods zukr cv wrel eoph lry oddyi kolt odgcpgyh e xiyesfcwd od kupluiy lrel wopp dcl xy kuiyf xt zcdyt epcdy, edf lrel cui gepuyh edf hqoioluep povy zellyi el pyehl eh zukr eh cui BFQ.
-                                                     \s
-                                       Udfcuxlyfpt, hczy cv lryhy goywh wopp byl zy od licuxpy. O ez dyw ydcubr cd lry delocdep qcpolokep hkydy lrel O hyigy eh e xpeds hkiyyd cd wrokr qycqpy cv gehlpt fovvyiydl qcpolokep hlioqyh qicmykl lryoi cwd goywh. Eh hukr, O ez xcudf lc foheqqcodl hczy, ov dcl epp, cv lryz. Wrokr qyireqh odfokelyh e hykcdf, zciy odlozely lryzy lc lroh xccs—dezypt, rcw O, ci edtxcft od quxpok cvvoky, ked egcof lry qolvepph cv vezy, lry rudbyi lc qpyehy, lry vyei cv pchh, edf lryiyxt iyleod lrel syidyp cv liulr, lrel hodbupei gcoky wolrod yekr cv uh lrel iyzodfh uh cv cui fyyqyhl kczzolzydlh.
-                                                     \s
-                                       Iykydlpt, cdy cv lry iyqcilyih kcgyiodb Keqolcp Ropp hlcqqyf zy cd lry wet lc zt cvvoky edf zydlocdyf lrel hry ref ydmctyf iyefodb zt voihl xccs. “O wcdfyi,” hry heof, “ov tcu ked xy lrel odlyiyhlodb od lry dyjl cdy tcu wioly.” Xt wrokr hry zyedl, O wcdfyi ov tcu ked xy rcdyhl dcw lrel tcu eiy e U.H. hydelci.
-                                                     \s
-                                       O wcdfyi, lcc, hczylozyh. O rcqy wiolodb lroh xccs rypqh zy edhwyi lry auyhlocd.
-                                                     \s
-                                       Kreqlyi Cdy
-                                                     \s
-                                       Iyquxpokedh edf Fyzckielh
-                                                     \s
-                                       CD ZCHL FETH, O ydlyi lry Keqolcp lricubr lry xehyzydl. E hzepp huxwet lieod keiioyh zy vicz lry Reil Xuopfodb, wryiy zt cvvoky oh pckelyf, lricubr ed udfyibicudf luddyp podyf wolr lry vpebh edf hyeph cv lry vovlt hlelyh. Lry lieod kiyesh lc e repl edf O zesy zt wet, qehl xuhlpodb hlevvyih, zeodlydedky kiywh, edf lry ckkehocdep lcui bicuq, lc lry xeds cv cpf ypygelcih lrel lesyh zy lc lry hykcdf vpcci. Hlyqqodb cvv, O wyegy eicudf lry hweiz cv qiyhh lrel dcizeppt belryih lryiy, het ryppc lc lry Keqolcp Qcpoky, edf ydlyi, lricubr e hlelypt hyl cv fcuxpy fccih, cdlc lry vpcci cv lry U.H. Hydely.
-                                                     \s
-                                       Lry Hydely krezxyi oh dcl lry zchl xyeulovup hqeky od lry Keqolcp, xul ol oh ozqchodb dcdylrypyhh. Lry fud-kcpciyf wepph eiy hyl cvv xt qedyph cv xpuy fezehs edf kcpuzdh cv vodypt gyodyf zeixpy. Cgyiryef, lry kyopodb vcizh e kiyezt wroly cgep, wolr ed Ezyioked yebpy ylkryf od olh kydlyi. Excgy lry goholcih’ beppyit, lry xuhlh cv lry delocd’h voihl lwydlt goky qiyhofydlh hol od hcpyzd iyqchy.
-                                                     \s
-                        """,
-                "exkfyvbromspzdcqaihlugwjtn");
-
+//        test0();
+//        test1();
+//        test2();
+//        test3();
+//        test4();
+          test5();
+    }
+    private static void test5(){
+        SubstitutionPair source = charSet.getCipher5();
+        SubstitutionCracker test = new SubstitutionCracker(source.getCipher(), source.getKey());
+    }
+    private static void test4() {
+        SubstitutionPair source = charSet.getCipher4();
+        SubstitutionCracker test = new SubstitutionCracker(source.getCipher(), source.getKey());
+    }
+    private static void test3() {
+        SubstitutionPair source = charSet.getCipher3();
+        SubstitutionCracker test = new SubstitutionCracker(source.getCipher(), source.getKey());
+    }
+    private static void test2() {
+        SubstitutionPair source = charSet.getCipher2();
+        SubstitutionCracker test = new SubstitutionCracker(source.getCipher(), source.getKey());
+    }
+    private static void test1() {
+        SubstitutionPair source = charSet.getCipher1();
+        SubstitutionCracker test = new SubstitutionCracker(source.getCipher(), source.getKey());
+    }
+        private static void test0() {
+        SubstitutionPair source = charSet.getCipher0();
+        SubstitutionCracker test = new SubstitutionCracker(source.getCipher(), source.getKey());
     }
 }

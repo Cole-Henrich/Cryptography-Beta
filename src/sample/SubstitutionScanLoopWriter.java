@@ -1,5 +1,6 @@
 package sample;
 
+import javax.print.attribute.standard.MediaSize;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -8,6 +9,7 @@ public class SubstitutionScanLoopWriter {
     private String word;
     private String letter;
     private int length;
+    private boolean initial;
     public SubstitutionScanLoopWriter(String Letter, String WordYouAreCrackingWith, String WordOfOtherScannerToClose) {
         this.letter = Letter;
         this.word = WordYouAreCrackingWith;
@@ -176,10 +178,13 @@ public class SubstitutionScanLoopWriter {
             if (otherName.equals("")){
                 OtherScannerName = OtherScannerName.replace("_", "");
             }
+            initial = (otherName.equals("null"));
             String booleanName = "has"+ltr.toUpperCase();
-            str+="if(!"+booleanName+"){\n";
-            str+=(OtherScannerName);
-            str+=(".close();\n");
+            if (!initial) {
+                str += "if(!" + booleanName + "){\n";
+                str += (OtherScannerName);
+                str += (".close();\n");
+            }
             str+=("Scanner\s");
             str+=(ScannerName);
             str+=("= new Scanner(cipher);\n");
@@ -196,15 +201,14 @@ public class SubstitutionScanLoopWriter {
             str+=(appendCharAts());
             str+=(writeMassCalcEtc());
             String verbalIndexOfTarget=verbalIndexOfTarget();
-            str+="if (thisChar_isNotAlreadyInTheKey("+verbalIndexOfTarget+")){\n";
+//            str+="if (thisChar_isNotAlreadyInTheKey("+verbalIndexOfTarget+")){\n";
             str+=("key[_");
             str+=(ltr.toLowerCase());
             str+=("]="+verbalIndexOfTarget+".toLowerCase();\n");
             str+=booleanName+"=true;\n";
             str+=(ScannerName+".close();\n");
             str+= """
-                            break;
-                        }
+                        break;
                     }
                 }
              }
@@ -383,8 +387,12 @@ public class SubstitutionScanLoopWriter {
         for (int i = 1; i < ws.length ; i++) {
             meta.append(make(ltr, ws[i], ws[i - 1]));
         }
-        meta.append("}".repeat(ws.length));
-
+        if (!initial) {
+            meta.append("}" .repeat(ws.length));
+        }
+        if (initial){
+            meta.append("}" .repeat(ws.length-1));
+        }
         return meta.toString();
     }
     private static void c(){
