@@ -137,6 +137,7 @@ public class _1231sThatExistInText {
         ArrayList<String> rtn = new ArrayList<>();
         while (sc.hasNext()){
             String next = charSet.RemoveIgnorers(sc.next().toLowerCase());
+            System.err.println(next);
             _1231 Is = new _1231(next);
             if (Is.is()){
                 if (!rtn.contains(next)){

@@ -99,7 +99,7 @@ public class SubstitutionCracker {
 
 
     public SubstitutionCracker(String Cipher, String actualKey) {
-        System.err.println("new SubstitutionCracker(String Cipher);");
+        System.err.println("new SubstitutionCracker(String Cipher, String actualKey:"+actualKey+");");
 
         key = new String[alphabet.length];
         cipher = Cipher;
@@ -2186,26 +2186,27 @@ public class SubstitutionCracker {
 
                                 while (o_too.hasNext()) {
                                     String next = o_too.next();
-                                    String first = String.valueOf(next.charAt(0));
-                                    String second = String.valueOf(next.charAt(1));
-                                    String third = String.valueOf(next.charAt(2));
-                                    if (first.equalsIgnoreCase(key[_t])) {
-                                        if (second.equalsIgnoreCase(third)) {
-                                            if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
-                                                key[_o] = second.toLowerCase();
-                                                hasO = true;
-                                                System.err.println("hasO = true;");
-                                                System.err.println("via Scanner o_too");
-                                                o_too.close();
-                                                System.err.println(
-                                                        (Arrays.toString(key)).replaceAll("null", "\u0000"));
-                                                System.err.println(correctKey);
+                                    if (next.length() ==3) {
+                                        String first = String.valueOf(next.charAt(0));
+                                        String second = String.valueOf(next.charAt(1));
+                                        String third = String.valueOf(next.charAt(2));
+                                        if (first.equalsIgnoreCase(key[_t])) {
+                                            if (second.equalsIgnoreCase(third)) {
+                                                if (1 == 1 /*originally"thisChar_isNotAlreadyInTheKey*/) {
+                                                    key[_o] = second.toLowerCase();
+                                                    hasO = true;
+                                                    System.err.println("hasO = true;");
+                                                    System.err.println("via Scanner o_too");
+                                                    o_too.close();
+                                                    System.err.println(
+                                                            (Arrays.toString(key)).replaceAll("null", "\u0000"));
+                                                    System.err.println(correctKey);
 
-                                                break;
+                                                    break;
+                                                }
                                             }
                                         }
                                     }
-
                                 }
                             }
                         }
@@ -6386,6 +6387,61 @@ public class SubstitutionCracker {
                 }
             }
         }
+
+        //green 2022/2/20 edits
+        System.err.println(
+                (Arrays.toString(key))
+                        .replaceAll("null",
+                                "\u0000"));
+        ArrayList<String> missing = new ArrayList<>();
+        for (char a: alphabet){
+            if (!charSet.contains(key, String.valueOf(a), true)){
+                missing.add(String.valueOf(a));
+            }
+        }
+        System.err.println(missing);
+        Permute permute = new Permute(missing, 0, missing.size());
+        ArrayList<String> permutations = permute.get();
+        System.err.println(permutations);
+        ArrayList<ArrayList<String>> keys = new ArrayList<>();
+        for (int i = 0; i < permutations.size(); i++) {
+            ArrayList<String> possibleKey = new ArrayList<>();
+            int space = 0;
+            for (String k : key) {
+                if (k != null) {
+                    possibleKey.add(k);
+                }
+                if (k == null) {
+                    possibleKey.add(String.valueOf(permutations.get(i).charAt(space)));
+                    space++;
+                }
+            }
+            keys.add(possibleKey);
+        }
+        for (ArrayList<String> possibleKey:keys){
+            System.err.println(possibleKey);
+        }
+
+        ArrayList<String[]> KEYS = new ArrayList<>();
+        for (ArrayList<String> arrayList : keys) {
+            KEYS.add(charSet.StringArrayListToStringArray(arrayList));
+        }
+        for (String[] possibleKey: KEYS){
+            SubstitutionDeciphered decipherer = new SubstitutionDeciphered(cipher, possibleKey);
+            String attemptedSolve = decipherer.get();
+            if (attemptedSolve.contains("\sthe\s") && attemptedSolve.contains("and\s") && (attemptedSolve.contains("\sbe\s"))){
+                key = possibleKey;
+                solved = attemptedSolve;
+                isSolved = true;
+            }
+        }
+        System.err.println("\n"+Arrays.toString(key) + " KEEEEYYYYYY!!!!!");
+        System.err.println(correctKey + " correctKey");
+        //green end edits
+
+        /*yellow commented out on 2022/2/20. This may be useful so do not disregard it. It was just commented out to take away some of the background outputs so I could focus on the experimental code above in the "green" edits.
+
+
         boolean[] has = new boolean[] { hasA, hasB, hasC, hasD, hasE, hasF, hasG, hasH, hasI, hasJ, hasK, hasL, hasM,
                 hasN, hasO, hasP, hasQ, hasR, hasS, hasT, hasU, hasV, hasW, hasX, hasY, hasZ };
         boolean hasAll = true;
@@ -6415,6 +6471,8 @@ public class SubstitutionCracker {
                 solved = bruteForcer.getSolved();
             }
         }
+
+         */
     }
 
     // 'a','b','c','d','e','f','g', red <--6
@@ -6577,17 +6635,17 @@ public class SubstitutionCracker {
     }
 
     public static void main(String[] args) {
-
 //        test0();
 //        test1();
 //        test2();
-//        test3();
+        test3();
 //        test4();
-          test5();
+//        test5();
     }
     private static void test5(){
         SubstitutionPair source = charSet.getCipher5();
         SubstitutionCracker test = new SubstitutionCracker(source.getCipher(), source.getKey());
+
     }
     private static void test4() {
         SubstitutionPair source = charSet.getCipher4();
@@ -6607,6 +6665,8 @@ public class SubstitutionCracker {
     }
         private static void test0() {
         SubstitutionPair source = charSet.getCipher0();
+            System.out.println(source.getCipher());
+            System.out.println(source.getKey());
         SubstitutionCracker test = new SubstitutionCracker(source.getCipher(), source.getKey());
     }
 }

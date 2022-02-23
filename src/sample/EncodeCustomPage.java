@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,8 +9,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import java.awt.event.MouseEvent;
 
 public class EncodeCustomPage extends StackPane {
     private double w;
@@ -70,11 +67,19 @@ public class EncodeCustomPage extends StackPane {
 //        FlagCipher.setOnAction(actionEvent -> new FlagCipherPage());
         EmojEncode.setOnAction(actionEvent -> {
             Stage s = (Stage) getScene().getWindow();
-            String[] sa = new String[]{"😀","😃","😄","😁","😆","😅","😂","🤣","🥲","☺️","😊","😇","🙂","🙃","😉","😌","😍","🥰","😘","😗","😙","😚","😋","😛","😝","😜","🤪","🤨","🧐","🤓","😎","🥸","🤩","🥳","😏","😒","😞","😔","😟","😕","🙁","☹️","😣","😖","😫","😩","🥺","😢","😭","😤","😠","😡","🤬","🤯","😳","🥵","🥶","😱","😨","😰","😥","😓","🤗","🤔","🤭","🤫","🤥","😶","😐","😑","😬","🙄","😯","😦","😧","😮","😲","🥱","😴","🤤","😪","😵","🤐"};
-            Parent root = new PresetKeyEncodePage(sa, charSet.getLongAlphabet());
+            Parent root = new PresetKeyEncodePage(charSet.getEmojis(), charSet.getLongAlphabet());
             s.setMinWidth(100);
             s.setMinHeight(100);
             s.setTitle("EmojEncode");
+            s.setScene(new Scene(root, 1440, 800));
+            s.show();
+        });
+        PolySymbolic.setOnAction(actionEvent -> {
+            Stage s = (Stage) getScene().getWindow();
+            Parent root = new PolyChoicePage();
+            s.setMinWidth(100);
+            s.setMinHeight(100);
+            s.setTitle("Options for encoding with polysymbolic character sets");
             s.setScene(new Scene(root, 1440, 800));
             s.show();
         });

@@ -23,7 +23,11 @@ public class CharSet {
 
     public static void main(String[] args) throws FileNotFoundException {
         CharSet charSet = new CharSet();
-//        System.out.println(charSet.deriveFontSize("""
+//        System.out.println(charSet.scramble("Α α Β β Γ γ Δ δ Ε ε Ζ ζ Η η Θ θ Ι ι Κ κ Λ λ Μ μ Ν ν Ξ ξ Ο ο Π π Ρ ρ Σ σ ς Τ τ Υ υ Φ φ Χ χ Ψ ψ Ω ω",true));
+//        System.out.println(charSet.scramble("C c D d e F f G g h i J j k L l m n o p Q q R r S s t U u V v W w x", true));
+//        charSet.printlnStringToStringArray("Ε Ζ Υ τ Η Ω Ν Χ ι χ σ γ κ Ι η Κ ν ρ ψ Π Α λ ω ς Θ υ μ Δ Φ ζ Ρ ε φ Σ ο Μ β Ο Λ Β δ Τ α Ψ θ π Γ ξ Ξ " +
+//                "J c p n L e C i U k u S W s D d R q r Q w g l m v F h o G t x f V j ");
+        //        System.out.println(charSet.deriveFontSize("""
 //                  font-family: "Snell Roundhand", cursive;
 //                  font-size:28pt;
 //                  line-height:2;
@@ -78,8 +82,67 @@ public class CharSet {
     private char[] ignorers;
     private char[] wholeShebang;
     private String etaoin;
+    private final String[] emojis = new String[]{"😀","😃","😄","😁","😆","😅","😂","🤣","🥲","☺️","😊","😇","🙂","🙃","😉","😌","😍","🥰","😘","😗","😙","😚","😋","😛","😝","😜","🤪","🤨","🧐","🤓","😎","🥸","🤩","🥳","😏","😒","😞","😔","😟","😕","🙁","☹️","😣","😖","😫","😩","🥺","😢","😭","😤","😠","😡","🤬","🤯","😳","🥵","🥶","😱","😨","😰","😥","😓","🤗","🤔","🤭","🤫","🤥","😶","😐","😑","😬","🙄","😯","😦","😧","😮","😲","🥱","😴","🤤","😪","😵","🤐"};
+    private final String[] handEmojis = new String[]{"👋🏻","🤚🏻","🖐🏻","✋🏻","🖖🏻","👌🏻","🤌🏻","🤏🏻","✌🏻","🤞🏻","🤟🏻","🤘🏻","🤙🏻","👈🏻","👉🏻","👆🏻","🖕🏻","👇🏻","☝🏻","👍🏻","👋🏼","🤚🏼","🖐🏼","✋🏼","🖖🏼","👌🏼","🤌🏼","🤏🏼","✌🏼","🤞🏼","🤟🏼","🤘🏼","🤙🏼","👈🏼","👉🏼","👆🏼","🖕🏼","👇🏼","☝🏼","👍🏼","👋🏽","🤚🏽","🖐🏽","✋🏽","🖖🏽","👌🏽","🤌🏽","🤏🏽","✌🏽","🤞🏽","🤟🏽","🤘🏽","🤙🏽","👈🏽","👉🏽","👆🏽","🖕🏽","👇🏽","☝🏽","👍🏽","👋🏾","🤚🏾","🖐🏾","✋🏾","🖖🏾","👌🏾","🤌🏾","🤏🏾","✌🏾","🤞🏾","🤟🏾","🤘🏾","🤙🏾","👈🏾","👉🏾","👆🏾","🖕🏾","👇🏾","☝🏾","👍🏾","👎🏾","✊🏾","👊🏾"};
+    private final String[] foodEmojis = new String[]{"🍏","🍎","🍐","🍊","🍋","🍌","🍉","🍇","🍓","🫐","🍈","🍒","🍑","🥭","🍍","🥥","🥝","🍅","🍆","🥑","🥦","🥬","🥒","🌶","🫑","🌽","🥕","🫒","🧄","🧅","🥔","🍠","🥐","🥯","🍞","🥖","🥨","🧀","🥚","🍳","🧈","🥞","🧇","🥓","🥩","🍗","🍖","🦴","🌭","🍔","🍟","🍕","🫓","🥪","🥙","🧆","🌮","🌯","🫔","🥗","🥘","🫕","🥫","🍝","🍜","🍲","🍛","🍣","🍱","🥟","🦪","🍤","🍙","🍚","🍘","🍥","🥠","🥮","🍢","🍡","🍧","🍨","🍦"};
+    private final String[] animalEmojis= new String[]{"🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🦦","🐨","🐯","🦁","🐮","🐷","🐽","🐸","🐵","🙈","🙉","🙊","🐒","🐔","🐧","🐦","🐤","🐣","🐥","🦆","🦅","🦉","🦇","🐺","🐗","🐴","🦄","🐝","🪱","🐛","🦋","🐌","🐞","🐜","🪰","🪲","🪳","🦟","🦗","🕷","🕸","🦂","🐢","🐍","🦎","🦖","🦕","🐙","🦑","🦐","🦞","🦀","🐡","🐠","🐟","🐬","🐳","🐋","🦈","🐊","🐅","🐆","🦓","🦍","🦧","🦣","🐘","🦛","🦏","🐪","🐫","🦒","🦘","🦬","🐃"};
+    private final String[] Polysymbolic= new String[]{"˜","º","ª","Ω","µ","÷","·","¨","≥Ú","¡","´", "˝","®", "“","ç", "π","‹","≠","Ó","Ï","¸4¯","∆•","¶","◊", "Ò", "ƒ","…","˘","Å","–","†","∞","", "Æ","√","€","‡","¥","¿","1","˛", "Ô", "œ","Í", "Î","¬", "ı", "ﬁ", "∑", "∫","≈","˚","‘","—","æ","å","˙", "§", "™", "ß","≤","Â", "ˆ","©","«", "ø","›","˜","ﬂ","⁄", "Ç", "°", "∂", "¢", "£","±", "ā", "ē", "ī", "ō", "ū", "ä", "ë"};
+    private final String[] Greek = new String[]{"Ε","Ζ","Υ","τ","Η","Ω","Ν","Χ","ι","χ","σ","γ","κ","Ι","η","Κ","ν","ρ","ψ","Π","Α","λ","ω","ς","Θ","υ","μ","Δ","Φ","ζ","Ρ","ε","φ","Σ","ο","Μ","β","Ο","Λ","Β","δ","Τ","α","Ψ","θ","π","Γ","ξ","Ξ","J","c","p","n","L","e","C","i","U","k","u","S","W","s","D","d","R","q","r","Q","w","g","l","m","v","F","h","o","G","t","x","f","V","j"};
+
+    public String[] getEmojis() {return emojis;}
+    public String[] getHandEmojis() {return handEmojis;}
+    public String[] getFoodEmojis() {return foodEmojis;}
+    public String[] getAnimalEmojis() {return animalEmojis;}
+    public String[] getPolysymbolic() {return Polysymbolic;}
+    public String[] getGreek() {return Greek;}
 
     math mathematics = new math();
+
+    public boolean contains(String[] array, String element, boolean ignoreCase){
+        boolean rtn = false;
+        for (String string:array){
+            if (string != null && element != null) {
+                if (ignoreCase) {
+                    if (string.equalsIgnoreCase(element)) {
+                        rtn = true;
+                        break;
+                    }
+                }
+                if (!ignoreCase) {
+                    if (string.equals(element)) {
+                        rtn = true;
+                        break;
+                    }
+                }
+            }
+        }
+        return rtn;
+
+    }
+    public String scramble (String string, boolean spacesBetweenEach){
+        ArrayList<Character> chars = new ArrayList<>();
+        char[] ch = string.toCharArray();
+        for (char c : ch) {
+            if (c != ' ') {
+                chars.add(c);
+            }
+        }
+
+        ArrayList<Character> characters = new ArrayList<>();
+        Random random = new Random();
+        while (chars.size() > 1){
+            int index = random.nextInt(chars.size());
+            characters.add(chars.get(index));
+            chars.remove(index);
+        }
+        characters.add(chars.get(0));
+        StringBuilder sb = new StringBuilder();
+        for (char c: characters){
+            sb.append(c);
+            if (spacesBetweenEach) {sb.append("\s");}
+        }
+        return sb.toString();
+    }
     public boolean containsPermutationsOfTwoChars(String input){
         boolean rtn = false;
         ArrayList<String> all3LongPermutations = new ArrayList<>();
@@ -143,8 +206,11 @@ public class CharSet {
         StringBuilder sb = new StringBuilder();
         sb.append("String[] = new String[]{");
         ArrayList<String> split = StringToStringArrayList(in.split(" "));
-
-        System.out.println(split);
+        for (int i = 0; i < split.size(); i++) {
+            if (split.get(i).equals(" ") || split.get(i).equals("")){
+                split.remove(i);
+            }
+        }
         for (int i = 0; i < split.size()-1; i++) {
             sb.append("\"").append(split.get(i)).append("\",");
         }
@@ -281,13 +347,14 @@ public class CharSet {
         etaoin = etao.get();
     }
     public SubstitutionPair getCipher5(){
-        return new SubstitutionPair("""
-                Tllw nlimrmt Kivhrwvmg Gzboli, Ylziw lu Gifhgvvh, uzxfogb, kzivmgh, uznrob, uirvmwh, gsv xlnnfmrgb lu Tzovhyfit, gsv xozhh lu 1955 -- dsrxs R fmwvihgzmw dzh lfg kzigbrmt ozhg mrtsg, zmw bvg hgroo hsldvw fk sviv lm grnv -- zmw nlhg lu zoo, gsv Xozhh lu 2005. Xlmtizgfozgrlmh lm blfi tizwfzgrlm, zmw gszmp blf -- gszmp blf uli gsv slmli lu zooldrmt nv gl yv z kzig lu rg. Gszmp blf zohl, Ni. Kivhrwvmg, uli gsrh slmlizib wvtivv. Rg dzh lmob z xlfkov lu bvzih ztl gszg R hglkkvw kzbrmt nb hgfwvmg olzmh rm ozd hxsllo. Szw R pmldm rg dzh gsrh vzhb, R dlfow szev izm [hrx] uli gsv Fmrgvw Hgzgvh Hvmzgv vziorvi.
-                               """, "zyxwvutsrqponmlkjihgfedcba");
+        SubstitutionPair pair = new SubstitutionPair(null, null);
+        pair.setCipher("Tllw nlimrmt Kivhrwvmg Gzboli, Ylziw lu Gifhgvvh, uzxfogb, kzivmgh, uznrob, uirvmwh, gsv xlnnfmrgb lu Tzovhyfit, gsv xozhh lu 1955 -- dsrxs R fmwvihgzmw dzh lfg kzigbrmt ozhg mrtsg, zmw bvg hgroo hsldvw fk sviv lm grnv -- zmw nlhg lu zoo, gsv Xozhh lu 2005. Xlmtizgfozgrlmh lm blfi tizwfzgrlm, zmw gszmp blf -- gszmp blf uli gsv slmli lu zooldrmt nv gl yv z kzig lu rg. Gszmp blf zohl, Ni. Kivhrwvmg, uli gsrh slmlizib wvtivv. Rg dzh lmob z xlfkov lu bvzih ztl gszg R hglkkvw kzbrmt nb hgfwvmg olzmh rm ozd hxsllo. Szw R pmldm rg dzh gsrh vzhb, R dlfow szev izm [hrx] uli gsv Fmrgvw Hgzgvh Hvmzgv vziorvi.");
+        pair.setKey("zyxwvutsrqponmlkjihgfedcba");
+        return pair;
     }
     public SubstitutionPair getCipher4(){
-
-    return new SubstitutionPair("""
+        SubstitutionPair pair = new SubstitutionPair(null, null);
+        pair.setCipher("""
 D orep pa xsvrqw pwdj gasedeu ksag pwv jltbvqp: “Pwv Tdspw ak r Evo Erpdae.” Rey D oalcy cdiv pa ljv rj r trjdj kas als pwdeideu pauvpwvs, r jpasz pwrp wrj caeu jdeqv tvve jpveqdcvy ae pwv gveprc jwvvpj ak jlqqvvydeu uvevsrpdaej. Dp dj pwv jpasz ak pwv Vmaylj, pwv jpasz ak pwv kcduwp ak pwv Wvtsvo xvaxcv ksag pwv taeyruv ak Vuzxp, pwsaluw pwv odcyvsevjj rey kderccz, pa pwv Xsagdjvy Crey. Dp’j r tvrlpdklc jpasz. D wry pwv xsdndcvuv pwv apwvs eduwp ak jvvdeu pwv jpasz de gandv pvsgj de Evo Zasi Qdpz, vepdpcvy pwv “Pve Qaggreygvepj” rey D qrgv pa jvv dp de rcc ak dpj tvrlpz. Pwv jpsluucv ak Gajvj, pwv jpsluucv ak wdj yvnapvy kaccaovsj rj pwvz jaluwp pa uvp alp ak Vuzxp. Rey pwvz kderccz ganvy ae pa pwv odcyvsevjj rey paorsy pwv Xsagdjvy Crey. Pwdj dj jagvpwdeu ak pwv jpasz ak vnvsz xvaxcv jpsluucdeu kas ksvvyag. Dp dj pwv kdsjp jpasz ak gre’j vmxcdqdp flvjp kas ksvvyag. Rey dp yvgaejpsrpvj pwv jpruvj pwrp jvvg pa devndprtcz kaccao pwv flvjp kas ksvvyag.
 
 Xsdas pa Grsqw pwv jdmpw, 1957, pwvsv vmdjpvy r qalepsz ieaoe rj pwv Uacy Qarjp. Pwdj qalepsz orj r qacaez ak pwv Tsdpdjw Vgxdsv. Pwdj qalepsz orj jdplrpvy de pwrp nrjp qaepdevep ieaoe rj Rksdqr. D’g jlsv zal ieao r usvrp yvrc rtalp Rksdqr, pwrp qaepdevep odpw jagv poa wleysvy gdccdae xvaxcv, rey dp vmpveyj rey qanvsj r usvrp yvrc ak pvssdpasz. Pwvsv rsv grez krgdcdrs ergvj rjjaqdrpvy odpw Rksdqr pwrp zal oalcy xsatrtcz svgvgtvs, rey pwvsv rsv jagv qalepsdvj de Rksdqr pwrp grez xvaxcv evnvs svrcdhv. Kas dejpreqv, Vuzxp dj de Rksdqr. Rey pwvsv dj pwrp nrjp rsvr ak Easpw Rksdqr odpw Vuzxp rey Vpwdaxdr, odpw Pledjdr rey Rcuvsdr rey Gasaqqa, rey Cdtzr. Pwve zal gduwp ganv pa Jalpw Rksdqr, rey zal pwdei ak pwrp vmpvejdnv pvssdpasz ieaoe rj pwv Ledae ak Jalpw Rksdqr. Pwvsv dj pwrp qrxdprc qdpz Bawreevjtlsu pwrp zal svry ja glqw rtalp pwvjv yrzj. Pwve pwvsv dj qvepsrc Rksdqr odpw xcrqvj cdiv Swayvjdr rey pwv Tvcudre Qaeua. Rey pwve pwvsv dj Vrjp Rksdqr odpw xcrqvj cdiv Ivezr rey Preurezdir, rey xcrqvj cdiv Lureyr rey apwvs nvsz xaovsklc qalepsdvj sduwp pwvsv. Rey pwve zal ganv anvs pa Ovjp Rksdqr owvsv zal kdey pwv Ksveqw Ovjp Rksdqr rey Eduvsdr, rey Cdtvsdr rey Jdvssr Cvaev rey xcrqvj cdiv pwrp. Rey dp dj de pwdj jxap, de pwdj jvqpdae ak Rksdqr, pwrp ov kdey pwv Uacy Qarjp, pwvsv de Ovjp Rksdqr.
@@ -296,11 +363,13 @@ Zal rcja ieao pwrp kas zvrsj rey kas qveplsdvj, Rksdqr wrj tvve aev ak pwv gajp 
 
 Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe rj Rksdqr. Dp’j r cdppcv qalepsz pwvsv de Ovjp Rksdqr rtalp edevpz-aev pwaljrey gdcvj de rsvr, odpw r xaxlcrpdae ak rtalp kdnv gdccdae xvaxcv, r cdppcv gasv pwre kals rey r wrck gdccdae. Rey dp jpreyj pwvsv odpw dpj qrxdprc qdpz, Rqqsr. Kas zvrsj pwv Uacy Qarjp orj vmxcadpvy rey yagderpvy rey psrgxcvy anvs. Pwv kdsjp Vlsaxvre jvppcvsj qrgv de pwvsv rtalp 1444, pwv Xasplulvjv, rey pwvz jprspvy cvudpdgrpv psryv odpw pwv xvaxcv de pwv Uacy Qarjp. Pwvz jprspvy yvrcdeu odpw pwvg odpw pwvds uacy, rey de plse pwvz urnv pwvg ulej rey rggledpdae rey ulexaoyvs rey pwrp pzxv ak pwdeu. Ovcc, xsvppz jaae Rgvsdqr orj ydjqanvsvy r kvo zvrsj crpvs de pwv kalspvve wleysvyj, rey pwve pwv Tsdpdjw Ovjp Deydvj. Rey rcc ak pwvjv usaodeu ydjqanvsdvj tsaluwp rtalp pwv jcrnv psryv.
 
-                ""","rtqyvkuwdbicgeaxfsjplnomzh");
-
+                """);
+        pair.setKey("rtqyvkuwdbicgeaxfsjplnomzh");
+        return pair;
     }
     public SubstitutionPair getCipher3(){
-        return new SubstitutionPair("""
+        SubstitutionPair pair = new SubstitutionPair(null, null);
+        pair.setCipher("""
                 Hggqmz uc gdh qhpzuqugc, agkm gi da imeq qtpq qg lm plpczgcmz ly tdkpcuqy qtmc opa cgq qtm dequkpqm. Om imeq qtpq qg lm plpczgcmz ly Vgz opa ogham qtpc qg lm wdcuatmz ly Tuk. Lmqqmh pc dcsdaq Vgz qtpc pc uczuiimhmcq gcm. Igh da qg lm uvcghmz ly Vgz opa p tphatmh wdcuatkmcq qtpc qg lm p nujquk gi Tua pcvmh. Kpc jpc eunm iph ihgk Vgz -- cgq gdqauzm Vgz. Vgz ua otmhmnmh om phm. Mnmc uc adiimhucv? Mnmc uc adiimhucv.
                                 
                 Uc p opy, qg lm uczuiimhmcq qg qtpq adiimhucv ua otpq kpxma qtm tdkpc lmucv uctdkpc. Uczuiimhmcjm, piqmh pee, ua kghm zpcvmhgda qtpc pcvmh pcz tpqhmz. Pcvmh jpc pq qukma lm jhmpqunm. Gcm ohuqma p vhmpq wgmk, p vhmpq aykwtgcy. Gcm zgma agkmqtucv awmjupe igh qtm apxm gi tdkpcuqy lmjpdam gcm ua pcvhy pq qtm ucsdaqujm qtpq gcm ouqcmaama. Ldq uczuiimhmcjm ua cmnmh jhmpqunm. Mnmc tpqhmz pq qukma kpy meujuq p hmawgcam. Ygd iuvtq uq. Ygd zmcgdcjm uq. Ygd zuaphk uq.
@@ -318,10 +387,13 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
                 Pcz gdh gcey kuamhplem jgcagepqugc opa qtpq om lmeumnmz qtpq Pdajtouqb pcz Qhmleucxp omhm jegamey vdphzmz amjhmqa; qtpq qtm empzmha gi qtm ihmm oghez zuz cgq xcgo otpq opa vgucv gc lmtucz qtgam lepjx vpqma pcz lphlmz ouhm; qtpq qtmy tpz cg xcgoemzvm gi qtm oph pvpucaq qtm Smoa qtpq Tuqemh'a phkuma pcz qtmuh pjjgkweujma opvmz pa wphq gi qtm oph pvpucaq qtm Peeuma. Ui qtmy xcmo, om qtgdvtq, adhmey qtgam empzmha ogdez tpnm kgnmz tmpnmc pcz mphqt qg ucqmhnmcm. Qtmy ogdez tpnm awgxmc gdq ouqt vhmpq gdqhpvm pcz jgcnujqugc. Qtmy ogdez tpnm lgklmz qtm hpueopya empzucv qg Luhxmcpd, sdaq qtm hpueopya, sdaq gcjm.
                                 
                 Pcz cgo om xcmo, om emphcmz, om zuajgnmhmz qtpq qtm Wmcqpvgc xcmo, qtm Aqpqm Zmwphqkmcq xcmo. Pcz qtm ueedaqhugda gjjdwpcq gi qtm Otuqm Tgdam qtmc, otg opa p vhmpq empzmh -- pcz U apy uq ouqt agkm pcvduat pcz wpuc, lmjpdam, qgzpy ua mrpjqey 54 ympha kphxucv tua zmpqt -- Ihpcxeuc Zmepcg Hggamnmeq zumz gc Pwhue qtm 12qt, 1945. Ag tm ua nmhy kdjt whmamcq qg km pcz qg da. Cg zgdlq, tm opa p vhmpq empzmh. Tm kglueubmz qtm Pkmhujpc wmgwem pcz qtm oghez, vgucv ucqg lpqqem, lhucvucv tdczhmza pcz qtgdapcza gi npeupcq pcz lhpnm agezumha uc Pkmhujp qg iuvtq ipajuak, qg iuvtq zujqpqghatuw, qg iuvtq Tuqemh. Pcz ag kpcy gi qtm ygdcv wmgwem imee uc lpqqem. Pcz, cmnmhqtmemaa, tua ukpvm uc Smouat tuaqghy -- U kdaq apy uq -- tua ukpvm uc Smouat tuaqghy ua iepomz.                                
-                ""","pljzmivtusxekcgwfhaqdnoryb");
+                """);
+        pair.setKey("pljzmivtusxekcgwfhaqdnoryb");
+        return pair;
     }
     public SubstitutionPair getCipher2(){
-        return new SubstitutionPair("""
+        SubstitutionPair pair = new SubstitutionPair(null, null);
+                pair.setCipher("""
                 Re yowj peveuzc f cqznqfy jhfj rsuu pqsve jhe ifjszi jz f nofqfijeep fiiofu sixzye. Izr, efqub si jhsw xeijoqb jhsw
                 cqzczwfu rzoup hfve deei nqeejep rsjh qspsxoue fip peioixsfjszi, fw pewjqoxjsve zl sisjsfjsve fip qewcziwsdsusjb. Fj
                 jhfj jsye exzizysx wjfjow rfw xziwspeqep jhe yefwoqe zl jhe sipsvspofu'w fdsusjb fip jfueijw. Fip, si jhe jhsitsin zl
@@ -482,10 +554,13 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
                 jhe Dsdue sw qsnhj: "De izj pexesvep, Nzp sw izj yzxtep. Rhfjwzeveq f yfi wzrejh, jhfj whfuu he fuwz qefc." Jhsw sw
                 zoq hzce lzq jhe lojoqe, fip rsjh jhsw lfsjh re rsuu de fdue jz wsin si wzye izj jzz pswjfij jzyzqqzr rsjh f xzwysx cfwj
                 jeiwe, "Re hfve zveqxzye, re hfve zveqxzye, peec si yb hefqj, S psp deuseve re rzoup zveqxzye."
-                ""","fdxpelnhsatuyizcgqwjovrkbm");
+                """);
+                pair.setKey("fdxpelnhsatuyizcgqwjovrkbm");
+                return pair;
     }
     public SubstitutionPair getCipher1(){
-        return new SubstitutionPair(
+        SubstitutionPair pair = new SubstitutionPair(null, null);
+        pair.setCipher(
                 """
                         Cffl zyzeoec.
                         Nflti, fpj wzhhfs donomzeq, fpj sti fw howz, fpj yzji wjzzlfa dtaz pelzj tnntdx oe t qzjozq fw\s
@@ -531,14 +606,15 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
                         zyzj wfjczn nuoq lti, izn sz cf wfjstjl nf lzwzel wjzzlfa tel thh nutn oq cffl tel bpqn oe fpj\s
                         sfjhl.
                         Nutex ifp. Cffl eocun. Tel Cfl khzqq Tazjodt.
-                        """,
-                "tkdlzwcuobxhaefgrjqnpysvim");
+                        """);
+
+                pair.setKey("tkdlzwcuobxhaefgrjqnpysvim");
+                return pair;
     }
 
     public SubstitutionPair getCipher0() {
-
-        return new SubstitutionPair(
-                """
+        SubstitutionPair pair = new SubstitutionPair(null, null);
+        pair.setCipher("""
                         Qicpcbuy
                                                      
                                        OL’H XYYD EPZCHL lyd tyeih hodky O voihl ied vci qcpolokep cvvoky. O weh lroilt-vogy el lry lozy, vcui tyeih cul cv pew hkrccp, iykydlpt zeiioyf, edf bydyieppt ozqeloydl wolr povy. E hyel od lry Oppodcoh pybohpeluiy ref cqydyf uq, edf hygyiep vioydfh hubbyhlyf lrel O iud, lrodsodb lrel zt wcis eh e kogop iobrlh pewtyi, edf kcdleklh vicz zt feth eh e kczzudolt cibedonyi, wcupf zesy zy e goexpy kedfofely. Evlyi fohkuhhodb ol wolr zt wovy, O ydlyiyf lry ieky edf qickyyfyf lc fc wrel ygyit voihl-lozy kedfofely fcyh: O lepsyf lc edtcdy wrc wcupf pohlyd. O wydl lc xpcks kpux zyylodbh edf kruikr hckoeph, xyeult hrcqh edf xeixyihrcqh. Ov lwc buth wyiy hledfodb cd e kcidyi, O wcupf kichh lry hliyyl lc redf lryz kezqeobd polyieluiy. Edf ygyitwryiy O wydl, O’f byl hczy gyihocd cv lry hezy lwc auyhlocdh.
@@ -627,8 +703,11 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
                                                      
                                        Lry Hydely krezxyi oh dcl lry zchl xyeulovup hqeky od lry Keqolcp, xul ol oh ozqchodb dcdylrypyhh. Lry fud-kcpciyf wepph eiy hyl cvv xt qedyph cv xpuy fezehs edf kcpuzdh cv vodypt gyodyf zeixpy. Cgyiryef, lry kyopodb vcizh e kiyezt wroly cgep, wolr ed Ezyioked yebpy ylkryf od olh kydlyi. Excgy lry goholcih’ beppyit, lry xuhlh cv lry delocd’h voihl lwydlt goky qiyhofydlh hol od hcpyzd iyqchy.
                                                      
-                        """,
-                "exkfyvbromspzdcqaihlugwjtn");
+                        """);
+
+
+                pair.setKey("exkfyvbromspzdcqaihlugwjtn");
+                return pair;
         }
         public static File getPureMLK11(){
             return new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Pure-MLK-11-Speeches.txt");
@@ -1369,6 +1448,13 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
             stringArray[i]=String.valueOf(charArray[i]);
         }
         return stringArray;
+    }
+    public String[] StringArrayListToStringArray(ArrayList<String> arrayList){
+        String[] rtn = new String[arrayList.size()];
+        for (int i = 0; i < arrayList.size(); i++) {
+            rtn[i] = arrayList.get(i);
+        }
+        return rtn;
     }
     public ArrayList<String>StringToStringArrayList(String[] stringArray){
         ArrayList<String> stringArrayList = new ArrayList<>();

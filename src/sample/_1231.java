@@ -16,7 +16,7 @@ public class _1231 {
                         if (!second.equalsIgnoreCase(fourth)) {
                             if (!third.equalsIgnoreCase(first)) {
                                 if (!third.equalsIgnoreCase(fourth)) {
-                                    this.is = true;
+                                    is = true;
                                 }
                             }
                         }

@@ -26,7 +26,7 @@ public class VigenereCipher {
         }
         String l = d.toString();
         String m = charSet.inheritForm(l, text);
-        this.s = m;
+        s = m;
     }
     public String get(){
         return s;

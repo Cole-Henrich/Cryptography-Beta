@@ -21,7 +21,7 @@ public class SubstitutionBruteForcer {
         int maxPossiblePermutations = math.factorial(nullCount);
         PermutationsArrayList allPermutations = new PermutationsArrayList(MissingChars);
         for (ArrayList<String> permuted : allPermutations) {
-            for (int i = 0; i < permuted.size(); i++) {
+            for (int i = 0; i < permuted.size() /*green 2022/2/20 edit*/&& i < nullIndices.length/*green end*/; i++) {
                 int nullIndex = nullIndices[i];
                 Key[nullIndex] = permuted.get(i);
             }
