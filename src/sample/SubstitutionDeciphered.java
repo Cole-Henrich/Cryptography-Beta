@@ -28,7 +28,7 @@ public class SubstitutionDeciphered {
                         break;
                     }
                 }
-            }
+           }
         }
         solved = sb.toString();
     }

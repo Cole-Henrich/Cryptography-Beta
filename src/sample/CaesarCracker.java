@@ -28,8 +28,19 @@ public class CaesarCracker {
                     shift = i;
                     solved = attempt.toString();
                     solution = files[i];
-                    this.key = new CaesarKey(shift).get();
-            }
+                    key = new CaesarKey(shift).get();
+                }
+                else {
+                    not_spanish not_spanish = new not_spanish(files[i]);
+                    if (!not_spanish.not_spanish()) {
+                        isSolved = true;
+                        shift = i;
+                        solved = attempt.toString();
+                        solution = files[i];
+                        key = new CaesarKey(shift).get();
+                    }
+                }
+
         }
     }
     private String transpositionOf(char letter, int shift){

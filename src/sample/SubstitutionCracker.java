@@ -6427,8 +6427,10 @@ public class SubstitutionCracker {
             KEYS.add(charSet.StringArrayListToStringArray(arrayList));
         }
         for (String[] possibleKey: KEYS){
-            SubstitutionDeciphered decipherer = new SubstitutionDeciphered(cipher, possibleKey);
-            String attemptedSolve = decipherer.get();
+//            SubstitutionDeciphered decipherer = new SubstitutionDeciphered(cipher, possibleKey);
+//            String attemptedSolve = decipherer.get();
+            SubstitutionDecodeWithKnownKey decoder = new SubstitutionDecodeWithKnownKey(cipher, charSet.getAlphabet(), possibleKey);
+            String attemptedSolve = decoder.getOutput();
             if (attemptedSolve.contains("\sthe\s") && attemptedSolve.contains("and\s") && (attemptedSolve.contains("\sbe\s"))){
                 key = possibleKey;
                 solved = attemptedSolve;

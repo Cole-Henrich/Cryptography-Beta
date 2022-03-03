@@ -10,11 +10,11 @@ public class BigArrayStore {
         ArrayStore1 as1 = new ArrayStore1();
         String[] _1 = as1.get();
 
-        ArrayStore1 as2 = new ArrayStore1();
+        ArrayStore2 as2 = new ArrayStore2();
         String[] _2 = as2.get();
-        ArrayStore1 as3 = new ArrayStore1();
+        ArrayStore3 as3 = new ArrayStore3();
         String[] _3 = as3.get();
-        ArrayStore1 as4 = new ArrayStore1();
+        ArrayStore4 as4 = new ArrayStore4();
         String[] _4 = as4.get();
 
         central = new ArrayList<>();
