@@ -36,6 +36,7 @@ public class Scan8L{
 
 public Scan8L(){
 System.err.println("new Scan8L");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner l_shall = new Scanner(SubstitutionCracker2.cipher);

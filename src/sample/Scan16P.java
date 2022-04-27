@@ -36,6 +36,7 @@ public class Scan16P{
 
 public Scan16P(){
 System.err.println("new Scan16P");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner p_up = new Scanner(SubstitutionCracker2.cipher);

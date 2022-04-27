@@ -36,6 +36,7 @@ public class Scan19K{
 
 public Scan19K(){
 System.err.println("new Scan19K");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner k_like = new Scanner(SubstitutionCracker2.cipher);

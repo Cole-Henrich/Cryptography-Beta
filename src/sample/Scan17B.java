@@ -36,6 +36,7 @@ public class Scan17B{
 
 public Scan17B(){
 System.err.println("new Scan17B");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner b_be = new Scanner(SubstitutionCracker2.cipher);

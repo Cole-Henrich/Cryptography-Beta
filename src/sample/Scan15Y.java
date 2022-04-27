@@ -36,6 +36,7 @@ public class Scan15Y{
 
 public Scan15Y(){
 System.err.println("new Scan15Y");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner y_they = new Scanner(SubstitutionCracker2.cipher);

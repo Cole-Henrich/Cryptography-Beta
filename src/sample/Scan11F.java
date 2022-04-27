@@ -36,6 +36,7 @@ public class Scan11F{
 
 public Scan11F(){
 System.err.println("new Scan11F");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner f_of = new Scanner(SubstitutionCracker2.cipher);

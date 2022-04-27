@@ -36,6 +36,7 @@ public class Scan7D{
 
 public Scan7D(){
 System.err.println("new Scan7D");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner d_and = new Scanner(SubstitutionCracker2.cipher);

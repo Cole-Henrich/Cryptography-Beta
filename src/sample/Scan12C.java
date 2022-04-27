@@ -36,6 +36,7 @@ public class Scan12C{
 
 public Scan12C(){
 System.err.println("new Scan12C");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner c_came = new Scanner(SubstitutionCracker2.cipher);

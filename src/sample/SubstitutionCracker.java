@@ -148,7 +148,7 @@ public class SubstitutionCracker {
 //        }
         // the
         Scanner e = new Scanner(cipher);
-        System.err.println("Scanner e");
+        System.err.println("Scanner e_the");
 
         while (e.hasNext()) {
             String next = e.next();

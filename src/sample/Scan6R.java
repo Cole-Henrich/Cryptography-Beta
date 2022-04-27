@@ -36,6 +36,7 @@ public class Scan6R{
 
 public Scan6R(){
 System.err.println("new Scan6R");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner r_her = new Scanner(SubstitutionCracker2.cipher);

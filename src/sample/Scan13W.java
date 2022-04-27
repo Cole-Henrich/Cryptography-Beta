@@ -36,6 +36,7 @@ public class Scan13W{
 
 public Scan13W(){
 System.err.println("new Scan13W");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner w_was = new Scanner(SubstitutionCracker2.cipher);

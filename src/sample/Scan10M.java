@@ -36,6 +36,7 @@ public class Scan10M{
 
 public Scan10M(){
 System.err.println("new Scan10M");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner m_him = new Scanner(SubstitutionCracker2.cipher);

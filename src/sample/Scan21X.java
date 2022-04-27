@@ -36,6 +36,7 @@ public class Scan21X{
 
 public Scan21X(){
 System.err.println("new Scan21X");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner x_next = new Scanner(SubstitutionCracker2.cipher);

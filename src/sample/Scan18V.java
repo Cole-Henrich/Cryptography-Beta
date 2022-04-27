@@ -36,6 +36,7 @@ public class Scan18V{
 
 public Scan18V(){
 System.err.println("new Scan18V");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner v_have = new Scanner(SubstitutionCracker2.cipher);

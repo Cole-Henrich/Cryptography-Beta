@@ -36,6 +36,7 @@ public class Scan9U{
 
 public Scan9U(){
 System.err.println("new Scan9U");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner u_thou = new Scanner(SubstitutionCracker2.cipher);

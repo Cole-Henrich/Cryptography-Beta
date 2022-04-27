@@ -36,6 +36,7 @@ public class Scan22Z{
 
 public Scan22Z(){
 System.err.println("new Scan22Z");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner z_seized = new Scanner(SubstitutionCracker2.cipher);

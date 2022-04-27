@@ -36,6 +36,7 @@ public class Scan14G{
 
 public Scan14G(){
 System.err.println("new Scan14G");
+    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner g_go = new Scanner(SubstitutionCracker2.cipher);

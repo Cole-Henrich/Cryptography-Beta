@@ -23,6 +23,7 @@ public class CharSet {
 
     public static void main(String[] args) throws FileNotFoundException {
         CharSet charSet = new CharSet();
+        System.out.println(charSet.charArrayPrintFormat("ΑαΒβΓγΔδΕεΖζΗηΘθΙιΚκΛλΜμΝνΞξΟοΠπΡρΣσςΤτΥυΦφΧχΨψΩωCcDdeFfGghiJjkLlmnopQqRrSstUuVvWwx".toCharArray()));
 //        System.out.println(charSet.scramble("Α α Β β Γ γ Δ δ Ε ε Ζ ζ Η η Θ θ Ι ι Κ κ Λ λ Μ μ Ν ν Ξ ξ Ο ο Π π Ρ ρ Σ σ ς Τ τ Υ υ Φ φ Χ χ Ψ ψ Ω ω",true));
 //        System.out.println(charSet.scramble("C c D d e F f G g h i J j k L l m n o p Q q R r S s t U u V v W w x", true));
 //        charSet.printlnStringToStringArray("Ε Ζ Υ τ Η Ω Ν Χ ι χ σ γ κ Ι η Κ ν ρ ψ Π Α λ ω ς Θ υ μ Δ Φ ζ Ρ ε φ Σ ο Μ β Ο Λ Β δ Τ α Ψ θ π Γ ξ Ξ " +
@@ -1523,6 +1524,16 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
         return a;
     }
 
-
-
+    public boolean containsAtLeastNOf(String string, int contains, String[] ofStrings) {
+        int n = 0;
+        for (String s : ofStrings) {
+            if (string.contains(s)) {
+                n++;
+            }
+            if (n >= contains) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
