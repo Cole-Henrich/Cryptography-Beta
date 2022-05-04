@@ -39,8 +39,17 @@ public class CaesarCracker {
                         solution = files[i];
                         key = new CaesarKey(shift).get();
                     }
+                    else {
+                        not_french not_french = new not_french(files[i]);
+                        if (!not_french.not_french()) {
+                            isSolved = true;
+                            shift = i;
+                            solved = attempt.toString();
+                            solution = files[i];
+                            key = new CaesarKey(shift).get();
+                        }
+                    }
                 }
-
         }
     }
     private String transpositionOf(char letter, int shift){
@@ -78,4 +87,5 @@ public class CaesarCracker {
     public int getShift(){return shift;}
     public File getSolution(){return solution;}
     public char[] getKey(){return key;}
+
 }

@@ -281,4 +281,5 @@ Ng Yhaql’f Uneqjner fur fgbccrq naq ybbxrq ng gur qvfcynl bs ivpgbel tneqra fu
         System.out.println(caesarCracker.getShift());
         System.out.println(caesarCracker.getSolution());
     }
+
 }

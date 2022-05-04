@@ -27,7 +27,6 @@ public class TopLevelDecrypter {
             key = caesarCracker.getKey();
             isSolved = true;
         }
-
         if (!isSolved) {
             substitutionCracker = new SubstitutionCracker(Cipher, hiddenKey);
             if (substitutionCracker.isSolved()){
