@@ -64,10 +64,10 @@ public class not_french {
         }
     }
     public not_french(File file) throws FileNotFoundException {
-        this(file, 0.5);
+        this(file, 0.3);
     }
     public not_french(String string){
-        this(string, 0.5);
+        this(string, 0.3);
     }
     public not_french(File file, double cutoff) throws FileNotFoundException {
         biggy = new BigArrayStore();

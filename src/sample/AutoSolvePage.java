@@ -28,6 +28,7 @@ public class AutoSolvePage extends StackPane {
     private TopLevelDecrypter topLevelDecrypter;
     private Time timeFromPaste;
     private Time timeFromClickDecode;
+    private String text;
     public AutoSolvePage(String cipher){
         this();
         textArea.setText(cipher);
@@ -56,7 +57,7 @@ public class AutoSolvePage extends StackPane {
         textArea.setMinHeight(300);
         textArea.setWrapText(true);
         textArea.setOnMouseMoved(mouseEvent -> {
-                String text = textArea.getText();
+                text = textArea.getText();
                 if (text.length() > 0){
                     if (!calcInProgress) {
                         timeFromPaste = new Time();
@@ -72,6 +73,11 @@ public class AutoSolvePage extends StackPane {
         decode.setOnAction(actionEvent -> {
             try {
                 timeFromClickDecode = new Time();
+                if (topLevelDecrypter == null){
+                    if (text != null) {
+                        topLevelDecrypter = new TopLevelDecrypter(text);
+                    }
+                }
                 ShowVoila();
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
@@ -94,7 +100,11 @@ public class AutoSolvePage extends StackPane {
             timeFromClickDecode.println();
             Stage s = (Stage) getScene().getWindow();
             CaesarCracker caesarCracker = topLevelDecrypter.getCaesar();
-            Parent root = new CaesarVoila(caesarCracker.getSolved(), caesarCracker.getShift(), "Caesar Cipher");
+            String extraInfo = "Caesar Cipher";
+            if (!caesarCracker.getLanguage().equals("English")){
+                extraInfo = "Caesar Cipher - "+caesarCracker.getLanguage();
+            }
+            Parent root = new CaesarVoila(caesarCracker.getSolved(), caesarCracker.getShift(), extraInfo);
             s.setMinWidth(100);
             s.setMinHeight(100);
             s.setTitle("Voila");

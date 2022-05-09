@@ -179,4 +179,8 @@ public class LetterGetter {
     public static void main(String[] args) throws FileNotFoundException {
         System.err.println("LetterGetter.main()");
     }
+
+    public String getLetter() {
+        return letter;
+    }
 }

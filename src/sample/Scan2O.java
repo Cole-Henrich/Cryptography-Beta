@@ -6,7 +6,7 @@ import java.util.Scanner;
 import static sample.SubstitutionCracker2.massCalc_notAnyOther;
 import static sample.SubstitutionCracker2.notAnotherVowel;
 
-public class Scan2O {
+public class Scan2O{
     private final int _a = 0;
     private final int _b = 1;
     private final int _c = 2;
@@ -34,22 +34,22 @@ public class Scan2O {
     private final int _y = 24;
     private final int _z = 25;
 
-    public Scan2O() {
+    public Scan2O(){
         System.err.println("new Scan2O");
-        System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+
 
         Scanner o_to = new Scanner(SubstitutionCracker2.cipher);
-        while (o_to.hasNext()) {
+        while(o_to.hasNext()){
             String next = o_to.next();
-            if (next.length() == 2) {
+            if (next.length()==2){
                 String first = String.valueOf(next.charAt(0));
                 String second = String.valueOf(next.charAt(1));
 
-                if (massCalc_notAnyOther(new String[] { first },
-                        new int[] { _t })) {
-                    if (notAnotherVowel(SubstitutionCracker2.key[_o], _o)) {
+                if(massCalc_notAnyOther(new String[]{first},
+                        new int[]{_t})){
+                    if (notAnotherVowel(second,_o)){
                         SubstitutionCracker2.key[_o] = second.toLowerCase();
-                        SubstitutionCracker2.hasO = true;
+                        SubstitutionCracker2.hasO=true;
                         System.err.println("SubstitutionCracker2.hasO=true; via Scanner o_to");
                         System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
                         System.err.println(SubstitutionCracker2.correctKey);
@@ -60,25 +60,24 @@ public class Scan2O {
                 }
             }
         }
-        if (!SubstitutionCracker2.hasO) {
+        if(!SubstitutionCracker2.hasO){
             o_to.close();
             Scanner o_too = new Scanner(SubstitutionCracker2.cipher);
-            while (o_too.hasNext()) {
+            while(o_too.hasNext()){
                 String next = o_too.next();
-                if (next.length() == 3) {
+                if (next.length()==3){
                     String first = String.valueOf(next.charAt(0));
                     String second = String.valueOf(next.charAt(1));
                     String third = String.valueOf(next.charAt(2));
 
-                    if (second.equalsIgnoreCase(third)) {
-                        if (massCalc_notAnyOther(new String[] { first },
-                                new int[] { _t })) {
-                            if (notAnotherVowel(SubstitutionCracker2.key[_o], _o)) {
+                    if(second.equalsIgnoreCase(third)){
+                        if(massCalc_notAnyOther(new String[]{first},
+                                new int[]{_t})){
+                            if (notAnotherVowel(second,_o)){
                                 SubstitutionCracker2.key[_o] = second.toLowerCase();
-                                SubstitutionCracker2.hasO = true;
+                                SubstitutionCracker2.hasO=true;
                                 System.err.println("SubstitutionCracker2.hasO=true; via Scanner o_too");
-                                System.err.println(
-                                        (Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
                                 System.err.println(SubstitutionCracker2.correctKey);
 
                                 o_too.close();
@@ -88,24 +87,23 @@ public class Scan2O {
                     }
                 }
             }
-            if (!SubstitutionCracker2.hasO) {
+            if(!SubstitutionCracker2.hasO){
                 o_too.close();
                 Scanner o_hot = new Scanner(SubstitutionCracker2.cipher);
-                while (o_hot.hasNext()) {
+                while(o_hot.hasNext()){
                     String next = o_hot.next();
-                    if (next.length() == 3) {
+                    if (next.length()==3){
                         String first = String.valueOf(next.charAt(0));
                         String second = String.valueOf(next.charAt(1));
                         String third = String.valueOf(next.charAt(2));
 
-                        if (massCalc_notAnyOther(new String[] { first, third },
-                                new int[] { _h, _t })) {
-                            if (notAnotherVowel(SubstitutionCracker2.key[_o], _o)) {
+                        if(massCalc_notAnyOther(new String[]{first,third},
+                                new int[]{_h,_t})){
+                            if (notAnotherVowel(second,_o)){
                                 SubstitutionCracker2.key[_o] = second.toLowerCase();
-                                SubstitutionCracker2.hasO = true;
+                                SubstitutionCracker2.hasO=true;
                                 System.err.println("SubstitutionCracker2.hasO=true; via Scanner o_hot");
-                                System.err.println(
-                                        (Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+                                System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
                                 System.err.println(SubstitutionCracker2.correctKey);
 
                                 o_hot.close();
@@ -114,26 +112,25 @@ public class Scan2O {
                         }
                     }
                 }
-                if (!SubstitutionCracker2.hasO) {
+                if(!SubstitutionCracker2.hasO){
                     o_hot.close();
                     Scanner o_toot = new Scanner(SubstitutionCracker2.cipher);
-                    while (o_toot.hasNext()) {
+                    while(o_toot.hasNext()){
                         String next = o_toot.next();
-                        if (next.length() == 4) {
+                        if (next.length()==4){
                             String first = String.valueOf(next.charAt(0));
                             String second = String.valueOf(next.charAt(1));
                             String third = String.valueOf(next.charAt(2));
                             String fourth = String.valueOf(next.charAt(3));
 
-                            if (second.equalsIgnoreCase(third)) {
-                                if (massCalc_notAnyOther(new String[] { first, fourth },
-                                        new int[] { _t, _t })) {
-                                    if (notAnotherVowel(SubstitutionCracker2.key[_o], _o)) {
+                            if(second.equalsIgnoreCase(third)){
+                                if(massCalc_notAnyOther(new String[]{first,fourth},
+                                        new int[]{_t,_t})){
+                                    if (notAnotherVowel(second,_o)){
                                         SubstitutionCracker2.key[_o] = second.toLowerCase();
-                                        SubstitutionCracker2.hasO = true;
+                                        SubstitutionCracker2.hasO=true;
                                         System.err.println("SubstitutionCracker2.hasO=true; via Scanner o_toot");
-                                        System.err.println((Arrays.toString(SubstitutionCracker2.key))
-                                                .replaceAll("null", "\u0000"));
+                                        System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
                                         System.err.println(SubstitutionCracker2.correctKey);
 
                                         o_toot.close();
@@ -143,25 +140,24 @@ public class Scan2O {
                             }
                         }
                     }
-                    if (!SubstitutionCracker2.hasO) {
+                    if(!SubstitutionCracker2.hasO){
                         o_toot.close();
                         Scanner o_oath = new Scanner(SubstitutionCracker2.cipher);
-                        while (o_oath.hasNext()) {
+                        while(o_oath.hasNext()){
                             String next = o_oath.next();
-                            if (next.length() == 4) {
+                            if (next.length()==4){
                                 String first = String.valueOf(next.charAt(0));
                                 String second = String.valueOf(next.charAt(1));
                                 String third = String.valueOf(next.charAt(2));
                                 String fourth = String.valueOf(next.charAt(3));
 
-                                if (massCalc_notAnyOther(new String[] { second, third, fourth },
-                                        new int[] { _a, _t, _h })) {
-                                    if (notAnotherVowel(SubstitutionCracker2.key[_o], _o)) {
+                                if(massCalc_notAnyOther(new String[]{second,third,fourth},
+                                        new int[]{_a,_t,_h})){
+                                    if (notAnotherVowel(first,_o)){
                                         SubstitutionCracker2.key[_o] = first.toLowerCase();
-                                        SubstitutionCracker2.hasO = true;
+                                        SubstitutionCracker2.hasO=true;
                                         System.err.println("SubstitutionCracker2.hasO=true; via Scanner o_oath");
-                                        System.err.println((Arrays.toString(SubstitutionCracker2.key))
-                                                .replaceAll("null", "\u0000"));
+                                        System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
                                         System.err.println(SubstitutionCracker2.correctKey);
 
                                         o_oath.close();
@@ -170,23 +166,22 @@ public class Scan2O {
                                 }
                             }
                         }
-                        if (!SubstitutionCracker2.hasO) {
+                        if(!SubstitutionCracker2.hasO){
                             o_oath.close();
                             Scanner o_oh = new Scanner(SubstitutionCracker2.cipher);
-                            while (o_oh.hasNext()) {
+                            while(o_oh.hasNext()){
                                 String next = o_oh.next();
-                                if (next.length() == 2) {
+                                if (next.length()==2){
                                     String first = String.valueOf(next.charAt(0));
                                     String second = String.valueOf(next.charAt(1));
 
-                                    if (massCalc_notAnyOther(new String[] { second },
-                                            new int[] { _h })) {
-                                        if (notAnotherVowel(SubstitutionCracker2.key[_o], _o)) {
+                                    if(massCalc_notAnyOther(new String[]{second},
+                                            new int[]{_h})){
+                                        if (notAnotherVowel(first,_o)){
                                             SubstitutionCracker2.key[_o] = first.toLowerCase();
-                                            SubstitutionCracker2.hasO = true;
+                                            SubstitutionCracker2.hasO=true;
                                             System.err.println("SubstitutionCracker2.hasO=true; via Scanner o_oh");
-                                            System.err.println((Arrays.toString(SubstitutionCracker2.key))
-                                                    .replaceAll("null", "\u0000"));
+                                            System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
                                             System.err.println(SubstitutionCracker2.correctKey);
 
                                             o_oh.close();
@@ -195,28 +190,26 @@ public class Scan2O {
                                     }
                                 }
                             }
-                            if (!SubstitutionCracker2.hasO) {
+                            if(!SubstitutionCracker2.hasO){
                                 o_oh.close();
                                 Scanner o_tooth = new Scanner(SubstitutionCracker2.cipher);
-                                while (o_tooth.hasNext()) {
+                                while(o_tooth.hasNext()){
                                     String next = o_tooth.next();
-                                    if (next.length() == 5) {
+                                    if (next.length()==5){
                                         String first = String.valueOf(next.charAt(0));
                                         String second = String.valueOf(next.charAt(1));
                                         String third = String.valueOf(next.charAt(2));
                                         String fourth = String.valueOf(next.charAt(3));
                                         String fifth = String.valueOf(next.charAt(4));
 
-                                        if (second.equalsIgnoreCase(third)) {
-                                            if (massCalc_notAnyOther(new String[] { first, fourth, fifth },
-                                                    new int[] { _t, _t, _h })) {
-                                                if (notAnotherVowel(SubstitutionCracker2.key[_o], _o)) {
+                                        if(second.equalsIgnoreCase(third)){
+                                            if(massCalc_notAnyOther(new String[]{first,fourth,fifth},
+                                                    new int[]{_t,_t,_h})){
+                                                if (notAnotherVowel(second,_o)){
                                                     SubstitutionCracker2.key[_o] = second.toLowerCase();
-                                                    SubstitutionCracker2.hasO = true;
-                                                    System.err.println(
-                                                            "SubstitutionCracker2.hasO=true; via Scanner o_tooth");
-                                                    System.err.println((Arrays.toString(SubstitutionCracker2.key))
-                                                            .replaceAll("null", "\u0000"));
+                                                    SubstitutionCracker2.hasO=true;
+                                                    System.err.println("SubstitutionCracker2.hasO=true; via Scanner o_tooth");
+                                                    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
                                                     System.err.println(SubstitutionCracker2.correctKey);
 
                                                     o_tooth.close();
@@ -226,24 +219,22 @@ public class Scan2O {
                                         }
                                     }
                                 }
-                                if (!SubstitutionCracker2.hasO) {
+                                if(!SubstitutionCracker2.hasO){
                                     o_tooth.close();
                                     Scanner o_ho = new Scanner(SubstitutionCracker2.cipher);
-                                    while (o_ho.hasNext()) {
+                                    while(o_ho.hasNext()){
                                         String next = o_ho.next();
-                                        if (next.length() == 2) {
+                                        if (next.length()==2){
                                             String first = String.valueOf(next.charAt(0));
                                             String second = String.valueOf(next.charAt(1));
 
-                                            if (massCalc_notAnyOther(new String[] { first },
-                                                    new int[] { _h })) {
-                                                if (notAnotherVowel(SubstitutionCracker2.key[_o], _o)) {
+                                            if(massCalc_notAnyOther(new String[]{first},
+                                                    new int[]{_h})){
+                                                if (notAnotherVowel(second,_o)){
                                                     SubstitutionCracker2.key[_o] = second.toLowerCase();
-                                                    SubstitutionCracker2.hasO = true;
-                                                    System.err.println(
-                                                            "SubstitutionCracker2.hasO=true; via Scanner o_ho");
-                                                    System.err.println((Arrays.toString(SubstitutionCracker2.key))
-                                                            .replaceAll("null", "\u0000"));
+                                                    SubstitutionCracker2.hasO=true;
+                                                    System.err.println("SubstitutionCracker2.hasO=true; via Scanner o_ho");
+                                                    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
                                                     System.err.println(SubstitutionCracker2.correctKey);
 
                                                     o_ho.close();
@@ -252,25 +243,23 @@ public class Scan2O {
                                             }
                                         }
                                     }
-                                    if (!SubstitutionCracker2.hasO) {
+                                    if(!SubstitutionCracker2.hasO){
                                         o_ho.close();
                                         Scanner o_toe = new Scanner(SubstitutionCracker2.cipher);
-                                        while (o_toe.hasNext()) {
+                                        while(o_toe.hasNext()){
                                             String next = o_toe.next();
-                                            if (next.length() == 3) {
+                                            if (next.length()==3){
                                                 String first = String.valueOf(next.charAt(0));
                                                 String second = String.valueOf(next.charAt(1));
                                                 String third = String.valueOf(next.charAt(2));
 
-                                                if (massCalc_notAnyOther(new String[] { first, third },
-                                                        new int[] { _t, _e })) {
-                                                    if (notAnotherVowel(SubstitutionCracker2.key[_o], _o)) {
+                                                if(massCalc_notAnyOther(new String[]{first,third},
+                                                        new int[]{_t,_e})){
+                                                    if (notAnotherVowel(second,_o)){
                                                         SubstitutionCracker2.key[_o] = second.toLowerCase();
-                                                        SubstitutionCracker2.hasO = true;
-                                                        System.err.println(
-                                                                "SubstitutionCracker2.hasO=true; via Scanner o_toe");
-                                                        System.err.println((Arrays.toString(SubstitutionCracker2.key))
-                                                                .replaceAll("null", "\u0000"));
+                                                        SubstitutionCracker2.hasO=true;
+                                                        System.err.println("SubstitutionCracker2.hasO=true; via Scanner o_toe");
+                                                        System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
                                                         System.err.println(SubstitutionCracker2.correctKey);
 
                                                         o_toe.close();
@@ -279,57 +268,49 @@ public class Scan2O {
                                                 }
                                             }
                                         }
-                                        if (!SubstitutionCracker2.hasO) {
+                                        if(!SubstitutionCracker2.hasO){
                                             o_toe.close();
-                                            Scanner o_hoot = new Scanner(SubstitutionCracker2.cipher);
-                                            while (o_hoot.hasNext()) {
-                                                String next = o_hoot.next();
-                                                if (next.length() == 4) {
+                                            Scanner o_theo = new Scanner(SubstitutionCracker2.cipher);
+                                            while(o_theo.hasNext()){
+                                                String next = o_theo.next();
+                                                if (next.length()==4){
                                                     String first = String.valueOf(next.charAt(0));
                                                     String second = String.valueOf(next.charAt(1));
                                                     String third = String.valueOf(next.charAt(2));
                                                     String fourth = String.valueOf(next.charAt(3));
 
-                                                    if (second.equalsIgnoreCase(third)) {
-                                                        if (massCalc_notAnyOther(new String[] { first, fourth },
-                                                                new int[] { _h, _t })) {
-                                                            if (notAnotherVowel(SubstitutionCracker2.key[_o], _o)) {
-                                                                SubstitutionCracker2.key[_o] = second.toLowerCase();
-                                                                SubstitutionCracker2.hasO = true;
-                                                                System.err.println(
-                                                                        "SubstitutionCracker2.hasO=true; via Scanner o_hoot");
-                                                                System.err.println(
-                                                                        (Arrays.toString(SubstitutionCracker2.key))
-                                                                                .replaceAll("null", "\u0000"));
-                                                                System.err.println(SubstitutionCracker2.correctKey);
+                                                    if(massCalc_notAnyOther(new String[]{first,second,third},
+                                                            new int[]{_t,_h,_e})){
+                                                        if (notAnotherVowel(fourth,_o)){
+                                                            SubstitutionCracker2.key[_o] = fourth.toLowerCase();
+                                                            SubstitutionCracker2.hasO=true;
+                                                            System.err.println("SubstitutionCracker2.hasO=true; via Scanner o_theo");
+                                                            System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+                                                            System.err.println(SubstitutionCracker2.correctKey);
 
-                                                                o_hoot.close();
-                                                                break;
-                                                            }
+                                                            o_theo.close();
+                                                            break;
                                                         }
                                                     }
                                                 }
                                             }
-                                            if (!SubstitutionCracker2.hasO) {
-                                                o_hoot.close();
+                                            if(!SubstitutionCracker2.hasO){
+                                                o_theo.close();
                                                 Scanner o_hoe = new Scanner(SubstitutionCracker2.cipher);
-                                                while (o_hoe.hasNext()) {
+                                                while(o_hoe.hasNext()){
                                                     String next = o_hoe.next();
-                                                    if (next.length() == 3) {
+                                                    if (next.length()==3){
                                                         String first = String.valueOf(next.charAt(0));
                                                         String second = String.valueOf(next.charAt(1));
                                                         String third = String.valueOf(next.charAt(2));
 
-                                                        if (massCalc_notAnyOther(new String[] { first, third },
-                                                                new int[] { _h, _e })) {
-                                                            if (notAnotherVowel(SubstitutionCracker2.key[_o], _o)) {
+                                                        if(massCalc_notAnyOther(new String[]{first,third},
+                                                                new int[]{_h,_e})){
+                                                            if (notAnotherVowel(second,_o)){
                                                                 SubstitutionCracker2.key[_o] = second.toLowerCase();
-                                                                SubstitutionCracker2.hasO = true;
-                                                                System.err.println(
-                                                                        "SubstitutionCracker2.hasO=true; via Scanner o_hoe");
-                                                                System.err.println(
-                                                                        (Arrays.toString(SubstitutionCracker2.key))
-                                                                                .replaceAll("null", "\u0000"));
+                                                                SubstitutionCracker2.hasO=true;
+                                                                System.err.println("SubstitutionCracker2.hasO=true; via Scanner o_hoe");
+                                                                System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
                                                                 System.err.println(SubstitutionCracker2.correctKey);
 
                                                                 o_hoe.close();
@@ -338,70 +319,68 @@ public class Scan2O {
                                                         }
                                                     }
                                                 }
-                                                if (!SubstitutionCracker2.hasO) {
+                                                if(!SubstitutionCracker2.hasO){
                                                     o_hoe.close();
-                                                    Scanner o_tho = new Scanner(SubstitutionCracker2.cipher);
-                                                    while (o_tho.hasNext()) {
-                                                        String next = o_tho.next();
-                                                        if (next.length() == 3) {
+                                                    Scanner o_otto = new Scanner(SubstitutionCracker2.cipher);
+                                                    while(o_otto.hasNext()){
+                                                        String next = o_otto.next();
+                                                        if (next.length()==4){
                                                             String first = String.valueOf(next.charAt(0));
                                                             String second = String.valueOf(next.charAt(1));
                                                             String third = String.valueOf(next.charAt(2));
+                                                            String fourth = String.valueOf(next.charAt(3));
 
-                                                            if (massCalc_notAnyOther(new String[] { first, second },
-                                                                    new int[] { _t, _h })) {
-                                                                if (notAnotherVowel(SubstitutionCracker2.key[_o], _o)) {
-                                                                    SubstitutionCracker2.key[_o] = third.toLowerCase();
-                                                                    SubstitutionCracker2.hasO = true;
-                                                                    System.err.println(
-                                                                            "SubstitutionCracker2.hasO=true; via Scanner o_tho");
-                                                                    System.err.println(
-                                                                            (Arrays.toString(SubstitutionCracker2.key))
-                                                                                    .replaceAll("null", "\u0000"));
-                                                                    System.err.println(SubstitutionCracker2.correctKey);
+                                                            if(first.equalsIgnoreCase(fourth)){
+                                                                if(massCalc_notAnyOther(new String[]{second,third},
+                                                                        new int[]{_t,_t})){
+                                                                    if (notAnotherVowel(first,_o)){
+                                                                        SubstitutionCracker2.key[_o] = first.toLowerCase();
+                                                                        SubstitutionCracker2.hasO=true;
+                                                                        System.err.println("SubstitutionCracker2.hasO=true; via Scanner o_otto");
+                                                                        System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+                                                                        System.err.println(SubstitutionCracker2.correctKey);
 
-                                                                    o_tho.close();
-                                                                    break;
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                    if (!SubstitutionCracker2.hasO) {
-                                                        o_tho.close();
-                                                        Scanner o_ot = new Scanner(SubstitutionCracker2.cipher);
-                                                        while (o_ot.hasNext()) {
-                                                            String next = o_ot.next();
-                                                            if (next.length() == 2) {
-                                                                String first = String.valueOf(next.charAt(0));
-                                                                String second = String.valueOf(next.charAt(1));
-
-                                                                if (massCalc_notAnyOther(new String[] { second },
-                                                                        new int[] { _t })) {
-                                                                    if (notAnotherVowel(SubstitutionCracker2.key[_o],
-                                                                            _o)) {
-                                                                        SubstitutionCracker2.key[_o] = first
-                                                                                .toLowerCase();
-                                                                        SubstitutionCracker2.hasO = true;
-                                                                        System.err.println(
-                                                                                "SubstitutionCracker2.hasO=true; via Scanner o_ot");
-                                                                        System.err.println((Arrays
-                                                                                .toString(SubstitutionCracker2.key))
-                                                                                .replaceAll("null", "\u0000"));
-                                                                        System.err.println(
-                                                                                SubstitutionCracker2.correctKey);
-
-                                                                        o_ot.close();
+                                                                        o_otto.close();
                                                                         break;
                                                                     }
                                                                 }
                                                             }
                                                         }
-                                                        if (!SubstitutionCracker2.hasO) {
-                                                            o_ot.close();
+                                                    }
+                                                    if(!SubstitutionCracker2.hasO){
+                                                        o_otto.close();
+                                                        Scanner o_hoot = new Scanner(SubstitutionCracker2.cipher);
+                                                        while(o_hoot.hasNext()){
+                                                            String next = o_hoot.next();
+                                                            if (next.length()==4){
+                                                                String first = String.valueOf(next.charAt(0));
+                                                                String second = String.valueOf(next.charAt(1));
+                                                                String third = String.valueOf(next.charAt(2));
+                                                                String fourth = String.valueOf(next.charAt(3));
+
+                                                                if(second.equalsIgnoreCase(third)){
+                                                                    if(massCalc_notAnyOther(new String[]{first,fourth},
+                                                                            new int[]{_h,_t})){
+                                                                        if (notAnotherVowel(second,_o)){
+                                                                            SubstitutionCracker2.key[_o] = second.toLowerCase();
+                                                                            SubstitutionCracker2.hasO=true;
+                                                                            System.err.println("SubstitutionCracker2.hasO=true; via Scanner o_hoot");
+                                                                            System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+                                                                            System.err.println(SubstitutionCracker2.correctKey);
+
+                                                                            o_hoot.close();
+                                                                            break;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                        if(!SubstitutionCracker2.hasO){
+                                                            o_hoot.close();
                                                             Scanner o_tattoo = new Scanner(SubstitutionCracker2.cipher);
-                                                            while (o_tattoo.hasNext()) {
+                                                            while(o_tattoo.hasNext()){
                                                                 String next = o_tattoo.next();
-                                                                if (next.length() == 6) {
+                                                                if (next.length()==6){
                                                                     String first = String.valueOf(next.charAt(0));
                                                                     String second = String.valueOf(next.charAt(1));
                                                                     String third = String.valueOf(next.charAt(2));
@@ -409,23 +388,15 @@ public class Scan2O {
                                                                     String fifth = String.valueOf(next.charAt(4));
                                                                     String sixth = String.valueOf(next.charAt(5));
 
-                                                                    if (fifth.equalsIgnoreCase(sixth)) {
-                                                                        if (massCalc_notAnyOther(
-                                                                                new String[] { first, second, third,
-                                                                                        fourth },
-                                                                                new int[] { _t, _a, _t, _t })) {
-                                                                            if (notAnotherVowel(
-                                                                                    SubstitutionCracker2.key[_o], _o)) {
-                                                                                SubstitutionCracker2.key[_o] = fifth
-                                                                                        .toLowerCase();
-                                                                                SubstitutionCracker2.hasO = true;
-                                                                                System.err.println(
-                                                                                        "SubstitutionCracker2.hasO=true; via Scanner o_tattoo");
-                                                                                System.err.println((Arrays.toString(
-                                                                                        SubstitutionCracker2.key))
-                                                                                        .replaceAll("null", "\u0000"));
-                                                                                System.err.println(
-                                                                                        SubstitutionCracker2.correctKey);
+                                                                    if(fifth.equalsIgnoreCase(sixth)){
+                                                                        if(massCalc_notAnyOther(new String[]{first,second,third,fourth},
+                                                                                new int[]{_t,_a,_t,_t})){
+                                                                            if (notAnotherVowel(fifth,_o)){
+                                                                                SubstitutionCracker2.key[_o] = fifth.toLowerCase();
+                                                                                SubstitutionCracker2.hasO=true;
+                                                                                System.err.println("SubstitutionCracker2.hasO=true; via Scanner o_tattoo");
+                                                                                System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+                                                                                System.err.println(SubstitutionCracker2.correctKey);
 
                                                                                 o_tattoo.close();
                                                                                 break;

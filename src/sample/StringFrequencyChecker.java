@@ -21,6 +21,7 @@ public class StringFrequencyChecker extends ArrayList<Sortable>{
             }
         }
         for (int i = 0; i < stringSelector.size(); i++) {
+//            long start = System.nanoTime();
             System.err.println("In file "+ getClass().getSimpleName()+" Sortable # has been added:");
             String stringSelected = stringSelector.get(i);
             int occurrences = 0;
@@ -34,6 +35,9 @@ public class StringFrequencyChecker extends ArrayList<Sortable>{
             }
             Sortable sortable = new Sortable(stringSelected, occurrences);
             add(sortable);
+//            long end = System.nanoTime();
+//            long time = end-start;
+//            System.err.println(time);
             System.err.println(i);
         }
     }

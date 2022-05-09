@@ -2,7 +2,6 @@ package sample;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 
 @SuppressWarnings({"ChainedMethodCall", "LawOfDemeter"})
 public class SubstitutionCracker2 {
@@ -100,10 +99,9 @@ public class SubstitutionCracker2 {
     
     public SubstitutionCracker2(String Cipher, String actualKey) {
         System.err.println("new SubstitutionCracker2(String Cipher);");
-
         key = new String[alphabet.length];
-        cipher = charSet.RemoveIgnorers(Cipher);
-
+        cipher = charSet.removeIgnorers(Cipher, new String[]{" "});
+        System.out.println(cipher);
         correctKey = new Metamorphose(actualKey).get_B();
         // that
         CipherEquivOfThat ciphEquiv = new CipherEquivOfThat(Cipher);
@@ -129,8 +127,8 @@ public class SubstitutionCracker2 {
         new Scan8L();
         new Scan9U();
         new Scan10M();
-        new Scan11F();
-        new Scan12C();
+        new Scan11C();
+        new Scan12F();
         new Scan13W();
         new Scan14G();
         new Scan15Y();
@@ -142,39 +140,40 @@ public class SubstitutionCracker2 {
         new Scan21X();
         new Scan22Z();
         new Scan23Q();
+//Green: This commented code may be very useful. RED: DO NOT DELETE!
 
-
-
-        boolean[] has = new boolean[] { hasA, hasB, hasC, hasD, hasE, hasF, hasG, hasH, hasI, hasJ, hasK, hasL, hasM,
-                hasN, hasO, hasP, hasQ, hasR, hasS, hasT, hasU, hasV, hasW, hasX, hasY, hasZ };
-        boolean hasAll = true;
-        int numLacking = 0;
-        ArrayList<Integer> hasNot = new ArrayList<>();
-        for (int i = 0; i < has.length; i++) {
-            boolean Boolean = has[i];
-            if (!Boolean) {
-                hasNot.add(i);
-                numLacking++;
-                hasAll = false;
-            }
-        }
-
-        StringBuilder solver = new StringBuilder();
-        for (int index = 0; index < cipher.length(); index++) {
-            String Char = String.valueOf(cipher.charAt(index));
-            if (isIgnorer(Char)) {
-                solver.append(Char);
-            } else {
-                for (int keyIndex = 0; keyIndex < alphabet.length; keyIndex++) {
-                    if (Char.equalsIgnoreCase(String.valueOf(alphabet[keyIndex]))) {
-                        solver.append(key[keyIndex]);
-                        break;
-                    }
-                }
-            }
-        }
-        this.isSolved = true;
-        this.solved = solver.toString();
+//
+//
+//        boolean[] has = new boolean[] { hasA, hasB, hasC, hasD, hasE, hasF, hasG, hasH, hasI, hasJ, hasK, hasL, hasM,
+//                hasN, hasO, hasP, hasQ, hasR, hasS, hasT, hasU, hasV, hasW, hasX, hasY, hasZ };
+//        boolean hasAll = true;
+//        int numLacking = 0;
+//        ArrayList<Integer> hasNot = new ArrayList<>();
+//        for (int i = 0; i < has.length; i++) {
+//            boolean Boolean = has[i];
+//            if (!Boolean) {
+//                hasNot.add(i);
+//                numLacking++;
+//                hasAll = false;
+//            }
+//        }
+//
+//        StringBuilder solver = new StringBuilder();
+//        for (int index = 0; index < cipher.length(); index++) {
+//            String Char = String.valueOf(cipher.charAt(index));
+//            if (isIgnorer(Char)) {
+//                solver.append(Char);
+//            } else {
+//                for (int keyIndex = 0; keyIndex < alphabet.length; keyIndex++) {
+//                    if (Char.equalsIgnoreCase(String.valueOf(alphabet[keyIndex]))) {
+//                        solver.append(key[keyIndex]);
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//        this.isSolved = true;
+//        this.solved = solver.toString();
 
         System.err.println(Arrays.toString(this.key));
     }
@@ -207,22 +206,31 @@ public class SubstitutionCracker2 {
         boolean rtn = true;
         boolean Break = false;
         for (int i = 0; i < these.length; i++) {
-            String ThisString = these[i];
-            int indexException = spotsOfThese[i];
-            for (int j = 0; j < key.length; j++) {
-                String KeyString = key[j];
-                if (KeyString != null) {
-                    if (KeyString.equalsIgnoreCase(ThisString) && j != indexException) {
-                        rtn = false;
-                        Break = true;
-                        break;
-                    }
-                }
-            }
-            if (Break) {
+            if (!these[i].equalsIgnoreCase(key[spotsOfThese[i]])){
+                rtn = false;
                 break;
             }
         }
+
+//        boolean rtn = true;
+//        boolean Break = false;
+//        for (int i = 0; i < these.length; i++) {
+//            String ThisString = these[i];
+//            int indexException = spotsOfThese[i];
+//            for (int j = 0; j < key.length; j++) {
+//                String KeyString = key[j];
+//                if (KeyString != null) {
+//                    if (KeyString.equalsIgnoreCase(ThisString) && j != indexException) {
+//                        rtn = false;
+//                        Break = true;
+//                        break;
+//                    }
+//                }
+//            }
+//            if (Break) {
+//                break;
+//            }
+//        }
         return rtn;
     }
 

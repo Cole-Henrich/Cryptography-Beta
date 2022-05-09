@@ -157,7 +157,8 @@ public class CharSet {
             }
         }
         for (String permutation : all3LongPermutations) {
-            if (input.contains(permutation)) {
+            if (input.contains(permutation) && !permutation.equals("...")) {
+                System.out.println("Class: CharSet; Method: containsPermutationsOfTwoChars; permutation contained: "+permutation);
                 rtn = true;
                 break;
             }

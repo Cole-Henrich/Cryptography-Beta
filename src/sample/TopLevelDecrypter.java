@@ -3,6 +3,7 @@ package sample;
 import java.io.IOException;
 
 public class TopLevelDecrypter {
+    private String language;
     private char[] key;
     private String solved;
     private boolean isSolved;
@@ -26,6 +27,7 @@ public class TopLevelDecrypter {
             solved = caesarCracker.getSolved();
             key = caesarCracker.getKey();
             isSolved = true;
+            language = caesarCracker.getLanguage();
         }
         if (!isSolved) {
             substitutionCracker = new SubstitutionCracker(Cipher, hiddenKey);

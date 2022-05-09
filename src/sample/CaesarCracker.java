@@ -11,6 +11,7 @@ public class CaesarCracker {
     private File solution;
     boolean isSolved;
     private char[] key;
+    private String language;
     public CaesarCracker(String Cipher) throws IOException {
         shift = 1;
         File[] files = new File[]{new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/0.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/1.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/2.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/3.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/4.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/5.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/6.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/7.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/8.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/9.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/10.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/11.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/12.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/13.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/14.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/15.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/16.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/17.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/18.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/19.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/20.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/21.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/22.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/23.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/24.txt"), new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/25.txt")};
@@ -29,6 +30,7 @@ public class CaesarCracker {
                     solved = attempt.toString();
                     solution = files[i];
                     key = new CaesarKey(shift).get();
+                    language = "English";
                 }
                 else {
                     not_spanish not_spanish = new not_spanish(files[i]);
@@ -38,6 +40,7 @@ public class CaesarCracker {
                         solved = attempt.toString();
                         solution = files[i];
                         key = new CaesarKey(shift).get();
+                        language = "Spanish";
                     }
                     else {
                         not_french not_french = new not_french(files[i]);
@@ -47,6 +50,18 @@ public class CaesarCracker {
                             solved = attempt.toString();
                             solution = files[i];
                             key = new CaesarKey(shift).get();
+                            language = "French";
+                        }
+                        else {
+                            not_portuguese not_portuguese = new not_portuguese(files[i]);
+                            if (!not_portuguese.not_portuguese()) {
+                                isSolved = true;
+                                shift = i;
+                                solved = attempt.toString();
+                                solution = files[i];
+                                key = new CaesarKey(shift).get();
+                                language = "Portuguese";
+                            }
                         }
                     }
                 }
@@ -84,6 +99,7 @@ public class CaesarCracker {
     }
     public boolean isSolved(){return isSolved;}
     public String getSolved(){return solved;}
+    public String getLanguage(){return language;}
     public int getShift(){return shift;}
     public File getSolution(){return solution;}
     public char[] getKey(){return key;}

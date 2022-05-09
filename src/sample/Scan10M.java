@@ -36,7 +36,6 @@ public class Scan10M{
 
 public Scan10M(){
 System.err.println("new Scan10M");
-    System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 
 
 Scanner m_him = new Scanner(SubstitutionCracker2.cipher);
@@ -108,29 +107,6 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_me.close();
-Scanner m_man = new Scanner(SubstitutionCracker2.cipher);
-while(m_man.hasNext()){
-String next = m_man.next();
-if (next.length()==3){
-String first = String.valueOf(next.charAt(0));
-String second = String.valueOf(next.charAt(1));
-String third = String.valueOf(next.charAt(2));
-
-if(massCalc_notAnyOther(new String[]{second,third},
-new int[]{_a,_n})){
-SubstitutionCracker2.key[_m] = first.toLowerCase();
-SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_man");
-System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
-System.err.println(SubstitutionCracker2.correctKey);
-
-m_man.close();
-break;
-   }
-  }
- }
-if(!SubstitutionCracker2.hasM){
-m_man.close();
 Scanner m_more = new Scanner(SubstitutionCracker2.cipher);
 while(m_more.hasNext()){
 String next = m_more.next();
@@ -155,30 +131,29 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_more.close();
-Scanner m_made = new Scanner(SubstitutionCracker2.cipher);
-while(m_made.hasNext()){
-String next = m_made.next();
-if (next.length()==4){
+Scanner m_man = new Scanner(SubstitutionCracker2.cipher);
+while(m_man.hasNext()){
+String next = m_man.next();
+if (next.length()==3){
 String first = String.valueOf(next.charAt(0));
 String second = String.valueOf(next.charAt(1));
 String third = String.valueOf(next.charAt(2));
-String fourth = String.valueOf(next.charAt(3));
 
-if(massCalc_notAnyOther(new String[]{second,third,fourth},
-new int[]{_a,_d,_e})){
+if(massCalc_notAnyOther(new String[]{second,third},
+new int[]{_a,_n})){
 SubstitutionCracker2.key[_m] = first.toLowerCase();
 SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_made");
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_man");
 System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 System.err.println(SubstitutionCracker2.correctKey);
 
-m_made.close();
+m_man.close();
 break;
    }
   }
  }
 if(!SubstitutionCracker2.hasM){
-m_made.close();
+m_man.close();
 Scanner m_some = new Scanner(SubstitutionCracker2.cipher);
 while(m_some.hasNext()){
 String next = m_some.next();
@@ -203,29 +178,30 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_some.close();
-Scanner m_men = new Scanner(SubstitutionCracker2.cipher);
-while(m_men.hasNext()){
-String next = m_men.next();
-if (next.length()==3){
+Scanner m_made = new Scanner(SubstitutionCracker2.cipher);
+while(m_made.hasNext()){
+String next = m_made.next();
+if (next.length()==4){
 String first = String.valueOf(next.charAt(0));
 String second = String.valueOf(next.charAt(1));
 String third = String.valueOf(next.charAt(2));
+String fourth = String.valueOf(next.charAt(3));
 
-if(massCalc_notAnyOther(new String[]{second,third},
-new int[]{_e,_n})){
+if(massCalc_notAnyOther(new String[]{second,third,fourth},
+new int[]{_a,_d,_e})){
 SubstitutionCracker2.key[_m] = first.toLowerCase();
 SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_men");
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_made");
 System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 System.err.println(SubstitutionCracker2.correctKey);
 
-m_men.close();
+m_made.close();
 break;
    }
   }
  }
 if(!SubstitutionCracker2.hasM){
-m_men.close();
+m_made.close();
 Scanner m_time = new Scanner(SubstitutionCracker2.cipher);
 while(m_time.hasNext()){
 String next = m_time.next();
@@ -250,6 +226,29 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_time.close();
+Scanner m_men = new Scanner(SubstitutionCracker2.cipher);
+while(m_men.hasNext()){
+String next = m_men.next();
+if (next.length()==3){
+String first = String.valueOf(next.charAt(0));
+String second = String.valueOf(next.charAt(1));
+String third = String.valueOf(next.charAt(2));
+
+if(massCalc_notAnyOther(new String[]{second,third},
+new int[]{_e,_n})){
+SubstitutionCracker2.key[_m] = first.toLowerCase();
+SubstitutionCracker2.hasM=true;
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_men");
+System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+System.err.println(SubstitutionCracker2.correctKey);
+
+m_men.close();
+break;
+   }
+  }
+ }
+if(!SubstitutionCracker2.hasM){
+m_men.close();
 Scanner m_am = new Scanner(SubstitutionCracker2.cipher);
 while(m_am.hasNext()){
 String next = m_am.next();
@@ -272,54 +271,6 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_am.close();
-Scanner m_same = new Scanner(SubstitutionCracker2.cipher);
-while(m_same.hasNext()){
-String next = m_same.next();
-if (next.length()==4){
-String first = String.valueOf(next.charAt(0));
-String second = String.valueOf(next.charAt(1));
-String third = String.valueOf(next.charAt(2));
-String fourth = String.valueOf(next.charAt(3));
-
-if(massCalc_notAnyOther(new String[]{first,second,fourth},
-new int[]{_s,_a,_e})){
-SubstitutionCracker2.key[_m] = third.toLowerCase();
-SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_same");
-System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
-System.err.println(SubstitutionCracker2.correctKey);
-
-m_same.close();
-break;
-   }
-  }
- }
-if(!SubstitutionCracker2.hasM){
-m_same.close();
-Scanner m_must = new Scanner(SubstitutionCracker2.cipher);
-while(m_must.hasNext()){
-String next = m_must.next();
-if (next.length()==4){
-String first = String.valueOf(next.charAt(0));
-String second = String.valueOf(next.charAt(1));
-String third = String.valueOf(next.charAt(2));
-String fourth = String.valueOf(next.charAt(3));
-
-if(massCalc_notAnyOther(new String[]{second,third,fourth},
-new int[]{_u,_s,_t})){
-SubstitutionCracker2.key[_m] = first.toLowerCase();
-SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_must");
-System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
-System.err.println(SubstitutionCracker2.correctKey);
-
-m_must.close();
-break;
-   }
-  }
- }
-if(!SubstitutionCracker2.hasM){
-m_must.close();
 Scanner m_most = new Scanner(SubstitutionCracker2.cipher);
 while(m_most.hasNext()){
 String next = m_most.next();
@@ -344,6 +295,54 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_most.close();
+Scanner m_must = new Scanner(SubstitutionCracker2.cipher);
+while(m_must.hasNext()){
+String next = m_must.next();
+if (next.length()==4){
+String first = String.valueOf(next.charAt(0));
+String second = String.valueOf(next.charAt(1));
+String third = String.valueOf(next.charAt(2));
+String fourth = String.valueOf(next.charAt(3));
+
+if(massCalc_notAnyOther(new String[]{second,third,fourth},
+new int[]{_u,_s,_t})){
+SubstitutionCracker2.key[_m] = first.toLowerCase();
+SubstitutionCracker2.hasM=true;
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_must");
+System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+System.err.println(SubstitutionCracker2.correctKey);
+
+m_must.close();
+break;
+   }
+  }
+ }
+if(!SubstitutionCracker2.hasM){
+m_must.close();
+Scanner m_same = new Scanner(SubstitutionCracker2.cipher);
+while(m_same.hasNext()){
+String next = m_same.next();
+if (next.length()==4){
+String first = String.valueOf(next.charAt(0));
+String second = String.valueOf(next.charAt(1));
+String third = String.valueOf(next.charAt(2));
+String fourth = String.valueOf(next.charAt(3));
+
+if(massCalc_notAnyOther(new String[]{first,second,fourth},
+new int[]{_s,_a,_e})){
+SubstitutionCracker2.key[_m] = third.toLowerCase();
+SubstitutionCracker2.hasM=true;
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_same");
+System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+System.err.println(SubstitutionCracker2.correctKey);
+
+m_same.close();
+break;
+   }
+  }
+ }
+if(!SubstitutionCracker2.hasM){
+m_same.close();
 Scanner m_seemed = new Scanner(SubstitutionCracker2.cipher);
 while(m_seemed.hasNext()){
 String next = m_seemed.next();
@@ -394,30 +393,31 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_name.close();
-Scanner m_room = new Scanner(SubstitutionCracker2.cipher);
-while(m_room.hasNext()){
-String next = m_room.next();
-if (next.length()==4){
+Scanner m_small = new Scanner(SubstitutionCracker2.cipher);
+while(m_small.hasNext()){
+String next = m_small.next();
+if (next.length()==5){
 String first = String.valueOf(next.charAt(0));
 String second = String.valueOf(next.charAt(1));
 String third = String.valueOf(next.charAt(2));
 String fourth = String.valueOf(next.charAt(3));
+String fifth = String.valueOf(next.charAt(4));
 
-if(massCalc_notAnyOther(new String[]{first,second,third},
-new int[]{_r,_o,_o})){
-SubstitutionCracker2.key[_m] = fourth.toLowerCase();
+if(massCalc_notAnyOther(new String[]{first,third,fourth,fifth},
+new int[]{_s,_a,_l,_l})){
+SubstitutionCracker2.key[_m] = second.toLowerCase();
 SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_room");
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_small");
 System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 System.err.println(SubstitutionCracker2.correctKey);
 
-m_room.close();
+m_small.close();
 break;
    }
   }
  }
 if(!SubstitutionCracker2.hasM){
-m_room.close();
+m_small.close();
 Scanner m_mother = new Scanner(SubstitutionCracker2.cipher);
 while(m_mother.hasNext()){
 String next = m_mother.next();
@@ -444,30 +444,30 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_mother.close();
-Scanner m_miss = new Scanner(SubstitutionCracker2.cipher);
-while(m_miss.hasNext()){
-String next = m_miss.next();
+Scanner m_room = new Scanner(SubstitutionCracker2.cipher);
+while(m_room.hasNext()){
+String next = m_room.next();
 if (next.length()==4){
 String first = String.valueOf(next.charAt(0));
 String second = String.valueOf(next.charAt(1));
 String third = String.valueOf(next.charAt(2));
 String fourth = String.valueOf(next.charAt(3));
 
-if(massCalc_notAnyOther(new String[]{second,third,fourth},
-new int[]{_i,_s,_s})){
-SubstitutionCracker2.key[_m] = first.toLowerCase();
+if(massCalc_notAnyOther(new String[]{first,second,third},
+new int[]{_r,_o,_o})){
+SubstitutionCracker2.key[_m] = fourth.toLowerCase();
 SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_miss");
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_room");
 System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 System.err.println(SubstitutionCracker2.correctKey);
 
-m_miss.close();
+m_room.close();
 break;
    }
   }
  }
 if(!SubstitutionCracker2.hasM){
-m_miss.close();
+m_room.close();
 Scanner m_midst = new Scanner(SubstitutionCracker2.cipher);
 while(m_midst.hasNext()){
 String next = m_midst.next();
@@ -493,31 +493,30 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_midst.close();
-Scanner m_small = new Scanner(SubstitutionCracker2.cipher);
-while(m_small.hasNext()){
-String next = m_small.next();
-if (next.length()==5){
+Scanner m_miss = new Scanner(SubstitutionCracker2.cipher);
+while(m_miss.hasNext()){
+String next = m_miss.next();
+if (next.length()==4){
 String first = String.valueOf(next.charAt(0));
 String second = String.valueOf(next.charAt(1));
 String third = String.valueOf(next.charAt(2));
 String fourth = String.valueOf(next.charAt(3));
-String fifth = String.valueOf(next.charAt(4));
 
-if(massCalc_notAnyOther(new String[]{first,third,fourth,fifth},
-new int[]{_s,_a,_l,_l})){
-SubstitutionCracker2.key[_m] = second.toLowerCase();
+if(massCalc_notAnyOther(new String[]{second,third,fourth},
+new int[]{_i,_s,_s})){
+SubstitutionCracker2.key[_m] = first.toLowerCase();
 SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_small");
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_miss");
 System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 System.err.println(SubstitutionCracker2.correctKey);
 
-m_small.close();
+m_miss.close();
 break;
    }
   }
  }
 if(!SubstitutionCracker2.hasM){
-m_small.close();
+m_miss.close();
 Scanner m_moment = new Scanner(SubstitutionCracker2.cipher);
 while(m_moment.hasNext()){
 String next = m_moment.next();
@@ -570,31 +569,6 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_mind.close();
-Scanner m_moses = new Scanner(SubstitutionCracker2.cipher);
-while(m_moses.hasNext()){
-String next = m_moses.next();
-if (next.length()==5){
-String first = String.valueOf(next.charAt(0));
-String second = String.valueOf(next.charAt(1));
-String third = String.valueOf(next.charAt(2));
-String fourth = String.valueOf(next.charAt(3));
-String fifth = String.valueOf(next.charAt(4));
-
-if(massCalc_notAnyOther(new String[]{second,third,fourth,fifth},
-new int[]{_o,_s,_e,_s})){
-SubstitutionCracker2.key[_m] = first.toLowerCase();
-SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_moses");
-System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
-System.err.println(SubstitutionCracker2.correctKey);
-
-m_moses.close();
-break;
-   }
-  }
- }
-if(!SubstitutionCracker2.hasM){
-m_moses.close();
 Scanner m_almost = new Scanner(SubstitutionCracker2.cipher);
 while(m_almost.hasNext()){
 String next = m_almost.next();
@@ -646,31 +620,6 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_times.close();
-Scanner m_mouth = new Scanner(SubstitutionCracker2.cipher);
-while(m_mouth.hasNext()){
-String next = m_mouth.next();
-if (next.length()==5){
-String first = String.valueOf(next.charAt(0));
-String second = String.valueOf(next.charAt(1));
-String third = String.valueOf(next.charAt(2));
-String fourth = String.valueOf(next.charAt(3));
-String fifth = String.valueOf(next.charAt(4));
-
-if(massCalc_notAnyOther(new String[]{second,third,fourth,fifth},
-new int[]{_o,_u,_t,_h})){
-SubstitutionCracker2.key[_m] = first.toLowerCase();
-SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_mouth");
-System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
-System.err.println(SubstitutionCracker2.correctKey);
-
-m_mouth.close();
-break;
-   }
-  }
- }
-if(!SubstitutionCracker2.hasM){
-m_mouth.close();
 Scanner m_meet = new Scanner(SubstitutionCracker2.cipher);
 while(m_meet.hasNext()){
 String next = m_meet.next();
@@ -695,6 +644,31 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_meet.close();
+Scanner m_moses = new Scanner(SubstitutionCracker2.cipher);
+while(m_moses.hasNext()){
+String next = m_moses.next();
+if (next.length()==5){
+String first = String.valueOf(next.charAt(0));
+String second = String.valueOf(next.charAt(1));
+String third = String.valueOf(next.charAt(2));
+String fourth = String.valueOf(next.charAt(3));
+String fifth = String.valueOf(next.charAt(4));
+
+if(massCalc_notAnyOther(new String[]{second,third,fourth,fifth},
+new int[]{_o,_s,_e,_s})){
+SubstitutionCracker2.key[_m] = first.toLowerCase();
+SubstitutionCracker2.hasM=true;
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_moses");
+System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+System.err.println(SubstitutionCracker2.correctKey);
+
+m_moses.close();
+break;
+   }
+  }
+ }
+if(!SubstitutionCracker2.hasM){
+m_moses.close();
 Scanner m_sometimes = new Scanner(SubstitutionCracker2.cipher);
 while(m_sometimes.hasNext()){
 String next = m_sometimes.next();
@@ -726,6 +700,154 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_sometimes.close();
+Scanner m_home = new Scanner(SubstitutionCracker2.cipher);
+while(m_home.hasNext()){
+String next = m_home.next();
+if (next.length()==4){
+String first = String.valueOf(next.charAt(0));
+String second = String.valueOf(next.charAt(1));
+String third = String.valueOf(next.charAt(2));
+String fourth = String.valueOf(next.charAt(3));
+
+if(massCalc_notAnyOther(new String[]{first,second,fourth},
+new int[]{_h,_o,_e})){
+SubstitutionCracker2.key[_m] = third.toLowerCase();
+SubstitutionCracker2.hasM=true;
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_home");
+System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+System.err.println(SubstitutionCracker2.correctKey);
+
+m_home.close();
+break;
+   }
+  }
+ }
+if(!SubstitutionCracker2.hasM){
+m_home.close();
+Scanner m_matter = new Scanner(SubstitutionCracker2.cipher);
+while(m_matter.hasNext()){
+String next = m_matter.next();
+if (next.length()==6){
+String first = String.valueOf(next.charAt(0));
+String second = String.valueOf(next.charAt(1));
+String third = String.valueOf(next.charAt(2));
+String fourth = String.valueOf(next.charAt(3));
+String fifth = String.valueOf(next.charAt(4));
+String sixth = String.valueOf(next.charAt(5));
+
+if(massCalc_notAnyOther(new String[]{second,third,fourth,fifth,sixth},
+new int[]{_a,_t,_t,_e,_r})){
+SubstitutionCracker2.key[_m] = first.toLowerCase();
+SubstitutionCracker2.hasM=true;
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_matter");
+System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+System.err.println(SubstitutionCracker2.correctKey);
+
+m_matter.close();
+break;
+   }
+  }
+ }
+if(!SubstitutionCracker2.hasM){
+m_matter.close();
+Scanner m_human = new Scanner(SubstitutionCracker2.cipher);
+while(m_human.hasNext()){
+String next = m_human.next();
+if (next.length()==5){
+String first = String.valueOf(next.charAt(0));
+String second = String.valueOf(next.charAt(1));
+String third = String.valueOf(next.charAt(2));
+String fourth = String.valueOf(next.charAt(3));
+String fifth = String.valueOf(next.charAt(4));
+
+if(massCalc_notAnyOther(new String[]{first,second,fourth,fifth},
+new int[]{_h,_u,_a,_n})){
+SubstitutionCracker2.key[_m] = third.toLowerCase();
+SubstitutionCracker2.hasM=true;
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_human");
+System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+System.err.println(SubstitutionCracker2.correctKey);
+
+m_human.close();
+break;
+   }
+  }
+ }
+if(!SubstitutionCracker2.hasM){
+m_human.close();
+Scanner m_means = new Scanner(SubstitutionCracker2.cipher);
+while(m_means.hasNext()){
+String next = m_means.next();
+if (next.length()==5){
+String first = String.valueOf(next.charAt(0));
+String second = String.valueOf(next.charAt(1));
+String third = String.valueOf(next.charAt(2));
+String fourth = String.valueOf(next.charAt(3));
+String fifth = String.valueOf(next.charAt(4));
+
+if(massCalc_notAnyOther(new String[]{second,third,fourth,fifth},
+new int[]{_e,_a,_n,_s})){
+SubstitutionCracker2.key[_m] = first.toLowerCase();
+SubstitutionCracker2.hasM=true;
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_means");
+System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+System.err.println(SubstitutionCracker2.correctKey);
+
+m_means.close();
+break;
+   }
+  }
+ }
+if(!SubstitutionCracker2.hasM){
+m_means.close();
+Scanner m_mouth = new Scanner(SubstitutionCracker2.cipher);
+while(m_mouth.hasNext()){
+String next = m_mouth.next();
+if (next.length()==5){
+String first = String.valueOf(next.charAt(0));
+String second = String.valueOf(next.charAt(1));
+String third = String.valueOf(next.charAt(2));
+String fourth = String.valueOf(next.charAt(3));
+String fifth = String.valueOf(next.charAt(4));
+
+if(massCalc_notAnyOther(new String[]{second,third,fourth,fifth},
+new int[]{_o,_u,_t,_h})){
+SubstitutionCracker2.key[_m] = first.toLowerCase();
+SubstitutionCracker2.hasM=true;
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_mouth");
+System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+System.err.println(SubstitutionCracker2.correctKey);
+
+m_mouth.close();
+break;
+   }
+  }
+ }
+if(!SubstitutionCracker2.hasM){
+m_mouth.close();
+Scanner m_met = new Scanner(SubstitutionCracker2.cipher);
+while(m_met.hasNext()){
+String next = m_met.next();
+if (next.length()==3){
+String first = String.valueOf(next.charAt(0));
+String second = String.valueOf(next.charAt(1));
+String third = String.valueOf(next.charAt(2));
+
+if(massCalc_notAnyOther(new String[]{second,third},
+new int[]{_e,_t})){
+SubstitutionCracker2.key[_m] = first.toLowerCase();
+SubstitutionCracker2.hasM=true;
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_met");
+System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+System.err.println(SubstitutionCracker2.correctKey);
+
+m_met.close();
+break;
+   }
+  }
+ }
+if(!SubstitutionCracker2.hasM){
+m_met.close();
 Scanner m_remained = new Scanner(SubstitutionCracker2.cipher);
 while(m_remained.hasNext()){
 String next = m_remained.next();
@@ -754,79 +876,6 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_remained.close();
-Scanner m_home = new Scanner(SubstitutionCracker2.cipher);
-while(m_home.hasNext()){
-String next = m_home.next();
-if (next.length()==4){
-String first = String.valueOf(next.charAt(0));
-String second = String.valueOf(next.charAt(1));
-String third = String.valueOf(next.charAt(2));
-String fourth = String.valueOf(next.charAt(3));
-
-if(massCalc_notAnyOther(new String[]{first,second,fourth},
-new int[]{_h,_o,_e})){
-SubstitutionCracker2.key[_m] = third.toLowerCase();
-SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_home");
-System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
-System.err.println(SubstitutionCracker2.correctKey);
-
-m_home.close();
-break;
-   }
-  }
- }
-if(!SubstitutionCracker2.hasM){
-m_home.close();
-Scanner m_met = new Scanner(SubstitutionCracker2.cipher);
-while(m_met.hasNext()){
-String next = m_met.next();
-if (next.length()==3){
-String first = String.valueOf(next.charAt(0));
-String second = String.valueOf(next.charAt(1));
-String third = String.valueOf(next.charAt(2));
-
-if(massCalc_notAnyOther(new String[]{second,third},
-new int[]{_e,_t})){
-SubstitutionCracker2.key[_m] = first.toLowerCase();
-SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_met");
-System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
-System.err.println(SubstitutionCracker2.correctKey);
-
-m_met.close();
-break;
-   }
-  }
- }
-if(!SubstitutionCracker2.hasM){
-m_met.close();
-Scanner m_matter = new Scanner(SubstitutionCracker2.cipher);
-while(m_matter.hasNext()){
-String next = m_matter.next();
-if (next.length()==6){
-String first = String.valueOf(next.charAt(0));
-String second = String.valueOf(next.charAt(1));
-String third = String.valueOf(next.charAt(2));
-String fourth = String.valueOf(next.charAt(3));
-String fifth = String.valueOf(next.charAt(4));
-String sixth = String.valueOf(next.charAt(5));
-
-if(massCalc_notAnyOther(new String[]{second,third,fourth,fifth,sixth},
-new int[]{_a,_t,_t,_e,_r})){
-SubstitutionCracker2.key[_m] = first.toLowerCase();
-SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_matter");
-System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
-System.err.println(SubstitutionCracker2.correctKey);
-
-m_matter.close();
-break;
-   }
-  }
- }
-if(!SubstitutionCracker2.hasM){
-m_matter.close();
 Scanner m_multitude = new Scanner(SubstitutionCracker2.cipher);
 while(m_multitude.hasNext()){
 String next = m_multitude.next();
@@ -882,6 +931,80 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_manner.close();
+Scanner m_months = new Scanner(SubstitutionCracker2.cipher);
+while(m_months.hasNext()){
+String next = m_months.next();
+if (next.length()==6){
+String first = String.valueOf(next.charAt(0));
+String second = String.valueOf(next.charAt(1));
+String third = String.valueOf(next.charAt(2));
+String fourth = String.valueOf(next.charAt(3));
+String fifth = String.valueOf(next.charAt(4));
+String sixth = String.valueOf(next.charAt(5));
+
+if(massCalc_notAnyOther(new String[]{second,third,fourth,fifth,sixth},
+new int[]{_o,_n,_t,_h,_s})){
+SubstitutionCracker2.key[_m] = first.toLowerCase();
+SubstitutionCracker2.hasM=true;
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_months");
+System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+System.err.println(SubstitutionCracker2.correctKey);
+
+m_months.close();
+break;
+   }
+  }
+ }
+if(!SubstitutionCracker2.hasM){
+m_months.close();
+Scanner m_mean = new Scanner(SubstitutionCracker2.cipher);
+while(m_mean.hasNext()){
+String next = m_mean.next();
+if (next.length()==4){
+String first = String.valueOf(next.charAt(0));
+String second = String.valueOf(next.charAt(1));
+String third = String.valueOf(next.charAt(2));
+String fourth = String.valueOf(next.charAt(3));
+
+if(massCalc_notAnyOther(new String[]{second,third,fourth},
+new int[]{_e,_a,_n})){
+SubstitutionCracker2.key[_m] = first.toLowerCase();
+SubstitutionCracker2.hasM=true;
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_mean");
+System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+System.err.println(SubstitutionCracker2.correctKey);
+
+m_mean.close();
+break;
+   }
+  }
+ }
+if(!SubstitutionCracker2.hasM){
+m_mean.close();
+Scanner m_arms = new Scanner(SubstitutionCracker2.cipher);
+while(m_arms.hasNext()){
+String next = m_arms.next();
+if (next.length()==4){
+String first = String.valueOf(next.charAt(0));
+String second = String.valueOf(next.charAt(1));
+String third = String.valueOf(next.charAt(2));
+String fourth = String.valueOf(next.charAt(3));
+
+if(massCalc_notAnyOther(new String[]{first,second,fourth},
+new int[]{_a,_r,_s})){
+SubstitutionCracker2.key[_m] = third.toLowerCase();
+SubstitutionCracker2.hasM=true;
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_arms");
+System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+System.err.println(SubstitutionCracker2.correctKey);
+
+m_arms.close();
+break;
+   }
+  }
+ }
+if(!SubstitutionCracker2.hasM){
+m_arms.close();
 Scanner m_smile = new Scanner(SubstitutionCracker2.cipher);
 while(m_smile.hasNext()){
 String next = m_smile.next();
@@ -930,129 +1053,6 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_arm.close();
-Scanner m_arms = new Scanner(SubstitutionCracker2.cipher);
-while(m_arms.hasNext()){
-String next = m_arms.next();
-if (next.length()==4){
-String first = String.valueOf(next.charAt(0));
-String second = String.valueOf(next.charAt(1));
-String third = String.valueOf(next.charAt(2));
-String fourth = String.valueOf(next.charAt(3));
-
-if(massCalc_notAnyOther(new String[]{first,second,fourth},
-new int[]{_a,_r,_s})){
-SubstitutionCracker2.key[_m] = third.toLowerCase();
-SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_arms");
-System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
-System.err.println(SubstitutionCracker2.correctKey);
-
-m_arms.close();
-break;
-   }
-  }
- }
-if(!SubstitutionCracker2.hasM){
-m_arms.close();
-Scanner m_means = new Scanner(SubstitutionCracker2.cipher);
-while(m_means.hasNext()){
-String next = m_means.next();
-if (next.length()==5){
-String first = String.valueOf(next.charAt(0));
-String second = String.valueOf(next.charAt(1));
-String third = String.valueOf(next.charAt(2));
-String fourth = String.valueOf(next.charAt(3));
-String fifth = String.valueOf(next.charAt(4));
-
-if(massCalc_notAnyOther(new String[]{second,third,fourth,fifth},
-new int[]{_e,_a,_n,_s})){
-SubstitutionCracker2.key[_m] = first.toLowerCase();
-SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_means");
-System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
-System.err.println(SubstitutionCracker2.correctKey);
-
-m_means.close();
-break;
-   }
-  }
- }
-if(!SubstitutionCracker2.hasM){
-m_means.close();
-Scanner m_mount = new Scanner(SubstitutionCracker2.cipher);
-while(m_mount.hasNext()){
-String next = m_mount.next();
-if (next.length()==5){
-String first = String.valueOf(next.charAt(0));
-String second = String.valueOf(next.charAt(1));
-String third = String.valueOf(next.charAt(2));
-String fourth = String.valueOf(next.charAt(3));
-String fifth = String.valueOf(next.charAt(4));
-
-if(massCalc_notAnyOther(new String[]{second,third,fourth,fifth},
-new int[]{_o,_u,_n,_t})){
-SubstitutionCracker2.key[_m] = first.toLowerCase();
-SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_mount");
-System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
-System.err.println(SubstitutionCracker2.correctKey);
-
-m_mount.close();
-break;
-   }
-  }
- }
-if(!SubstitutionCracker2.hasM){
-m_mount.close();
-Scanner m_human = new Scanner(SubstitutionCracker2.cipher);
-while(m_human.hasNext()){
-String next = m_human.next();
-if (next.length()==5){
-String first = String.valueOf(next.charAt(0));
-String second = String.valueOf(next.charAt(1));
-String third = String.valueOf(next.charAt(2));
-String fourth = String.valueOf(next.charAt(3));
-String fifth = String.valueOf(next.charAt(4));
-
-if(massCalc_notAnyOther(new String[]{first,second,fourth,fifth},
-new int[]{_h,_u,_a,_n})){
-SubstitutionCracker2.key[_m] = third.toLowerCase();
-SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_human");
-System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
-System.err.println(SubstitutionCracker2.correctKey);
-
-m_human.close();
-break;
-   }
-  }
- }
-if(!SubstitutionCracker2.hasM){
-m_human.close();
-Scanner m_mean = new Scanner(SubstitutionCracker2.cipher);
-while(m_mean.hasNext()){
-String next = m_mean.next();
-if (next.length()==4){
-String first = String.valueOf(next.charAt(0));
-String second = String.valueOf(next.charAt(1));
-String third = String.valueOf(next.charAt(2));
-String fourth = String.valueOf(next.charAt(3));
-
-if(massCalc_notAnyOther(new String[]{second,third,fourth},
-new int[]{_e,_a,_n})){
-SubstitutionCracker2.key[_m] = first.toLowerCase();
-SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_mean");
-System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
-System.err.println(SubstitutionCracker2.correctKey);
-
-m_mean.close();
-break;
-   }
-  }
- }
-if(!SubstitutionCracker2.hasM){
-m_mean.close();
 Scanner m_remain = new Scanner(SubstitutionCracker2.cipher);
 while(m_remain.hasNext()){
 String next = m_remain.next();
@@ -1106,30 +1106,55 @@ break;
  }
 if(!SubstitutionCracker2.hasM){
 m_someone.close();
-Scanner m_auma = new Scanner(SubstitutionCracker2.cipher);
-while(m_auma.hasNext()){
-String next = m_auma.next();
+Scanner m_mount = new Scanner(SubstitutionCracker2.cipher);
+while(m_mount.hasNext()){
+String next = m_mount.next();
+if (next.length()==5){
+String first = String.valueOf(next.charAt(0));
+String second = String.valueOf(next.charAt(1));
+String third = String.valueOf(next.charAt(2));
+String fourth = String.valueOf(next.charAt(3));
+String fifth = String.valueOf(next.charAt(4));
+
+if(massCalc_notAnyOther(new String[]{second,third,fourth,fifth},
+new int[]{_o,_u,_n,_t})){
+SubstitutionCracker2.key[_m] = first.toLowerCase();
+SubstitutionCracker2.hasM=true;
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_mount");
+System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
+System.err.println(SubstitutionCracker2.correctKey);
+
+m_mount.close();
+break;
+   }
+  }
+ }
+if(!SubstitutionCracker2.hasM){
+m_mount.close();
+Scanner m_seem = new Scanner(SubstitutionCracker2.cipher);
+while(m_seem.hasNext()){
+String next = m_seem.next();
 if (next.length()==4){
 String first = String.valueOf(next.charAt(0));
 String second = String.valueOf(next.charAt(1));
 String third = String.valueOf(next.charAt(2));
 String fourth = String.valueOf(next.charAt(3));
 
-if(massCalc_notAnyOther(new String[]{first,second,fourth},
-new int[]{_a,_u,_a})){
-SubstitutionCracker2.key[_m] = third.toLowerCase();
+if(massCalc_notAnyOther(new String[]{first,second,third},
+new int[]{_s,_e,_e})){
+SubstitutionCracker2.key[_m] = fourth.toLowerCase();
 SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_auma");
+System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_seem");
 System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
 System.err.println(SubstitutionCracker2.correctKey);
 
-m_auma.close();
+m_seem.close();
 break;
    }
   }
  }
 if(!SubstitutionCracker2.hasM){
-m_auma.close();
+m_seem.close();
 Scanner m_enemies = new Scanner(SubstitutionCracker2.cipher);
 while(m_enemies.hasNext()){
 String next = m_enemies.next();
@@ -1151,29 +1176,6 @@ System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null"
 System.err.println(SubstitutionCracker2.correctKey);
 
 m_enemies.close();
-break;
-   }
-  }
- }
-if(!SubstitutionCracker2.hasM){
-m_enemies.close();
-Scanner m_tom = new Scanner(SubstitutionCracker2.cipher);
-while(m_tom.hasNext()){
-String next = m_tom.next();
-if (next.length()==3){
-String first = String.valueOf(next.charAt(0));
-String second = String.valueOf(next.charAt(1));
-String third = String.valueOf(next.charAt(2));
-
-if(massCalc_notAnyOther(new String[]{first,second},
-new int[]{_t,_o})){
-SubstitutionCracker2.key[_m] = third.toLowerCase();
-SubstitutionCracker2.hasM=true;
-System.err.println("SubstitutionCracker2.hasM=true; via Scanner m_tom");
-System.err.println((Arrays.toString(SubstitutionCracker2.key)).replaceAll("null", "\u0000"));
-System.err.println(SubstitutionCracker2.correctKey);
-
-m_tom.close();
 break;
    }
   }

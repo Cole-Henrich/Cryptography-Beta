@@ -20,8 +20,8 @@ public class IndividualLetterClassWriter {
             new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Scan8L.java"),
             new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Scan9U.java"),
             new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Scan10M.java"),
-            new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Scan11F.java"),
-            new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Scan12C.java"),
+            new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Scan11C.java"),
+            new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Scan12F.java"),
             new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Scan13W.java"),
             new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Scan14G.java"),
             new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Scan15Y.java"),
@@ -176,7 +176,8 @@ public class IndividualLetterClassWriter {
             String NotAnotherVowel = "";
             String NotAnotherVowelNewLine = "";
             if (isVowel(letter)) {
-                NotAnotherVowel = "if (notAnotherVowel(SubstitutionCracker2.key[_" + letter + "], _" + letter + ")){";
+//                NotAnotherVowel = "if (notAnotherVowel(SubstitutionCracker2.key[_" + letter + "], _" + letter + ")){";
+                NotAnotherVowel = "if (notAnotherVowel("+verbalT[0]+",_"+letter+")){";
                 NotAnotherVowelNewLine = "\n";
                 numEndBrackets++;
             }

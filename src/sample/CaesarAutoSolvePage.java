@@ -53,7 +53,11 @@ public class CaesarAutoSolvePage extends StackPane {
                 e.printStackTrace();
             }
             Stage s = (Stage) getScene().getWindow();
-            Parent root = new CaesarVoila(caesarCracker.getSolved(), caesarCracker.getShift(), "");
+            String extraInfo = "";
+            if (!caesarCracker.getLanguage().equals("English")){
+                extraInfo = "This cipher's message is in "+caesarCracker.getLanguage();
+            }
+            Parent root = new CaesarVoila(caesarCracker.getSolved(), caesarCracker.getShift(), extraInfo);
             s.setMinWidth(100);
             s.setMinHeight(100);
             s.setTitle("Voila");

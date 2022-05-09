@@ -123,8 +123,38 @@ public class UniqueWordsStorerWriter {
     }
 
     public static void main(String[] args) throws IOException {
-        French();
+        Time time = new Time();
+        Portuguese();
+        time.end();
+        time.println();
     }
+    private static void Portuguese() throws IOException {
+        File reservoir = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/PortugueseReservoir.txt");
+        File[] ArrayStores = new File[]{
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStorePortuguese1.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStorePortuguese2.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStorePortuguese3.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStorePortuguese4.java"),
+        };
+        File BigArrayStore = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/BigArrayStorePortuguese.java");
+        String Language = "Portuguese";
+        UniqueWordsStorerWriter w = new UniqueWordsStorerWriter(reservoir, ArrayStores, BigArrayStore, Language);
+    }
+    private static void English() throws IOException {
+        File reservoir = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt");
+        File[] ArrayStores = new File[]{
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore1.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore2.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore3.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore4.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore5.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore6.java")
+        };
+        File BigArrayStore = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/BigArrayStore.java");
+        String Language = "";
+        UniqueWordsStorerWriter w = new UniqueWordsStorerWriter(reservoir, ArrayStores, BigArrayStore, Language);
+    }
+
     private static void French() throws IOException {
         File reservoir = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/FrenchReservoir.txt");
         File[] ArrayStores = new File[]{
