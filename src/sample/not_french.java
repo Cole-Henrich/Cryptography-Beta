@@ -13,7 +13,7 @@ public class not_french {
     private ArrayList<String> words;
     private BigArrayStore biggy;
     private double cutoff;
-    private final CharSet charSet = new CharSet(true);
+    private final CharSet charSet = new CharSet(2);
 
     public not_french(String string, boolean ignoreSpaces, boolean ignorePunctuation) throws InterruptedException {
         this(string, ignoreSpaces, ignorePunctuation, 10, 7, false, false, 0);
@@ -64,17 +64,17 @@ public class not_french {
         }
     }
     public not_french(File file) throws FileNotFoundException {
-        this(file, 0.3);
+        this(file, 0.4);
     }
     public not_french(String string){
-        this(string, 0.3);
+        this(string, 0.4);
     }
     public not_french(File file, double cutoff) throws FileNotFoundException {
         biggy = new BigArrayStore();
         words = biggy.central();
         int docLength = 0;
         Scanner counter = new Scanner(file);
-        while (counter.hasNext()){if (counter.next() != null){docLength++;}}
+        while (counter.hasNext()){if (charSet.RemoveIgnorers(counter.next()) != null){docLength++;}}
         this.docLength = docLength;
 
         int validWords = 0;
@@ -114,7 +114,6 @@ public class not_french {
 
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
         test_not_french();
-
     }
     private static void test_not_french() throws FileNotFoundException {
         String[] pathnames = new String[]{"src/sample/document.txt", "src/sample/spanish.txt", "src/sample/russian.txt", "src/sample/obama.txt", "src/sample/belides_english.txt", "src/sample/orpheus_latin.txt", "src/sample/french.txt", "src/sample/stringStorer.txt"};

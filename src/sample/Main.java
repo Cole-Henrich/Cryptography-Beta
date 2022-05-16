@@ -55,8 +55,11 @@ public class Main extends Application {
         primaryStage.show();
     }
     public static void main(String[] args) throws IOException {
+//    test_FindKeyLengthByIndexOfCoincidence();
 
-           launch(args);
+//blue this launches the UI.
+ launch(args);
+
 //        System.err.println("main");
 //        EmojEncode2 emojEncode2 = new EmojEncode2("""
 //                Strangely enough, I would turn to the Almighty, and say, "If you allow me to live just a few years in the second half of
@@ -163,9 +166,66 @@ public class Main extends Application {
 //
 
     }
+    private static void test_FindKeyLengthByIndexOfCoincidence(){
+        CharSet charSet = new CharSet();
+        String MLKCipher = """
+                Hsyzz sgi gcdn eabojk, bs xftczsm. Sg T juhnwbpb fd Lszaf Mqyjblrtn ufr sge tfgefczi ufr rcztlgid gzilgrfafxif oyb
+                                fwyf hsmgvbl ommgi gqgpjr, X qgbocdtx ovz fq luk hljwxhy ommgi. Cl'g ljipsk uzmp ii zogc kdoj qwmetml tcgqcx sbo
+                                yehiuwlrq ii koj qabylvtls vigr lzajn qcf. Yzs Lszaf Mqyjblrtn ck hsc ntml tcgqcx lvlr U wuns tl fwy occjp. X'g
+                                vswgswnwr em ety wonf au sgi scdt ngbteti cf gagft ix o dragg oocluca. Qcf pqkysz efmi sgi lpq sylsckucyv hz ea dh
+                                sbjfal.
+                                Mgaprtxhy wd fmejwbtls xh Esxntxm; kcxcfwcfu tq tpjhsygzv cf cfp idldr. Llp nim yymi, xz A kppq hnsbogzv ul hsc
+                                ntaabygzv ix htkq, lclv efq eikgtzuaclm zd fpeabr y wxhv cq eqcyjow yzs jsbzpmbcu jtci dz lvp utdfw cq fgbuf vtqfdlq ia
+                                ra cio, oyb fwy Szxgswnq glgp ii es, "Xydicf Zfrttl Cwye, iwcuv leq limzo waj fayp ra acns tl?" U limzo rmzy em
+                                xcziud twgswn tm Peken sbo G idodr hyfrb Yco'q owcdrccz xh lvpgd buybtduryfh epqz zjcx rtt xsfv bgcawcyq au Yymar
+                                fwlgirf, ag lshscd pwjcdq fwy Jso Qqp, nzfzssw nzs hgxsyjbpqe dh lchyds nzs apabckso jmcx. Sbo gz hjahp mr xnk
+                                alezxzaqplot, C ocfjpc'n khzn fwyjs.
+                                T uajfv aztq dh tm Rpqtww oyb fpew aj kucx lc Xmgcn Gzjkbjm. Sbo G idodr dcq Efshz, Ydxmlcejq, Hiuflrqh,
+                                Ymftnusyk oyb Mgckhzntphwg lqetgtzpb mgimbo rtt Jsfefqcif. Oyb U limzo umiwz hscy plgiyb fwy Hocrtthgb lq
+                                fwyq rtqojmkso rtt ajslr mcx whppzpf agdsqh ix fpyxxnq. Pfr U limzol'f hngd efqgy.
+                                A kzsxs ag cy, chth lc efq vlwoe fqnxsm zd fwy Jcxyz Tghwcc. Mcx A kzsxs mws ochtfgdxczim sfzszs nzscc, fwlgirf
+                                hplacfq qbjwfzpe phv zpyptlk. Pfr U limzol'f hngd efqgy.
+                                A kzsxs ynsy aaby md em fwy voj mr ibw Fplmxmkoyaq, phv upr m foaqv nurnmfp mr pfd hsyf ibw Fplmxmkoyaq scv tzp fwy
+                                uiwrggud oyb mtmlvprur fatp mr buf. Pfr U limzol'f hngd efqgy.
+                                A kzsxs ynsy ea qs lvp umn nzoe rtt gsb qmd lbga T yy cueso fms bag synxnsh. Llp X qgiwb ipnuv Xydicf Zfrttl sg
+                                sc fpwcso fuh habprk-ucns efqhyk cy rtt xgcc yf ibw qssdrb gt Hgfiyfppps. Qol W hmgaxf'h drae nzscc.
+                                U limzo aaby gb fn qkyf hz 1863, yzs qshnf m kuuwwjmicfu Apqhcvsyr nn nzs yyyt ix Ompmwue Ztlodff ttlmafq qzkq ii
+                                lvp aacwdidgac nzoe fq wuv hz quvh lvp Cyphuwayfxif Dcmoaueoegac. Vmh T uajfvb'e qfdj lvppq.
+                                X qgiwb qkyf qzkq jj lc efq tujzj rtxllwpq, mcx ksp y yph yflnbacfu hgfw nzs apaqfwad mr ibw pllwgohhnw au bag yyfxif.
+                                Oyb odgw ktrt ph wzzogthl qcw fwul kp fmky fcefuca lc qcmg vmh "qcmg clgpjr." Qol W hmgaxf'h drae nzscc.
+                                Eilsbrcxn yfcfet, X qgiwb fjlf hz rtt Udatetis, sbo qmn, "Cx mzs mafgk xc fd fajp hghn s tpu ktujg tl fwy ksnmzs bszq mr
+                                ibw 20hs aqcnmfj, G ixfd pp fmejq."
+                                Bzu fwul'g l qfgufup qfpnwaplf ii eovc, ntwsidc fwy occjp xm szw kqhmwr fn. Fwy foegac ck gtaw. Ilgimjq xm ab efq
+                                aufr; nmzuokwzl maf sfzszs. Nzoe'q m hnjoyeq hnshpkqcn. Tie G wcio, gzkqwio, hsyf dhdm hfqc cl wd bmge wbzssw wsb
+                                jmg hyw hsc eiujg. Llp X mws Rmp lijytls xh lvtq btlaco mr ibw hhczicwhs aqcnmfj gz p qsm efmi gwb, tl edgw gepmcaw
+                                klw, mgy jsdnacxabr.s
+
+                                59
+                                Qabylvtls xm zoanqccfu tl ajl occjp. Ibw alqetm gt acaefw occ dxmabr sb. Phv kscdtpwf efqn ujs lqetgtzpb fdxsm,
+                                hfqibwf efqn ujs tl Vdbsbyceqoju, Dmgib Stcgop; Hswcmnx, Ewbjy; Mrwjo, Rfmcu; Fsh Wage Uwew; Mifsbey, Stijuty;
+                                Vpwcgzl, Yxmkwdqueja; cc Kqbjzwd, Rqchwgdcq -- ibw qcw uh udklwe ibw glkq: "Ly ooyr fd vw tccq."
+                                Phv oymfwyj fpyedh lvlr U'b bsdaw fd fajp gz ibag acdxiv wd rtpn os syht vwsy dagwwr em m eiabe uttlw kp ydt agwye fd
+                                bsjp ra vlsdajq lclv efq elgpwcyh nzoe kqc bsjp zqth lfjgzv ng ucybefw ktrt ibjcfet wckhzpk, qol hsc ptgsboq pxxf'h
+                                qmdry lvpk fd xg we. Qggpajlj ptgsboq fwul kp edpjhzp uuib lvpk. Yth, xcc wqplk bzu, tppw ppcz iudytls pvgie umg
+                                ufr acmry. Tie lal, hg zzlstl uoy rtts bidr fpfc ommgi cl. We ge ci dcyeqg u uvzgot vwhhcqc pacwczry sbo lacpacwczry
+                                ab efuh qgfwb; ui'm fcytudfwbnc ag hgbpvuhnwbnc. Fwul wd uttlw kp ydt ngrlw.
+                                Mcx szdm uc nzs ssyph jwrffh lwjzjgicgb, td edgwhsgzv ckb'e bacy, sbo bacy ab l fgglq, hz zdxhy hsc odfgfpb btihzpq au
+                                nzs hmdax gie mr ibwwc jaca qslpe dz hcgcdis, lvpgd aifu jcmgm gt ssdi ufr ycsayuh, efq lbgzp uagfv wd badgwr. Ymi, X'g
+                                bidr tpjhm efmi Agr sye pfdchcp by lc wght cf hsge eyjwzb fd mws hfmi ck iydaaxabr. Yzs C'e vlnbn nzoe Fq'h udzzuqs
+                                gw hz zq xh Esxntxm.
+                                A qll dtgwamcd -- X wsb ccytgtsc utth Fsrpatm oscc vjml uzgzv ujcflp pm Jownt wuk glgp, hi gtecz, hwjoeatxhy
+                                kscdt nzsj bush'l weat, phv zlsswcfu hfqc nzsj uqgy fce ruredso. Zgi nzoe bmn ck owj akyj. Kp kqph tidgztmk bzu, mcx
+                                os lpq sylsckucyv hz emxh gic puvbltfj bauus tl Sdx'k kzpxs.
+                                Ufr efmi'm szw rtxm ovzjq ibabr ge pvgie. Uq plwb'e czvuyso gz phq bpemicns apaiykh llp xh sbj lqvulwgc mgamaplfh
+                                qahs yznvgrj. Uq plw glwuca lvlr it ujs ocftlewycp ii ts xcz. Ly sfp bqiyjatlqs ng pp nqdjds. Hc mgy kojgzv --
+                                Qw occ epsabr rtpn os lpq Viv'g nfuaxjsy. Yzs nzoe uq plw Uzb'e rbazopqc, qw rzl'f wuns em xxpw ztiq ly sfp dagwwr em
+                                xxpw.""";
+        System.out.println(charSet.findKeyLengthByIndexOfCoincidence(MLKCipher));
+
+    }
     private static void test_indexOfCoincidence(){
         CharSet charSet = new CharSet();
-        File reservoir = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt");
+        File reservoir = charSet.getLanguage_Manipulation_UniqueWords_TrainerReservoir();
         double inEnglishReservoir = charSet.indexOfCoincidenceIn(reservoir.toString());
         System.out.println(inEnglishReservoir);
         double inMLKVigenereCipher = charSet.indexOfCoincidenceIn("""

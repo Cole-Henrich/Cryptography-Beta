@@ -64,10 +64,10 @@ public class not_english {
         }
     }
     public not_english(File file) throws FileNotFoundException {
-       this(file, 0.5);
+       this(file, 0.7);
     }
     public not_english(String string){
-        this(string, 0.5);
+        this(string, 0.7);
     }
     public not_english(File file, double cutoff) throws FileNotFoundException {
         biggy = new BigArrayStore();

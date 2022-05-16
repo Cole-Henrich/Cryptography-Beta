@@ -15,7 +15,6 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.*;
 
 @SuppressWarnings({"MagicNumber", "LawOfDemeter"})
@@ -89,6 +88,54 @@ public class CharSet {
     private final String[] animalEmojis= new String[]{"🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🦦","🐨","🐯","🦁","🐮","🐷","🐽","🐸","🐵","🙈","🙉","🙊","🐒","🐔","🐧","🐦","🐤","🐣","🐥","🦆","🦅","🦉","🦇","🐺","🐗","🐴","🦄","🐝","🪱","🐛","🦋","🐌","🐞","🐜","🪰","🪲","🪳","🦟","🦗","🕷","🕸","🦂","🐢","🐍","🦎","🦖","🦕","🐙","🦑","🦐","🦞","🦀","🐡","🐠","🐟","🐬","🐳","🐋","🦈","🐊","🐅","🐆","🦓","🦍","🦧","🦣","🐘","🦛","🦏","🐪","🐫","🦒","🦘","🦬","🐃"};
     private final String[] Polysymbolic= new String[]{"˜","º","ª","Ω","µ","÷","·","¨","≥Ú","¡","´", "˝","®", "“","ç", "π","‹","≠","Ó","Ï","¸4¯","∆•","¶","◊", "Ò", "ƒ","…","˘","Å","–","†","∞","", "Æ","√","€","‡","¥","¿","1","˛", "Ô", "œ","Í", "Î","¬", "ı", "ﬁ", "∑", "∫","≈","˚","‘","—","æ","å","˙", "§", "™", "ß","≤","Â", "ˆ","©","«", "ø","›","˜","ﬂ","⁄", "Ç", "°", "∂", "¢", "£","±", "ā", "ē", "ī", "ō", "ū", "ä", "ë"};
     private final String[] Greek = new String[]{"Ε","Ζ","Υ","τ","Η","Ω","Ν","Χ","ι","χ","σ","γ","κ","Ι","η","Κ","ν","ρ","ψ","Π","Α","λ","ω","ς","Θ","υ","μ","Δ","Φ","ζ","Ρ","ε","φ","Σ","ο","Μ","β","Ο","Λ","Β","δ","Τ","α","Ψ","θ","π","Γ","ξ","Ξ","J","c","p","n","L","e","C","i","U","k","u","S","W","s","D","d","R","q","r","Q","w","g","l","m","v","F","h","o","G","t","x","f","V","j"};
+    private final char[] Accented = new char[]{
+            'à','á','â','ä','æ','ã','å','ā',
+            'À','Á','Â','Ä','Æ','Ã','Å','Ā',
+            'è','é','ê','ë','ē','ė','ę',
+            'È','É','Ê','Ë','Ē','Ė','Ę',
+            'î','ï','í','ī','į','ì',
+            'Î','Ï','Í','Ī','Į','Ì',
+            'ô','ö','ò','ó','œ','ø','ō','õ',
+            'Ô','Ö','Ò','Ó','Œ','Ø','Ō','Õ',
+            'û','ü','ù','ú','ū',
+            'Û','Ü','Ù','Ú','Ū',
+            'ÿ',
+            'Ÿ',
+            'Ś','Š',
+            'ß','ś','š',
+            'ł',
+            'Ł',
+            'ž','ź','ż',
+            'Ž','Ź','Ż',
+            'ç','ć','č',
+            'Ç','Ć','Č',
+            'ñ','ń',
+            'Ñ','Ń'};
+    private final char[] UpperCaseAccented = new char[]{
+            'À','Á','Â','Ä','Æ','Ã','Å','Ā',
+            'È','É','Ê','Ë','Ē','Ė','Ę',
+            'Î','Ï','Í','Ī','Į','Ì',
+            'Ô','Ö','Ò','Ó','Œ','Ø','Ō','Õ',
+            'Û','Ü','Ù','Ú','Ū',
+            'Ÿ',
+            'Ś','Š',
+            'Ł',
+            'Ž','Ź','Ż',
+            'Ç','Ć','Č',
+            'Ñ','Ń'
+    };
+    private final char[] lowerCaseAccented = new char[]{
+            'à','á','â','ä','æ','ã','å','ā',
+            'è','é','ê','ë','ē','ė','ę',
+            'î','ï','í','ī','į','ì',
+            'ô','ö','ò','ó','œ','ø','ō','õ',
+            'û','ü','ù','ú','ū',
+            'ÿ',
+            'ś','š',
+            'ł',
+            'ž','ź','ż',
+            'ç','ć','č',
+            'ñ','ń'};
 
     public String[] getEmojis() {return emojis;}
     public String[] getHandEmojis() {return handEmojis;}
@@ -96,8 +143,75 @@ public class CharSet {
     public String[] getAnimalEmojis() {return animalEmojis;}
     public String[] getPolysymbolic() {return Polysymbolic;}
     public String[] getGreek() {return Greek;}
-
     math mathematics = new math();
+    public char unAccent(char letter) {
+        String ltr = String.valueOf(letter);
+        String letr = String.valueOf(letter).toLowerCase();
+        for (int i = 0; i < lowerCaseAccented.length; i++) {
+            String l = String.valueOf(lowerCaseAccented[i]);
+            if (letr.equals(l)) {
+                String unAccented = "";
+                if (i <=3 || (5<=i && i <=7)){unAccented = "a";}
+                if ((8 <=i && i<=14)||i==4 || i==25){unAccented="e";}
+                //æ becomes e, like Aethos becomes Ethos, Aetna Etna
+                //œ becomes e, like Oedipus sounds like Edipus.
+                if (15 <=i && i<=20){unAccented="i";}
+                if (21<=i&&i<=24 || (26<=i&&i<=28)){unAccented = "o";}
+                if (29 <=i && i<=33){unAccented="u";}
+                if (i==34){unAccented="y";}
+                if (i==35||i==36){unAccented="l";}
+                if (i==37){unAccented="l";}
+                if (38 <=i && i<=40){unAccented="z";}
+                if (41 <=i && i<=43){unAccented="c";}
+                if (i==44||i==45){unAccented="n";}
+                boolean isCapital = isCapital(ltr);
+                if (!unAccented.isEmpty()) {
+                    if (isCapital) {
+                        return (unAccented.toUpperCase()).charAt(0);
+                    }
+                    return unAccented.charAt(0);
+                }
+            }
+        }
+        if (letter == 'ß'){
+            return 's';
+        }
+        return letter;
+    }
+    public boolean isAccented(char c) {
+        String stringVal = String.valueOf(c);
+        //most likely it will not be accented so run this first to break early and not waste time
+        // looking through whole array of accented characters.
+        for (char a : alphabet) {
+            if (stringVal.equalsIgnoreCase(String.valueOf(a))) {
+                return false;
+            }
+        }
+        //if it is not in the basic alphabet return true if it IS in the accented alphabet
+        String lowerCase = stringVal.toLowerCase();
+        for (char a : lowerCaseAccented) {
+            if (lowerCase.equals(String.valueOf(a))) {
+                return true;
+            }
+        }
+        //If it is not in the alphabet nor in the accented alphabet it could be 'ß'
+        return c == 'ß';
+        //if it is not in the alphabet nor in the accented alphabet nor 'ß', it's likely a number or symbol, so return false.
+    }
+
+    private final char[] toBeEscaped = new char[]{'.', '^', '$', '*', '+', '-', '?','(', ')', '[', ']',
+            '{', '}','\\','|'};
+    public String escapeIgnorers(char ignorer) {
+        for (char c:toBeEscaped){
+            if (ignorer == c){
+                return "\\"+ignorer;
+            }
+        }
+        return String.valueOf(ignorer);
+    }
+
+
+
 
     public boolean contains(String[] array, String element, boolean ignoreCase){
         boolean rtn = false;
@@ -878,7 +992,22 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
         }
         return rtn;
     }
+    public final char[] ignorers0 = new char[]{'\n', ',','.','’','“','”','-','?','—','!',';','á','ó','"','í',':',')','(','1','é','\'','ú','0','2','9','_','‘','5','8','3','…','6','*','4','7','è','•','ë','[',']','§','–','$','ü','ï','/','ö','à','#','ê','â','&','%','ç','Á','ç','Á','ä','ô','Ñ','À','=','œ','œ','`','æ','æ','î','É','+','~','@'};
+    public final char[] ignorers1 = new char[] {'\n',' ', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', '\'', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '<', '>', '?', '¡', '™', '£', '¢', '∞', '§', '¶', '•', 'ª', 'º', '–', '≠', 'œ', '∑', '´', '®', '†', '¥', '¨', 'ˆ', 'ø', 'π', '“', '‘', '«', 'å', 'ß', '∂', 'ƒ', '©', '˙', '∆', '˚', '¬', '…', 'æ', 'Ω', '≈', 'ç', '√', '∫', '˜', 'µ', '≤', '≥', '÷', '⁄', '€', '‹', '›', 'ﬁ', 'ﬂ', '‡', '°', '·', '‚', '—', '±', 'Œ', '„', '´', '‰', 'ˇ', 'Á', '¨', 'ˆ', 'Ø', '∏', '”', '’', '»', 'Å', 'Í', 'Î', 'Ï', '˝', 'Ó', 'Ô', '', 'Ò', 'Ú', 'Æ', '¸', '˛', 'Ç', '◊', 'ı', '˜', 'Â', '¯', '˘', '¿', 'è', 'é', 'ê', 'ë', 'ē', 'ė', 'ę', 'ÿ', 'û', 'ü', 'ù', 'ú', 'ū', 'î', 'ï', 'í', 'ī', 'į', 'ì', 'ô', 'ö', 'ò', 'ó', 'œ', 'ø', 'ō', 'õ', 'à', 'á', 'â', 'ä', 'æ', 'ã', 'å', 'ā', 'ß', 'ś', 'š', 'ł', 'ž', 'ź', 'ż', 'ç', 'ć', 'č', 'ñ', 'ń', 'È', 'É', 'Ê', 'Ë', 'Ē', 'Ė', 'Ę', 'Ÿ', 'Û', 'Ü', 'Ù', 'Ú', 'Ū', 'Î', 'Ï', 'Í', 'Ī', 'Į', 'Ì', 'Ô', 'Ö', 'Ò', 'Ó', 'Œ', 'Ø', 'Ō', 'Õ', 'À', 'Á', 'Â', 'Ä', 'Æ', 'Ã', 'Å', 'Ā', 'Ś', 'Š', 'Ł', 'Ž', 'Ź', 'Ż', 'Ç', 'Ć', 'Č', 'Ñ', 'Ń', '‖', '‗'};
+    public final char[] ignorers2 = new char[] {'\n',' ', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '<', '>', '?', '¡', '™', '£', '¢', '∞', '§', '¶', '•', 'ª', 'º', '–', '≠', 'œ', '∑', '´', '®', '†', '¥', '¨', 'ˆ', 'ø', 'π', '“', '«', '©', '˙', '∆', '˚', '¬', '…', 'Ω', '≈', '√', '∫', '˜', 'µ', '≤', '≥', '÷', '⁄', '€', '‹', '›', 'ﬁ', 'ﬂ', '‡', '°', '·', '‚', '—', '±', '„', '´', '‰', 'ˇ', '¨', 'ˆ', 'Ø', '∏', '”', '’', '»', '˝', '', '¸', '˛', '◊', 'ı', '˜', '¯', '˘', '¿', '‖', '‗'};
+
     public CharSet(){this(false);}
+    public CharSet(int ignorerSet){
+        if (ignorerSet == 0){
+            ignorers = new char[]{'\n', ',','.','’','“','”','-','?','—','!',';','á','ó','"','í',':',')','(','1','é','\'','ú','0','2','9','_','‘','5','8','3','…','6','*','4','7','è','•','ë','[',']','§','–','$','ü','ï','/','ö','à','#','ê','â','&','%','ç','Á','ç','Á','ä','ô','Ñ','À','=','œ','œ','`','æ','æ','î','É','+','~','@'};
+        }
+        if (ignorerSet == 1){
+            ignorers = new char[] {'\n',' ', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', '\'', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '<', '>', '?', '¡', '™', '£', '¢', '∞', '§', '¶', '•', 'ª', 'º', '–', '≠', 'œ', '∑', '´', '®', '†', '¥', '¨', 'ˆ', 'ø', 'π', '“', '‘', '«', 'å', 'ß', '∂', 'ƒ', '©', '˙', '∆', '˚', '¬', '…', 'æ', 'Ω', '≈', 'ç', '√', '∫', '˜', 'µ', '≤', '≥', '÷', '⁄', '€', '‹', '›', 'ﬁ', 'ﬂ', '‡', '°', '·', '‚', '—', '±', 'Œ', '„', '´', '‰', 'ˇ', 'Á', '¨', 'ˆ', 'Ø', '∏', '”', '’', '»', 'Å', 'Í', 'Î', 'Ï', '˝', 'Ó', 'Ô', '', 'Ò', 'Ú', 'Æ', '¸', '˛', 'Ç', '◊', 'ı', '˜', 'Â', '¯', '˘', '¿', 'è', 'é', 'ê', 'ë', 'ē', 'ė', 'ę', 'ÿ', 'û', 'ü', 'ù', 'ú', 'ū', 'î', 'ï', 'í', 'ī', 'į', 'ì', 'ô', 'ö', 'ò', 'ó', 'œ', 'ø', 'ō', 'õ', 'à', 'á', 'â', 'ä', 'æ', 'ã', 'å', 'ā', 'ß', 'ś', 'š', 'ł', 'ž', 'ź', 'ż', 'ç', 'ć', 'č', 'ñ', 'ń', 'È', 'É', 'Ê', 'Ë', 'Ē', 'Ė', 'Ę', 'Ÿ', 'Û', 'Ü', 'Ù', 'Ú', 'Ū', 'Î', 'Ï', 'Í', 'Ī', 'Į', 'Ì', 'Ô', 'Ö', 'Ò', 'Ó', 'Œ', 'Ø', 'Ō', 'Õ', 'À', 'Á', 'Â', 'Ä', 'Æ', 'Ã', 'Å', 'Ā', 'Ś', 'Š', 'Ł', 'Ž', 'Ź', 'Ż', 'Ç', 'Ć', 'Č', 'Ñ', 'Ń', '‖', '‗'};
+        }
+        if (ignorerSet == 2){
+            ignorers = new char[] {'\n',' ', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '<', '>', '?', '¡', '™', '£', '¢', '∞', '§', '¶', '•', 'ª', 'º', '–', '≠', 'œ', '∑', '´', '®', '†', '¥', '¨', 'ˆ', 'ø', 'π', '“', '«', '©', '˙', '∆', '˚', '¬', '…', 'Ω', '≈', '√', '∫', '˜', 'µ', '≤', '≥', '÷', '⁄', '€', '‹', '›', 'ﬁ', 'ﬂ', '‡', '°', '·', '‚', '—', '±', '„', '´', '‰', 'ˇ', '¨', 'ˆ', 'Ø', '∏', '”', '’', '»', '˝', '', '¸', '˛', '◊', 'ı', '˜', '¯', '˘', '¿', '‖', '‗'};
+        }
+    }
     public CharSet(boolean streamLineIgnorers){
         if (streamLineIgnorers){
             ignorers = new char[]{'\n', ',','.','’','“','”','-','?','—','!',';','á','ó','"','í',':',')','(','1','é','\'','ú','0','2','9','_','‘','5','8','3','…','6','*','4','7','è','•','ë','[',']','§','–','$','ü','ï','/','ö','à','#','ê','â','&','%','ç','Á','ç','Á','ä','ô','Ñ','À','=','œ','œ','`','æ','æ','î','É','+','~','@'};
@@ -995,6 +1124,52 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
         String regex = "(?<=\\G.{"+every+"})";
         String s = string;
         return s.split(regex);
+    }
+
+    public int findKeyLengthByIndexOfCoincidence(String string){
+        String String = string;
+        String = removeIgnorers(string, new String[]{""});
+        String = String.toLowerCase();
+        int maxGap = Math.min(string.length(), 20);
+        ArrayList<Double> CoincidenceIndices = new ArrayList<>();
+        for (int gap = 1; gap < maxGap; gap++) {
+            int count = 0;
+            int attempts = 0;
+            for (int i = 0; gap*i < String.length(); i++) {
+                int spot1 = gap*i;
+                char a = String.charAt(spot1);
+                for (int j = 1; spot1+gap*j < String.length(); j++) {
+                    int spot2 = spot1+gap*j;
+                    char b = String.charAt(spot2);
+                    attempts++;
+                    if (a == b){
+                        count++;
+                    }
+                }
+            }
+            CoincidenceIndices.add((double)count/(double)attempts);
+        }
+        int best = f(CoincidenceIndices);
+        ArrayList<Double> copy = CoincidenceIndices;
+        copy.remove(best-1);
+        int secondBest = f(copy);
+        if (best%secondBest == 0){
+            best = secondBest;
+        }
+        System.out.println(CoincidenceIndices);
+        return best;
+    }
+    public int f(ArrayList<Double> ci){
+        double leastDifference = 1;//highest possible value, so it will always change
+        int best = 0;//therefore this also will always change so initial value is irrelevant.
+        for (int i = 0; i < ci.size(); i++) {
+            double difference = Math.abs(ci.get(i)-0.068);
+            if (difference < leastDifference){
+                leastDifference = difference;
+                best = i+1;
+            }
+        }
+        return best;
     }
     public double indexOfCoincidenceIn(String string){
         String String = string;
@@ -1537,4 +1712,5 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
         }
         return false;
     }
+
 }

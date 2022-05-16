@@ -73,6 +73,8 @@ public class TabulaRecta extends ArrayList<char[]> {
         }
         System.out.println(tabulaRecta.intersectionOf("M", "H"));
         System.out.println(tabulaRecta.columnOf("T", "H"));
+        System.out.println(tabulaRecta.columnOf("R", "R"));
+        System.out.println(tabulaRecta.columnOf("R", "E"));
         for (int i = 0; i < tabulaRecta.alphabet.length; i++) {
             String column = String.valueOf(tabulaRecta.alphabet[i]);
             for (int j = 0; j < tabulaRecta.alphabet.length; j++) {

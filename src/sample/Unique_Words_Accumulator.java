@@ -7,15 +7,17 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Unique_Words_Accumulator {
-    private final char[] ignorers = new CharSet().getIgnorers();
+
     private ArrayList<String> unique_words;
     private ArrayList<ArrayList<Integer>> Coordinates;
-    private final CharSet charSet = new CharSet(true);
-
-    public Unique_Words_Accumulator() throws IOException {
-        this(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"));
+    private final CharSet charSet = new CharSet(2);
+    public Unique_Words_Accumulator(File file) throws IOException {
+        this(file, false);
     }
-    public Unique_Words_Accumulator(File file) throws FileNotFoundException {
+    public Unique_Words_Accumulator() throws IOException {
+        this(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), false);
+    }
+    public Unique_Words_Accumulator(File file, boolean ignoreCase) throws FileNotFoundException {
         System.err.println("new Unique_Words_Accumulator("+file+");");
         ArrayList<ArrayList<Integer>>coordinates = new ArrayList<>();
         Scanner scanner = new Scanner(file);
@@ -29,7 +31,11 @@ public class Unique_Words_Accumulator {
             if (string!=null){
                 numWordsChecked++;
             }
-            String word = format(string);
+            String w = string;
+            if (ignoreCase){
+                w = string.toLowerCase();
+            }
+            String word = format(w);
             if (!unique.contains(word)){
                 unique.add(word);
                 ArrayList<Integer> add = new ArrayList<>();
@@ -42,13 +48,21 @@ public class Unique_Words_Accumulator {
         unique_words = unique;
     }
     private String format(String string){
-        for (char ignorer: ignorers) {
-            if (string.contains(String.valueOf(ignorer))){
-                string = "";
-                break;
+        string = charSet.RemoveIgnorers(string);
+        for (int i = 0; i < string.length(); i++) {
+            if (charSet.isAccented(string.charAt(i))){
+                string = string.replaceAll(String.valueOf(string.charAt(i)), String.valueOf(charSet.unAccent(string.charAt(i))));
             }
         }
         return string;
+//        for (char ignorer: ignorers) {
+//            if (string.contains(String.valueOf(ignorer))){
+//                //2022/4/9 commented out string = ""; break;
+//                //2022/4/9 added:
+//                String regexPattern = charSet.escapeIgnorers(ignorer);
+//                string = string.replaceAll(regexPattern, "");
+//            }
+//        }
     }
     public ArrayList<String> get(){return unique_words;}
     public ArrayList<ArrayList<Integer>> getCoordinates(){return Coordinates;}

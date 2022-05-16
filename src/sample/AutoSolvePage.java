@@ -73,11 +73,11 @@ public class AutoSolvePage extends StackPane {
         decode.setOnAction(actionEvent -> {
             try {
                 timeFromClickDecode = new Time();
-                if (topLevelDecrypter == null){
-                    if (text != null) {
-                        topLevelDecrypter = new TopLevelDecrypter(text);
-                    }
-                }
+//                if (topLevelDecrypter == null){
+//                    if (text != null && text.length() > 0) {
+//                        topLevelDecrypter = new TopLevelDecrypter(text);
+//                    }
+//                }
                 ShowVoila();
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();

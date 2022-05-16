@@ -1,15 +1,36 @@
 package sample;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class VigenereCipher {
     private String s;
-    private final CharSet charSet = new CharSet();
-    public VigenereCipher(String text){
+    private static final CharSet charSet = new CharSet(1);
+    public VigenereCipher(String text, String keyWord){
         TabulaRecta tabulaRecta = new TabulaRecta();
+//        StringBuilder z = new StringBuilder();
+//        for (int i = 0; i < text.length(); i++) {
+//            if (!charSet.isCapital(String.valueOf(text.charAt(i)))){
+//                z.append(String.valueOf(text.charAt(i)).toUpperCase());
+//            }
+//        }
+//        String x = z.toString();
+//        StringBuilder z2 = new StringBuilder();
+//        x = charSet.removeIgnorers(x, new String[]{""});
+//        for (int i = 0; i < KeyWord.length(); i++) {
+//            if (!charSet.isCapital(String.valueOf(KeyWord.charAt(i)))){
+//                z2.append(String.valueOf(KeyWord.charAt(i)).toUpperCase());
+//            }
+//        }
+//        String keyWord = z2.toString();
         String x = text;
         x = charSet.removeIgnorers(x, new String[]{""});
-        VigenereKeyPhrase vigenereKeyPhrase = new VigenereKeyPhrase("HOUGHTON", x.length());
+
+        VigenereKeyPhrase vigenereKeyPhrase = new VigenereKeyPhrase(keyWord, x.length());
         VigenereSplit vigenereSplit = new VigenereSplit(text, vigenereKeyPhrase.get());
         ArrayList<ArrayList<String>> b = vigenereSplit.get(0);
         ArrayList<ArrayList<String>> c = vigenereSplit.get(1);
@@ -28,10 +49,42 @@ public class VigenereCipher {
         String m = charSet.inheritForm(l, text);
         s = m;
     }
+    public VigenereCipher(String text){
+        this(text, "HOUGHTON");
+    }
     public String get(){
         return s;
     }
-    public static void main(String[] args) {
-        System.out.println(new VigenereCipher("MICHIGAN TECHNOLOGICAL UNIVERSITY").get());
+    public static void main(String[] args) throws IOException {
+//green good keep        System.out.println(new VigenereCipher("MICHIGAN TECHNOLOGICAL UNIVERSITY").get());
+//        System.out.println(new VigenereCipher("This is an example of text to be encoded by a Vigenere cipher".toUpperCase(), "vigenere".toUpperCase()).get());
+//
+        StringBuilder lbuilder = new StringBuilder();
+        File reservoir = charSet.getLanguage_Manipulation_UniqueWords_TrainerReservoir();
+        Scanner scanner = new Scanner(reservoir);
+        int chars = 0;
+        while (scanner.hasNextLine()){
+            String nextLine = scanner.nextLine();
+            lbuilder.append(nextLine);
+            chars+=nextLine.length();
+            if (chars >= 5000000){break;}
+        }
+        System.out.println(chars);
+        String Long = charSet.removeIgnorers(lbuilder.toString(), new String[]{" "});
+        String lkw = "ahdjkeoqie";
+        File VigenereEncodeTimes = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/VigenereEncodeTimes.txt");
+        FileWriter fileWriter = new FileWriter(VigenereEncodeTimes);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i <= 200; i++){
+            String LongKeyWord = lkw.repeat(i);
+            LongKeyWord = LongKeyWord.toUpperCase();
+            Time time = new Time();
+            String gigantic = new VigenereCipher(Long, LongKeyWord).get();
+            time.end();
+            time.println();
+            sb.append(time.getDuration()).append("\n");
+        }
+        fileWriter.write(sb.toString());
+        fileWriter.close();
     }
 }

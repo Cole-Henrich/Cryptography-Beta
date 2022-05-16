@@ -17,8 +17,9 @@ public class SortingAttribute {
         for (int i = 0; i < list.size(); i++) {
             int count = 0;
             String s = list.get(i);
-            for (String value : reservoir) {
-                if (charSet.booleanEquals(s, value, useCase)) {
+            count++;
+            for (String s2 : reservoir) {
+                if (charSet.booleanEquals(s, s2, useCase)) {
                     count++;
                 }
             }

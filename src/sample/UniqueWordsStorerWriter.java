@@ -11,18 +11,26 @@ public class UniqueWordsStorerWriter {
     private File[] ArrayStores;
     private File BigArrayStore;
     private String Language;
+
     public UniqueWordsStorerWriter(File r, File[] as, File bas, String l) throws IOException {
         reservoir = r;
         ArrayStores = as;
         BigArrayStore = bas;
         Language = l;
-        writeToIndividualArrayStores();//comment this out if just editing BigArray
-        writeBigArrayStoreClass();
-
-    }
-    private void writeToIndividualArrayStores() throws IOException {
         Unique_Words_Accumulator acc = new Unique_Words_Accumulator(reservoir);
         ArrayList<String> got = acc.get();
+        writeToIndividualArrayStores(got);//comment this out if just editing BigArray
+        writeBigArrayStoreClass();
+    }
+    public UniqueWordsStorerWriter(ArrayList<String> ArrListUniques, File[] as, File bas, String l) throws IOException {
+        ArrayStores = as;
+        BigArrayStore = bas;
+        Language = l;
+//        writeToIndividualArrayStores(ArrListUniques);//comment this out if just editing BigArray
+        writeBigArrayStoreClass();
+    }
+    private void writeToIndividualArrayStores(ArrayList<String> got) throws IOException {
+
         int fileIndex = 0;
         FileWriter fileWriter = new FileWriter(ArrayStores[fileIndex]);
         fileWriter.write("package sample;\n" +
@@ -30,19 +38,25 @@ public class UniqueWordsStorerWriter {
                 "                public class ArrayStore"+Language+(fileIndex+1)+" extends ArrayStore {\n" +
                 "                    public ArrayStore"+Language+(fileIndex+1)+"() {\n" +
                 "                        super(new String[]{");
-        for (String uniqueWord : got) {
+        for (int i = 0; i < got.size()-1; i++) {
+            String uniqueWord = got.get(i);
             fileWriter.append("\"").append(uniqueWord).append("\",\s");
             if (ArrayStores[fileIndex].length() > 60000) {
+                fileWriter.append("\"").append(got.get(i+1)).append("\"");
                 fileWriter.append("});}}");
-                fileIndex++;
-                fileWriter = new FileWriter(ArrayStores[fileIndex]);
-                fileWriter.write("package sample;\n" +
-                        "                                \n" +
-                        "                public class ArrayStore" + Language + (fileIndex + 1) + " extends ArrayStore {\n" +
-                        "                    public ArrayStore" + Language + (fileIndex + 1) + "() {\n" +
-                        "                        super(new String[]{");
+                fileWriter.close();
+                if (fileIndex < 18) {
+                    fileIndex++;
+                    fileWriter = new FileWriter(ArrayStores[fileIndex]);
+                    fileWriter.write("package sample;\n" +
+                            "                                \n" +
+                            "                public class ArrayStore" + Language + (fileIndex + 1) + " extends ArrayStore {\n" +
+                            "                    public ArrayStore" + Language + (fileIndex + 1) + "() {\n" +
+                            "                        super(new String[]{");
+                }
             }
         }
+        fileWriter.append("\"").append(got.get(got.size()-1)).append("\"");
         fileWriter.append("});}}");
         fileWriter.close();
     }
@@ -128,6 +142,60 @@ public class UniqueWordsStorerWriter {
         time.end();
         time.println();
     }
+    public static void GeneralLatinAlphabetLanguage() throws IOException {
+        sample.BigArrayStore EnglishArrayStore = new BigArrayStore();
+        BigArrayStoreSpanish SpanishArrayStore = new BigArrayStoreSpanish();
+        BigArrayStoreFrench FrenchArrayStore = new BigArrayStoreFrench();
+        BigArrayStorePortuguese PortugueseArrayStore = new BigArrayStorePortuguese();
+        ArrayList<String> englishUniques = EnglishArrayStore.central();
+        ArrayList<String> spanishUniques = SpanishArrayStore.central();
+        ArrayList<String> frenchUniques = FrenchArrayStore.central();
+        ArrayList<String> portugueseUniques = PortugueseArrayStore.central();
+        ArrayList<String> all = new ArrayList<>(englishUniques);
+        all.addAll(spanishUniques);
+        all.addAll(frenchUniques);
+        all.addAll(portugueseUniques);
+        ArrayList<String> generalUniques = new ArrayList<>();
+        for (String s:all){
+            if (!generalUniques.contains(s)){
+                generalUniques.add(s);
+            }
+        }
+        File[] ArrayStores = new File[]{
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage1.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage2.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage3.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage4.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage5.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage6.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage7.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage8.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage9.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage10.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage11.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage12.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage14.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage15.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage16.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage17.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage18.java")
+        };
+        File BigArrayStore = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/BigArrayStoreGeneralLatinAlphabetLanguage.java");
+        String Language = "GeneralLatinAlphabetLanguage";
+        UniqueWordsStorerWriter w = new UniqueWordsStorerWriter(generalUniques, ArrayStores, BigArrayStore, Language);
+    }
+    private static void Spanish() throws IOException {
+        File reservoir = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/SpanishReservoir.txt");
+        File[] ArrayStores = new File[]{
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreSpanish1.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreSpanish2.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreSpanish3.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreSpanish4.java"),
+        };
+        File BigArrayStore = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/BigArrayStoreSpanish.java");
+        String Language = "Spanish";
+        UniqueWordsStorerWriter w = new UniqueWordsStorerWriter(reservoir, ArrayStores, BigArrayStore, Language);
+    }
     private static void Portuguese() throws IOException {
         File reservoir = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/PortugueseReservoir.txt");
         File[] ArrayStores = new File[]{
@@ -135,6 +203,10 @@ public class UniqueWordsStorerWriter {
                 new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStorePortuguese2.java"),
                 new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStorePortuguese3.java"),
                 new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStorePortuguese4.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStorePortuguese5.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStorePortuguese6.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStorePortuguese7.java"),
+
         };
         File BigArrayStore = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/BigArrayStorePortuguese.java");
         String Language = "Portuguese";
@@ -162,6 +234,11 @@ public class UniqueWordsStorerWriter {
                 new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreFrench2.java"),
                 new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreFrench3.java"),
                 new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreFrench4.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreFrench5.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreFrench6.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreFrench7.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreFrench8.java"),
+
         };
         File BigArrayStore = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/BigArrayStoreFrench.java");
         String Language = "French";

@@ -13,7 +13,7 @@ public class not_spanish {
     private ArrayList<String> words;
     private BigArrayStoreSpanish biggy;
     private double cutoff;
-    private final CharSet charSet = new CharSet(true);
+    private final CharSet charSet = new CharSet(2);
 
     public not_spanish(String string, boolean ignoreSpaces, boolean ignorePunctuation) throws InterruptedException {
         this(string, ignoreSpaces, ignorePunctuation, 10, 7, false, false, 0);
@@ -74,7 +74,7 @@ public class not_spanish {
         words = biggy.central();
         int docLength = 0;
         Scanner counter = new Scanner(file);
-        while (counter.hasNext()){if (counter.next() != null){docLength++;}}
+        while (counter.hasNext()){if (charSet.RemoveIgnorers(counter.next()) != null){docLength++;}}
         this.docLength = docLength;
 
         int validWords = 0;

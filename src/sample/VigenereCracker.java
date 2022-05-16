@@ -4,6 +4,7 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -15,9 +16,13 @@ public class VigenereCracker {
     private final CharSet charSet = new CharSet();
     private int likelyMinLength;
     private int likelyKeyLength;
+    private int keyLength;
     private int likelyMaxLength;
     private final char[] alphabet = charSet.getAlphabet();
+    private boolean isCaesar;
+    private int shift;
     private String cipher;
+
     public final double[][] IndexOfCoincidenceVSKeyWordEstimationTable = {
             {1,0.0660},
             {2,0.0520},
@@ -31,18 +36,49 @@ public class VigenereCracker {
             {10,0.0407},
             {Double.MAX_VALUE, 0.0388}
     };
-
-    public VigenereCracker(String Cipher) throws FileNotFoundException, InterruptedException {
-        this.cipher = Cipher;
-        int a = calculateLengthViaKasiski(cipher);
-        int b = calculateLengthViaKasiski(charSet.RemoveIgnorers(cipher));
-        int c = calculateLengthViaKasiski(charSet.removeIgnorers(cipher, new String[]{" "}));
-        int d = calculateLengthViaKasiski(cipher.toLowerCase());
-        int e = calculateLengthViaKasiski(cipher.toUpperCase());
-        System.out.println(a + "\n"+b + "\n"+c + "\n"+d + "\n"+e);
-        System.out.println("^^Kasiskis^^");
-
-
+    public VigenereCracker(String Cipher) throws IOException, InterruptedException {
+        cipher = Cipher;
+//        int a = calculateLengthViaKasiski(cipher);
+//        int b = calculateLengthViaKasiski(charSet.RemoveIgnorers(cipher));
+//        int c = calculateLengthViaKasiski(charSet.removeIgnorers(cipher, new String[]{" "}));
+//        int d = calculateLengthViaKasiski(cipher.toLowerCase());
+//        int e = calculateLengthViaKasiski(cipher.toUpperCase());
+//        System.out.println(a + "\n"+b + "\n"+c + "\n"+d + "\n"+e);
+//        System.out.println("^^Kasiskis^^");
+        likelyKeyLength = charSet.findKeyLengthByIndexOfCoincidence(charSet.RemoveIgnorers(cipher));
+        String c1 = charSet.RemoveIgnorers(cipher);
+        if (likelyKeyLength == 1){VigenereBruteForcer vbf = new VigenereBruteForcer(cipher, 1);}
+        else {
+            //cyan very good stuff - just not ready yet, commenting it out to allow other stuff to run.
+//            if (c1.length() > 100 * likelyKeyLength) {
+//                VigenereStatisticsAttacker vsa = new VigenereStatisticsAttacker(cipher, likelyKeyLength);
+//                if (vsa.isSolved()) {
+//                    isSolved = true;
+//                    solved = vsa.getSolved();
+//                    keyWord = vsa.getKeyWord();
+//                    keyLength = keyWord.length();
+//                }
+//            } else {
+//                VigenereDictionaryAttacker vda = new VigenereDictionaryAttacker(cipher, likelyKeyLength);
+//                if (vda.isSolved()) {
+//                    isSolved = true;
+//                    solved = vda.getSolved();
+//                    keyWord = vda.getKeyWord();
+//                    keyLength = keyWord.length();
+//                }
+//                else {
+                    if (likelyKeyLength == 2 || likelyKeyLength == 3) {
+                        VigenereBruteForcer vbf = new VigenereBruteForcer(cipher, likelyKeyLength);
+                        if (vbf.isSolved()) {
+                            isSolved = true;
+                            solved = vbf.getSolved();
+                            keyWord = vbf.getKeyWord();
+                            keyLength = keyWord.length();
+                        }
+                    }
+                }
+            }
+//        }
 //        String s = cipher;
 //        s = charSet.removeIgnorers(s, new String[]{""});
 //        String[] split = charSet.split(s, l);
@@ -130,7 +166,8 @@ public class VigenereCracker {
         }
 
          */
-    }
+    //}
+
     private int calculateLengthViaKasiski(String CIPHER){
         int[] kasiski = KasiskiAnalysis(CIPHER);
         int likelyLength = kasiski[0];
@@ -210,7 +247,7 @@ public class VigenereCracker {
             PossibleKeys.add(Got);
         boolean Break = false;
         not_english initial = new not_english("", true, true, 12,6, true, true, 0);
-        double cutoff = initial.getCutoff();
+        double cutoff = 0.4;//initial.getCutoff();
         for (ArrayList<String> possibleKey : PossibleKeys) {
             for (String s : possibleKey) {
                 System.err.println(s);
@@ -234,8 +271,10 @@ public class VigenereCracker {
     public String getKeyWord(){return keyWord;}
     public String getSolved(){return solved;}
     public boolean isSolved(){return isSolved;}
+    public boolean isCaesar() {return isCaesar;}
+    public int getShift() {return shift;}
 
-    public static void main(String[] args) throws FileNotFoundException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         //keys are "crawdad", "pearl", and "harbor"
         CharSet charSet = new CharSet(false);
         CifrarioVigenere[] ciphers = new CifrarioVigenere[]{
@@ -333,8 +372,9 @@ M ajv ilak ewi Cfyvvejd sicclgi tyli wient xhv fctrfgdoeu lch drdieruwn etklro b
                 """, "harbor")};
         for (CifrarioVigenere cipher: ciphers) {
             VigenereCracker vigenereCracker = new VigenereCracker(cipher.getCipher());
-            VigenereDeciphered vigenereDeciphered = new VigenereDeciphered(cipher.getCipher(), new VigenereKeyPhrase(cipher.getKey(), cipher.getCipher().length()).get());
-            System.out.println(vigenereDeciphered.get());
+            System.out.println(cipher.getKey().length());
+//            VigenereDeciphered vigenereDeciphered = new VigenereDeciphered(cipher.getCipher(), new VigenereKeyPhrase(cipher.getKey(), cipher.getCipher().length()).get());
+//            System.out.println(vigenereDeciphered.get());
         }
     }
 }

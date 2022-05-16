@@ -27,5 +27,9 @@ public class VigenereKeyPhrase {
             VigenereKeyPhrase vigenereKeyPhrase = new VigenereKeyPhrase(new VigenereKeyWord("IMPROVE YOUR PUZZLE SOLVING SKILLS".length()).get(), "IMPROVE YOUR PUZZLE SOLVING SKILLS".length());
             System.out.println(vigenereKeyPhrase.get());
         }
+        for (int i = 0; i < 10; i++) {
+            VigenereKeyPhrase vigenereKeyPhrase = new VigenereKeyPhrase(new VigenereKeyWord("IMPROVE YOUR PUZZLE SOLVING SKILLS".length(), new BigArrayStore()).get(), "IMPROVE YOUR PUZZLE SOLVING SKILLS".length());
+            System.out.println(vigenereKeyPhrase.get());
+        }
     }
 }

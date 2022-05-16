@@ -3,7 +3,7 @@ package sample;
 import java.io.*;
 
 public class CaesarCracker {
-    CharSet charSet = new CharSet();
+    CharSet charSet = new CharSet(false);
     char[] alphabet = charSet.getAlphabet();
     char[] ignorers = charSet.getIgnorers();
     private String solved = "";
@@ -18,7 +18,7 @@ public class CaesarCracker {
         for (int i = 1; i < files.length; i++) {
             FileWriter fileWriter = new FileWriter(files[i]);
             StringBuilder attempt = new StringBuilder();
-            for (int j = 0; j < Cipher.length()-1; j++) {
+            for (int j = 0; j < Cipher.length()/*-1*/; j++) {
                 attempt.append(transpositionOf(Cipher.charAt(j), i));
             }
                 fileWriter.write(attempt.toString());
@@ -62,6 +62,17 @@ public class CaesarCracker {
                                 key = new CaesarKey(shift).get();
                                 language = "Portuguese";
                             }
+                            else {
+                                not_latin_alphabet_language not_latin_alphabet_language = new not_latin_alphabet_language(files[i]);
+                                if (!not_latin_alphabet_language.not_latin_alphabet_language()) {
+                                    isSolved = true;
+                                    shift = i;
+                                    solved = attempt.toString();
+                                    solution = files[i];
+                                    key = new CaesarKey(shift).get();
+                                    language = "*";
+                                }
+                            }
                         }
                     }
                 }
@@ -69,6 +80,7 @@ public class CaesarCracker {
     }
     private String transpositionOf(char letter, int shift){
         String rtn;
+
         String stringVal = String.valueOf(letter);
         boolean isUpperCase = !stringVal.equals(stringVal.toLowerCase());
         boolean isIgnorer = false;
@@ -77,6 +89,10 @@ public class CaesarCracker {
                 return stringVal;
             }
         }
+//green use if the letter 'å', for example, has been treated like 'a' and also shifted up. This is NOT how cryptii does it, but still useful in case.
+// if (charSet.isAccented(letter)){//
+//            letter = charSet.unAccent(letter);
+//        }
             int index = 0;
             for (int i = 0; i < alphabet.length; i++) {
                 char c = alphabet[i];
