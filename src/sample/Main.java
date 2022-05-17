@@ -35,15 +35,11 @@ package sample;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 @SuppressWarnings("MagicNumber")
 public class Main extends Application {
@@ -55,10 +51,10 @@ public class Main extends Application {
         primaryStage.show();
     }
     public static void main(String[] args) throws IOException {
-//    test_FindKeyLengthByIndexOfCoincidence();
+    test_FindKeyLengthByIndexOfCoincidence();
 
 //blue this launches the UI.
- launch(args);
+// launch(args);
 
 //        System.err.println("main");
 //        EmojEncode2 emojEncode2 = new EmojEncode2("""
@@ -220,7 +216,7 @@ public class Main extends Application {
                                 qahs yznvgrj. Uq plw glwuca lvlr it ujs ocftlewycp ii ts xcz. Ly sfp bqiyjatlqs ng pp nqdjds. Hc mgy kojgzv --
                                 Qw occ epsabr rtpn os lpq Viv'g nfuaxjsy. Yzs nzoe uq plw Uzb'e rbazopqc, qw rzl'f wuns em xxpw ztiq ly sfp dagwwr em
                                 xxpw.""";
-        System.out.println(charSet.findKeyLengthByIndexOfCoincidence(MLKCipher));
+        System.out.println(charSet.findKeyLengthByIndexOfCoincidenceAndKasiski(MLKCipher));
 
     }
     private static void test_indexOfCoincidence(){

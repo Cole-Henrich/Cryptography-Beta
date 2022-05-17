@@ -1,13 +1,6 @@
 package sample;
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
 
 public class VigenereCracker {
     private boolean isSolved;
@@ -45,7 +38,7 @@ public class VigenereCracker {
 //        int e = calculateLengthViaKasiski(cipher.toUpperCase());
 //        System.out.println(a + "\n"+b + "\n"+c + "\n"+d + "\n"+e);
 //        System.out.println("^^Kasiskis^^");
-        likelyKeyLength = charSet.findKeyLengthByIndexOfCoincidence(charSet.RemoveIgnorers(cipher));
+        likelyKeyLength = charSet.findKeyLengthByIndexOfCoincidenceAndKasiski(charSet.RemoveIgnorers(cipher));
         String c1 = charSet.RemoveIgnorers(cipher);
         if (likelyKeyLength == 1){VigenereBruteForcer vbf = new VigenereBruteForcer(cipher, 1);}
         else {
@@ -168,106 +161,35 @@ public class VigenereCracker {
          */
     //}
 
-    private int calculateLengthViaKasiski(String CIPHER){
-        int[] kasiski = KasiskiAnalysis(CIPHER);
-        int likelyLength = kasiski[0];
-        if (likelyLength == 1){
-            likelyLength = kasiski[1];
-        }
-        if (likelyLength == 2){
-            likelyLength = kasiski[2];
-        }
-        return likelyLength;
-    }
-    private int[] KasiskiAnalysis(String CIPHER){
-        int[] likelyLengths = new int[8];
-        int[] likelihoods = new int[likelyLengths.length];
-        String str = CIPHER;
-        str = charSet.removeIgnorers(str, new String[]{""});
-        for (int n = likelyLengths.length; n > 1; n--) {
-            ArrayList<SortingAttribute> ranks = new ArrayList<>();
-            ArrayList<Integer> gaps = new ArrayList<>();
-            String[] strs = charSet.split(str, n);
-            System.out.println(Arrays.toString(strs));
-            for (int i = 0; i < strs.length; i++) {
-                for (int j = 0; j < strs.length; j++) {
-                    if (i != j) {
-                        if (strs[i].equalsIgnoreCase(strs[j])) {
-                            int gap = Math.abs(i - j);
-                            gaps.add(gap);
-                        }
-                    }
-                }
-            }
-            for (int possibleLength = 1; possibleLength < likelyLengths.length; possibleLength++) {
-                for (int i = 0; i < gaps.size(); i++) {
-                    int gap = gaps.get(i);
-                    if (gap%possibleLength == 0){
-                        likelyLengths[possibleLength]++;
-                    }
-                }
-            }
-            System.out.println(Arrays.toString(likelyLengths));
-            for (int i = 0; i < likelyLengths.length; i++) {
-                if (likelyLengths[i] != 0) {
-                    SortingAttribute rank = new SortingAttribute(i, likelyLengths[i]);
-                    ranks.add(rank);
-                }
-            }
-            ranks = SortingAttribute.MOST_TO_LEAST(ranks);
-            for (int i = 0; i < ranks.size(); i++) {
-                ranks.get(i).setRank(i);
-            }
-            System.out.println("println_Int \n" + SortingAttribute.println_Int(ranks));
-            for (int i = 0; i < ranks.size(); i++) {
-                SortingAttribute s = ranks.get(i);
-                int scaledScore = ranks.size()-s.getRank();
-                int value = s.getIndex();
-                likelihoods[value]+=scaledScore;
-            }
-        }
-        System.out.println("likelihoods: "+Arrays.toString(likelihoods));
-        int[] rankedLikelyKeyLengths = new int[likelyLengths.length];
-        ArrayList<SortingAttribute> RankedLikelyKeyLengths = new ArrayList<>();
-        for (int i = 0; i < likelihoods.length; i++) {
-            RankedLikelyKeyLengths.add(new SortingAttribute(i, likelihoods[i]));
-        }
-        RankedLikelyKeyLengths = SortingAttribute.MOST_TO_LEAST(RankedLikelyKeyLengths);
-        System.out.println(SortingAttribute.println_Int(RankedLikelyKeyLengths));
-        for (int i = 0; i < RankedLikelyKeyLengths.size(); i++) {
-            rankedLikelyKeyLengths[i]=RankedLikelyKeyLengths.get(i).getIndex();
-        }
-        System.out.println(Arrays.toString(rankedLikelyKeyLengths));
-        return rankedLikelyKeyLengths;
-    }
-    private void bruteForceByWordGuesses(int length) throws FileNotFoundException, InterruptedException {
-        ArrayList<ArrayList<String>>PossibleKeys = new ArrayList<>();
-            NGetter nGetter = new NGetter(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), null, length);
-            ArrayList<String> Got = nGetter.getUniques();
-            PossibleKeys.add(Got);
-        boolean Break = false;
-        not_english initial = new not_english("", true, true, 12,6, true, true, 0);
-        double cutoff = 0.4;//initial.getCutoff();
-        for (ArrayList<String> possibleKey : PossibleKeys) {
-            for (String s : possibleKey) {
-                System.err.println(s);
-                VigenereDeciphered vigenereDeciphered = new VigenereDeciphered(cipher, new VigenereKeyPhrase(s, cipher.length()).get());
-                String got = vigenereDeciphered.get();
-                System.err.println(got);
-                not_english not_english = new not_english(got, true, true, 12, 6, true, false, cutoff);
-                boolean notenglish = not_english.not_english();
-                System.err.println(notenglish);
-                if (!notenglish) {
-                    this.keyWord = s;
-                    Break = true;
-                    break;
-                }
-            }
-            if (Break) {
-                break;
-            }
-        }
-    }
+
+//    private void bruteForceByWordGuesses(int length) throws FileNotFoundException, InterruptedException {
+//        ArrayList<ArrayList<String>>PossibleKeys = new ArrayList<>();
+//            NGetter nGetter = new NGetter(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), null, length);
+//            ArrayList<String> Got = nGetter.getUniques();
+//            PossibleKeys.add(Got);
+//        boolean Break = false;
+//        not_english initial = new not_english("", true, true, 12,6, true, true, 0);
+//        double cutoff = 0.4;//initial.getCutoff();
+//        for (ArrayList<String> possibleKey : PossibleKeys) {
+//            for (String s : possibleKey) {
+//                System.err.println(s);
+//                VigenereDeciphered vigenereDeciphered = new VigenereDeciphered(cipher, new VigenereKeyPhrase(s, cipher.length()).get());
+//                String got = vigenereDeciphered.get();
+//                System.err.println(got);
+//                not_english not_english = new not_english(got, true, true, 12, 6, true, false, cutoff);
+//                boolean notenglish = not_english.not_english();
+//                System.err.println(notenglish);
+//                if (!notenglish) {
+//                    this.keyWord = s;
+//                    Break = true;
+//                    break;
+//                }
+//            }
+//            if (Break) {
+//                break;
+//            }
+//        }
+//    }
     public String getKeyWord(){return keyWord;}
     public String getSolved(){return solved;}
     public boolean isSolved(){return isSolved;}

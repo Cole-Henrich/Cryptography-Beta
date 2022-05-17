@@ -144,6 +144,107 @@ public class CharSet {
     public String[] getPolysymbolic() {return Polysymbolic;}
     public String[] getGreek() {return Greek;}
     math mathematics = new math();
+    public int calculateLengthViaKasiski(String CIPHER){
+        int[] kasiski = KasiskiAnalysis(CIPHER);
+        int likelyLength = kasiski[0];
+        if (likelyLength == 1){
+            likelyLength = kasiski[1];
+        }
+        if (likelyLength == 2){
+            likelyLength = kasiski[2];
+        }
+        return likelyLength;
+    }
+    public int[] KasiskiAnalysis(String CIPHER){
+        int[] likelyLengths = new int[8];
+        int[] likelihoods = new int[likelyLengths.length];
+        String str = CIPHER;
+        str = removeIgnorers(str, new String[]{""});
+        for (int n = likelyLengths.length; n > 1; n--) {
+            ArrayList<SortingAttribute> ranks = new ArrayList<>();
+            ArrayList<Integer> gaps = new ArrayList<>();
+            String[] strs = split(str, n);
+//            System.out.println(Arrays.toString(strs));
+            for (int i = 0; i < strs.length; i++) {
+                for (int j = 0; j < strs.length; j++) {
+                    if (i != j) {
+                        if (strs[i].equalsIgnoreCase(strs[j])) {
+                            int gap = Math.abs(i - j);
+                            gaps.add(gap);
+                        }
+                    }
+                }
+            }
+            for (int possibleLength = 1; possibleLength < likelyLengths.length; possibleLength++) {
+                for (int gap : gaps) {
+                    if (gap % possibleLength == 0) {
+                        likelyLengths[possibleLength]++;
+                    }
+                }
+            }
+//            System.out.println(Arrays.toString(likelyLengths));
+            for (int i = 0; i < likelyLengths.length; i++) {
+                if (likelyLengths[i] != 0) {
+                    SortingAttribute rank = new SortingAttribute(i, likelyLengths[i]);
+                    ranks.add(rank);
+                }
+            }
+            ranks = SortingAttribute.MOST_TO_LEAST(ranks);
+            for (int i = 0; i < ranks.size(); i++) {
+                ranks.get(i).setRank(i);
+            }
+//            System.out.println("println_Int \n" + SortingAttribute.println_Int(ranks));
+            for (int i = 0; i < ranks.size(); i++) {
+                SortingAttribute s = ranks.get(i);
+                int scaledScore = ranks.size()-s.getRank();
+                int value = s.getIndex();
+                likelihoods[value]+=scaledScore;
+            }
+        }
+//        System.out.println("likelihoods: "+Arrays.toString(likelihoods));
+        int[] rankedLikelyKeyLengths = new int[likelyLengths.length];
+        ArrayList<SortingAttribute> RankedLikelyKeyLengths = new ArrayList<>();
+        for (int i = 0; i < likelihoods.length; i++) {
+            RankedLikelyKeyLengths.add(new SortingAttribute(i, likelihoods[i]));
+        }
+        RankedLikelyKeyLengths = SortingAttribute.MOST_TO_LEAST(RankedLikelyKeyLengths);
+//        System.out.println(SortingAttribute.println_Int(RankedLikelyKeyLengths));
+        for (int i = 0; i < RankedLikelyKeyLengths.size(); i++) {
+            rankedLikelyKeyLengths[i]=RankedLikelyKeyLengths.get(i).getIndex();
+        }
+//        System.out.println(Arrays.toString(rankedLikelyKeyLengths));
+        return rankedLikelyKeyLengths;
+    }
+    public HashMap countFrequencyIn(ArrayList<String> r, boolean useCase) {
+        System.err.println("CharSet.countFrequencyIn");
+        HashMap<String,Integer> words=new HashMap<String, Integer>();
+        for (String word : r) {
+            Integer count = words.get(word);
+            if (count != null) {
+                count++;
+            } else {
+                count = 1;
+            }
+            words.put(word, count);
+        }
+            return words;
+    }
+//        ArrayList<String> reservoir = new ArrayList<>();
+//        if (!useCase){for (String s:r){reservoir.add(s.toLowerCase());}}
+//        else {reservoir = r;}
+//        HashMap<String, Integer> wordsAndFrequencies = new HashMap<>();
+//        for (int i = 0; i < reservoir.size(); i++) {
+//            System.out.println(i);
+//            String s = reservoir.get(i);
+//            if (!wordsAndFrequencies.containsKey(s)){
+//                wordsAndFrequencies.put(s, 1);
+//            }
+//            else {
+//                wordsAndFrequencies.put(s, wordsAndFrequencies.get(s)+1);
+//            }
+//        }
+//        return wordsAndFrequencies;
+//    }
     public char unAccent(char letter) {
         String ltr = String.valueOf(letter);
         String letr = String.valueOf(letter).toLowerCase();
@@ -200,7 +301,7 @@ public class CharSet {
     }
 
     private final char[] toBeEscaped = new char[]{'.', '^', '$', '*', '+', '-', '?','(', ')', '[', ']',
-            '{', '}','\\','|'};
+            '{', '}','\\','|', '\"', '"'};
     public String escapeIgnorers(char ignorer) {
         for (char c:toBeEscaped){
             if (ignorer == c){
@@ -1013,7 +1114,7 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
             ignorers = new char[]{'\n', ',','.','’','“','”','-','?','—','!',';','á','ó','"','í',':',')','(','1','é','\'','ú','0','2','9','_','‘','5','8','3','…','6','*','4','7','è','•','ë','[',']','§','–','$','ü','ï','/','ö','à','#','ê','â','&','%','ç','Á','ç','Á','ä','ô','Ñ','À','=','œ','œ','`','æ','æ','î','É','+','~','@'};
         }
         if (!streamLineIgnorers){
-            ignorers = new char[] {'\n',' ', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', '\'', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '<', '>', '?', '¡', '™', '£', '¢', '∞', '§', '¶', '•', 'ª', 'º', '–', '≠', 'œ', '∑', '´', '®', '†', '¥', '¨', 'ˆ', 'ø', 'π', '“', '‘', '«', 'å', 'ß', '∂', 'ƒ', '©', '˙', '∆', '˚', '¬', '…', 'æ', 'Ω', '≈', 'ç', '√', '∫', '˜', 'µ', '≤', '≥', '÷', '⁄', '€', '‹', '›', 'ﬁ', 'ﬂ', '‡', '°', '·', '‚', '—', '±', 'Œ', '„', '´', '‰', 'ˇ', 'Á', '¨', 'ˆ', 'Ø', '∏', '”', '’', '»', 'Å', 'Í', 'Î', 'Ï', '˝', 'Ó', 'Ô', '', 'Ò', 'Ú', 'Æ', '¸', '˛', 'Ç', '◊', 'ı', '˜', 'Â', '¯', '˘', '¿', 'è', 'é', 'ê', 'ë', 'ē', 'ė', 'ę', 'ÿ', 'û', 'ü', 'ù', 'ú', 'ū', 'î', 'ï', 'í', 'ī', 'į', 'ì', 'ô', 'ö', 'ò', 'ó', 'œ', 'ø', 'ō', 'õ', 'à', 'á', 'â', 'ä', 'æ', 'ã', 'å', 'ā', 'ß', 'ś', 'š', 'ł', 'ž', 'ź', 'ż', 'ç', 'ć', 'č', 'ñ', 'ń', 'È', 'É', 'Ê', 'Ë', 'Ē', 'Ė', 'Ę', 'Ÿ', 'Û', 'Ü', 'Ù', 'Ú', 'Ū', 'Î', 'Ï', 'Í', 'Ī', 'Į', 'Ì', 'Ô', 'Ö', 'Ò', 'Ó', 'Œ', 'Ø', 'Ō', 'Õ', 'À', 'Á', 'Â', 'Ä', 'Æ', 'Ã', 'Å', 'Ā', 'Ś', 'Š', 'Ł', 'Ž', 'Ź', 'Ż', 'Ç', 'Ć', 'Č', 'Ñ', 'Ń', '‖', '‗'};
+            ignorers = new char[] {'\n',' ', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', '\'', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '\"', '<', '>', '?', '¡', '™', '£', '¢', '∞', '§', '¶', '•', 'ª', 'º', '–', '≠', 'œ', '∑', '´', '®', '†', '¥', '¨', 'ˆ', 'ø', 'π', '“', '‘', '«', 'å', 'ß', '∂', 'ƒ', '©', '˙', '∆', '˚', '¬', '…', 'æ', 'Ω', '≈', 'ç', '√', '∫', '˜', 'µ', '≤', '≥', '÷', '⁄', '€', '‹', '›', 'ﬁ', 'ﬂ', '‡', '°', '·', '‚', '—', '±', 'Œ', '„', '´', '‰', 'ˇ', 'Á', '¨', 'ˆ', 'Ø', '∏', '”', '’', '»', 'Å', 'Í', 'Î', 'Ï', '˝', 'Ó', 'Ô', '', 'Ò', 'Ú', 'Æ', '¸', '˛', 'Ç', '◊', 'ı', '˜', 'Â', '¯', '˘', '¿', 'è', 'é', 'ê', 'ë', 'ē', 'ė', 'ę', 'ÿ', 'û', 'ü', 'ù', 'ú', 'ū', 'î', 'ï', 'í', 'ī', 'į', 'ì', 'ô', 'ö', 'ò', 'ó', 'œ', 'ø', 'ō', 'õ', 'à', 'á', 'â', 'ä', 'æ', 'ã', 'å', 'ā', 'ß', 'ś', 'š', 'ł', 'ž', 'ź', 'ż', 'ç', 'ć', 'č', 'ñ', 'ń', 'È', 'É', 'Ê', 'Ë', 'Ē', 'Ė', 'Ę', 'Ÿ', 'Û', 'Ü', 'Ù', 'Ú', 'Ū', 'Î', 'Ï', 'Í', 'Ī', 'Į', 'Ì', 'Ô', 'Ö', 'Ò', 'Ó', 'Œ', 'Ø', 'Ō', 'Õ', 'À', 'Á', 'Â', 'Ä', 'Æ', 'Ã', 'Å', 'Ā', 'Ś', 'Š', 'Ł', 'Ž', 'Ź', 'Ż', 'Ç', 'Ć', 'Č', 'Ñ', 'Ń', '‖', '‗'};
         }
         wholeShebang = makeWholeShebang();
     }
@@ -1090,21 +1191,21 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
         }
         return b.toString();
     }
-    public ArrayList<SortingAttribute> goThroughIndicesOfWordsAndCountTheirOccurrences(String text, ArrayList<String> strings){
-        ArrayList<SortingAttribute>rtn = new ArrayList<>();
-        for (int a = 0; a < strings.size(); a++) {
-            int occurrences = 0;
-            Scanner sc = new Scanner(text);
-            while (sc.hasNext()){
-                String next = removeIgnorers(sc.next().toLowerCase(), new String[]{""});
-                if (next.equalsIgnoreCase(strings.get(a))){
-                    occurrences++;
-                }
-            }
-            rtn.add(new SortingAttribute(a, occurrences));
-        }
-        return rtn;
-    }
+//    public ArrayList<SortingAttribute> goThroughIndicesOfWordsAndCountTheirOccurrences(String text, ArrayList<String> strings){
+//        ArrayList<SortingAttribute>rtn = new ArrayList<>();
+//        for (int a = 0; a < strings.size(); a++) {
+//            int occurrences = 0;
+//            Scanner sc = new Scanner(text);
+//            while (sc.hasNext()){
+//                String next = removeIgnorers(sc.next().toLowerCase(), new String[]{""});
+//                if (next.equalsIgnoreCase(strings.get(a))){
+//                    occurrences++;
+//                }
+//            }
+//            rtn.add(new SortingAttribute(a, occurrences));
+//        }
+//        return rtn;
+//    }
     /**
      * Awesome method thanks to Bart Kiers, on his Stack Overflow answer https://stackoverflow.com/questions/2297347/splitting-a-string-at-every-n-th-character
      * The regex is just this: str.split("(?<=\\G...)");
@@ -1125,8 +1226,7 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
         String s = string;
         return s.split(regex);
     }
-
-    public int findKeyLengthByIndexOfCoincidence(String string){
+    public ArrayList<Double> findCoincidenceIndices(String string){
         String String = string;
         String = removeIgnorers(string, new String[]{""});
         String = String.toLowerCase();
@@ -1149,14 +1249,72 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
             }
             CoincidenceIndices.add((double)count/(double)attempts);
         }
-        int best = f(CoincidenceIndices);
-        ArrayList<Double> copy = CoincidenceIndices;
-        copy.remove(best-1);
-        int secondBest = f(copy);
-        if (best%secondBest == 0){
-            best = secondBest;
+        return CoincidenceIndices;
+    }
+    public int findKeyLengthByIndexOfCoincidenceAndKasiski(String string){
+        ArrayList<Double> CoincidenceIndices = findCoincidenceIndices(string);
+        int best = g(CoincidenceIndices);
+        HashMap<Integer, Double> lengthAndIOC = new HashMap<>();
+        for (int i = 0; i < CoincidenceIndices.size(); i++) {
+            lengthAndIOC.put(i+1, CoincidenceIndices.get(i));
         }
-        System.out.println(CoincidenceIndices);
+        List<Map.Entry<Integer, Double> > list = new LinkedList<>(lengthAndIOC.entrySet());
+
+        // Sort the list
+        list.sort(Map.Entry.comparingByValue());
+
+        // put data from sorted list to hashmap
+        HashMap<Integer, Double> sortedHashMap = new LinkedHashMap<>();
+        for (Map.Entry<Integer, Double> aa : list) {
+            sortedHashMap.put(aa.getKey(), aa.getValue());
+        }
+        ArrayList<SortableV4> sortables = new ArrayList<>();
+        sortedHashMap.forEach((key, value) -> sortables.add(new SortableV4(key, value)));
+        ArrayList<SortableV4> topx = new ArrayList<>();
+        for (int i = sortables.size()-1; i > sortables.size()-5; i--){topx.add(sortables.get(i));}
+        for (SortableV4 sv4:topx){
+            System.out.println(sv4.get_integer() + " "+sv4.get_double());
+        }
+        System.out.println(Arrays.toString(KasiskiAnalysis(string)));
+        int KasiskiRecommendation = calculateLengthViaKasiski(string);
+        int FinalRecommendation = best;
+        ArrayList<SortableV4> top2 = new ArrayList<>();
+        boolean found = false;
+        for (SortableV4 sv4:topx){
+            if ((int) sv4.get_integer() == KasiskiRecommendation){
+                FinalRecommendation = sv4.get_integer();
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            for (SortableV4 sv4 : topx) {
+                if ((int) sv4.get_integer() == KasiskiRecommendation * 2) {
+                    FinalRecommendation = sv4.get_integer();
+                    found = true;
+                    break;
+                }
+            }
+        }
+        //        ArrayList<Double> copy = CoincidenceIndices;
+//        copy.remove(best-1);
+//        int secondBest = g(copy);
+//        if (best%secondBest == 0){
+//            best = secondBest;
+//        }
+//        System.out.println(CoincidenceIndices);
+        return FinalRecommendation;
+    }
+        public int g(ArrayList<Double> ci){
+        double max = 0;//lowest possible value, so it will always change
+        int best = 0;//therefore this also will always change so initial value is irrelevant.
+        for (int i = 0; i < ci.size(); i++) {
+            double ic = ci.get(i);
+            if (ic > max){
+                max = ic;
+                best = i+1;
+            }
+        }
         return best;
     }
     public int f(ArrayList<Double> ci){
@@ -1591,6 +1749,7 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
     }
     public String RemoveIgnorers(String string){
         for (char ignorer: ignorers) {
+            string = string.replaceAll(escapeIgnorers(ignorer), "");
             string = string.replace(String.valueOf(ignorer), "");
         }
         return string;

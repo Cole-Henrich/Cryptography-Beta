@@ -3,6 +3,7 @@ package sample;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SortingAttribute {
     private int index;
@@ -12,23 +13,16 @@ public class SortingAttribute {
     private static final char[] alphabet = {
             'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'
     };
-    public static ArrayList<SortingAttribute> countFrequencyIn(ArrayList<String> reservoir, ArrayList<String> list, boolean useCase) {
-        ArrayList<SortingAttribute> rtn = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            int count = 0;
-            String s = list.get(i);
-            count++;
-            for (String s2 : reservoir) {
-                if (charSet.booleanEquals(s, s2, useCase)) {
-                    count++;
-                }
-            }
-            rtn.add(new SortingAttribute(i, count));
-        }
-        return rtn;
-    }
+
     public static ArrayList<SortingAttribute> CountFrequencyIn(File document, ArrayList<String> list, boolean useCase) throws FileNotFoundException {
-        return countFrequencyIn(charSet.fileToArrayListOfStrings(document), list, useCase);
+        HashMap map = charSet.countFrequencyIn(charSet.fileToArrayListOfStrings(document), useCase);
+        ArrayList<Sortable> b = new ArrayList<>();
+        map.forEach((k, v) -> b.add(new Sortable((String) k, (int) v)));
+        ArrayList<SortingAttribute> c = new ArrayList<>();
+        for (int i = 0; i < b.size(); i++) {
+            c.add(new SortingAttribute(list.indexOf(b.get(i).getString()),b.get(i).getOccurrences()));
+        }
+        return c;
     }
 
     public void setRank(int Rank){

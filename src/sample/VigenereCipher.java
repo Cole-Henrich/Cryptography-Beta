@@ -1,7 +1,6 @@
 package sample;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,8 +8,10 @@ import java.util.Scanner;
 
 public class VigenereCipher {
     private String s;
+    private String KeyWord;
     private static final CharSet charSet = new CharSet(1);
     public VigenereCipher(String text, String keyWord){
+        KeyWord = keyWord;
         TabulaRecta tabulaRecta = new TabulaRecta();
 //        StringBuilder z = new StringBuilder();
 //        for (int i = 0; i < text.length(); i++) {
@@ -51,6 +52,10 @@ public class VigenereCipher {
     }
     public VigenereCipher(String text){
         this(text, "HOUGHTON");
+    }
+
+    public String getKeyWord() {
+        return KeyWord;
     }
     public String get(){
         return s;

@@ -3,8 +3,7 @@ package sample;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class WordOccurrenceWriter {
     private static CharSet charSet = new CharSet();
@@ -12,18 +11,16 @@ public class WordOccurrenceWriter {
     private long totalDuration;
     public WordOccurrenceWriter(File textReservoir, File[] WordAndOccurrenceStores) throws IOException {
         Time totalTime = new Time();
-        Unique_Words_Accumulator acc = new Unique_Words_Accumulator(textReservoir, true);
+        Unique_Words_Accumulator acc = new Unique_Words_Accumulator(textReservoir, true, new CharSet(1));
         ArrayList<String> got = acc.get();
         ArrayList<String> reservoir = new ArrayList<>();
         Scanner scanner = new Scanner(textReservoir);
         while (scanner.hasNext()){
-            reservoir.add(scanner.next());
+            String next = scanner.next();
+            reservoir.add(next);
         }
         Time countAndSortTime = new Time();
-        System.out.println("from WordOccurrenceWriter.java  SortingAttribute.countFrequencyIn");
-        ArrayList<SortingAttribute> a = SortingAttribute.countFrequencyIn(reservoir,acc.get(), false);
-        System.out.println("from WordOccurrenceWriter.java  SortingAttribute.MOST_TO_LEAST");
-        ArrayList<SortingAttribute> b = SortingAttribute.MOST_TO_LEAST(a);
+
         countAndSortTime.end();
         durationOfCountAndSort = countAndSortTime.getDuration();
 //        System.out.println(SortingAttribute.println(b, got));
@@ -37,11 +34,19 @@ public class WordOccurrenceWriter {
                 "                public class WordAndOccurrenceStore"+(fileIndex+1)+" extends WordAndOccurrenceStore {\n" +
                 "                    public WordAndOccurrenceStore"+(fileIndex+1)+"() {\n" +
                 "                        super(new a[]{");
+        ArrayList<Sortable> b1 = new ArrayList<>();
+        Map map = charSet.countFrequencyIn(charSet.fileToArrayListOfStrings(textReservoir), false);
+        map.forEach((k, v) -> {
+            b1.add(new Sortable((String) k, (int) v));
+        });
+        ArrayList<Sortable> b = Sortable.MOST_TO_LEAST(b1);
+
         for (int i = 0; i < b.size()-1; i++) {
-            SortingAttribute sa1 = b.get(i);
-            fileWriter.append("new a(\"").append(got.get(sa1.getIndex())).append("\",").append(String.valueOf(sa1.getOccurrences())).append("),");
-            if (WordAndOccurrenceStores[fileIndex].length() > 60000) {
-                fileWriter.append("new a(\"").append(got.get(b.get(i+1).getIndex())).append("\",").append(String.valueOf(b.get(i+1).getOccurrences())).append(")");
+            Sortable sortable = b.get(i);
+            fileWriter.append("new a(\"").append(sortable.getString()).append("\",").append(String.valueOf(sortable.getOccurrences())).append("),");
+            if (WordAndOccurrenceStores[fileIndex].length() > 63000) {
+                Sortable nextSortable = b.get(i + 1);
+                fileWriter.append("new a(\"").append(nextSortable.getString()).append("\",").append(String.valueOf(nextSortable.getOccurrences())).append(")");
                 fileWriter.append("});}}");
                 fileWriter.close();
                 if (fileIndex < 18) {
@@ -49,21 +54,49 @@ public class WordOccurrenceWriter {
                     fileWriter = new FileWriter(WordAndOccurrenceStores[fileIndex]);
                     fileWriter.write("package sample;\n" +
                             "                                \n" +
-                            "                public class WordAndOccurrenceStore"+(fileIndex + 1) + " extends WordAndOccurrenceStore {\n" +
-                            "                    public WordAndOccurrenceStore"+(fileIndex + 1) + "() {\n" +
+                            "                public class WordAndOccurrenceStore" + (fileIndex + 1) + " extends WordAndOccurrenceStore {\n" +
+                            "                    public WordAndOccurrenceStore" + (fileIndex + 1) + "() {\n" +
                             "                        super(new a[]{");
                 }
             }
         }
-        if (!b.isEmpty()) {fileWriter.append("new a(\"").append(got.get(b.get(b.size() - 1).getIndex())).append("\",").append(String.valueOf(b.get(b.size() - 1).getOccurrences())).append(")");}
+        Sortable lastSortable = b.get(b.size() - 1);
+        if (!b.isEmpty()) {
+            fileWriter.append("new a(\"").append(lastSortable.getString()).append("\",").append(String.valueOf(lastSortable.getOccurrences())).append(")");
+        }
         fileWriter.append("});}}");
         fileWriter.close();
-
     }
     public static void main(String[] args) throws IOException {
         File test = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/test.txt");
         File actual = charSet.getLanguage_Manipulation_UniqueWords_TrainerReservoir();
-        WordOccurrenceWriter wow = new WordOccurrenceWriter(test, new File[]{new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore1.java")});
+        File[] WordAndOccurrenceStores = new File[]{
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore1.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore2.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore3.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore4.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore5.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore6.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore7.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore8.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore9.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore10.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore11.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore12.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore13.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore14.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore15.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore16.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore17.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore18.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore19.java"),
+                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore20.java")
+
+        };
+        Time time = new Time();
+        WordOccurrenceWriter wow = new WordOccurrenceWriter(actual, WordAndOccurrenceStores);
+        time.end();
+        time.println();
 //        Unique_Words_Accumulator acc = new Unique_Words_Accumulator(test, true);
 //        ArrayList<String> got = acc.get();
 //        ArrayList<String> reservoir = new ArrayList<>();

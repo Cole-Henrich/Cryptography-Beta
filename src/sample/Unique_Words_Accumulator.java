@@ -3,57 +3,72 @@ package sample;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Unique_Words_Accumulator {
 
     private ArrayList<String> unique_words;
     private ArrayList<ArrayList<Integer>> Coordinates;
-    private final CharSet charSet = new CharSet(2);
+    private CharSet charSet;
     public Unique_Words_Accumulator(File file) throws IOException {
-        this(file, false);
+        this(file, false, new CharSet(2));
     }
     public Unique_Words_Accumulator() throws IOException {
-        this(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), false);
+        this(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), false, new CharSet(2));
     }
-    public Unique_Words_Accumulator(File file, boolean ignoreCase) throws FileNotFoundException {
+    public Unique_Words_Accumulator(File file, boolean ignoreCase, CharSet char_Set) throws FileNotFoundException {
         System.err.println("new Unique_Words_Accumulator("+file+");");
-        ArrayList<ArrayList<Integer>>coordinates = new ArrayList<>();
-        Scanner scanner = new Scanner(file);
-        ArrayList<String> all = new ArrayList<>();
-        while (scanner.hasNext()){
-            all.add(scanner.next());
-        }
-        ArrayList<String> unique = new ArrayList<>();
-        int numWordsChecked = 0;
-        for (String string: all) {
-            if (string!=null){
-                numWordsChecked++;
-            }
-            String w = string;
-            if (ignoreCase){
-                w = string.toLowerCase();
-            }
-            String word = format(w);
-            if (!unique.contains(word)){
-                unique.add(word);
-                ArrayList<Integer> add = new ArrayList<>();
-                add.add(numWordsChecked);
-                add.add(unique.size());
-                coordinates.add(add);
-            }
-        }
-        Coordinates = coordinates;
-        unique_words = unique;
+        charSet = char_Set;
+        ArrayList<String> all = charSet.fileToArrayListOfStrings(file);
+        ArrayList<String> formatted = new ArrayList<>();
+        for (String s:all){formatted.add(format(s, ignoreCase));}
+        HashSet<String> uniqueWords = new HashSet<String>(formatted);
+        unique_words = new ArrayList<>();
+        unique_words.addAll(uniqueWords);
+
+//        ArrayList<ArrayList<Integer>>coordinates = new ArrayList<>();
+//        Scanner scanner = new Scanner(file);
+//        ArrayList<String> all = new ArrayList<>();
+//        while (scanner.hasNext()){
+//            all.add(scanner.next());
+//        }
+//        System.out.println(all.size());
+//        ArrayList<String> unique = new ArrayList<>();
+//        int numWordsChecked = 0;
+////        int count = 0;
+//        for (String string: all) {
+//            if (string!=null){
+//                numWordsChecked++;
+//            }
+//            String w = string;
+//            if (ignoreCase){
+//                w = string.toLowerCase();
+//            }
+//            String word = format(w);
+//            if (!unique.contains(word)){
+////                count++;
+////                if (count%1000 ==0){
+////                    System.out.println(count);
+////                }
+//                unique.add(word);
+//                ArrayList<Integer> add = new ArrayList<>();
+//                add.add(numWordsChecked);
+//                add.add(unique.size());
+//                coordinates.add(add);
+//            }
+//        }
+//        Coordinates = coordinates;
+//        unique_words = unique;
+//        System.out.println(unique_words.size());
     }
-    private String format(String string){
+    private String format(String string, boolean ignoreCase){
         string = charSet.RemoveIgnorers(string);
         for (int i = 0; i < string.length(); i++) {
             if (charSet.isAccented(string.charAt(i))){
                 string = string.replaceAll(String.valueOf(string.charAt(i)), String.valueOf(charSet.unAccent(string.charAt(i))));
             }
         }
+        if (ignoreCase){string = string.toLowerCase();}
         return string;
 //        for (char ignorer: ignorers) {
 //            if (string.contains(String.valueOf(ignorer))){

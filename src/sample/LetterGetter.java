@@ -88,7 +88,6 @@ public class LetterGetter {
         System.err.println("gatherAttributes()");
         ArrayList<SortingAttribute> sortingAttributes = new ArrayList<>();
         for (int i = 0; i < counts.length; i++) {
-            
             sortingAttributes.add(new SortingAttribute(i, counts[i]));
         }
         return sortingAttributes;
@@ -98,7 +97,6 @@ public class LetterGetter {
         ArrayList<SortingAttribute>a=SortingAttribute.LEAST_TO_MOST(A);
         int[] indices = new int[a.size()];
         for (int i = 0; i < indices.length; i++) {
-            
             indices[i]=a.get(i).getIndex();
         }
         return indices;

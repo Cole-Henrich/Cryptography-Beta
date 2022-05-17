@@ -1,7 +1,6 @@
 package sample;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class VigenereSplit extends ArrayList<ArrayList<ArrayList<String>>> {
     public VigenereSplit(String plainText, String keyPhrase){
