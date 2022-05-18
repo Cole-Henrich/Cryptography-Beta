@@ -41,7 +41,7 @@ public class PrimeWriter extends FileWriter {
         this.write(S);
     }
     public PrimeWriter() throws IOException {
-        this(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/PrimeStore.java"));
+        this(new File("src/sample/PrimeStore.java"));
     }
 
     public static void main(String[] args) throws IOException {

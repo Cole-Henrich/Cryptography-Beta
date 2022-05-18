@@ -51,10 +51,10 @@ public class Main extends Application {
         primaryStage.show();
     }
     public static void main(String[] args) throws IOException {
-    test_FindKeyLengthByIndexOfCoincidence();
+//    test_FindKeyLengthByIndexOfCoincidence();
 
 //blue this launches the UI.
-// launch(args);
+ launch(args);
 
 //        System.err.println("main");
 //        EmojEncode2 emojEncode2 = new EmojEncode2("""

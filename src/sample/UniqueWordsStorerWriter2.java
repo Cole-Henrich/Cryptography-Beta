@@ -171,25 +171,25 @@ public class UniqueWordsStorerWriter2 {
 //            }
 //        }
 //        File[] ArrayStores = new File[]{
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage1.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage2.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage3.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage4.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage5.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage6.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage7.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage8.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage9.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage10.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage11.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage12.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage14.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage15.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage16.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage17.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStoreGeneralLatinAlphabetLanguage18.java")
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage1.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage2.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage3.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage4.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage5.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage6.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage7.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage8.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage9.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage10.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage11.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage12.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage14.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage15.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage16.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage17.java"),
+//                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage18.java")
 //        };
-//        File BigArrayStore = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/BigArrayStoreGeneralLatinAlphabetLanguage.java");
+//        File BigArrayStore = new File("src/sample/BigArrayStoreGeneralLatinAlphabetLanguage.java");
 //        String Language = "GeneralLatinAlphabetLanguage";
 //        UniqueWordsStorerWriter2 w = new UniqueWordsStorerWriter2(generalUniques, ArrayStores, BigArrayStore, Language);
 //    }
@@ -198,21 +198,21 @@ public class UniqueWordsStorerWriter2 {
         ArrayList<a> reservoir = biggy.central();
 
         File[] ArrayStores = new File[]{
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore1.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore2.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore3.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore4.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore5.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore6.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore7.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore8.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore9.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore10.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore11.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore12.java")
+                new File("src/sample/ArrayStore1.java"),
+                new File("src/sample/ArrayStore2.java"),
+                new File("src/sample/ArrayStore3.java"),
+                new File("src/sample/ArrayStore4.java"),
+                new File("src/sample/ArrayStore5.java"),
+                new File("src/sample/ArrayStore6.java"),
+                new File("src/sample/ArrayStore7.java"),
+                new File("src/sample/ArrayStore8.java"),
+                new File("src/sample/ArrayStore9.java"),
+                new File("src/sample/ArrayStore10.java"),
+                new File("src/sample/ArrayStore11.java"),
+                new File("src/sample/ArrayStore12.java")
 
         };
-        File BigArrayStore = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/BigArrayStore.java");
+        File BigArrayStore = new File("src/sample/BigArrayStore.java");
         String Language = "";
         UniqueWordsStorerWriter2 w = new UniqueWordsStorerWriter2(reservoir, ArrayStores, BigArrayStore, Language, true);
     }

@@ -14,7 +14,7 @@ public class Unique_Words_Accumulator {
         this(file, false, new CharSet(2));
     }
     public Unique_Words_Accumulator() throws IOException {
-        this(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), false, new CharSet(2));
+        this(new File("src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), false, new CharSet(2));
     }
     public Unique_Words_Accumulator(File file, boolean ignoreCase, CharSet char_Set) throws FileNotFoundException {
         System.err.println("new Unique_Words_Accumulator("+file+");");
@@ -95,9 +95,9 @@ public class Unique_Words_Accumulator {
 //        System.out.println(sb.toString());
 //    }
 //    private static void getFrench() throws FileNotFoundException {
-//        getLanguage(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/FrenchReservoir.txt"));
+//        getLanguage(new File("src/sample/FrenchReservoir.txt"));
 //    }
 //    private static void getSpanish() throws FileNotFoundException {
-//        getLanguage(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/SpanishReservoir.txt"));
+//        getLanguage(new File("src/sample/SpanishReservoir.txt"));
 //    }
 }

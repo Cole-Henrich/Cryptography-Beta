@@ -156,19 +156,19 @@ public class LetterGetter {
         return false;
     }
     public LetterGetter(String Letter) throws FileNotFoundException {
-        this(Letter, new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"));
+        this(Letter, new File("src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"));
     }
     public LetterGetter(String Letter, File file) throws FileNotFoundException {
         this(file, new String[]{""}, Letter, 10, true, new String[]{""});
     }
     public LetterGetter(String Letter, String[] notContains) throws FileNotFoundException {
-        this(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), notContains, Letter, 10, true, new String[]{""});
+        this(new File("src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), notContains, Letter, 10, true, new String[]{""});
     }
     public LetterGetter(String Letter, String[] notContains, int topWhat_egTopTen) throws FileNotFoundException {
-        this(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), notContains, Letter, topWhat_egTopTen, true, new String[]{""});
+        this(new File("src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), notContains, Letter, topWhat_egTopTen, true, new String[]{""});
     }
     public LetterGetter(String letter, String[] contains, int topWhat_egTopTen, boolean containsEqualsNotContains) throws FileNotFoundException {
-        this(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"),new Metamorphose().reverseContains(contains), letter, topWhat_egTopTen, false, new String[]{""});
+        this(new File("src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"),new Metamorphose().reverseContains(contains), letter, topWhat_egTopTen, false, new String[]{""});
     }
     public ArrayList<String> getUniques(){
         System.err.println("getUniques()");

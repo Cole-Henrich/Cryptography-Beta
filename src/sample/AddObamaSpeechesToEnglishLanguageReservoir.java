@@ -15,7 +15,7 @@ import java.util.List;
 public class AddObamaSpeechesToEnglishLanguageReservoir {
     public static void main(String[] args) throws Exception {
         String targetDir = "/Users/cole.henrich/Desktop/Barack-Obama";//"Path to your directory of input files";
-        String outputFile = "/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt";
+        String outputFile = "src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt";
 
         File dir = new File(targetDir);
         File[] files = dir.listFiles(new FilenameFilter() {

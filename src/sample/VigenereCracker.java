@@ -166,7 +166,7 @@ public class VigenereCracker {
 
 //    private void bruteForceByWordGuesses(int length) throws FileNotFoundException, InterruptedException {
 //        ArrayList<ArrayList<String>>PossibleKeys = new ArrayList<>();
-//            NGetter nGetter = new NGetter(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), null, length);
+//            NGetter nGetter = new NGetter(new File("src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), null, length);
 //            ArrayList<String> Got = nGetter.getUniques();
 //            PossibleKeys.add(Got);
 //        boolean Break = false;

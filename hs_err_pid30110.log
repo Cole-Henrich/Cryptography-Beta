@@ -16,7 +16,7 @@
 
 ---------------  S U M M A R Y ------------
 
-Command Line: -javaagent:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar=59198:/Applications/IntelliJ IDEA CE.app/Contents/bin -Dfile.encoding=UTF-8 --module-path=/Users/cole.henrich/Documents/MOOD/Cryptography-2/out/production/Cryptography-2:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-fxml-15.jar:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-fxml-15-mac.jar:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-controls-15.jar:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-controls-15-mac.jar:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-graphics-15.jar:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-graphics-15-mac.jar:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-base-15.jar:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-base-15-mac.jar -Djdk.module.main=Ciphers Ciphers/sample.Main
+Command Line: -javaagent:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar=59198:/Applications/IntelliJ IDEA CE.app/Contents/bin -Dfile.encoding=UTF-8 --module-path=out/production/Cryptography-2:lib/javafx-fxml-15.jar:lib/javafx-fxml-15-mac.jar:lib/javafx-controls-15.jar:lib/javafx-controls-15-mac.jar:lib/javafx-graphics-15.jar:lib/javafx-graphics-15-mac.jar:lib/javafx-base-15.jar:lib/javafx-base-15-mac.jar -Djdk.module.main=Ciphers Ciphers/sample.Main
 
 Host: MacBookPro14,2 x86_64 3300 MHz, 4 cores, 16G, Darwin 20.3.0
 Time: Fri May 14 17:43:08 2021 PDT elapsed time: 19.665749 seconds (0d 0h 0m 19s)
@@ -795,7 +795,7 @@ Dynamic libraries:
 
 
 VM Arguments:
-jvm_args: -javaagent:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar=59198:/Applications/IntelliJ IDEA CE.app/Contents/bin -Dfile.encoding=UTF-8 --module-path=/Users/cole.henrich/Documents/MOOD/Cryptography-2/out/production/Cryptography-2:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-fxml-15.jar:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-fxml-15-mac.jar:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-controls-15.jar:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-controls-15-mac.jar:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-graphics-15.jar:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-graphics-15-mac.jar:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-base-15.jar:/Users/cole.henrich/Documents/MOOD/Cryptography-2/lib/javafx-base-15-mac.jar -Djdk.module.main=Ciphers 
+jvm_args: -javaagent:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar=59198:/Applications/IntelliJ IDEA CE.app/Contents/bin -Dfile.encoding=UTF-8 --module-path=out/production/Cryptography-2:lib/javafx-fxml-15.jar:lib/javafx-fxml-15-mac.jar:lib/javafx-controls-15.jar:lib/javafx-controls-15-mac.jar:lib/javafx-graphics-15.jar:lib/javafx-graphics-15-mac.jar:lib/javafx-base-15.jar:lib/javafx-base-15-mac.jar -Djdk.module.main=Ciphers
 java_command: Ciphers/sample.Main
 java_class_path (initial): <not set>
 Launcher Type: SUN_STANDARD

@@ -21,7 +21,7 @@ public class _1231sThatExistInText {
         general = General;
         text = Text;
         if (general){
-            File mutableCopyFile = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/MUTABLE_VERSIONOfLanguageManipulationReservoirForOptimizingSpeeds");
+            File mutableCopyFile = new File("src/sample/MUTABLE_VERSIONOfLanguageManipulationReservoirForOptimizingSpeeds");
             FileWriter copyWriter = new FileWriter(mutableCopyFile);
             copyWriter.write(text);
             mutableCopy = charSet.FileToString(mutableCopyFile);
@@ -34,7 +34,7 @@ public class _1231sThatExistInText {
             FullSortedFinalList = new ArrayList<>();
             for (SortingAttribute a : mostToLeast) {FullSortedFinalList.add(_1231s.get(a.getIndex()));}
             println();
-            File unrelatedLongData = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/dataLongs");
+            File unrelatedLongData = new File("src/sample/dataLongs");
             FileWriter unrelatedFileWriter = new FileWriter(unrelatedLongData);
             for (long l : unrelatedData) {
                 unrelatedFileWriter.write(l + "\n");

@@ -77,7 +77,7 @@ public class VigenereCipher {
         System.out.println(chars);
         String Long = charSet.removeIgnorers(lbuilder.toString(), new String[]{" "});
         String lkw = "ahdjkeoqie";
-        File VigenereEncodeTimes = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/VigenereEncodeTimes.txt");
+        File VigenereEncodeTimes = new File("src/sample/VigenereEncodeTimes.txt");
         FileWriter fileWriter = new FileWriter(VigenereEncodeTimes);
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i <= 200; i++){

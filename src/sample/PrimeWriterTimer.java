@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class PrimeWriterTimer {
     public PrimeWriterTimer() throws IOException {
-        FileWriter x = new FileWriter(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/PrimeWriterTimerX.txt"));
-        FileWriter y = new FileWriter(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/PrimeWriterTimerY"));
+        FileWriter x = new FileWriter(new File("src/sample/PrimeWriterTimerX.txt"));
+        FileWriter y = new FileWriter(new File("src/sample/PrimeWriterTimerY"));
         for (int i = 2; i < 200000; i++) {
             boolean isPrime = true;
             long start = System.nanoTime();

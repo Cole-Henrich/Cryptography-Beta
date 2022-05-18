@@ -54,8 +54,8 @@
 //    }
 //    private static ArrayList<SortingAttribute> sort(ArrayList<String> uniqueWords) throws IOException {
 //        ArrayList<SortingAttribute> rtn = new ArrayList<>();
-//        File reservoir = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt");
-//        File tempMutableCopy = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/TempMutableCopy#2");
+//        File reservoir = new File("src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt");
+//        File tempMutableCopy = new File("src/sample/TempMutableCopy#2");
 //        Files.copy(reservoir.toPath(), tempMutableCopy.toPath());
 //        String stringCopy = charSet.FileToString(tempMutableCopy);
 //        for (int i = 0; i < uniqueWords.size(); i++) {
@@ -86,11 +86,11 @@
 //    }
 //    public static void main(String[] args) throws IOException {
 //        File[] arrayStores = new File[]{
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore1.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore2.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore3.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore4.java"),
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/ArrayStore5.java")
+//                new File("src/sample/ArrayStore1.java"),
+//                new File("src/sample/ArrayStore2.java"),
+//                new File("src/sample/ArrayStore3.java"),
+//                new File("src/sample/ArrayStore4.java"),
+//                new File("src/sample/ArrayStore5.java")
 //        };
 //
 //        new StorageHandler(arrayStores[0], 0, sort(new Unique_Words_Accumulator().get()), 1, arrayStores);

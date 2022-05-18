@@ -25,6 +25,6 @@ public class STACKTRACE {
     }
 
     public static void main(String[] args) throws IOException {
-        System.out.println(new STACKTRACE(new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/VigenereDeciphered.java")).getString());
+        System.out.println(new STACKTRACE(new File("src/sample/VigenereDeciphered.java")).getString());
     }
 }

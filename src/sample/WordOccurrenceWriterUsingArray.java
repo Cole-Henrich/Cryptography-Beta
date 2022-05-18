@@ -149,34 +149,34 @@ public class WordOccurrenceWriterUsingArray {
         totalDuration = totalTime.getDuration();
     }
     public static void main(String[] args) throws IOException {
-        File test = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/test.txt");
+        File test = new File("src/sample/test.txt");
         File actual = charSet.getLanguage_Manipulation_UniqueWords_TrainerReservoir();
         File[] WordAndOccurrenceStoresUsingArrays = new File[]{
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray1.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray2.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray3.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray4.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray5.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray6.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray7.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray8.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray9.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray10.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray11.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray12.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray13.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray14.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray15.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray16.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray17.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray18.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray19.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray20.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray21.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray22.java"),
-                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStoreArray23.java")
+                new File("src/sample/WordAndOccurrenceStoreArray1.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray2.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray3.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray4.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray5.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray6.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray7.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray8.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray9.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray10.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray11.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray12.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray13.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray14.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray15.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray16.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray17.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray18.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray19.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray20.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray21.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray22.java"),
+                new File("src/sample/WordAndOccurrenceStoreArray23.java")
         };
-        File BigWordAndOccurrenceStoreArray = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/BigWordAndOccurrenceStoreArray.java");
+        File BigWordAndOccurrenceStoreArray = new File("src/sample/BigWordAndOccurrenceStoreArray.java");
         Time time = new Time();
         WordOccurrenceWriterUsingArray wowua = new WordOccurrenceWriterUsingArray(actual, WordAndOccurrenceStoresUsingArrays, BigWordAndOccurrenceStoreArray);
         time.end();
@@ -195,7 +195,7 @@ public class WordOccurrenceWriterUsingArray {
 ////        System.out.println(SortingAttribute.println(b, got));
 ////        System.out.println(got.get(b.get(0).getIndex()) + " "+ b.get(0).getOccurrences());
 //        File[] files = new File[]{
-//                new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore1.java")
+//                new File("src/sample/WordAndOccurrenceStore1.java")
 //        };
 //            int fileIndex = 0;
 //            FileWriter fileWriter = new FileWriter(files[fileIndex]);
