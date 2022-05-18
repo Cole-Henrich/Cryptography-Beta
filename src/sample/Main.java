@@ -216,7 +216,7 @@ public class Main extends Application {
                                 qahs yznvgrj. Uq plw glwuca lvlr it ujs ocftlewycp ii ts xcz. Ly sfp bqiyjatlqs ng pp nqdjds. Hc mgy kojgzv --
                                 Qw occ epsabr rtpn os lpq Viv'g nfuaxjsy. Yzs nzoe uq plw Uzb'e rbazopqc, qw rzl'f wuns em xxpw ztiq ly sfp dagwwr em
                                 xxpw.""";
-        System.out.println(charSet.findKeyLengthByIndexOfCoincidenceAndKasiski(MLKCipher));
+        System.out.println(charSet.findKeyLengthByIndexOfCoincidenceAndKasiski(MLKCipher, 3));
 
     }
     private static void test_indexOfCoincidence(){

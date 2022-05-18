@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class WordOccurrenceWriterSpeedAnalyzer {
     private CharSet charSet = new CharSet();
     public WordOccurrenceWriterSpeedAnalyzer(int start, int step, int max) throws IOException {
+        File BigWordAndOccurrenceStore = new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/BigWordAndOccurrenceStore.java");
         File[] WordAndOccurrenceStores = new File[]{
                 new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore1.java"),
                 new File("/Users/cole.henrich/Documents/MOOD/Cryptography-2/src/sample/WordAndOccurrenceStore2.java"),
@@ -32,7 +33,7 @@ public class WordOccurrenceWriterSpeedAnalyzer {
             scanner.close();
             fileWriter.write(sb.toString());
             fileWriter.close();
-            WordOccurrenceWriter wow = new WordOccurrenceWriter(res, WordAndOccurrenceStores);
+            WordOccurrenceWriter wow = new WordOccurrenceWriter(res, WordAndOccurrenceStores, BigWordAndOccurrenceStore);
             totalTimes.append(wow.getTotalDuration()).append("\n");
             countAndSortTimes.append(wow.getDurationOfCountAndSort()).append("\n");
             System.out.println(i);

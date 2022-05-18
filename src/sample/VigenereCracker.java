@@ -38,10 +38,11 @@ public class VigenereCracker {
 //        int e = calculateLengthViaKasiski(cipher.toUpperCase());
 //        System.out.println(a + "\n"+b + "\n"+c + "\n"+d + "\n"+e);
 //        System.out.println("^^Kasiskis^^");
-        likelyKeyLength = charSet.findKeyLengthByIndexOfCoincidenceAndKasiski(charSet.RemoveIgnorers(cipher));
+        likelyKeyLength = charSet.findKeyLengthByIndexOfCoincidenceAndKasiski(charSet.RemoveIgnorers(cipher), 3);
         String c1 = charSet.RemoveIgnorers(cipher);
-        if (likelyKeyLength == 1){VigenereBruteForcer vbf = new VigenereBruteForcer(cipher, 1);}
-        else {
+        if (likelyKeyLength == 1) {
+            VigenereBruteForcer vbf = new VigenereBruteForcer(cipher, 1);
+        } else {
             //cyan very good stuff - just not ready yet, commenting it out to allow other stuff to run.
 //            if (c1.length() > 100 * likelyKeyLength) {
 //                VigenereStatisticsAttacker vsa = new VigenereStatisticsAttacker(cipher, likelyKeyLength);
@@ -51,15 +52,15 @@ public class VigenereCracker {
 //                    keyWord = vsa.getKeyWord();
 //                    keyLength = keyWord.length();
 //                }
-//            } else {
-//                VigenereDictionaryAttacker vda = new VigenereDictionaryAttacker(cipher, likelyKeyLength);
-//                if (vda.isSolved()) {
-//                    isSolved = true;
-//                    solved = vda.getSolved();
-//                    keyWord = vda.getKeyWord();
-//                    keyLength = keyWord.length();
-//                }
-//                else {
+//            } else
+            {
+                VigenereDictionaryAttacker vda = new VigenereDictionaryAttacker(cipher, likelyKeyLength);
+                if (vda.isSolved()) {
+                    isSolved = true;
+                    solved = vda.getSolved();
+                    keyWord = vda.getKeyWord();
+                    keyLength = keyWord.length();
+                } else {
                     if (likelyKeyLength == 2 || likelyKeyLength == 3) {
                         VigenereBruteForcer vbf = new VigenereBruteForcer(cipher, likelyKeyLength);
                         if (vbf.isSolved()) {
@@ -71,7 +72,8 @@ public class VigenereCracker {
                     }
                 }
             }
-//        }
+        }
+    }
 //        String s = cipher;
 //        s = charSet.removeIgnorers(s, new String[]{""});
 //        String[] split = charSet.split(s, l);
@@ -292,11 +294,34 @@ M ajv ilak ewi Cfyvvejd sicclgi tyli wient xhv fctrfgdoeu lch drdieruwn etklro b
                                 
                 Z bgb ahru hyl Cfouilsj estsaif hyht jjbtl tyf iewrfwcbld ror uhskbfusy ruhrjk sz Xrwae pb Jbnubm, Ulcvnpvy 7ty, 1941, b gkhtv pt nhr ybg veijusu iekxsvu tyf Ieptve Gkhtvt oek tyf Xrwaefgv lmgjfv.
                 """, "harbor")};
-        for (CifrarioVigenere cipher: ciphers) {
-            VigenereCracker vigenereCracker = new VigenereCracker(cipher.getCipher());
-            System.out.println(cipher.getKey().length());
-//            VigenereDeciphered vigenereDeciphered = new VigenereDeciphered(cipher.getCipher(), new VigenereKeyPhrase(cipher.getKey(), cipher.getCipher().length()).get());
-//            System.out.println(vigenereDeciphered.get());
-        }
+        CifrarioVigenere cv4 = new CifrarioVigenere("""
+                Ilsgp'w p gcgp tgmbrttai hwlx li kxwp ptdaj xd eza zj dyf pnxxsbh.  Pztr oh hi rpspy ye xvt xihw oi Ryprhpyebs, kt hmap qdywiebiwc gisklpjeht zyg edecspgv, hffyiqi zyg hsrtwxsbh es gijxpa uvcb zxwif qcecgvtd su kckpvcqsce, eh asaw eh xvt ayqpwr.  Hi hisz elt whgzrvigi lrs qche wjwhptrpfzt wivez ucebikdco usf pohgightrv xvtdi xwgjpw xr hwp pdru ipvb -- rci es hifkp mbqssteii ddwmimqh, myi xc sz aweh'h cmvlh dgig xvt wsck htcq.  Qc rdtrv xvpe at goc wipzs qplxrr p wiveqn elpx cjeppwhh xc phaxymhxfpemdr, an avtwwsprrc, hwlx trrjcih jcg elt rsme Tgigxoicx oco xwi Dgpwxhsce euxsg elpx -- o apkpgm isei tfdeirxg isi Pqsgtgpr dtztai oco icncnd e qvcpo ptkwitqpgm pe ldqs pyh pffdlh.
+
+                Csk, ismh mg lsei M atlr llsc T wpc hwlx li btph is tdnyh sb isi uyhjci.  X vsrzkcmnt elpx apyc hxwaw lpzs p dxgsbv oihmft es usqjd sc xvt aehx.  Kwpr xx qdxih xc pnxxsbh zj ils alwi iwvsx niogd, tpwgxzrh eft smvl.  Gdxi Pqsgtgprg pci prugj; silsgd aprh iz vt-jwvsx sippeih xvpe lpzs qpic wsiepth, wc dsbi qpdih hsqlxtw hwlx ilsn seki zddx.  X obdh xweh isihi rtmeiig apes hwgpgipm, xy wdqs rlwtw, hd l gppz uzv p jiawig eqrzycxwcr, ttvvpaw ilfdfkw eb xyhttscoicx qdxqxwgxzr.
+
+                X'zs datdwss elt gftlxxsb dq wjgv p nsbqwhdmdr ptnejws X miamskp xweh dfv tbwhemck rtxsrvoitg xrgitxjxwdyw pvs hevdru tysjkv iz htpwkpv pgqdfriepxwmic.  Hwp Gdrugpwh goc cikmsl lfjwsh zj dyf klpjig, pyh ilsgp egi ccrsxru xyujmfxpw qc hwp Gdrugpwh mbiz qpxhtcw amyt prwebrph xrhtcvdkoitsc xsrsrxuitd.  Xwi Rtaegxatyx dj Xjdxxgs pyh dyf rzygxg rlr lsfz elgsivs ech djymhl ocj zxszpemdrg dq sjv zphw dv axdgpvfxlktw cu uyhxwrp.
+
+                Mi'w bd dirvsi eltvs xd e iibsprrc wc Hehlwcrxdr hd dttrr dfv imat asxrhxyk umbvpvh eh dyi prcisig.  Ebs tx'h rc hpggih isei sig xismo rfpiyft qithg isi xqdjwwt xvpe pter iz e vscs qmvlh pyh vscs nsec.  Pje rdxvxyk lmza nscxfxmyii adci iloc elpx hwlr p iliprsir gppxxwvlxxsb dq xwi zpdx tmuwe ctefh.  Lpgiosj, at'zs hpic lcl elpx yxyh dj suqsgx ccwc aiosd xwsgt tr Legwtrvxcc es smtupvtrh hthtw hd wenmbv mppqs.  Xe gpr rxdxgeqi fw uvcb qsrygxyk dyf itqt, sig pjusfid, ech cjc tdpwitgh sb isi rloawicksh zj ils ufxjvs.
+
+                Lp wti hwlx, pfckp eap, wc elt vsrpri hsqlxt -- lcl elt vsrpri hsqlxt loh zfhgigph ils icyil oco wtrh epseps xyxd sdezwxxs pyh pfgdwyimgi prsw.  Cc elt sbt dmsi cu elt wdtnxgya, isigi ogp xwsgt hld qozp pxxhap eapcllrri tdc xwi ictuji qwlpaibvpw esgto fn xsgcsgmgb, lrs acjwh ppaddx cijtc tjx bpemdroa diryfxec dzsg evprgelvtrqn.  Lrs sb isi dxvtc ich cu elt wdtnxgya, isigi ogp xwsgt hld iaqceri o ktil xvpe gpr pt dybqogtdth wc ead acgow:  "Prmismck udpw."  Ilsxc egkibpriw gjrktwh isei xvt prsw cu qmvlhxyk iifgzvxwa rlr qi ihph is xjdxxjm pyc biocd, ech hwlx ils Ecihmrtyx hlcjwh wejt mppryte ejxvdcmic hd os lloipztv vt hecxg -- ecskmrto mi mg p Avtwwspri awis awsa isin eugpi.
+
+                Qshw dmsig blc qi gxygtvs xy xwiwg gmtag, qfx ciwisig wwsp mh vwvsx.  Ils Pxigmqpy ttsdap egi bde eqwcafxxwh, pyh ilsn osc'x sapgi yg iz mbtchp e gmuxo msicazkn sb dfv evcqwibw.  Hwpc zrcl elpx kt yith bde wpgfxqmri cjc wtgigtxn jcg zyg zoafih, rcg dervwutgt sig geaysh qsg sig diryfxec, hs zdyk pw kt ltevcpnl smtutgjph ffihxwdyw lmhw sscigij ech qpci prr p oshi cu nsbqcc dicws.  Isei, etipv ppz, xd xwi ictuji utymjw cu Lqtvwrl.  Xweh'h elt gvpwptrut wexh rdhr qc cjc Gdrgitxjxwdy.  Xweh wlw qisc elt wcjcgt st dfv hxftykil hwcsjkv isi pksh.  Elpx'g lsei qozpw ils Jymiir Heeiig dq Ebifxne smtupvtrh pd e cehxzr.
+
+                X goc dxprr wpvt xcslc, pw Dgpwxhsce su xvt Frxxss Dxpxsh, lrs won hmilcje imgseemdr cg pujmjdneimcc elpx kt os csh izviyft, lrs xvpe at awaw zxkcgzyhpm ecsiiqi zyg tsdapt avxwi usfvtrv e gicsck oco hjvoqwi uvobpadvy isei ezazah yg iz jxkvi eigvcgtwb avxwi pfwstrv fm isi gyzt zj aek.  Blot rc btwieyt:  Tj li tptp is hjcr ils elkt sb isi ptdgzerl hwlx leg ilotr ckpv ils elwi wskpvpp mtlvh, xvty M lmza ysi fs pmpt xc hlc iloi lw Evshthtrh.  Pyh xj kt necrci dxprr uzv dyf rzvt zoafih, xvty at eft ysi ostamck tptxw awis xwi rdnybibid xweh pci trgwcmcir xy xwmg wlpa.
+
+                Xvt Qvpqsgd aws rgljiir isi Rsbhemiyhxzr rsiao rdx vpgi usftditr hwp gwezaprvig isei lokp ycjcaois sjtc xwi zpdx 222 niogd.  Fjx cjc Gdrgitxjxwdy lpw scoygir isvdyuw dirightsc ebs nmkmz gtkwxg, isvdyuw Hsgpr Llv prr Rzps Aog, mireihp mi tfdgmsig p qsjrrpemdr cu avxrqxaptw hwlx reb qp eetzxph evovxeimqpwpn; mh ecskmrtd e rsaelwh xvpe gpr vtwt jw txyh dyf llc.  Xx vpdr'i ezllch fsty ipwm.  Lp egi oc tqeifupgi tsdapt.  Ijtcc csk pyh ilsc, eltvs pci ilchp aws hwtrz xvpe Ebifxne'h woupxn ebs dyrgshd vtuixcih yg iz appy phen jfdx xwi gpnvth dgtrrmdapw trgwcmcir xy xwmg qfmahwcr.  Ech kt sipv gjnl kswrpw isrpj.  Fjx ckpv ils azrv lojw xwi Obpvxgoc aidtzt seki ftdmhxss elpx htxtiehxzr.  Prr issjkv lp'zt qosp sjv gwlvt st btwieytd, vtuixcis wcbp gdyfhp gdvftnxxsbh, fpimapeiac kt seki vtwh uegi es ils ecmcgwewih xvpe lpzs qpic xvt dsjvqt zj dyf hevtruis ech o qpersb iz xwi kdcps.
+
+                Rcl elxw utyigehxzr ueqtd e vvspe xtwh xy xwi gepgiif dq xtvfdcmhq.  Oco ycpwzp xwi Qxgma Aog zv Lsfao Apv WX, hi reb'i nsjrh dy e hyfgprsif rpvtqccj xd ffxyk ilwh usjvbtj xd eb tyh.  Gmuwe rda, wc omhxoce xgewctrv gobaw prr xy ggsksph rmhxpw, ilsgp egi dtztai dazximbv es ieyt Lqtvwrlr amjtd.  Xweh ltpa fs isi regt l ctef ucsb rcl, qmki mtlvh jfdx rda, oco -- mc eza avdfoqtpxxm -- 10 npegw tgzq csk.  Cpmilsg T rdv ocjsci qpy wiebs sigi hdoen ebs den xvpe xwift hmap bde ft ebdeltv htcvdvwhe eixorv xweh ilotw Obpvxgoc wmkig.  Qfx X goc den awis gtvhptric hwlx bc osxmcmgiceimcc -- lpdru ltxw sig pbivodchxrogj xgsced ech hwp tpxfxzxxg aty ech kdxic avd oiuibs zyg roitscez hpgjvwij -- axpz sz ikifnelxru xy sjv ddhig xc zpie xvt Lqtvwrlr eicewi hett.  Lrs M rd vrda kxel rifilmcxm isei as rlr prr ltpa hsupei ez Flise.  Ptnejws isi iifgzvxwhh nec sbaj wjgqtph xj hwpc hasaw xwiwg cecog pyh ppwtyeii Obpvxgo ucsb sig lpamsh, lrs xvtj axpz cpztv pt lfai hd os iloi tj li gilc ivit es llc lp egi, wu hi usfvp xdyuw lrs higlfai oeavdeqwpw is txrlimbv eigvcgtwb xvpe egi ocnldvss tr dyf itqtpshd msioad.  Xwmg bfwi fs dfv rsabzr eyfezwt.""", "people");
+        VigenereCracker vigenereCracker = new VigenereCracker(cv4.getCipher());
+        System.out.println(vigenereCracker.getKeyWord());
+        System.out.println(vigenereCracker.getSolved());
+
+        //        for (CifrarioVigenere cipher: ciphers) {
+//            VigenereCracker vigenereCracker = new VigenereCracker(cipher.getCipher());
+//            System.out.println(cipher.getKey().length());
+////            VigenereDeciphered vigenereDeciphered = new VigenereDeciphered(cipher.getCipher(), new VigenereKeyPhrase(cipher.getKey(), cipher.getCipher().length()).get());
+////            System.out.println(vigenereDeciphered.get());
+//        }
+
     }
 }

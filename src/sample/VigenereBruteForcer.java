@@ -12,6 +12,7 @@ public class VigenereBruteForcer {
     private char[] alphabet = charSet.getAlphabet();
     private String language;
     public VigenereBruteForcer(String cipher, int likelyKeyLength) throws IOException {
+        System.err.println("VigenereBruteForcer: likelyKeyLength="+likelyKeyLength);
         isSolved = false;
         isCaesar = false;
         if (likelyKeyLength < 4) {

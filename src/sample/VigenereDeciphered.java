@@ -8,6 +8,9 @@ public class VigenereDeciphered {
     private final char[] alphabet = charSet.getAlphabet();
     private final TabulaRecta tabulaRecta = new TabulaRecta();
     public VigenereDeciphered(String Cipher, String keyPhrase){
+        this(Cipher, keyPhrase, false);
+    }
+    public VigenereDeciphered(String Cipher, String keyPhrase, boolean println){
         StringBuilder b = new StringBuilder();
         String c = charSet.RemoveIgnorers(Cipher);
         for (int i = 0; i < c.length(); i++) {
@@ -15,7 +18,10 @@ public class VigenereDeciphered {
             String row = String.valueOf(keyPhrase.charAt(i)).toLowerCase();
             String column = tabulaRecta.columnOf(cipherLetter, row).toLowerCase();
             b.append(column);
-            System.out.println(column + " " + row + " "+ cipherLetter);
+            if (println) {
+                System.out.println("VigenereDeciphered");
+                System.out.println(column + " " + row + " " + cipherLetter);
+            }
         }
         String d = b.toString();
         String e = charSet.inheritPuncuationAndForm(d, Cipher);

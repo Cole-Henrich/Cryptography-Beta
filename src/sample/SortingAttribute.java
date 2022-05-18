@@ -15,7 +15,7 @@ public class SortingAttribute {
     };
 
     public static ArrayList<SortingAttribute> CountFrequencyIn(File document, ArrayList<String> list, boolean useCase) throws FileNotFoundException {
-        HashMap map = charSet.countFrequencyIn(charSet.fileToArrayListOfStrings(document), useCase);
+        HashMap map = charSet.countFrequencyIn(new FileToArrayListOfFormattedStrings(document).get());
         ArrayList<Sortable> b = new ArrayList<>();
         map.forEach((k, v) -> b.add(new Sortable((String) k, (int) v)));
         ArrayList<SortingAttribute> c = new ArrayList<>();

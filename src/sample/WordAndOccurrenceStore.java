@@ -1,10 +1,11 @@
 package sample;
 
-public class WordAndOccurrenceStore {
+import java.util.Map;
 
-    private static a[] Array;
-    public WordAndOccurrenceStore(a[] array){
-        Array = array;
+public class WordAndOccurrenceStore {
+    private static Map<String, Integer> MAP;
+    public WordAndOccurrenceStore(Map<String, Integer> map){
+        MAP = map;
     }
-    public static a[] get(){return Array;}
+    public static Map<String, Integer> get(){return MAP;}
 }
