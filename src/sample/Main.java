@@ -51,11 +51,15 @@ public class Main extends Application {
         primaryStage.show();
     }
     public static void main(String[] args) throws IOException {
-//    test_FindKeyLengthByIndexOfCoincidence();
+    test_FindKeyLengthByIndexOfCoincidence();
 
 //blue this launches the UI.
- launch(args);
+// launch(args);
 
+
+    }
+    private static void exampleCiphers(){
+//
 //        System.err.println("main");
 //        EmojEncode2 emojEncode2 = new EmojEncode2("""
 //                Strangely enough, I would turn to the Almighty, and say, "If you allow me to live just a few years in the second half of
@@ -159,7 +163,6 @@ public class Main extends Application {
 //        ParethesesCipher parethesesCipher = new ParethesesCipher("""
 //                        Happiness lies not in the mere possession of money; it lies in the joy of achievement, in the thrill of creative effort. The joy, the moral stimulation of work no longer must be forgotten.
 //                        """);
-//
 
     }
     private static void test_FindKeyLengthByIndexOfCoincidence(){

@@ -6,7 +6,8 @@ public class VigenereDictionaryAttacker {
     private boolean isSolved;
     private String solved;
     private String keyWord;
-    public VigenereDictionaryAttacker(String cipher, int likelyKeyLength) {
+    public VigenereDictionaryAttacker(String cipher, int likelyKeyLength) throws InterruptedException {
+        isSolved = false;
         System.err.println("VigenereDictionaryAttacker: likelyKeyLength="+likelyKeyLength);
 //        HashMap<Integer, ArrayList<HashMap<String, Integer>>> words = new HashMap<>();
 //        ArrayList<HashMap<String, Integer>> xLongWords = words.get(likelyKeyLength);
@@ -111,18 +112,25 @@ public class VigenereDictionaryAttacker {
             }
 
         }
-       for (a entry:xLongWords){
+        int i = 0;
+        while (true) {
+            a entry = xLongWords.get(i);
             String keyWordTest = entry.getWord();
-            System.out.println(keyWordTest);
-            VigenereKeyPhrase vkf = new VigenereKeyPhrase(keyWordTest,cipher.length());
+//            System.out.println(keyWordTest);
+            VigenereKeyPhrase vkf = new VigenereKeyPhrase(keyWordTest, cipher.length());
             VigenereDeciphered vdc = new VigenereDeciphered(cipher, vkf.get(), false);
             String test = vdc.get();
-           System.out.println(test);
-            not_english not_english = new not_english(test);
-            if (!not_english.not_english()){
+//            System.out.println(test);
+            not_english not_english1 = new not_english(test, 0.4);
+//            System.out.println(not_english1.not_english());
+            if (!not_english1.not_english()) {
                 isSolved = true;
                 solved = test;
                 keyWord = keyWordTest;
+                break;
+            }
+            i++;
+            if (i == xLongWords.size()){
                 break;
             }
         }

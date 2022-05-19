@@ -95,7 +95,7 @@ public class BigSubstitutionCracker {
     private boolean hasAll = false;
     private boolean isSolved = false;
 
-    public BigSubstitutionCracker(String Cipher, String actualKey) {
+    public BigSubstitutionCracker(String Cipher, String actualKey) throws InterruptedException {
         System.err.println("new BigSubstitutionCracker(String Cipher);");
 
         key = new String[alphabet.length];
@@ -400,7 +400,7 @@ public class BigSubstitutionCracker {
     // 'h','i','j','k','l','m', 'n', yellow <--13
     // 'o','p','q','r','s','t', green <--19
     // 'u','v','w','x','y','z' blue <--25
-    private boolean check(String[] tempKey) {
+    private boolean check(String[] tempKey) throws InterruptedException {
         boolean rtn = false;
         Scramble scramble = new Scramble(tempKey, this.getCipher());
         not_english not_english = new not_english(scramble.get());
@@ -543,12 +543,12 @@ public class BigSubstitutionCracker {
         return isSolved;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         test0();
         test1();
     }
 
-    public static void test1() {
+    public static void test1() throws InterruptedException {
         BigSubstitutionCracker sc = new BigSubstitutionCracker(
                 """
                         Cffl zyzeoec.
@@ -599,7 +599,7 @@ public class BigSubstitutionCracker {
                 "tkdlzwcuobxhaefgrjqnpysvim");
     }
 
-    public static void test0() {
+    public static void test0() throws InterruptedException {
         // exkfyvbromspzdcqaihlugwjtn
         BigSubstitutionCracker sc = new BigSubstitutionCracker(
                 """

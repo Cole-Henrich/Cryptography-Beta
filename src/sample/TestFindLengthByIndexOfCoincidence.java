@@ -77,11 +77,25 @@ public class TestFindLengthByIndexOfCoincidence {
                 Xvt Qvpqsgd aws rgljiir isi Rsbhemiyhxzr rsiao rdx vpgi usftditr hwp gwezaprvig isei lokp ycjcaois sjtc xwi zpdx 222 niogd.  Fjx cjc Gdrgitxjxwdy lpw scoygir isvdyuw dirightsc ebs nmkmz gtkwxg, isvdyuw Hsgpr Llv prr Rzps Aog, mireihp mi tfdgmsig p qsjrrpemdr cu avxrqxaptw hwlx reb qp eetzxph evovxeimqpwpn; mh ecskmrtd e rsaelwh xvpe gpr vtwt jw txyh dyf llc.  Xx vpdr'i ezllch fsty ipwm.  Lp egi oc tqeifupgi tsdapt.  Ijtcc csk pyh ilsc, eltvs pci ilchp aws hwtrz xvpe Ebifxne'h woupxn ebs dyrgshd vtuixcih yg iz appy phen jfdx xwi gpnvth dgtrrmdapw trgwcmcir xy xwmg qfmahwcr.  Ech kt sipv gjnl kswrpw isrpj.  Fjx ckpv ils azrv lojw xwi Obpvxgoc aidtzt seki ftdmhxss elpx htxtiehxzr.  Prr issjkv lp'zt qosp sjv gwlvt st btwieytd, vtuixcis wcbp gdyfhp gdvftnxxsbh, fpimapeiac kt seki vtwh uegi es ils ecmcgwewih xvpe lpzs qpic xvt dsjvqt zj dyf hevtruis ech o qpersb iz xwi kdcps.
 
                 Rcl elxw utyigehxzr ueqtd e vvspe xtwh xy xwi gepgiif dq xtvfdcmhq.  Oco ycpwzp xwi Qxgma Aog zv Lsfao Apv WX, hi reb'i nsjrh dy e hyfgprsif rpvtqccj xd ffxyk ilwh usjvbtj xd eb tyh.  Gmuwe rda, wc omhxoce xgewctrv gobaw prr xy ggsksph rmhxpw, ilsgp egi dtztai dazximbv es ieyt Lqtvwrlr amjtd.  Xweh ltpa fs isi regt l ctef ucsb rcl, qmki mtlvh jfdx rda, oco -- mc eza avdfoqtpxxm -- 10 npegw tgzq csk.  Cpmilsg T rdv ocjsci qpy wiebs sigi hdoen ebs den xvpe xwift hmap bde ft ebdeltv htcvdvwhe eixorv xweh ilotw Obpvxgoc wmkig.  Qfx X goc den awis gtvhptric hwlx bc osxmcmgiceimcc -- lpdru ltxw sig pbivodchxrogj xgsced ech hwp tpxfxzxxg aty ech kdxic avd oiuibs zyg roitscez hpgjvwij -- axpz sz ikifnelxru xy sjv ddhig xc zpie xvt Lqtvwrlr eicewi hett.  Lrs M rd vrda kxel rifilmcxm isei as rlr prr ltpa hsupei ez Flise.  Ptnejws isi iifgzvxwhh nec sbaj wjgqtph xj hwpc hasaw xwiwg cecog pyh ppwtyeii Obpvxgo ucsb sig lpamsh, lrs xvtj axpz cpztv pt lfai hd os iloi tj li gilc ivit es llc lp egi, wu hi usfvp xdyuw lrs higlfai oeavdeqwpw is txrlimbv eigvcgtwb xvpe egi ocnldvss tr dyf itqtpshd msioad.  Xwmg bfwi fs dfv rsabzr eyfezwt.""", "people");
-        CifrarioVigenere[] array = new CifrarioVigenere[]{cv1, cv2, cv3, cv4, cv5, cv6, cv7, cv8};
+        CifrarioVigenere cv9 = new CifrarioVigenere("Ybx wrx (Kyecj gfnnm) zw f xhgvwycv mgihcxm fj xgtfc gflgcmswinm dergtf.[1][2] Zx nm mbv ssfr xfqjmmcteyyw mgihcxm zr ybx zrqnfr Zvpnxty rri cl iwxjh kywiwlxx ks fm mbv htgxmkmh wtn ks iclnzrlobmy my zkid xmy pcch ryfvvvx iy nyi kufccc.[4] F wtn tes ybnyiw vx u yszmx wrx, f ztld gfn hl r jjltf tey; nay ceynxl iesaxm wvjyes rri uoizhx bngrr hignrgy.[5] Xhgvwycv wrxx uky meqoxx sc mofuew kik wfquugcfrxbbj rri nayzv fvbfzxd nh ezpq lhxvrym. Tvfyy 60 wtn svjywm rvj lxwfkscsyu fd ptlzszm vuk vjabmkvnyl.[6]", "future");
+        CifrarioVigenere[] array = new CifrarioVigenere[]{cv1, cv2, cv3, cv4, cv5, cv6, cv7, cv8, cv9};
+        int KasiskiCorrect = 0;
+        int CombinedCorrect = 0;
         for (CifrarioVigenere cv : array) {
             String cipher = cv.getCipher();
             String keyWord = cv.getKey();
-            System.out.println("Index-Of-Coincidence + Kasiski calculated keyword length: " + charSet.findKeyLengthByIndexOfCoincidenceAndKasiski(cipher, 3) +"\tKasiski calculated keyword length: "+charSet.calculateLengthViaKasiski(cipher)+ "\tactual keyword length: " + keyWord.length() + "\tkeyword: " + keyWord);
+            int KasiskiCalculated = charSet.calculateLengthViaKasiski(cipher);
+            int CombinedCalculated = charSet.findKeyLengthByIndexOfCoincidenceAndKasiski(cipher, 5);
+            int actualLength = keyWord.length();
+            System.out.println("Index-Of-Coincidence + Kasiski calculated keyword length: " + CombinedCalculated +"\tKasiski calculated keyword length: "+KasiskiCalculated+ "\tactual keyword length: " + actualLength + "\tkeyword: " + keyWord);
+            if (KasiskiCalculated == actualLength){
+                KasiskiCorrect++;
+            }
+            if (CombinedCalculated == actualLength){
+                CombinedCorrect++;
+            }
         }
+        System.out.println("Kasiski Correct: "+KasiskiCorrect+"/"+array.length);
+        System.out.println("Combined Method Correct: "+CombinedCorrect+"/"+array.length);
     }
 }

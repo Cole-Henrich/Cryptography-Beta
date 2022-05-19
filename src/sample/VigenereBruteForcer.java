@@ -11,7 +11,7 @@ public class VigenereBruteForcer {
     private CharSet charSet = new CharSet();
     private char[] alphabet = charSet.getAlphabet();
     private String language;
-    public VigenereBruteForcer(String cipher, int likelyKeyLength) throws IOException {
+    public VigenereBruteForcer(String cipher, int likelyKeyLength) throws IOException, InterruptedException {
         System.err.println("VigenereBruteForcer: likelyKeyLength="+likelyKeyLength);
         isSolved = false;
         isCaesar = false;
@@ -45,7 +45,7 @@ public class VigenereBruteForcer {
             }
         }
     }
-    private void test(String cipher, String kw){
+    private void test(String cipher, String kw) throws InterruptedException {
         VigenereKeyPhrase vkf = new VigenereKeyPhrase(kw, cipher.length());
         VigenereDeciphered vd = new VigenereDeciphered(cipher, vkf.get());
         String got = vd.get();

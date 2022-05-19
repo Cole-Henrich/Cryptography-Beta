@@ -6481,7 +6481,7 @@ public class SubstitutionCracker {
     // 'h','i','j','k','l','m', 'n', yellow <--13
     // 'o','p','q','r','s','t', green <--19
     // 'u','v','w','x','y','z' blue <--25
-    private boolean check(String[] tempKey) {
+    private boolean check(String[] tempKey) throws InterruptedException {
         boolean rtn = false;
         Scramble scramble = new Scramble(tempKey, getCipher());
         not_english not_english = new not_english(scramble.get());

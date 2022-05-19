@@ -53,7 +53,7 @@ public class SubstitutionCracker3 {
         }
         return rtn;
     }
-    public SubstitutionCracker3(String Cipher) {
+    public SubstitutionCracker3(String Cipher) throws InterruptedException {
         key = new String[26];
         cipher = Cipher;
         CipherEquivOfThat ciphEquiv = new CipherEquivOfThat(Cipher);

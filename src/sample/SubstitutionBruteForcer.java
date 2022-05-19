@@ -13,7 +13,7 @@ public class SubstitutionBruteForcer {
     private final char[] alphabet = charSet.getAlphabet();
     private final math math = new math();
 
-    private void crack(String Cipher, String[] Key, String[] MissingChars){
+    private void crack(String Cipher, String[] Key, String[] MissingChars) throws InterruptedException {
         System.err.println("BruteForcer.crack");
         int[] nullIndices = nullIndices(Key);
         int nullCount = nullIndices.length;
@@ -73,7 +73,7 @@ public class SubstitutionBruteForcer {
         String[] rtn = modifiable.toArray(new String[0]);
         return rtn;
     }
-    public SubstitutionBruteForcer(String Cipher, String[] Key) {
+    public SubstitutionBruteForcer(String Cipher, String[] Key) throws InterruptedException {
         System.err.println("new BruteForcer");
         setKey(Key);
         setCipher(Cipher);

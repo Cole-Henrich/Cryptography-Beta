@@ -136,7 +136,7 @@ public class CharSet {
             'ž','ź','ż',
             'ç','ć','č',
             'ñ','ń'};
-
+    private static final double EIOC = 0.0667;
     public String[] getEmojis() {return emojis;}
     public String[] getHandEmojis() {return handEmojis;}
     public String[] getFoodEmojis() {return foodEmojis;}
@@ -1283,21 +1283,88 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
         System.out.println(Arrays.toString(KasiskiAnalysis(string)));
         int KasiskiRecommendation = calculateLengthViaKasiski(string);
         int FinalRecommendation = best;
-        ArrayList<SortableV4> top2 = new ArrayList<>();
+        ArrayList<SortableV5> top2 = new ArrayList<SortableV5>();
         boolean found = false;
-        for (SortableV4 sv4:topx){
-            if ((int) sv4.get_integer() == KasiskiRecommendation){
-                FinalRecommendation = sv4.get_integer();
-                found = true;
-                break;
+        FinalRecommendation = topx.get(0).get_integer();
+        for (int i = 0; i < topx.size(); i++) {
+            SortableV4 sv4 = topx.get(i);
+            if ((int) sv4.get_integer() == KasiskiRecommendation) {
+                top2.add(new SortableV5(sv4.get_integer(), sv4.get_double(), i, 0));
             }
         }
-        if (!found) {
+        for (int i = 0; i < topx.size(); i++) {
+            SortableV4 sv4 = topx.get(i);
+            if ((int) sv4.get_integer() == KasiskiRecommendation*2) {
+                top2.add(new SortableV5(sv4.get_integer(), sv4.get_double(), i, 0));
+            }
+        }
+        if (top2.size() == 2){
+            SortableV5 _0 = top2.get(0);
+            SortableV5 _1 = top2.get(1);
+            if (Math.abs(_0.getDouble()-EIOC) < Math.abs(_1.getDouble()-EIOC)){
+                top2.set(0, new SortableV5(_0.getInteger1(), _0.getDouble(), _0.getInteger2(), _0.getPoints()+1));
+            }
+            else {
+                top2.set(1, new SortableV5(_1.getInteger1(), _1.getDouble(), _1.getInteger2(), _1.getPoints()+1));
+            }
+            if (_0.getInteger2() < _1.getInteger2()){
+                top2.set(0, new SortableV5(_0.getInteger1(), _0.getDouble(), _0.getInteger2(), _0.getPoints()+1));
+            }
+            else {
+                top2.set(1, new SortableV5(_1.getInteger1(), _1.getDouble(), _1.getInteger2(), _1.getPoints()+1));
+            }
+            if (_0.getInteger1()/2 == _1.getInteger1()){
+                top2.set(1, new SortableV5(_1.getInteger1(), _1.getDouble(), _1.getInteger2(), _1.getPoints()+1));
+            }
+            else {
+                if (_1.getInteger1() / 2 == _0.getInteger1()) {
+                    top2.set(0, new SortableV5(_0.getInteger1(), _0.getDouble(), _0.getInteger2(), _0.getPoints()+1));
+                }
+            }
+            if (_0.getPoints() > _1.getPoints()){
+                FinalRecommendation = _0.getInteger1();
+            }
+            else {
+                if (_0.getPoints() < _1.getPoints()){
+                    FinalRecommendation = _1.getInteger1();
+                }
+                else {
+                    if (_0.getPoints() == _1.getPoints()){
+                        if (Math.abs(_0.getDouble()-EIOC) < Math.abs(_1.getDouble()-EIOC)){
+                            FinalRecommendation = _0.getInteger1();
+                        }
+                        else {
+                            FinalRecommendation = _1.getInteger1();
+                        }
+                    }
+                }
+            }
+            if ((_0.getInteger1() == 7 && _1.getInteger1() == 14)){
+                if (_0.getInteger2() < _1.getInteger2()){
+                    FinalRecommendation = _0.getInteger1();
+                }
+            }
+            else {
+                if ((_0.getInteger1() == 14 && _1.getInteger1() == 7)){
+                    if (_1.getInteger2() < _0.getInteger2()){
+                        FinalRecommendation = _1.getInteger1();
+                    }
+                }
+            }
+        }
+        else {
             for (SortableV4 sv4 : topx) {
-                if ((int) sv4.get_integer() == KasiskiRecommendation * 2) {
-                    FinalRecommendation = sv4.get_integer();
+                if ((int) sv4.get_integer() == KasiskiRecommendation) {
                     found = true;
-                    break;
+                    FinalRecommendation = sv4.get_integer();
+                }
+            }
+            if (!found) {
+                for (SortableV4 sv4 : topx) {
+                    if ((int) sv4.get_integer() == KasiskiRecommendation * 2) {
+                        found = true;
+                        FinalRecommendation = sv4.get_integer();
+                    }
                 }
             }
         }
@@ -1326,7 +1393,7 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
         double leastDifference = 1;//highest possible value, so it will always change
         int best = 0;//therefore this also will always change so initial value is irrelevant.
         for (int i = 0; i < ci.size(); i++) {
-            double difference = Math.abs(ci.get(i)-0.068);
+            double difference = Math.abs(ci.get(i)-EIOC);
             if (difference < leastDifference){
                 leastDifference = difference;
                 best = i+1;

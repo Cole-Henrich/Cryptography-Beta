@@ -312,10 +312,70 @@ M ajv ilak ewi Cfyvvejd sicclgi tyli wient xhv fctrfgdoeu lch drdieruwn etklro b
                 Xvt Qvpqsgd aws rgljiir isi Rsbhemiyhxzr rsiao rdx vpgi usftditr hwp gwezaprvig isei lokp ycjcaois sjtc xwi zpdx 222 niogd.  Fjx cjc Gdrgitxjxwdy lpw scoygir isvdyuw dirightsc ebs nmkmz gtkwxg, isvdyuw Hsgpr Llv prr Rzps Aog, mireihp mi tfdgmsig p qsjrrpemdr cu avxrqxaptw hwlx reb qp eetzxph evovxeimqpwpn; mh ecskmrtd e rsaelwh xvpe gpr vtwt jw txyh dyf llc.  Xx vpdr'i ezllch fsty ipwm.  Lp egi oc tqeifupgi tsdapt.  Ijtcc csk pyh ilsc, eltvs pci ilchp aws hwtrz xvpe Ebifxne'h woupxn ebs dyrgshd vtuixcih yg iz appy phen jfdx xwi gpnvth dgtrrmdapw trgwcmcir xy xwmg qfmahwcr.  Ech kt sipv gjnl kswrpw isrpj.  Fjx ckpv ils azrv lojw xwi Obpvxgoc aidtzt seki ftdmhxss elpx htxtiehxzr.  Prr issjkv lp'zt qosp sjv gwlvt st btwieytd, vtuixcis wcbp gdyfhp gdvftnxxsbh, fpimapeiac kt seki vtwh uegi es ils ecmcgwewih xvpe lpzs qpic xvt dsjvqt zj dyf hevtruis ech o qpersb iz xwi kdcps.
 
                 Rcl elxw utyigehxzr ueqtd e vvspe xtwh xy xwi gepgiif dq xtvfdcmhq.  Oco ycpwzp xwi Qxgma Aog zv Lsfao Apv WX, hi reb'i nsjrh dy e hyfgprsif rpvtqccj xd ffxyk ilwh usjvbtj xd eb tyh.  Gmuwe rda, wc omhxoce xgewctrv gobaw prr xy ggsksph rmhxpw, ilsgp egi dtztai dazximbv es ieyt Lqtvwrlr amjtd.  Xweh ltpa fs isi regt l ctef ucsb rcl, qmki mtlvh jfdx rda, oco -- mc eza avdfoqtpxxm -- 10 npegw tgzq csk.  Cpmilsg T rdv ocjsci qpy wiebs sigi hdoen ebs den xvpe xwift hmap bde ft ebdeltv htcvdvwhe eixorv xweh ilotw Obpvxgoc wmkig.  Qfx X goc den awis gtvhptric hwlx bc osxmcmgiceimcc -- lpdru ltxw sig pbivodchxrogj xgsced ech hwp tpxfxzxxg aty ech kdxic avd oiuibs zyg roitscez hpgjvwij -- axpz sz ikifnelxru xy sjv ddhig xc zpie xvt Lqtvwrlr eicewi hett.  Lrs M rd vrda kxel rifilmcxm isei as rlr prr ltpa hsupei ez Flise.  Ptnejws isi iifgzvxwhh nec sbaj wjgqtph xj hwpc hasaw xwiwg cecog pyh ppwtyeii Obpvxgo ucsb sig lpamsh, lrs xvtj axpz cpztv pt lfai hd os iloi tj li gilc ivit es llc lp egi, wu hi usfvp xdyuw lrs higlfai oeavdeqwpw is txrlimbv eigvcgtwb xvpe egi ocnldvss tr dyf itqtpshd msioad.  Xwmg bfwi fs dfv rsabzr eyfezwt.""", "people");
-        VigenereCracker vigenereCracker = new VigenereCracker(cv4.getCipher());
-        System.out.println(vigenereCracker.getKeyWord());
-        System.out.println(vigenereCracker.getSolved());
+        CifrarioVigenere cv5 = new CifrarioVigenere("""
+                EVSPXFAI
+                Kt elt Tsdapt st isi Jrwiph Hxoipw, xr Cgoig xc uzvb e adci eifupgi Ybxzr, twhpmpxwv Yfwimqt, trhyft osbigitg Ivocbyxpwij, tgsjxoi usf isi rsabzr sittywt, tfdxsii hwp ktrsglp Lizulvt, ebs diryft elt Fztdwxruh zj Amptcxn xc dfvhizkpw prr dfv Esgipvxxm, sz sghoxy ech sheeqpwhs xwmg Rzrhxwifxxsb uzv ils Jymiir Heeiig dq Ebifxne.
 
+                Pvhxnpt M
+                Gtnxxsb 1
+                Pwp aiuxdppxwkp Tdasgd ltvsxy kgebiph hloaw ft zsheis mb p Nsckftdw dj hwp Ycmhto Wiehtd, awmqw dlppz rzrhmgi zj p Wsclxt ebs Ssjws dq Vttftdicxoitztw.
+
+                Gtnxxsb 2
+                Isi Wsihp su Vsecihibilxxzsh dlppz qp gdqdddis st Bpqqifh nldwsc pztvm hpgdrr Npeg fm isi Eicewi dj hwp wtzsglp Hxoipw, prr isi Tpsresgw wc perl Gilxt wvpwp wejt elt Uipwmumqpemdrg gpujmgxei usf Twirxcgd su xvt xshx bjxigsih Mvprqw zj ils Heeii Ztrmhpoifvt.
+
+                Rc Epvhsb hseap pt l Vttftdicxoitzt avd dlppz czx wejt lxiewcph is hwp Evi cu eatrhn qmki Mtlvh, ebs mitr gtgic Cspcw p Gwitdtr cu elt Ybxeis Whpeih, ebs hld wvpwp csh, lsic iztnxth, pt lr Xrvpmmiebi zj iloi Dxpxs xy awmqw si hloaw ft gvddic.
+
+                Vsecihibilxxzsh lrs hwgpgi Xompw hloaw ft edezvimccph pqccr xwi gtgigez Heeiig lsmrl apj ft mbrwysir ltxwmb ismh Ybxzr, pgqdchxru iz xwiwg cihtsremki Bjxftvg, lsmrl gwlpa fs spxtvaxyis fm pohxru iz xwi kwzpt Ribmig st ucit Tsgdscw, wcnpjhwcr xwsgt msjrr iz Wtvjxni usf p Eigq cu Jipvg, pyh tbqafhxru Xyhxebh ysi xomph, ilftp jxjhwd su eza zxwif Epvhsbh. Elt eqifea Ibjxigehxzr hloaw ft qosp axxvxy xwvst Jipvg pqxtv hwp jxvgi Xitxwcr su xvt Nsckftdw dj hwp Ycmhto Wiehtd, ech kxelxr skpvn wiqdifysce Xtva dq xtr Mtlvh, mb hfgw Qocyig eg isin wvpwp qc Zph hxvsre. Xwi Bjxftv cu Cievshpriehxgih wvpwp csh tigtir dyi usf tgigc hwtvic Hwzyhebs, myi iors Wieht dlppz wlzt eh Apehx ccp Vttftdicxoitzt; ebs frimz hfgw ibjxigehxzr hloaw ft qosp, xwi Gilxt st Cpa Weaedlxvs hseap pt primhaph is qwfwt xvgpi, Beghlgwygtexh iwvsx, Glcsp-Mhpoco ech Dgzzxhscni Epoceeimccd sci, Qdyrtghxnyi jwkp, Rta-Mdco hml, Cpa Yifhpc usig, Aicrgnwzprwp pmvlh, Spppaogp sci, Apccaebs dmm, Zwgrmcmo ipr, Csfis Gpvcatrp jwkp, Wdyhw Negszxye umjt, lrs Ksdckxe hwcit.
+
+                Avty zpgocnmtw vpattr wc elt Vsecihibilxxsb ucsb ebn Dxpxs, isi Tbsrfxxzs Pfxwsfxec ilsgpsu wvpwp xwgjp Agmhh zj Tpsremdr hd qmap gjnl Keqpygxig.
+
+                Isi Wsihp su Vsecihibilxxzsh dlppz rsyhi hwpmg Wdtlotv oco silsg Zjumqtcw; prr hseap vpgi ils hzpt Tclpv dj Wbaipgvbpri.
+
+                Wsremdr 3
+                Hwp Wtroip su xvt Frxxss Dxpxsh dlppz qp gdqdddis st ihs Hibpesgw tgzq teqw Dxpxs, rsshib qj xwi Ztrmhpoifvt xvtcidj, tdc wxb Mtlvh; ebs perl Gtyeisf hseap vpgi drs Kzxt.
+
+                Mabphxehtwc pjhtc xwim hseap pt lwhiaqwis mb Rzrhiejprri cu elt jwgdx Tpsremdr, hwpc hloaw ft hwkthth oh pujezaj eh qon mi xrhd elgis Rwehwsh. Elt Wspew dj hwp Wtroizvh st isi umfhe Gaegh dlppz qp zpgoiph px hwp Imtwglxxsb dq xwi gtnsch Mtlv, dj hwp wtgcco Gaegh lx ils Titxvoitsc st isi usigel Niog, lrs st isi ilwgo Gaegh lx ils Titxvoitsc st isi hmlis Ctef, hz xweh dyi ilwgo qpc pt nldwsc pztvm hpgdrr Npeg; ebs tj Keqpygxig wlteib qj Vtwwvyeimcc, zv dxvtcaxws, sfvxru isi Giqtdw dj hwp Ptkwhweiyft zj prm Heeii, hwp Imiqjemki hwpvtst blc beyt eibtcglvn Edezmcxatyxh ybitp ils cpbi Qstemck cu elt Psvtwaehjci, llwrs wweza eltr txwp hyqw Gerebrtih.
+
+                Rc Epvhsb hseap pt l Wtroizv llc hseap bde lpzs pexpmbto xd xvt Lkt st ismgxm Npegw, oco ftib ctrt Cspcw p Gwitdtr cu elt Ybxeis Whpeih, ebs hld wvpwp csh, lsic iztnxth, pt lr Xrvpmmiebi zj iloi Dxpxs uzv llwrs lt wvpwp qi qwzwtr.
+
+                Hwp Zxgs Ecihmrtyx dj hwp Ycmhto Wiehtd wweza mi Evshthtrh dq xwi Gtyeii, pje wweza seki bd Gsii, icwihw hwpc qi sffeapm stzxhss.
+
+                Elt Wsclxt wvpwp rlihp xwiwg zxwif Dqjxgsgd, ech oads p Tftdmsibi avd xsbasgi, wc elt Ephprri cu elt Zwrp Tgigxoicx, cg hltr vt dlppz tiiggwhp xwi Cuqmri cu Avtwwspri st isi Jrwiph Hxoipw.
+
+                Ils Hprpxs hseap vpgi ils hzpt Tclpv is hgj eap Wbaipgvbpriw. Kwpr hmhitrv jcg elpx Djctdws, isin wvpwp qi cc Zeil cg Ljumfblxxsb. Lsic xvt Avtwwspri st isi Jrwiph Hxoipw xw hgtis, xvt Nlxit Yfwimqt dlppz ecihmrt: Lrs rc Epvhsb hseap pt nsczwreis awissjx hwp Gdrqjcvtrqt zj iac ismghg dq xwi Atxftvg ecihibi.
+
+                Uyskatyx xr Qpdih st Xxtteqwxicx gwlpa rci pbiibs qygxvtc xweb iz vtqcklp uvcb Zjumqt, lrs hwhbyppwutgpxwdy xd lcao ech scusn ebn Zjumqt zj wsbdc, Xgygi zv Evcutx jrrtc xwi Ictxth Gilxtw: pje xwi Dpcxn gccgmrxss dlppz cpztvhwpptwg qp pxepap ech gjmntgh iz Mchwreqtrh, Icmpp, Xjokbibi lrs Tictwwqsce, ergcgomck hd Wel.""", "people");
+
+        CifrarioVigenere cv6 = new CifrarioVigenere("""
+                Vhp kch (Hewqu qctfa) kg c dzuggvin arseipa qt umltn qcryqxctofa ooomlt.[1][2] Kh ks epg cplj lqagseqeoveo arseipa kb vhp ncaklj Ngzkdlm cbf id whhgn cmhstrpl vc cs epg rqmpavwe clb vc fidbkbiutaj wv fcwo hje hqnr oexjgfu oq bjs haxqnm.[4] C clb eop etbjst bp i jcwsp kch, c flzo qct zz c tgrlt eov; tsm novtpz topgpa hfgewg cbf agwkru hfucb eoybcqv.[5] Dzuggvin kchu acm xonupl dm juxipg hoc kqarayqqbuhtx cbf tsmkf cbttkha tz skzn rzlgbvs. Ljqiv 60 clb dfgeoa cfg rpkqupikmf pa vlzkcws niv fggtavfked.[6]
+                """, "calico");
+
+        CifrarioVigenere cv7 = new CifrarioVigenere("Ybx wrx (Kyecj gfnnm) zw f xhgvwycv mgihcxm fj xgtfc gflgcmswinm dergtf.[1][2] Zx nm mbv ssfr xfqjmmcteyyw mgihcxm zr ybx zrqnfr Zvpnxty rri cl iwxjh kywiwlxx ks fm mbv htgxmkmh wtn ks iclnzrlobmy my zkid xmy pcch ryfvvvx iy nyi kufccc.[4] F wtn tes ybnyiw vx u yszmx wrx, f ztld gfn hl r jjltf tey; nay ceynxl iesaxm wvjyes rri uoizhx bngrr hignrgy.[5] Xhgvwycv wrxx uky meqoxx sc mofuew kik wfquugcfrxbbj rri nayzv fvbfzxd nh ezpq lhxvrym. Tvfyy 60 wtn svjywm rvj lxwfkscsyu fd ptlzszm vuk vjabmkvnyl.[6]", "future");
+
+
+        Time time5 = new Time();
+        VigenereCracker vigenereCracker5 = new VigenereCracker(cv5.getCipher());
+        System.out.println(vigenereCracker5.getKeyWord());
+        System.out.println(vigenereCracker5.getSolved());
+        time5.end();
+        time5.println();
+
+
+//        Time time7 = new Time();
+//        VigenereCracker vigenereCracker7 = new VigenereCracker(cv7.getCipher());
+//        System.out.println(vigenereCracker7.getKeyWord());
+//        System.out.println(vigenereCracker7.getSolved());
+//        time7.end();
+//        time7.println();
+
+
+
+        Time time6 = new Time();
+        VigenereCracker vigenereCracker6 = new VigenereCracker(cv6.getCipher());
+        System.out.println(vigenereCracker6.getKeyWord());
+        System.out.println(vigenereCracker6.getSolved());
+        time6.end();
+        time6.println();
         //        for (CifrarioVigenere cipher: ciphers) {
 //            VigenereCracker vigenereCracker = new VigenereCracker(cipher.getCipher());
 //            System.out.println(cipher.getKey().length());
