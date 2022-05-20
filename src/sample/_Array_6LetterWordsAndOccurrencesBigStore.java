@@ -9,9 +9,9 @@ public class _Array_6LetterWordsAndOccurrencesBigStore {
     public _Array_6LetterWordsAndOccurrencesBigStore(){
         _Array_6LetterWordsAndOccurrencesStore1 as1 = new _Array_6LetterWordsAndOccurrencesStore1();
         a[] _1 = as1.get();
-        _Array_6LetterWordsAndOccurrencesStore1 as2 = new _Array_6LetterWordsAndOccurrencesStore1();
+        _Array_6LetterWordsAndOccurrencesStore2 as2 = new _Array_6LetterWordsAndOccurrencesStore2();
         a[] _2 = as2.get();
-        _Array_6LetterWordsAndOccurrencesStore1 as3 = new _Array_6LetterWordsAndOccurrencesStore1();
+        _Array_6LetterWordsAndOccurrencesStore3 as3 = new _Array_6LetterWordsAndOccurrencesStore3();
         a[] _3 = as3.get();
 
         central = new ArrayList<>();

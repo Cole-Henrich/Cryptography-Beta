@@ -45,5 +45,13 @@ public class VigenereDeciphered {
         System.out.println(olympus.get().length() + " "+ MLKCipher.length());
         VigenereDeciphered IWouldntStopThere = new VigenereDeciphered(MLKCipher, olympus.get());
         System.out.println(IWouldntStopThere.get());
+
+        String cipher3 = "Evh at bnjh orcgfkztvzv hvt hkvgscux ft gdex ft an gnkghpfwzbu Rsuzbsi exdpsgk ter osnbjcfh.  Ox'ms udl hlf Gtukvhogq hw Ghplx, Ywzaskp Qzxfmfb.  Kt ztms cjj VZO Rxjxthcg Dxfb Dpfxkho.  Lw arjs dmk Jsqgwmrfm dx Wvtsckx Nwzaatd Uoiwl; Jsqgwmrfm Csifzwisgf ct Swirfhbwgk ct Wgfvzocv Lvqigamp; Ohigkesm Vwgvfoa Wkzq Vddwvf; an Ftkwccse Jsqjjbkm Osnbjcf Yaf Acbtk.  Ter W lsgk hc tkivqwpdep hvpfd fif Pumzbu Pjvywjxkm ft hww Newhtv Lkohtk, Tufwtfgv Hvdetj";
+
+
+        VigenereKeyPhrase vkf3 = new VigenereKeyPhrase("troops", cipher3.length());
+        System.out.println(vkf3.get().length() + " "+ cipher3.length());
+        VigenereDeciphered vdc3 = new VigenereDeciphered(cipher3, vkf3.get());
+        System.out.println(vdc3.get());
     }
 }

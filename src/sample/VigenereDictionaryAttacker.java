@@ -112,24 +112,42 @@ public class VigenereDictionaryAttacker {
             }
 
         }
+        String[] cipherSplit = cipher.split(" ");
+        StringBuilder shortCipherBuilder = new StringBuilder();
+        for (int i = 0; i < CharSet.dicAttackTolerance; i++) {
+            shortCipherBuilder.append(cipherSplit[i]).append("\s");
+        }
+        String shortCipher = shortCipherBuilder.toString();
+        System.out.println("shortCipher: "+shortCipher);
         int i = 0;
         while (true) {
             a entry = xLongWords.get(i);
             String keyWordTest = entry.getWord();
 //            System.out.println(keyWordTest);
-            VigenereKeyPhrase vkf = new VigenereKeyPhrase(keyWordTest, cipher.length());
-            VigenereDeciphered vdc = new VigenereDeciphered(cipher, vkf.get(), false);
+
+            VigenereKeyPhrase vkf = new VigenereKeyPhrase(keyWordTest, shortCipher.length());
+            VigenereDeciphered vdc = new VigenereDeciphered(shortCipher, vkf.get(), false);
             String test = vdc.get();
 //            System.out.println(test);
+
             not_english not_english1 = new not_english(test, 0.4);
 //            System.out.println(not_english1.not_english());
             if (!not_english1.not_english()) {
-                isSolved = true;
-                solved = test;
-                keyWord = keyWordTest;
-                break;
+                VigenereKeyPhrase vkfFull = new VigenereKeyPhrase(keyWordTest, cipher.length());
+                VigenereDeciphered vdcFull = new VigenereDeciphered(cipher, vkfFull.get(), false);
+                String testFull = vdcFull.get();
+                not_english not_englishFull = new not_english(testFull, 0.4);
+                if (!not_englishFull.not_english()){
+                    isSolved = true;
+                    solved = testFull;
+                    keyWord = keyWordTest;
+                    break;
+                }
             }
             i++;
+            if (i%100==0){
+                System.out.println(i+" "+keyWordTest);
+            }
             if (i == xLongWords.size()){
                 break;
             }

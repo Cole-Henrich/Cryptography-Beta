@@ -136,7 +136,10 @@ public class CharSet {
             'ž','ź','ż',
             'ç','ć','č',
             'ñ','ń'};
-    private static final double EIOC = 0.0667;
+    public static final double EngMinValidityFactor = 0.8;
+    //TotalWordsNumberAtWhichDictionaryAttackDecidesWhetherToFullyDecryptOrIgnoreTranslation
+    public static final int dicAttackTolerance = 20;
+    public static final double EIOC = 0.0667;
     public String[] getEmojis() {return emojis;}
     public String[] getHandEmojis() {return handEmojis;}
     public String[] getFoodEmojis() {return foodEmojis;}
@@ -930,6 +933,515 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
 
                 pair.setKey("exkfyvbromspzdcqaihlugwjtn");
                 return pair;
+        }
+        /**From the Parable of the Talents*/
+        public CifrarioVigenere getVigenere0(){
+            return new CifrarioVigenere("""
+                    IRZPBZNE
+                    Qvbf XACXULXEO: XUX UOZOF HY TSI YBOIYK
+
+                    Or Eafvrg Hyl Sytfiye
+
+                    Uxke hi nkx—
+
+                    Eyiezr,
+
+                    Mlwf,
+
+                    Ebfp,
+
+                    Wutiiyk ybye,
+
+                    Xmaw,
+
+                    Lhltvgz Mtrq,
+
+                    Zhd,
+
+                    Dlnibnr Kbw.
+
+                    Voywvwxr—
+
+                    Hi nkx bzva
+
+                    Ght hmga iuctblx,
+
+                    Bfx jbmh asgxgttey.
+
+                    MAEJ’PY FTKP E THW oq lrk.
+
+                    B tsmad mhlx jhnlo tyxtsp lrk, bf dlr vhuwh xghw lfbnm ie. Ma liiei by tlw lrk irzxrlms lrq wxnteyl, lhp’w nepajw axxdph qxooeiq, hueomrgm fzpyhpecw—qblcttyxl—wss jhnlo pvlmey xb axr lrq uxltiix xvpvlmaiyk fax tzpq maex. Eaw lhp rrxweo pnkze pzrgms es ztgiayytme. Lpy zhdd wrxf tz rrxw tsifx mhtrtl.
+
+                    Aec prztl yezx pad Pnnkey Slt Hllqvgt Blrxhee. Es gahsp auh eogiq axr zv utmeo lrk, lhp anl lixtyr “Hllqvgt.”
+
+                    Ssi jtl mj fvheormpte mzxuxk.
+
+                    Ssi vl welh.
+
+                    V atvp angmeo xb ehvp lrk tno xb uxltiix mhlx jatt secixnph oxmwpia axr lrq fx wlwa’m aec jnnet. T’zr ptneiq maae. Fhm bndxrtw, I’gi utmeo lrk, yelvrw aec, rrxweo lrk. B’vp rroxr evhlmeo lrk, mhzyta, gegie ngdpvfmhoo lbp lhp gbned mi gax wlc fax wlw—fh yonyfxw, ayh lxm sz qvlzuthrw, mhpvr yhr lpy mae hseew, bfx axoec xuxke qse fx. I dxvee dzr’g ngdpvfmtno. Eaw goh xutm ssi’f wxao, M’z ght pzrg luci V xoec avee. Bfx V fnse xer uenehlx I yirw mo frqxkseeaw fydiyy, tno wux bs aeem hf xi. V pbss xutm ssi jxkey’x, onm ssi vl. Bn zvqxk fzv zx mo frqxkseeaw phz M nf, B mfwg uxgtr gh nnoielmayh jah ssi jtl. Tseg bl mj vrtloy jbk prtxvgz ayh nllexfybgg elvl uozo.
+
+                    Vm aad eyptyd frxg mj anr mo dsem mhcshza mj jrxeiykf ur wcmgbgg. Dlr tgd T lnw mhlx vg voxqbg. Tno eyhgg hmga mhp rrxw tz aebme, dlr tesz hroxlztrw t npiq mh dcej. By ssi utw bpia uhry ma t layie mbmp, wux firlg atvp frvhmp e jkbtpv nl B hlzr hk ay eembse.
+
+                    M’ix zaelrkxd l jrp hf sie wkahmazl, awxuhngs wux zagi zhlt zj gaxsp ejtr dfvvgz hpv ybyeemzx. Tno M utoe nscbxs zj nee tseg pts deixw oq lrk prtxvgzs. Pzrg loxi by aec inkey, aecxk nzxruhovw utoe mirg voamrw mo omfd hr nvllmaw eaw lagiq. Lae seq t aammg, wnrtrt axr jshma, oq lvwbnr gnvaed ss yhoo, qbgxy, lrq pxaasakr iy shm-hf-elr-pty apnvxs zv jbmh evhlmeo trhilp, eaw uetrt tulp xb zh sevnbzhe fnvd tz xuxle jinkl llxrk. Mhpwr ltvph uxk ltjr lxvpvne mixif, tgd lpfh mhpc ftoeo lrk pochf, axr ushkgaww ngw nzxrl tno ql yttsie’l prtxvgzs. Dlr ftnlkrw mo meqzxr smz bgtz aebmiyk n ebtepr. Ax wcsgx pewp, nemhzyta ae omqg’m ltor whiyk vm. B’m rpnw lhp fnwzeciq abm. T’q tetd es utoe vrbpg htq nm eelwg marzyta aid aebmiyk. V phnoie pay T’q ahm gweq mh hlzr dgohr uxk tsvbnzh siel.
+
+                    “Zoo mf Vaaykr,” fr mzxuxk bppvxoeo. Xutm wlw jatt dlr ltio ma mae qmelm oq lrk oecwrl bn Peemaspiq: Mae Qmelm Bzsx hy tsi Yboiyk.
+
+                    Nee tseg rhu eshva
+
+                    Yzy Patnri.
+
+                    Nee tseg rhu Nlngze
+
+                    Nlngzed cbn.
+
+                    Mhp saer llwgbgg evhma
+
+                    Id Gutggp.
+
+                    Kbw
+
+                    Bs Nlngze.
+
+                    Elr phrow nkx hlvzexsd, M fnipzwr, tgd xigtihzvvvtlwc gkne. Lx yxtse wux uerea pbts wbfx saipbxs zj gknts. Eaw goh wux’l tzypaxd xi bgx llwg mbmp avma hpv zxfocmrl, aec pvyx, ayh uxk dlqaxw Elvgaleph.
+
+                    BGX
+                    Fcsz XTRELFXXD: ELR UHOVW BY MHP PVOBNR
+
+                    Hnkdnpwf
+
+                    Zbvpw fatpp xb mae wmtam
+
+                    Ad pvzat
+
+                    Dlnixs elr wtrvrrll.
+
+                    Dpega
+
+                    Zigif laaai gh eiqi
+
+                    Nl eiqi
+
+                    Fatppw qxtts.
+
+                    Xux nntzrkle
+
+                    Lrq Zhd
+
+                    Dlnkx tsmf paowiaxls,
+
+                    Pepa
+
+                    Weqmabgg elr hmhpv.
+
+                    Thw
+
+                    Gtzrl lhltr mh tsi hgbvpvfx
+
+                    Ts elr ngigielx
+
+                    Ssecxl Gzh.
+
+                    SKHM Xizhkipw by Htsie Phrwhf
+
+                    UR TLCYHK FCEADEIY FNGDOWI
+
+                    V ATVP VRTW TSEG mae aiebhd zj hiaelzne mhlx whnryeybltd lnox bpkhg mo cisxk tz ef “mae Ltbvtljtfx” hr xsex voxqbgey, xsex uiexrkey, “elr Ihx” wefmxd qvbf 2015 mhcshza 2030—a oiptwe lrq t aawj by vhlsf. Maid mf ngtcyr. Mae Ask ats mirg t mfgu ehnrie mhrxiam. Bt mittg wppy uxfzvr 2015, ixrsecl xvpr oxyoci gax tfva hy tsi zbelprabnm. Tx utl nzx rgweo.
+
+                    M utoe lpfh kelh gatt elr Ihx hef vtudiq ur angvwxneeyer czmavbdtrt veixegbv, ensahfin, eaw lonmbehgtgne vrtwrl. Bt hshew bp qbkx hzrrlm tz wnr mhlx gax Pzb jtl clyfxw bj shk hwy vrynslp gh welp jbmh zfibhud tehulpqf bg tssfx trpef. Px clyfxw tsi ckhbwizl: mhpr jx lae eaw paeguxw ad xuxr gcij bgtz gebled. M utoe sinkw ppscex dprl maid, fhm B wlw ohkn tr 1970. V atvp wrxg eyshza tz oahp tseg bm id xenx. I seix paeguxw eoyptmizr oxvoxi zhke l teboiwitx hf elr kbcs xutg tsi otlin rrvxsdmgr mhlx vm fudx ox bf nmibeikiq lhctigr bs es fnkvtzr. B aagi jtmcsiq tl czrixgiprpx, irzjvm, tno maxktte rqvudiq zkelxrk tno qbkx dlrtxkofw rgoicsafxneey wxgceqtmizr. V atvp anmvhph choecxl, annrie, tgd omfxtsp frvhmp maxoieeoex fzv zhke lrq fhrp trhilp.
+
+                    Sixkawp, gax Pzb utl hlh gax eqjrvm oq ea bgseeyefeyx-cetn Hseew Wlv VBB. Iy jnvm, tsiex peci fxoecey lfawp, oehooc fahoemaz pacw thbnr sa tkofrq mae hseew dfvvgz tsi Chq. Tsifx peci fmnpth nyyatvf—ptseif hy ltjr tgd evrtluci. Gaxy hiex yofkum, hseialbbwc, gh weqiaw tglmalm vtgvhns qsexbgy iaxfipw. Nee tzs bymey, xuxr wpvr tvtfeyer fzytam bpgnnle trnwxqfegx eelhrkl dth ahm kysj paae iylx tz hb. Lncs prtwecw xgxw elnm mhpc phnlo hrixno sa yxac, whliinmbg, aaevrw, geph, ngw gcirw mo lvbnle aegkboemp lnpasem yoc ank.
+
+                    Tmth nee tsmf, lhmplbp, mhp Yabmeo Wgtmed ss Tfecmpt luqjrkxd l qnchr ysafbltxnkr dpjrtm. Ie pblm nz mzihreeam pac, crm bt omq ght dyeobvp xux Ioi. Trkaaaw vm lixtyr eodx fbzhe ss paae mg hgcp mamxnoiq mh bp, xuxg bwyawxrph nbflpwfer uyxve bt pbutnseiq bmspps.
+
+                    Paae mf exfe ss bm nza, jatt tx utl bpgbfx, I os ahm kysj.
+
+                    Mtywse Ykayoybg Blrxhee hef fr flxuxk. Fcsz abs hvvmbnrw, ux lepqf mh hlzr uxey e gahurlgynl, dszxphlx shkmlp ztg wss jhnno yc pbts ql lmrlrtx, ltffohkn xsgaxr pzrg mhzyta lhp anl tlxsfm rofrt xgofku mh bp lvl zrlrqwturlgxk.
+
+                    Mj qbmaec wrxfs es utoe wsixw htq, fxxmd xb atvp frxg hltcr piel ubf. Hp eaw fy xsgaxr xig wnrtrt mae Ask paey xuxr wpvr uhts lbfxlpwf ptnoiexks. Myg ax wlw n 57-rxac-syw wonxbk—t flqver pcepmbcp turlinmng—tno wux pad ea 18-rxac-syw zicp. Gax Pzb ttoe elrf mecvvuee xizhkipw vg voxqbg. Uoel utw spia maetv axbgsfbkaozhf wxsevbrxd—smf bg Slr Qbxgz eaw aecw vg Komprwh, a dyonkb zj Yhl Aykrexs. Elnm lepqf mh hlzr uxey iahngs jbk mhpq. Vg 2027, mhpc zxm, ltorw xanl bmaec, eaw zoe qnkkiph. V maiyo, extdtrt uxthirg mhp pvgxs zj fhfe zj zr yaelrk’l wcmgbgg, elnm ae heamxd es gtde neex hf elvl ltceazx yzyaz zicp gatt si utw fzyaw. Ae heamxd es xxxp sie ltfp jehf tsi patod ss mae emzx, laqi skhm elr ztnrw, qkngd, wytoecc, ngw dtwrtle. Lrq hy czyelx hp anl yllxgxkeo xutm ssi jtgtph ubf. Hp anl auxea, tgd ys qhnbe xvkxd zj oxbnr eyhge. Smf ybrdx jbye seq uxey hrtw fzv nuhue xjh relvf paey xuxr mpx.
+
+                    Ux vofpqg’m kpic fr mzxuxk sljr hy czyelx. Nz sax vofpq atvp hbgx tseg. Lae seq vaodia axr aega eoyk oxyoci gaxy xig. Abs xmfmtkp anl bn dirbgg sie tl a jshgz gtvy. Lae hef terpeqr t mtwfbee, lvzxw ayh gtkgpxrw.
+
+                    YRZQ Gax Jzyegtld ss Etucia Hra Zpnfbnl
+
+                    WHGWAJ, WRIMEXFRK 26, 2032
+
+                    Mooel bl Acvvotl Oel, mae qmsma ayrvoxrdeer hf zye xltlfyblhtrt t voxqhgbtj gneeeo Ephkn siex bn elr fhuyxnbgs zj Unfbzpqm Vofrgr.
+
+                    Bn aieoxrdi pxeemvnmboy ss maid, M’ix cudx utw oyi by fy cipnkrtrt gbgsxztked. Xuxr’vp frvhmp vnkx iy xux iadx sxp ypeel—hlo iaxfipw jbmh qezbeilv atltj lnubtd. M xghw elrf. Mhpc utoe dypa loqx, rtly mitbgntrtl.… Mhtw bgx wlw, nm yicwg, t oidmg mh tsi ctlt, l xebi hzqr, t vhlrpx mo dtrgw ttqr pbts frehvph tahsew.
+
+                    Zr hlo lbfx hlw phfe mepd yrzq gax adlrl. Mhtw qhxsy’x fnkpcmfx fe, dszxaoh, eymaofku B lah mg unry crtks lkb. B paworw mhcshza tsi enubwi gatt hef exfe ss bm. Ypx uxke tx vl kedxbkxd lrq yblwiq pbts trhilp—eye mhp trhilp M xgxw lw V pts rvbpbnr yc. Maej wvm bn zye ykoyx ehhmd ma khwd ss hed xigte fzpqbgg nlnbks, hsbwxn vmgvaey eaw wiymaz kozq paticw, ngw pwefmbc dxnvdiyk paticw, n lblprg vhnrvrztttsa hy tsi fvtteiexw ayh gax dpeq.
+
+                    Vaucgu lxrgmpx bs lpextdj kbbgg zr, ngw, oq gbnksp, ql yttsie bl pcinvaiyk. Ux eozof tl hp eyptyd lnl bn smf vaucgu khbpw: gtel, mvbtw, seieg, ltcevzat—l kextt mpnvd wlpy hy a xea pbts e ihbcp cbn goe saer hpee, unt qire hn jshk lktr ngw iy cbnk bzrrl. Mhpvr’l go nsegxr zj gax mpigbgg csbfl tseg fr flxuxk clrahm rpepa piel gatt gsvvx. Wp’zr gxvpv utw a dshgw sjwgxf—npzrk gephrw hnp. M uxtr lrq yxew xutm vzmpx tglma.
+
+                    Rxt ssj ftnj crtks sef bm bpia lbnni zr yaelrk oaymfaxd? Zv etmhpv, uhp mlrl rxacw fbgcp lr pts vmyexd? Si znlt seix uepr xbelph. Ux padr’g mae vmaw hf xea pao hshew ameawhn smf ytmtpl, abs nszfnntxl, tgd smf vaucgu. Utcv auxg hp zngbssiq, wriyk or oizprgve hef xoey inlbec xutg ie mf mhdlc. Yboiyk, bg mhp sgaxr seaw pad eyfhse mzihsdmoex.
+
+                    Hp prym hzqr hge oel mh gz xb abs zjsbve lx gax czpyxze. Si gtngsx ubl cweflxs mc phfpfxrk, tno saer hlh gh zo es gax czpyxze zrpx t wpix, unt pzrg hnni n pxev anl moz qhva eitblnrp xb wtnrie. Ax seelxw ogiegbgsx nm mhp gbeeeri nl nsfey. Xtrwc zhkntrtl peci gax sljrlm ttqrl yoc abkdiyk cxhpwi gh mrlzre. Ae dxnkmeo jbk aoxi gax npbg fhrymaz tno anl gegie lxey ettbn.
+
+                    Hi fxtrnlrw. Pe pzrg iath shk a asybve dinkvh. Ysgabnr hvw tnj kbhw.
+
+                    Tsmf atpaiaxw mlrl fhnelf uxfzvr hnr sshlx bfvaxw, bpjbkx ofv phfmfrvmr wlw qxltcslxw. I hef 17. Ghw T’q 23 ngw I’x wroxrlp ungdciq fblpw skhm elnm welh cetcp.
+
+                    Crm tlw ss t luohrg, bn xc qkxax, xubggd lnox czqr kbgsx nztiy.
+
+                    M’z tm hzqr, tgd xc stmhpv vl irpepabnr. Ql lmeaqbmaec mf lbtemaz uesmaw aix eaw t ltxgex tz sax lioi nm aec tvtgo. Elr vhnrvrztttsa hy ofv axbgsfbkl stxf uxfzvr abm tr gax llvtx, goe-uhbme-ztrg trpe shkmph or huc pvobnr vbhf, dtrvgz rzsz, tgd qezbey csbf. Mhtw vl t bcsnw E-ssecxw saepx bnes jabcs iixg mzvr maay xux nsfey 30 hk 40 ppscex hlzr vkaxqrw mhpqfxevpw shk Sfrqtr spvibve. Elrlx ppscex aci ghh qfmrm mo mi n Utpemfm voykexzaembg—hr lx yxtse, xuxr’rp xbh jutig mh bp xux Uaaxvlm czrtkxglxvhg I rvrp np tr. Gaxy’ci uxke, myg lhmplbp goe lrkx. Tsil’kx sseqhp ppscex. Gssfml.
+
+                    Oypl fr ohr stfiwc sxxld vrte tz qr. Maej’vr tl dpeq tl mzwg hy tsi bmaecw, ngw ypx gaxy’ci nebvp! Ql ukoelrkl aci uxke lrq maej pbhd tsi jtr tsil wbd hlrg B wlw nuhue 14. Orbmh, elr hedpwg hy tsiz, mae hselm ayh gax ftvfm mo omr, bl oypl 11. Maid qrtgs Xeevns, xc stoocmgx urzxuxk ayh nepajw gax bpwg-ehovmaz iecwbg bn elr ytmtpl, bl 10. Bpr ngw Gcit, temzwg tl awmxx ts eavgl, aci rbzhe eaw legia. Px’rp eye liexvgz iy xux yrzrg khw, zzrk gelv zr ltptzhmhpv fh lhp gng dept ng xyp sa nl. I’x wvmmiyk oxmwpia Dxiel ngw Mlvpnl tz orxi tsiz ykox oveeiyk rtvh zxuxk dfvvgz tsi fxkvtgr.
+
+                    Paey rrbmhpv by fy aeexgtd mf ehovmaz, Detxu kxanlrl tccsfl fe lrq innnlrl Facghl aach bg mhp xubzh. Xeevns, jshgzec, wztelpv, onm awanrl seyouhry, eyptyd xbnzh, ayavaed fnvd. I rvnu xanl ohr’s qmfm tno wdnxeki. V’f uirkrk tno wgkhnrie maay fbma oq xuxf ayh V’ox awanrl hlh fmkoyk utgdd. Xux uojw fjnicq vg iatr ngw tcc gh iuwp npty. Ljgxk a xszxgt, T prm mhpq th. Eedwbg eelvaxw. Tsil ext pepa htsie teoyi shk ae prtlt l qvgntp se mpo.
+
+                    Tr zr wrpez, maetv ctbn osrlg’t syem fe elr pty tx nepajw qbw wsia px wpvr zkohmaz np. Mepd mhpr, fbgcp M jtl tsi bewedx, V pts siyw kedtbglimpr yhr elrbk bplnoboc. M utw tz gbgmrzp gaxm pzrg mhzyta B czyywg’t pwptie elrbk plma. Fr flxuxk ayh fmxpxsgaxr nyg fx ad pvmmlp wytvk lw chlstfyx phpr vm vaxi gh fy sccxkextnmay dcawkoxi. Gaxy cisnleo xb ext xi ox aayhvvtpaiq. B pad xux hloifm dio, eaw mhlx jtl tseg. B aao ql kxsasalbbtpvmbed.
+
+                    Rroxrelrexsd M hlxd es sxxl pzrkr dlqaxw bcyvlx, cfx, ngw bfva maae ql ukoelrkl mlrnzxd es phelpgg. Xtcs xvfx I dej maex lhkm, I dlnkxd elrbk plma tl tsshza I seq uxey macnrph zrlewj. Roxn aevgl tsil ikeeiawxd es sxxl, T hvw yepp. Uriecizittsc frgdcszx bs l hrenstsate dtwbkwec, esmxr lpy. Maeci’f gh tpprittsc, ah farmp, gh dpic liicmgntl lankxnpwf. Maeci’f cnse xux gefvbvaexmptelj-mawncph qxeudmbg mhlx V yxew xux iatr ngw pwinlnrp xutm I dir hmhpvf xqppvvxgctrt. Ieelwhkx id vnkx, plma bl pwiambffp, ngw, dpphlboyey hk nzx, vm aucxf ebkp lree.
+
+                    Sz aur wo T qvll ie rbp?
+
+                    Phlx n vkakc gabnr xb fbsd. Rbm yeppvgz ie wuhnlo fr ebkp lnobnr e ghhtsepax vlrvla ahel. B lhzyyw ue dyeikidiq tgd secir. Iywgxtd, T’q nykath. N itre ss fx id kbgx. Nzx oxbnr eoex tz jrxe mj fehmhpvf’ itiy mf ebkp rbm uetrt tulp xb axac xuxf wsia maej wuhnt, lrq B’f aqvnbw.
+
+                    Tsi qkxax frzbnd xb uxczqr t girlgftrp.
+
+                    Avmaofx jtkntrt, fr bcsgaxr Vivma vlrvlaed. Lr’l cudx thge. Si jtl tsi sbkse xb zh—tz hvx—relvf tzo. Ysj ax’s geablhph nztiy. Ma abs apnvx bpwvwx mp, xuxke tw n mtlw, frtnttjhe poxea, ueano-okhwy-wxbgnph ngw swiawxr hmga eoyk, pkhw-mpnvd hlme, zeelqvgz. Ssi’f pxacmaz t szjg, lblvc tkxey hexls elnm ylzaf tgd eavlms lvbngd sie uhdj, aetiptrt axr tr fhfe trgkbclxr itteieg hf qsywl ayh ttmhpvf ykox rrvd tz jrxm. Ssi vl t sevngzec.
+
+                    Wux bs xc zhmhpv.
+
+                    Fax id xux poxea bg tsi bgx ptggnke xc stmhpv ttoe xi by fy mmbehgtgne foelrk. Detxu lmowi vm yrzq zr ueovbhf wsia ax wlw abge lrq B pad xjxevp. Lr pkaatrw bt tr ng hlo tvxve zj n ieadxvv mamprveoel ngw bfvvxw ie ma hnr reewxn migpxey e ehp oq wdntssif tgd l qvqxd csj hy czva tgd mingl. Llxrk, ae npnbfeo mg ptsy’x ubl flyym mhlx gax ptggnke hef kniyiq ur wlxrk tno fl uxiyk jtekph bg. Ae zryr aio mg tl a usxx. Aoh anl ae dycihsph gh dnza ngrtsmaz pofpq atpaia mh ie? Xutm wlw Xxbts. M oxtt elr axlw shm hf smz. B aucx zrlewj ghh, oq gbnksp, fhm bt hef phrel vm. Mhlx jtl oyi oxtttrt ax npzrk mowh bnk plvrgms lfbnm.
+
+                    Bfx gax ptggnke hef lmiwp enbnph. Nee I seq exfe anl mhp qrfhrj ss bm. Ayh uxke hef maae qrfhrj, wvmmiyk axqt es zx.
+
+                    Fy xsgaxr tw gtel, eeyexr elng B ax, xneeec xutg mzwg ixoapr. Lae’d rbm irpxgr. Lhp’w oxtuemsne. I osa’m eozo ybde sie. B eozo ybde xc stmhpv, jabcs lr nleo xb lty hef t iiec. V whn’e qvgw. Bfx fax id e fmnnymaz poxea.
+
+                    B ltlvr tm hpv, onm ssi qhxs ysg mnry xb ehov eg fx. Tseg, tm lpefm, bs evhx mo wmsx. Lhp rroxr dej fx. Ad M jtl bzva, lae omrw. Ueqsex mhlx, shk ths lxtrd, wux mozo gax pzthetr “dqnkm dcyt” hy hpv gbfe. Tx jtl a yij ikedgebittsa fxdtgvgx clpyxw Plvnvxtns, ngw ie anl wotrt phnoiel yoc trhilp auh aao Eysaetqrk’l dtwrtle. Tx fmhpaiq mae oigxkizvnmboy ss maetv vgmewprvmulp sngcembg tno iatulph gaxm es ztde pbpxelprg nle zj jattpzrk fexser tno xubgktrt tuiwmgr mhpc utw lpjg. Bm awwb uhodxrw mhp trkyocqngve zj bkwiyeer, aelpgar yzyaz ieztyx. Mhpc extd qefmxr, cigtbnph zhke, xeqx foci etiio, epvnrlxr vhnyipmboyw, ptecfpnmboyw, ngw czrpenstsal. Ts l vrlnle, Tnktcpxph uenezx ts ascneac ef vhfqir tfoyk fmndprgl, tno, ms maej qrtgt es phfppxr bg ayc by mhp lvzalj tnbw pcssxlstsal, bt hef tl npgrllacc nl t kysjexdri by voxthmxrd.
+
+                    Ql fhtsie’l wrfk gtdiyk ztr hlzr axlaiq mh ktpy axr. T hbg’m kysj yhr dyex. Fy qegaxr omqg’m kysj xbtsie. Unt T hb dgoh xutm hpv qkng wism btd yafbseextulp qnkd oy qr—fr hjtrkxmaegar sjrqkhmp. Xutgkd xb mae lhqbvttzr gttfvr hy Plvnvxtns—n yxw elbnlayh cxhpwi qbxd evlbgg es okxav xux aammg—maeci jxke zrpx meyw by fiwpvhgs zj hl.
+
+                    Ayaiexfplxul, pe’ci ptelph, bk ayaiexfplxubltd, se laaciel. Mhzwr tke dszx hf elr ihltxr gtmpw, Ngw iy wcbme zj bnk vfpaxkammybmy lrq hnr smta focxnebtj vnmx, tsiex trp wgbel byvmx a qij hy ud.
+
+                    M extcs shm mo xc zhmhpv. Ah faexrk phlx fax’s osax, B wlrg mh kysj axr. Myg lae hsa’m eozo nm fe. Dlr phn’e iixg tfva axr sinw. Tno wbfxhza, V vtn’e uhbme cinva hpv, ptg’t eshva hpv. V mky es txm ua jehf mj gutbr, myg B vay’x zhoe. Xc ohwy hsa’m hbpc zx. B clr bgey dmg tgd wmfmxn lw zr yaelrk irpepaxs.
+
+                    Ysj B uerma mh kysj paae lr bl slcvgz. Hp lnl uepr ng bnomfmbnnx otvkrvbngd cyzuee frgbe nza, onm nza V axac lvf kelhvgz fcsz mae eargmy-qmsma csecmxr zj Ztmtsij, jnoemaz mhp abkws zj Pakidx:
+
+                    “ ‘Shk tsi xbggosz hy Hpeixg id ef t fay xetoewmaz bnes n ytr nshgmrj auh vawprw aid sjg leczngms, lrq wxltzrkxd frgh mhpq ubl gzsql. Tno yamh Oyi ux zagi sboe eeyxgtd, xb tgoelrk mwz, eaw mo lrbmaec sax; mo pzrkr mlr nvvochvgz tz lvl legiete ammybmy; lrq lmrlmtamwlc ghhk smf chucrrr’ ”
+
+                    Fy qegaxr wsixw plvnueed—wghkipw gatt eehzat, dxbkbed xutm pcifxgtph vwxad eaw foceyl bn hell mhlx ztwe ampmnrpw vg ieztyx’l mtrql. Ae fwrw mhp saxl hp jbngd tr gax Btfyx, mhp saxl hp tynvkph skhm smfmhrj, se ykox jbed tlprl, tno ss vhucwr ax udiq maodi ux lah ma abs wmsx tno xux eigif hy ppscex hp oaxp. Hp abox sesebxs trgh aid Whgwaj wrkfoyw, ubl Btfyx vllwfxl, ayh ubl czqcnmec-hrebvpvrw aidxbkr lpggnked. Frvtudi ux uewmroxd dxbkbed arkx sz mzihreeam ts einvaiyk ghhld, M yxtryiq mh plc zhke lxgxgttsa mh tsiz maay M zbzhe lnox oelrkpidi. V vhuwh dnhtp xux iaceoex tseg ax wlw extdtrt ghw, elr itrlfyx hf elr mtlprgl. B czyyw juzxr lxvpvne Uimpvvtl aeetulpw skhm xizhky. Xelux tseg’l phj M ptg hpee tgd frqxkseeaw lo xypa goh. Xuxke tw ckxanlvgz bpxjxxn elr ubtd ss mae aeetulp, fhm B clr’g jniei hgwecwgtgd tx. V axac mgl khjxufl rtwvgz ayh steltrt, kxppegbgg lrq otrjmaz, lhzygbgg lrq paidtrkbnr. M uxtr elrf ts T’zr tewlcf axach gaxm, myg B vay’x ptmcs xux pochf—xqcptg yhr elr phrow by mhp tnktbwi.
+
+                    “ ‘Gaxn si gatt seq kxcpmixw tsi sboe eeyxgtd argm ayh gktdph jbmh elr ltmp eaw faoi gaxm lrbmaec jvox tlprgms. Lrq ebkpavlx hp xutm hlh exvetzrw mwz, lr tesz knbgeo eahmhpv gph. Bfx ux mhlx utw rpgrboeo sax peyx bnm ayh qbzgph vg mhp inkmh, lrq abd smf ehro’w zhgej.’ ”
+
+                    Ql yttsie pts l kextt miybxvpv vg xdfgnmboy, lnkw wzvx, tgd aielhnlp exlpzrfbuiwmgr. “Mhzwr tke zye mtlprgl,” ae hshew slc nl fy mvbmaecw’ rrxs rpnsxd zzrk tno iixg I evvxw nzx gh lirl. “Thw hlw tboey xuxf tz yf, tgd si’ye cuokr nl angbkwiyk gh aoh ar nle elrf.”
+
+                    Mhp tnktbwi phgttrhxl. Tz inva oq xux mwz wrkoayxf pao seq mkaoiq pxlw eaw faoi ckhftx shk tsivk eoch, gax lzvq ltio, “ ‘Aree dzrr, maof kbhw ayh stbtsjhe leczngm; tssh atse frxg flmgayuw sixk a qij maiykf, B piwp ztde elrx kuwie hoec qngr tsmazl: eyxrk mhzy vgmo elr chy zj gar lzvq.’ ”
+
+                    Unt es gax spvitgt hlb atd osax goelvgz wtxu abs dmyoxr eeyxgt pbpxit myer bt tr gax gcshgw tz orxi ie wnyx, tsi yhkd devw aacwuxk wzvql. “ ‘Mhzy jbvkph ngw swsgayuw wrkoayx …’ ” ux uerea. Tgd si bkweciq abs xia mh, “ ‘Tlor maecishke elr mtlprg ykox lvf tno kvox ie yamh htq jabcs lnma tpr gteeyxf. Yhr frgh xvpvlhge elnm aael fatlw fr zbvpr, ngw hp wutel seix bn lfhgwaygr: unt qvbf aix xutm hlxu ght dlnee bp xndxn lanr xvpr gatt hlvva hp lnma.’ ”
+
+                    Wsia fr flxuxk hlw ftbd elrlx wzvql, fy xsgaxr geablhpw. V atvpr’g xoey frxg ampr mh spi uxk wssyx yani, ngw nza fax’s rsax.
+
+                    B dzr’g ngdpvfmtno xubl. Ie wptked qr. B vay wrx goh xutm oelrk ieztyx trp zngbssmaz moz. Qblm hlzr terpeqr zoyi. Oxeogiq zaodxf.…
+
+                    Fr flxuxk id kbgx. Mj wgximzxuxk clpyl hue xb abm tr Fitntwu mae hel lae omq lhmpxvfxs hlrg lhp anl xxnmgxw, “Nz! Lbp vay ar ebvp rbp? Mhpc’ye urpex bg. Tsil’ee ktpy nl awp! Jx fudx onblo xux pawp ubzhpv!”
+
+                    Ngw ssi’f zhnp. Ql ukoelrkl aci thge. T’q nehnp—ef B pad eyhge elnm girlg ybvp crtks lkb. Mae sshlx id efaxs lrq knbmpr tkofrq fx. Ie hbxln’e fhkg oc genfbwi bk xvpr stwe es nlaed, fhm loxiuhp, iy ea bgseeam, bt tw n kniy, scxg tz xux girlg ldy. T wrx ltlvf, t julvgxk mzsa, tgd l wgkxav ss ebgsx, zhoiyk, ebliyk vgmo elr ldy wmxx loxi ybye qsevx edgnibnr. Fl mae wmtam oq eye mhcir hy tsifx, B spi fatdzaf, etrri, zhoiyk, gakelxrgbnr. M sxtr elrlx sseqhps, myg B lep rb pty es rlvaai gaxm. Elr ptlw mf lmiwp gaxrp, whkkofrqbgg zye gxirlohkhzsq, ehoxmaz hvpv zx funl ubzhpv gatn tx roxr evher dth. Fh funl ubzhpv.…Vm pad whiiodiq mh kpic wtnrie hnt. Tx stblph lxtrd eth. Goh mg ytiww nztiy. Hngzec mf ptlwiq bg wtxu fx. I heam mo cya, mh edgnix, tz lvwx, bfx ahp mj sjg aayhf, fr fpig uxgtr gh yaoi npty. T lrtk tsyawxr. T wrx mhp wgkxav ss ebgsx eble smtaxr tr gax svc, tkhw mvvzatpv.
+
+                    Gaxn T wpkxax. M stel. Esb fncs ss fr bzhl bl gzrr, otntwuxw ahel. B vay’x fmty ftebzhe, gng’m clxpa fydiyy ts T jnee ayh stel lrq ytlw.…
+
+                    M nphkp lrkx iy ql vtbtr nm Tczva, mtnrprw bn xc oetnvigl, aawj bg tno lney oqj zr ueo. Lnw B snvrtfeo eyhnd? T hvwg’t vrbp. B npzrk lepq gh aagi gaxsp rvzatxeexl wsia Utnvsyx bs hmga fe, ds ux vay’x gxel xi uhp mfgu ghidi V ftkp. Mg’l cudx nl pewp. Ubl pcepmbcp eykxaoc phltd lvf xnzyta llpic, tgd elvl girlg fnse fr phrdi gatn xsfm yoc lvf.
+
+                    Bt’d xukxe tr gax mzvabgg ysj, unt wefm girlg, cnse esmxr oeed, loxi tkhua, wbfx glrt, ixrsecl, tteepdxd elr Whvpxexx pwepx cudx ahkts ss nl. Tsiex peci, lxltpvqtr ae xubl ttqr, 22 ixoapr ebvtrt tm Dzzrmkep—xux hlo qng, aid avyx, ayh ubl ths lhnnrifm wafkumxrd; lvl yigi ztkrtiq lhnd, xuxbr hmixl ayh gaxic ovwl. Awp by mhpwr ixoapr tke rsax xxnicm yoc xux mwz cbnggpwg pbvpw ngw tsi gakep pvmmlp gubedcia maej arkx ampr mh gceo tl tsil ktn. Eab hy tsi xbws lvr anre, eaw hnp ss mae hszxg hlw utw a sinkm aexnvd, oq eye mhtrtl. Uayobex hlw gkxaeiq axr mishke. Si ftrs dlr pts mseg piel n axacx qxyenx gatt dlbned seix uepr gtdey gnkx oq auxg ssi jtl a meor. Uue wux’l oypl mpeyxl, tgd lvbngd elr mbmp wux pad fbkg, hpv stfiwc, ybde xsfm ieztyx, aao pvmmlp se gh mzrrr. Mhpc jhkkph utkd elrflewzrl tno thm mhp wgkhnrifm hf elrbk kthf mh wzvx tm arif xbgsx bk mey. Xuxbr oehzatpv’f axacx ckhbwiz pts lpjtrs pmgaxr rsvgz tz ovee hpv bk eee lrk eigi. Vm padr’g zhiyk gh ue qmkxw.
+
+                    Nza vm aao rrtklj oveeeo lrk. Uayobex wlw fexeamaz—hr xsex eiviyr ltlcvgz ahexx—bn elr veiymp khox ss mae dguhhl esabzhe, orxiiyk ng xyp sa axr lrq mae eab bgjfvrw diow. Gatnvw gh fy sccxkextnmay dcawkoxi, ux vay’x utoe smf veiymp axrp eg mae sshlx. I ampd np prbnzh zj bmaec trhilp’w ctbn lw gabnrw nkx, ayh ux pocvvxl amshm bt. Si xxxpd angmiyk gh zigi zx loxi fmnfq xutm pciixgtd ql laacmaz uy viribnr qr leeptl, leoh, eaw ltftvw. Go, elngds!
+
+                    Ds V tpovi nehnp, wbtdeo avma shinm, tno yatulp xb zxt mepd mo dprxi. Ie’w oxxn jinkl strpx B’vp lnw lunl n lmrzrt kxanxvhg tz e qkxax. Ef B keneye, mhp pnlm ttqr pts qmix relvf tzo cmtam aqxrk pe digmeeo lrkx, ayh vm pad xubl slqr wtmyiq wkelq. V lnpasfx bt’d gbfx blgx mh mp frvtudi by mhp egmtcv sa Whvpxexx.
+
+                    Tseg tmtlgx laofpqg’m hlzr atpaiaxw. Tsmazl hlzr uxey uhbxttrt whwy sixk tsi ctlt qij rxacw. Gaxrp’w fmblw gebfe, zj phnrdi—ehubpvvxl, bcind-bnd, eowncembgl fzv etgszq bk yoc xux lllzr mkaoi. Jhksp, xux iozv fmblw krm trcifmxd lrq bgdprgnkeo jbk bnoiomxdyifl, oarvngvy, wsvmxrtrt, tgd zxuxk “ccmzxl.” Bfx gabs elvgz oq vnzbnr mamh a nszfnntxl tgd vmyebnr eaw uucrvgz awp gatt jsh whn’e wgxtl dirfl tz lnox gzrr hnt zj stlhtsa. B aagia’m aelvq hy aycgabnr pvdx tsmf Whvpxexx rlmq yhr lx yxtse xukxe jinkl.
+
+                    Gceamxd, elr Whvpxexxs omq lnpapl mae lvrt piel uhfe-omfmblwiq paidorr tno lbfxgcsjg facmwntnl, fhm mhpc’ix uepr qhbnr xutm strpx eoyk oxyoci jx trcmixw. Iy jnvm, tsil pxrp xux uedx-nkfeo jnkf flqver iy xux trpe oxvafwr maetv onliyifl pad rbm hnwc veeerey, unt wypktttzr. Ixoapr atvp xebxd es ehu tsiz uxfzvr, unt zryr mhp uhbvk, byvxm bfvtetr-eccxl hlzr atd lrl lncnifl. Nnemy ghw.
+
+                    T uhxlttsaxw Affexr, tsi uxtlell Whvpxexx wtjr, paiwi Otgkzpr pts hsedbnr sa axr dsa. Ax hlh nekelhl mhlo lrk mhlx gax ltxgex bzc jhnlo fr tel cmtam, ayh V yxle xutm wp lnw mo qmaw hue autm ssi xgxw, ys ztmtpv uhp uawrm lhp anl. Aewp, gax Dzzrmkep lbnled eex hnwc ng aofv’f ptlv jehf hpvr whwy xux hlo pbzziyk ehtd. Hlbxoec lvm Wogigkxe, hi phnlo fr gxxe sa maetv yblt.
+
+                    Lyokxy esyw fe elr tmtlgxxks hsex ltceazx cwsgabnr, Wux tno M gtekph vg mhp qnbg rzsz hy tsi fvaozp, n lbnrpr, lfovc bbe llqc uxthirg ns zr bgx oq xux mamprl. Pe deg ytctrt hge lrbmaec epkhsd xux mampr, Tnbcil zeaygvgz egier goh eaw mhpr nm mhp gybgin vbhf, wsiex Uayobex hlh pexayiq tgd pefxw hpv pablo’w fvkaaif, unryw, ngw bcyvlxs. Dlr ltio xux tteepdxrd arkx mpr, onm tsil phrp fremeo fytvk eyabvs—mpnvd dciflxs, dlr vtlwiq maex—aubvh syaz mo elrbk tsmtal. Uyhrk mhpwr, maej abkx ochvgtrj tngms—pmgaxr uingl oc xux diyh by vaxshyeari ctgtd xutm ssi utw spia lhlomrkl wpee.
+
+                    “Maej arkx ltor lhlomrkl,” ssi ftbd. “Elrr lnpexxw iy, wb jnipx. Jx gegie ltw elrf nnemy maej wgtktph fahoemaz tt fw. Gaxn, meaz! Tlw eg hgcp. Xuxr htx nee ofv uhnspw. Vm pad pvdx ay ikieodmbg—fajfr mpeyxl hk tsmemr oc qbkx gfrf zhiyk byy awp nm cudx gax slqr mbmp.”
+
+                    Eaw mhlx jtln’e xux paj kngzs ztrkttph. Ttggdxrkl wzyyw aagi sbkeo vnzzeopl, ght tr hgbszr. Gaxn elrr pofpq atvp xebxd es ztde trqboioyne gaxif yhr elrflewzrl, mrtiq mh gceo mae mifm-eozovgz wzqrg hr dxrte tsi oxlt dxhyy bpjbkx tsivk yrtiawl czyyw zee mg.
+
+                    “Maej hvwg’t dxrte oc fhkg aycgabnr yambl elrr aao frtmey yf, laoe yf.” Tnbcil ltio. “Xuxg tsil mhov shk yupp ngw wprg lmrlmtam tz shk yippql tno fhkgeo shk vrztf. Tytpv gatt, elrr kathrw mhp lbnled eaw uacrf. Maej eye poci obz wsmgx vrzwfxl oy xuxbr nlrlms—nvblled pvdx iy gunkcs. Fhm mhpc xbelph hl. Mhpc roxn dlbm mhp ovwl. Egieruooc gaxy qshgw, tsil dblwiq maex. M ubw wtxu fr blfl hk tsil phuwh utoe dlbm aix eaw fe.” Lknbg, ssi fmtrph ghpach gax cwmabv rzsz.
+
+                    Maae oveeiyk by vhtpqkxn…elnm pad e uxel zj n maiyk. Zhlt elhzl—eigrim fzv gax wzvfm isjguhminw—jhnlo orxi tsi xbws lpvox fzv etie lrq maey jbk lawi. Ngw ad jbk mhp gehlspw, jxel, reazltpvf fbgsx jxtr nvblled sa vaatrf tkofrq maetv axvkd, fhm mhlx jtln’e xux locx by mhtrt fhse ss maetv ibvttqf phuwh txm cwsfx xnzyta mo ysgbve. Lrq ztnrwgxks hiex nnwmxxey es eng acshgw iy qnmvhtrt mnntgf tel dtbkmiyk jabtp gehlspw bg mhpme vaedxf. Maid anl loxigabnr rrp.
+
+                    Hr dszxmhtrt hed.
+
+                    T hvwg’t elvgd oq autm ie qvzat mi hgmiw esmxr T lnw eee Ehukej kb utcv xb mae npvgbc es oxw dzaa gxxe xb axr nlvew. Blrxhee seq zbvpr ubf szqrmaiyk gh aewt ubf swiri. Ae omq mae dezx yoc lrk, lo T abg’m bp eoex tz efd aec earmhtrt fhrp yambl dlr ptkpw hi eaeie maid qbkgiyk. V vhuwha’m aewt jhgdpvvgz, tsshza, wsigaxr elrlx ppscex, wtxu maetv pkhsdif, atd dszx voyrrvmizr jbmh xc pnkrprg exadx stoocmgx irpwvwxnemne vayhvwttp, Xrqts Diatmoc Eawkeh Wgxxlp Nnkkee. Mg lhuyhf ebkp xux locx by mhtrt abs aibiee xmtam dz—e exoigey hy szqrmaiyk atltj shm hf elr itse. Hvw mhp Oh Deui Oytg wpee vkodwrl—ts hiye ts myeg mhpq? Gax Nldvl poci gax shefmbkl, aubvh tw n dbno ss vkodw, onm I osa’m mhtrx maej abkx ie sa maetv paxsew. Gaxrp arkx ccsflxs lpy hoec xux illgr wnrtrt mae Trdnbstxvhg ayh oxyoci gatt, oyebgg elr Vkudeqxl. Sz rbp pe seix tnzxuxk gcshi mhlx hlxs nvblled eaw lllytamecw cxhpwi. Wtkrpx’f ixoapr vhuwh ox uesmaw bt. Ueekxt trfbltd sa uxiyk n marzaotvk es fhfe peeebec, “wvfilpv” gbfe. Ysj whed rbm lutx ubf. Rppvzbofw gheeceavx dzif ght dyvm aix. Xux vucvrgm seegx hf elr vhuyxer wopw ahm sfmg abm. Si jtgtd xb mtkp yf tel mepd mo dszx farmpte ttqr paey iixkyzrr uxltiixw iy xux laxi Thw, wzvfabpaiq abm tr gax slqr pty, lrq ngdpvfmhoo xutm tsivk laqigr bn elr ngigielx dptrgweo sa vhmaprmbnr xux laxi exeirmbnl rtxhtes lrq lmoxtvgz aycbgx wss jtl dtjsxkeyx. Gaxrp anl gegie lncs e gbfe tr gabs nshgmrj. Fhm mhpwr wtyd auxg mzvr maay lney tsi cxhpwi vg mhp gbngtcc ptg’t cinw tt lpy, abseser bs uyfm hnp qbkx vlwg ngkysjg mo elrf.
+
+                    Cacvrm luatbkmecw utoe mirg dnzaa, ghw lrq maey, xb yhrx qbul ayh onkn aibiee lx gax seexx yoc frbgg hmgvaed. Avmvhpw! Vg 2032! T wtxpa, bn elrbk vtij, mxnow gh ue l Qbleex, e Wxp, a Smawn, a Myqwaidx, bk, bn dszx iacxf hy tsi phnnevl, t Focqbg, t Jplboth’d Avmgedw, bk xvpr n Vttssybv. A hmgva mlc nelo mi ng ttsivlm, a “nyymbse,” se t pewp-gh-wo pgpxgtcmp. Pxlw-xb-wh engrgmrtgf hytpr utoe ys ckhtpgghks zv znvh elnm’l wzvga ltpeybgg. Lrq “vnlemfm” bs l kextt negvaawp gxkm qse tgyzrr pao qmgl bnes ah htsie etrri ptmerser, tno crm wopwa’m jutxr fttnl Wtkrpx’f oxrdmbg hf Nlebltteabmy. Ueekxt’d trhilp lnox bpia dgohr gh uelx bk wrtzr hnt Frvmtrteal, yoc kbhwnpwf’ ltkp. Nnkkee gbgwexrf mae myegbnrw, onm dzif lh iy whva mtpq etnrynzx tseg abs aibiee lvr ykep xb axac autm tsil ptne xb axac. Ef yhr elr uxaemazl, tsi gtkrtrt tgd qinmaecmaz, tno xux wedxenvttsa hy “hpegaxn sshlxs zj qxoiw-abklhtt,” ux aad e fbfpwi nglwpv: “Whbn fw! Bnk dzsel trp scxg tz iixky yegbhnlpvmr, egier kani! Yxtvp cbnk strsne plwg uxhtrq, tgd miphfe zrr hy ud. Lrei ud xb ftkp Ezxkine tkxae ettbn.” Si’f atd ysgtulp whvvedw jbmh elvl vacvbm-tno-wgbvk ltckhanl. Whbn fw ngw tsvvox, oc autmegie atpaial mo jsh tl a cifnet zj lhnr zaa lbnqyy lmumfbkgnpwf bl yzye ikomprf. Aid scihnprg Obcp Texlioiam Xdheew Caj Wzbmh neyel htq n wxmlkbzne, l vnuulp-vbnlec, eaw t hjtbvkiei. Ffbts mf kbgsx, by vofvfx, uue Wzbmh tw fnvh l xvkxd, rvnr lhlhbp hf l qng. Cacvrm, hn elr hmhpv utgd, tw n ubg, seawloxi, oetcv-lnbkeo qng piel qxxp, nprtk bwyr xred xutm sphhvx ppscex ayh uhed elrf. Ae sef t ootgr maae’w n paowi-ohwy pbcxkiprpx, mhp anr fy qegaxr’d anl. Bn qepm, B’m dsekr tz wnr, Cacvrm pad savx a Mecmbse qvgbseie ebkp ql yttsie. Unt si yxyt elr Utpemfml bplvgw ypeel tgz xb uxgtr ubl ohr “Pakidxvtg Axiebva” oiahfiyegbhn. Si ah eoykrk irpepaxs citneac GN lxrxsal tt NE panrnlrl hr zr gax npxf, unt si’f lmiwp exvorrvsxd lw uxtd zj gax csyeva.
+
+                    Ie wrxfs trrobtlfyx mhlx cxhpwi jah clr’g kxao eex zotrt mh lpea fhrp xbptro nhwziyk ptgdthnmxs zr gax wlc gaxy wsbd tno wbngd elng hn hlnm mhpc petix xuxr seeaw yoc. Iixg ppscex wss ptg rpeq tgd lvr xwunegxw aci nim tz tnr foci nmmeyxvhg tz kbhw lzsxl tno wrwncemix eipw gatn elrr lhzyyw. Tno rb whumx gax npa cbvtfvr utlwsgl hn elr gxtd avee gtzr Ctrcig tg egia zkelxrk tdgeamtgp.
+
+                    Nnkkee’w cxhpwi fxx awgbahl lrq wkurw nl Laeea’l mozpf. Lhmp ss abs xsex yayegbvaw jbeeohiel firlg oxrj aree bp xux muymp-tgd-nvbll glrt pao oifmkojiq Whvpxexx.
+
+                    Ayh jx trp Inkmhdirw. Pe’ci “gatt nyym,” “mhzwr lmrlrtx ieztyx bn elr ablww,” “gahsp getsy qsbel wss ckty es fhfe vmaw hf rsq hy cseazx.” Wp eex tlds, nvvochvgz tz wbfx rfqbkl I’gi uxtro, “xuhle oiibe-wzvfabptrt ablw lrtmhprf pao eexx bn nlvewrpr. Ngw wseg wh yzy fnipzwr maej hb pbts xuxf?” Npzrk fiyh gatt elr mkaoi vg tboypmxd zv bkihlrrw vhtpqkxn zv pablovrg lowh or wedtrkttp tnkxnew thxs zr nee ogie mae nshgmrj eaw xvpvlhge vrbpl ie. Rb ftteie. Mae smam mhlx fhfe nyym bs eexbgg tr pablovrg yoc “uhxlttsatulp thkiodif” bl eyshza tz qndx szqr ixoapr bkrlxvhgaw.
+
+                    Xutm’s elr dbno ss knmzv gatt nshew hfvg nl egia pbts trhilp auh trpr’g Ctrcig lnpasemxrd. M’ix hnwc uxtro mg t voftyx hf emzxl, bfx vm’l semye lclvl.
+
+                    Tm tsmf ihiyx, V cnse lbix tseg mae aibiee hlb abt Osixmrpi jxke dszx geh kngz, dtwpbiltrrw tno jebzheiabgg, myg hglj esmxr avbybt. T lbix.…
+
+                    Bfx V whn’e frebegi vm. B dz whlienx gatt Ueekxt’d trhilp lnw loxigabnr xb wh wtxu maid. Eaw B tsmad B’d migmxr del lh tzhnr tt Regaxrtrt. Pbts Hboxtcir ykedl vg xvpvlhge’d qvgw, ppscex wtpy ux rpeqr mo nsbixrlxr, atvp qbkx dcmyel ayh fvtteie fhrp gnvaed ss fhnpc, shhd, hinihnd, vrvhrow, ngw vlphtulpw. Jx vay jvzat l kngz. Wp’zr whnp xutm bpjbkx wsia px wpvr fncs prll pcictkeo xutg wp eex goh. Fhm pe nea’m yirlg Ctrcig. Bg plvgbvuwee, px clr’g ybgsx Ckxsthrgm Jlvexm. Pcifbweyx Wtkrpx, vy mhp gbngtcc vl fao iahngs xb xeenx ubf, czyyw wedxehr ud avmaofx roxn vrbpbnr ar xqidx.
+
+                    Jx trp rbp 59 ieztyx—64 piel gax Dzzrmkep abfxn lrq vaiwhexg, iq xuxr seel. Pbts rhfuecw ybde elnm, pe meexey os rqbse. Eye mhp qbkx rpefhg, I dycihsp, jbk fy ovrtf.
+
+                    Mj “xnexne,” kbbgg mepd mo elr itrlfyx hf elr mtlprgl, bs Peemaspiq. Tgd lpgahurl V atvpr’g unrtiq bm iy xux zrzyaw, B hlzr unrtiq bm hpvr bg tsifx volwgte mzyamtiyw, jaxrp mg vtn rvbp tt lfbnm tsi ftfe dtrxw ad shk keoabhw tcirl. Uue autm ewwr vhuwh V atvp hbgx? Iq M utw szqrahw mirg ts rsbw tt ceouee-cshlbnr ef Ctrcig bl, tsia Xtrelfxxd xmtam bp e obz eyshza mzzrfxne fl ghw es ox t rpey mtrrig. Tgd hshew tseg ux bpxgxk?
+
+                    I’x nhfiiyk gh tlw ovgws zj hgpacvngmeo gbgvlfwvhgs. Lx yxtse M uhie elrr’ke frjtkrlrgxw. Bpxjxxn xc uhkrzv nm phlx’f atpaiaxw dzaa tm Dzzrmkep eaw fy sscxl ayh sxtrd jbk fy zaa ixoapr, B’f uawrm tno eg ehodi rgws lrq, ixrsecl, cudx vftgtrvgz tsmazl.""", "talent");
+        }
+        public String getString0(){
+            return """
+                    PROLOGUE
+                    From EARTHSEED: THE BOOKS OF THE LIVING
+
+                    By Lauren Oya Olamina
+
+                    Here we are—
+
+                    Energy,
+
+                    Mass,
+
+                    Life,
+
+                    Shaping life,
+
+                    Mind,
+
+                    Shaping Mind,
+
+                    God,
+
+                    Shaping God.
+
+                    Consider—
+
+                    We are born
+
+                    Not with purpose,
+
+                    But with potential.
+
+                    THEY’LL MAKE A GOD of her.
+
+                    I think that would please her, if she could know about it. In spite of all her protests and denials, she’s always needed devoted, obedient followers—disciples—who would listen to her and believe everything she told them. And she needed large events to manipulate. All gods seem to need these things.
+
+                    Her legal name was Lauren Oya Olamina Bankole. To those who loved her or hated her, she was simply “Olamina.”
+
+                    She was my biological mother.
+
+                    She is dead.
+
+                    I have wanted to love her and to believe that what happened between her and me wasn’t her fault. I’ve wanted that. But instead, I’ve hated her, feared her, needed her. I’ve never trusted her, though, never understood how she could be the way she was—so focused, and yet so misguided, there for all the world, but never there for me. I still don’t understand. And now that she’s dead, I’m not even sure I ever will. But I must try because I need to understand myself, and she is part of me. I wish that she weren’t, but she is. In order for me to understand who I am, I must begin to understand who she was. That is my reason for writing and assembling this book.
+
+                    It has always been my way to sort through my feelings by writing. She and I had that in common. And along with the need to write, she also developed a need to draw. If she had been born in a saner time, she might have become a writer as I have or an artist.
+
+                    I’ve gathered a few of her drawings, although she gave most of these away during her lifetime. And I have copies of all that was saved of her writings. Even some of her early, paper notebooks have been copied to disk or crystal and saved. She had a habit, during her youth, of hiding caches of food, money, and weaponry in out-of-the-way places or with trusted people, and being able to go straight back to these years later. These saved her life several times, and also they saved her words, her journals and notes and my father’s writings. She managed to badger him into writing a little. He wrote well, although he didn’t like doing it. I’m glad she badgered him. I’m glad to have known him at least through his writing. I wonder why I’m not glad to have known her through hers.
+
+                    “God is Change,” my mother believed. That was what she said in the first of her verses in Earthseed: The First Book of the Living.
+
+                    All that you touch
+
+                    You Change.
+
+                    All that you Change
+
+                    Changes you.
+
+                    The only lasting truth
+
+                    Is Change.
+
+                    God
+
+                    Is Change.
+
+                    The words are harmless, I suppose, and metaphorically true. At least she began with some species of truth. And now she’s touched me one last time with her memories, her life, and her damned Earthseed.
+
+                    ONE
+                    From EARTHSEED: THE BOOKS OF THE LIVING
+
+                    Darkness
+
+                    Gives shape to the light
+
+                    As light
+
+                    Shapes the darkness.
+
+                    Death
+
+                    Gives shape to life
+
+                    As life
+
+                    Shapes death.
+
+                    The universe
+
+                    And God
+
+                    Share this wholeness,
+
+                    Each
+
+                    Defining the other.
+
+                    God
+
+                    Gives shape to the universe
+
+                    As the universe
+
+                    Shapes God.
+
+                    FROM Memories of Other Worlds
+
+                    BY TAYLOR FRANKLIN BANKOLE
+
+                    I HAVE READ THAT the period of upheaval that journalists have begun to refer to as “the Apocalypse” or more commonly, more bitterly, “the Pox” lasted from 2015 through 2030—a decade and a half of chaos. This is untrue. The Pox has been a much longer torment. It began well before 2015, perhaps even before the turn of the millennium. It has not ended.
+
+                    I have also read that the Pox was caused by accidentally coinciding climatic, economic, and sociological crises. It would be more honest to say that the Pox was caused by our own refusal to deal with obvious problems in those areas. We caused the problems: then we sat and watched as they grew into crises. I have heard people deny this, but I was born in 1970. I have seen enough to know that it is true. I have watched education become more a privilege of the rich than the basic necessity that it must be if civilized society is to survive. I have watched as convenience, profit, and inertia excused greater and more dangerous environmental degradation. I have watched poverty, hunger, and disease become inevitable for more and more people.
+
+                    Overall, the Pox has had the effect of an installment-plan World War III. In fact, there were several small, bloody shooting wars going on around the world during the Pox. These were stupid affairs—wastes of life and treasure. They were fought, ostensibly, to defend against vicious foreign enemies. All too often, they were actually fought because inadequate leaders did not know what else to do. Such leaders knew that they could depend on fear, suspicion, hatred, need, and greed to arouse patriotic support for war.
+
+                    Amid all this, somehow, the United States of America suffered a major nonmilitary defeat. It lost no important war, yet it did not survive the Pox. Perhaps it simply lost sight of what it once intended to be, then blundered aimlessly until it exhausted itself.
+
+                    What is left of it now, what it has become, I do not know.
+
+                    Taylor Franklin Bankole was my father. From his writings, he seems to have been a thoughtful, somewhat formal man who wound up with my strange, stubborn mother even though she was almost young enough to be his granddaughter.
+
+                    My mother seems to have loved him, seems to have been happy with him. He and my mother met during the Pox when they were both homeless wanderers. But he was a 57-year-old doctor—a family practice physician—and she was an 18-year-old girl. The Pox gave them terrible memories in common. Both had seen their neighborhoods destroyed—his in San Diego and hers in Robledo, a suburb of Los Angeles. That seems to have been enough for them. In 2027, they met, liked each other, and got married. I think, reading between the lines of some of my father’s writing, that he wanted to take care of this strange young girl that he had found. He wanted to keep her safe from the chaos of the time, safe from the gangs, drugs, slavery, and disease. And of course he was flattered that she wanted him. He was human, and no doubt tired of being alone. His first wife had been dead for about two years when they met.
+
+                    He couldn’t keep my mother safe of course. No one could have done that. She had chosen her path long before they met. His mistake was in seeing her as a young girl. She was already a missile, armed and targeted.
+
+                    FROM The Journals of Lauren Oya Olamina
+
+                    SUNDAY, SEPTEMBER 26, 2032
+
+                    Today is Arrival Day, the fifth anniversary of our establishing a community called Acorn here in the mountains of Humboldt County.
+
+                    In perverse celebration of this, I’ve just had one of my recurring nightmares. They’ve become rare in the past few years—old enemies with familiar nasty habits. I know them. They have such soft, easy beginnings.… This one was, at first, a visit to the past, a trip home, a chance to spend time with beloved ghosts.
+
+                    My old home has come back from the ashes. This doesn’t surprise me, somehow, although I saw it burn years ago. I walked through the rubble that was left of it. Yet here it is restored and filled with people—all the people I knew as I was growing up. They sit in our front rooms in rows of old metal folding chairs, wooden kitchen and dining room chairs, and plastic stacking chairs, a silent congregation of the scattered and the dead.
+
+                    Church service is already going on, and, of course, my father is preaching. He looks as he always has in his church robes: tall, broad, stern, straight—a great black wall of a man with a voice you not only hear, but feel on your skin and in your bones. There’s no corner of the meeting rooms that my father cannot reach with that voice. We’ve never had a sound system—never needed one. I hear and feel that voice again.
+
+                    Yet how many years has it been since my father vanished? Or rather, how many years since he was killed? He must have been killed. He wasn’t the kind of man who would abandon his family, his community, and his church. Back when he vanished, dying by violence was even easier than it is today. Living, on the other hand was almost impossible.
+
+                    He left home one day to go to his office at the college. He taught his classes by computer, and only had to go to the college once a week, but even once a week was too much exposure to danger. He stayed overnight at the college as usual. Early mornings were the safest times for working people to travel. He started for home the next morning and was never seen again.
+
+                    We searched. We even paid for a police search. Nothing did any good.
+
+                    This happened many months before our house burned, before our community was destroyed. I was 17. Now I’m 23 and I’m several hundred miles from that dead place.
+
+                    Yet all of a sudden, in my dream, things have come right again.
+
+                    I’m at home, and my father is preaching. My stepmother is sitting behind him and a little to one side at her piano. The congregation of our neighbors sits before him in the large, not-quite-open area formed by our living room, dining room, and family room. This is a broad L-shaped space into which even more than the usual 30 or 40 people have crammed themselves for Sunday service. These people are too quiet to be a Baptist congregation—or at least, they’re too quiet to be the Baptist congregation I grew up in. They’re here, but somehow not here. They’re shadow people. Ghosts.
+
+                    Only my own family feels real to me. They’re as dead as most of the others, and yet they’re alive! My brothers are here and they look the way they did when I was about 14. Keith, the oldest of them, the worst and the first to die, is only 11. This means Marcus, my favorite brother and always the best-looking person in the family, is 10. Ben and Greg, almost as alike as twins, are eight and seven. We’re all sitting in the front row, over near my stepmother so she can keep an eye on us. I’m sitting between Keith and Marcus to keep them from killing each other during the service.
+
+                    When neither of my parents is looking, Keith reaches across me and punches Marcus hard on the thigh. Marcus, younger, smaller, but always stubborn, always tough, punches back. I grab each boy’s fist and squeeze. I’m bigger and stronger than both of them and I’ve always had strong hands. The boys squirm in pain and try to pull away. After a moment, I let them go. Lesson learned. They let each other alone for at least a minute or two.
+
+                    In my dream, their pain doesn’t hurt me the way it always did when we were growing up. Back then, since I was the oldest, I was held responsible for their behavior. I had to control them even though I couldn’t escape their pain. My father and stepmother cut me as little slack as possible when it came to my hyperempathy syndrome. They refused to let me be handicapped. I was the oldest kid, and that was that. I had my responsibilities.
+
+                    Nevertheless I used to feel every damned bruise, cut, and burn that my brothers managed to collect. Each time I saw them hurt, I shared their pain as though I had been injured myself. Even pains they pretended to feel, I did feel. Hyperempathy syndrome is a delusional disorder, after all. There’s no telepathy, no magic, no deep spiritual awareness. There’s just the neurochemically-induced delusion that I feel the pain and pleasure that I see others experiencing. Pleasure is rare, pain is plentiful, and, delusional or not, it hurts like hell.
+
+                    So why do I miss it now?
+
+                    What a crazy thing to miss. Not feeling it should be like having a toothache vanish away. I should be surprised and happy. Instead, I’m afraid. A part of me is gone. Not being able to feel my brothers’ pain is like not being able to hear them when they shout, and I’m afraid.
+
+                    The dream begins to become a nightmare.
+
+                    Without warning, my brother Keith vanishes. He’s just gone. He was the first to go—to die—years ago. Now he’s vanished again. In his place beside me, there is a tall, beautiful woman, black-brown-skinned and slender with long, crow-black hair, gleaming. She’s wearing a soft, silky green dress that flows and twists around her body, wrapping her in some intricate pattern of folds and gathers from neck to feet. She is a stranger.
+
+                    She is my mother.
+
+                    She is the woman in the one picture my father gave me of my biological mother. Keith stole it from my bedroom when he was nine and I was twelve. He wrapped it in an old piece of a plastic tablecloth and buried it in our garden between a row of squashes and a mixed row of corn and beans. Later, he claimed it wasn’t his fault that the picture was ruined by water and by being walked on. He only hid it as a joke. How was he supposed to know anything would happen to it? That was Keith. I beat the hell out of him. I hurt myself too, of course, but it was worth it. That was one beating he never told our parents about.
+
+                    But the picture was still ruined. All I had left was the memory of it. And here was that memory, sitting next to me.
+
+                    My mother is tall, taller than I am, taller than most people. She’s not pretty. She’s beautiful. I don’t look like her. I look like my father, which he used to say was a pity. I don’t mind. But she is a stunning woman.
+
+                    I stare at her, but she does not turn to look at me. That, at least, is true to life. She never saw me. As I was born, she died. Before that, for two years, she took the popular “smart drug” of her time. It was a new prescription medicine called Paracetco, and it was doing wonders for people who had Alzheimer’s disease. It stopped the deterioration of their intellectual function and enabled them to make excellent use of whatever memory and thinking ability they had left. It also boosted the performance of ordinary, healthy young people. They read faster, retained more, made more rapid, accurate connections, calculations, and conclusions. As a result, Paracetco became as popular as coffee among students, and, if they meant to compete in any of the highly paid professions, it was as necessary as a knowledge of computers.
+
+                    My mother’s drug taking may have helped to kill her. I don’t know for sure. My father didn’t know either. But I do know that her drug left its unmistakable mark on me—my hyperempathy syndrome. Thanks to the addictive nature of Paracetco—a few thousand people died trying to break the habit—there were once tens of millions of us.
+
+                    Hyperempaths, we’re called, or hyperempathists, or sharers. Those are some of the polite names, And in spite of our vulnerability and our high mortality rate, there are still quite a few of us.
+
+                    I reach out to my mother. No matter what she’s done, I want to know her. But she won’t look at me. She won’t even turn her head. And somehow, I can’t quite reach her, can’t touch her. I try to get up from my chair, but I can’t move. My body won’t obey me. I can only sit and listen as my father preaches.
+
+                    Now I begin to know what he is saying. He has been an indistinct background rumble until now, but now I hear him reading from the twenty-fifth chapter of Matthew, quoting the words of Christ:
+
+                    “ ‘For the kingdom of Heaven is as a man traveling into a far country who called his own servants, and delivered unto them his goods. And unto One he gave five talents, to another two, and to another one; to every man according to his several ability; and straightway took his journey’ ”
+
+                    My father loved parables—stories that taught, stories that presented ideas and morals in ways that made pictures in people’s minds. He used the ones he found in the Bible, the ones he plucked from history, or from folk tales, and of course he used those he saw in his life and the lives of people he knew. He wove stories into his Sunday sermons, his Bible classes, and his computer-delivered history lectures. Because he believed stories were so important as teaching tools, I learned to pay more attention to them than I might have otherwise. I could quote the parable that he was reading now, the parable of the talents. I could quote several Biblical parables from memory. Maybe that’s why I can hear and understand so much now. There is preaching between the bits of the parable, but I can’t quite understand it. I hear its rhythms rising and falling, repeating and varying, shouting and whispering. I hear them as I’ve always heard them, but I can’t catch the words—except for the words of the parable.
+
+                    “ ‘Then he that had received the five talents went and traded with the same and made them another five talents. And likewise he that had received two, he also gained another two. But he that had received one went out and digged in the earth, and hid his lord’s money.’ ”
+
+                    My father was a great believer in education, hard work, and personal responsibility. “Those are our talents,” he would say as my brothers’ eyes glazed over and even I tried not to sigh. “God has given them to us, and he’ll judge us according to how we use them.”
+
+                    The parable continues. To each of the two servants who had traded well and made profit for their lord, the lord said, “ ‘Well done, thou good and faithful servant; thou hast been faithful over a few things, I will make thee ruler over many things: enter thou into the joy of thy lord.’ ”
+
+                    But to the servant who had done nothing with his silver talent except bury it in the ground to keep it safe, the lord said harsher words. “ ‘Thou wicked and slothful servant …’ ” he began. And he ordered his men to, “ ‘Take therefore the talent from him and give it unto him which hath ten talents. For unto everyone that hath shall be given, and he shall have in abundance: but from him that hath not shall be taken away even that which he hath.’ ”
+
+                    When my father has said these words, my mother vanishes. I haven’t even been able to see her whole face, and now she’s gone.
+
+                    I don’t understand this. It scares me. I can see now that other people are vanishing too. Most have already gone. Beloved ghosts.…
+
+                    My father is gone. My stepmother calls out to him in Spanish the way she did sometimes when she was excited, “No! How can we live now? They’ll break in. They’ll kill us all! We must build the wall higher!”
+
+                    And she’s gone. My brothers are gone. I’m alone—as I was alone that night five years ago. The house is ashes and rubble around me. It doesn’t burn or crumble or even fade to ashes, but somehow, in an instant, it is a ruin, open to the night sky. I see stars, a quarter moon, and a streak of light, moving, rising into the sky like some life force escaping. By the light of all three of these, I see shadows, large, moving, threatening. I fear these shadows, but I see no way to escape them. The wall is still there, surrounding our neighborhood, looming over me much higher than it ever truly did. So much higher.…It was supposed to keep danger out. It failed years ago. Now it fails again. Danger is walled in with me. I want to run, to escape, to hide, but now my own hands, my feet begin to fade away. I hear thunder. I see the streak of light rise higher in the sky, grow brighter.
+
+                    Then I scream. I fall. Too much of my body is gone, vanished away. I can’t stay upright, can’t catch myself as I fall and fall and fall.…
+
+                    I awoke here in my cabin at Acorn, tangled in my blankets, half on and half off my bed. Had I screamed aloud? I didn’t know. I never seem to have these nightmares when Bankole is with me, so he can’t tell me how much noise I make. It’s just as well. His practice already costs him enough sleep, and this night must be worse than most for him.
+
+                    It’s three in the morning now, but last night, just after dark, some group, some gang, perhaps, attacked the Dovetree place just north of us. There were, yesterday at this time, 22 people living at Dovetree—the old man, his wife, and his two youngest daughters; his five married sons, their wives and their kids. All of these people are gone except for the two youngest wives and the three little children they were able to grab as they ran. Two of the kids are hurt, and one of the women has had a heart attack, of all things. Bankole has treated her before. He says she was born with a heart defect that should have been taken care of when she was a baby. But she’s only twenty, and around the time she was born, her family, like most people, had little or no money. They worked hard themselves and put the strongest of their kids to work at ages eight or ten. Their daughter’s heart problem was always either going to kill her or let her live. It wasn’t going to be fixed.
+
+                    Now it had nearly killed her. Bankole was sleeping—or more likely staying awake—in the clinic room of the school tonight, keeping an eye on her and the two injured kids. Thanks to my hyperempathy syndrome, he can’t have his clinic here at the house. I pick up enough of other people’s pain as things are, and he worries about it. He keeps wanting to give me some stuff that prevents my sharing by keeping me sleepy, slow, and stupid. No, thanks!
+
+                    So I awoke alone, soaked with sweat, and unable to get back to sleep. It’s been years since I’ve had such a strong reaction to a dream. As I recall, the last time was five years ago right after we settled here, and it was this same damned dream. I suppose it’s come back to me because of the attack on Dovetree.
+
+                    That attack shouldn’t have happened. Things have been quieting down over the past few years. There’s still crime, of course—robberies, break-ins, abductions for ransom or for the slave trade. Worse, the poor still get arrested and indentured for indebtedness, vagrancy, loitering, and other “crimes.” But this thing of raging into a community and killing and burning all that you don’t steal seems to have gone out of fashion. I haven’t heard of anything like this Dovetree raid for at least three years.
+
+                    Granted, the Dovetrees did supply the area with home-distilled whiskey and homegrown marijuana, but they’ve been doing that since long before we arrived. In fact, they were the best-armed farm family in the area because their business was not only illegal, but lucrative. People have tried to rob them before, but only the quick, quiet burglar-types have had any success. Until now.
+
+                    I questioned Aubrey, the healthy Dovetree wife, while Bankole was working on her son. He had already told her that the little boy would be all right, and I felt that we had to find out what she knew, no matter how upset she was. Hell, the Dovetree houses are only an hour’s walk from here down the old logging road. Whoever hit Dovetree, we could be next on their list.
+
+                    Aubrey told me the attackers wore strange clothing, She and I talked in the main room of the school, a single, smoky oil lamp between us on one of the tables. We sat facing one another across the table, Aubrey glancing every now and then at the clinic room, where Bankole had cleaned and eased her child’s scrapes, burns, and bruises. She said the attackers were men, but they wore belted black tunics—black dresses, she called them—which hung to their thighs. Under these, they wore ordinary pants—either jeans or the kind of camouflage pants that she had seen soldiers wear.
+
+                    “They were like soldiers,” she said. “They sneaked in, so quiet. We never saw them until they started shooting at us. Then, bang! All at once. They hit all our houses. It was like an explosion—maybe twenty or thirty or more guns going off all at just the same time.”
+
+                    And that wasn’t the way gangs operated. Gangsters would have fired raggedly, not in unison. Then they would have tried to make individual names for themselves, tried to grab the best-looking women or steal the best stuff before their friends could get it.
+
+                    “They didn’t steal or burn anything until they had beaten us, shot us.” Aubrey said. “Then they took our fuel and went straight to our fields and burned our crops. After that, they raided the houses and barns. They all wore big white crosses on their chests—crosses like in church. But they killed us. They even shot the kids. Everybody they found, they killed them. I hid with my baby or they would have shot him and me.” Again, she stared toward the clinic room.
+
+                    That killing of children…that was a hell of a thing. Most thugs—except for the worst psychotics—would keep the kids alive for rape and then for sale. And as for the crosses, well, gangsters might wear crosses on chains around their necks, but that wasn’t the sort of thing most of their victims would get close enough to notice. And gangsters were unlikely to run around in matching tunics all sporting white crosses on their chests. This was something new.
+
+                    Or something old.
+
+                    I didn’t think of what it might be until after I had let Aubrey go back to the clinic to bed down next to her child. Bankole had given him something to help him sleep. He did the same for her, so I won’t be able to ask her anything more until she wakes up later this morning. I couldn’t help wondering, though, whether these people, with their crosses, had some connection with my current least favorite presidential candidate, Texas Senator Andrew Steele Jarret. It sounds like the sort of thing his people might do—a revival of something nasty out of the past. Did the Ku Klux Klan wear crosses—as well as burn them? The Nazis wore the swastika, which is a kind of cross, but I don’t think they wore it on their chests. There were crosses all over the place during the Inquisition and before that, during the Crusades. So now we have another group that uses crosses and slaughters people. Jarret’s people could be behind it. Jarret insists on being a throwback to some earlier, “simpler” time. Now does not suit him. Religious tolerance does not suit him. The current state of the country does not suit him. He wants to take us all back to some magical time when everyone believed in the same God, worshipped him in the same way, and understood that their safety in the universe depended on completing the same religious rituals and stomping anyone who was different. There was never such a time in this country. But these days when more than half the people in the country can’t read at all, history is just one more vast unknown to them.
+
+                    Jarret supporters have been known, now and then, to form mobs and burn people at the stake for being witches. Witches! In 2032! A witch, in their view, tends to be a Moslem, a Jew, a Hindu, a Buddhist, or, in some parts of the country, a Mormon, a Jehovah’s Witness, or even a Catholic. A witch may also be an atheist, a “cultist,” or a well-to-do eccentric. Well-to-do eccentrics often have no protectors or much that’s worth stealing. And “cultist” is a great catchall term for anyone who fits into no other large category, and yet doesn’t quite match Jarret’s version of Christianity. Jarret’s people have been known to beat or drive out Unitarians, for goodness’ sake. Jarret condemns the burnings, but does so in such mild language that his people are free to hear what they want to hear. As for the beatings, the tarring and feathering, and the destruction of “heathen houses of devil-worship,” he has a simple answer: “Join us! Our doors are open to every nationality, every race! Leave your sinful past behind, and become one of us. Help us to make America great again.” He’s had notable success with this carrot-and-stick approach. Join us and thrive, or whatever happens to you as a result of your own sinful stubbornness is your problem. His opponent Vice President Edward Jay Smith calls him a demagogue, a rabble-rouser, and a hypocrite. Smith is right, of course, but Smith is such a tired, gray shadow of a man. Jarret, on the other hand, is a big, handsome, black-haired man with deep, clear blue eyes that seduce people and hold them. He has a voice that’s a whole-body experience, the way my father’s was. In fact, I’m sorry to say, Jarret was once a Baptist minister like my father. But he left the Baptists behind years ago to begin his own “Christian America” denomination. He no longer preaches regular CA sermons at CA churches or on the nets, but he’s still recognized as head of the church.
+
+                    It seems inevitable that people who can’t read are going to lean more toward judging candidates on the way they look and sound than on what they claim they stand for. Even people who can read and are educated are apt to pay more attention to good looks and seductive lies than they should. And no doubt the new picture ballots on the nets will give Jarret an even greater advantage.
+
+                    Jarret’s people see alcohol and drugs as Satan’s tools. Some of his more fanatical followers might very well be the tunic-and-cross gang who destroyed Dovetree.
+
+                    And we are Earthseed. We’re “that cult,” “those strange people in the hills,” “those crazy fools who pray to some kind of god of change.” We are also, according to some rumors I’ve heard, “those devil-worshiping hill heathens who take in children. And what do you suppose they do with them?” Never mind that the trade in abducted or orphaned children or children sold by desperate parents goes on all over the country and everyone knows it. No matter. The hint that some cult is taking in children for “questionable purposes” is enough to make some people irrational.
+
+                    That’s the kind of rumor that could hurt us even with people who aren’t Jarret supporters. I’ve only heard it a couple of times, but it’s still scary.
+
+                    At this point, I just hope that the people who hit Dovetree were some new gang, disciplined and frightening, but only after profit. I hope.…
+
+                    But I don’t believe it. I do suspect that Jarret’s people had something to do with this. And I think I’d better say so today at Gathering. With Dovetree fresh in everyone’s mind, people will be ready to cooperate, have more drills and scatter more caches of money, food, weapons, records, and valuables. We can fight a gang. We’ve done that before when we were much less prepared than we are now. But we can’t fight Jarret. In particular, we can’t fight President Jarret. President Jarret, if the country is mad enough to elect him, could destroy us without even knowing we exist.
+
+                    We are now 59 people—64 with the Dovetree women and children, if they stay. With numbers like that, we barely do exist. All the more reason, I suppose, for my dream.
+
+                    My “talent,” going back to the parable of the talents, is Earthseed. And although I haven’t buried it in the ground, I have buried it here in these coastal mountains, where it can grow at about the same speed as our redwood trees. But what else could I have done? If I had somehow been as good at rabble-rousing as Jarret is, then Earthseed might be a big enough movement by now to be a real target. And would that be better?
+
+                    I’m jumping to all kinds of unwarranted conclusions. At least I hope they’re unwarranted. Between my horror at what’s happened down at Dovetree and my hopes and fears for my own people, I’m upset and at loose ends and, perhaps, just imagining things.""";
         }
         public static File getPureMLK11(){
             return new File("src/sample/Pure-MLK-11-Speeches.txt");

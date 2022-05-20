@@ -38,8 +38,26 @@ public class not_english {
         for (int i = 0; i < textSplit.length; i++) {
             String word = textSplit[i];
             if (optimize){
-                if (i == 40 && validWords <=8){
-                    continue;
+                if (i >= 10) {
+                    if (validWords <= 2) {
+                        not_english = true;
+                        break;
+                    } else {
+                        if (i >= 15){
+                            if ( validWords <= 3){
+                                not_english = true;
+                                break;
+                            }
+                            else {
+                                if (i == 20){
+                                    if ( validWords <= 8){
+                                        not_english = true;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
             if (words.contains(charSet.RemoveIgnorers(word))) {
@@ -95,15 +113,16 @@ public class not_english {
 ////        }
     }
     public not_english(File file) throws FileNotFoundException {
-       this(file, 0.69);
+       this(file, CharSet.EngMinValidityFactor);
     }
     public not_english(String string) throws InterruptedException {
-        this(string, 0.69);
+        this(string, CharSet.EngMinValidityFactor);
     }
     public not_english(File file, double cutoff) throws FileNotFoundException {
         this(file, cutoff, true);
     }
     public not_english(File file, double cutoff, boolean optimize) throws FileNotFoundException {
+        this.cutoff = cutoff;
         biggy = new BigArrayStore();
         words = biggy.central();
         int docLength = 0;
@@ -113,7 +132,39 @@ public class not_english {
 
         int validWords = 0;
         Scanner reader = new Scanner(file);
+        int i = 0;
         while (reader.hasNext()) {
+            if (optimize){
+                if (i >= 10) {
+                    if (validWords <= 2) {
+                        not_english = true;
+                        break;
+                    } else {
+                        if (i >= 15){
+                            if ( validWords <= 3){
+                                not_english = true;
+                                break;
+                            }
+                            else {
+                                if (i >= 20){
+                                    if ( validWords <= 8){
+                                        not_english = true;
+                                        break;
+                                    }
+                                    else {
+                                        if (i ==30){
+                                            if ( validWords <= 10){
+                                                not_english = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             if (words.contains(charSet.removeIgnorers(reader.next(), new String[]{""}))){
                 validWords++;
                 if (optimize){
@@ -124,8 +175,31 @@ public class not_english {
                     }
                 }
             }
+            i++;
         }
         this.validWords = validWords;
+//        biggy = new BigArrayStore();
+//        words = biggy.central();
+//        int docLength = 0;
+//        Scanner counter = new Scanner(file);
+//        while (counter.hasNext()){if (counter.next() != null){docLength++;}}
+//        this.docLength = docLength;
+//
+//        int validWords = 0;
+//        Scanner reader = new Scanner(file);
+//        while (reader.hasNext()) {
+//            if (words.contains(charSet.removeIgnorers(reader.next(), new String[]{""}))){
+//                validWords++;
+//                if (optimize){
+//                    validityFactor = (double)validWords/(double)docLength;
+//                    not_english = (validWords <= (cutoff*docLength));
+//                    if (!not_english){
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//        this.validWords = validWords;
 //        validityFactor = (double)validWords/(double)docLength;
 //        not_english = (validWords <= (cutoff*docLength));
     }

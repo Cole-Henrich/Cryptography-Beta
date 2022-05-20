@@ -350,9 +350,8 @@ M ajv ilak ewi Cfyvvejd sicclgi tyli wient xhv fctrfgdoeu lch drdieruwn etklro b
                 Vhp kch (Hewqu qctfa) kg c dzuggvin arseipa qt umltn qcryqxctofa ooomlt.[1][2] Kh ks epg cplj lqagseqeoveo arseipa kb vhp ncaklj Ngzkdlm cbf id whhgn cmhstrpl vc cs epg rqmpavwe clb vc fidbkbiutaj wv fcwo hje hqnr oexjgfu oq bjs haxqnm.[4] C clb eop etbjst bp i jcwsp kch, c flzo qct zz c tgrlt eov; tsm novtpz topgpa hfgewg cbf agwkru hfucb eoybcqv.[5] Dzuggvin kchu acm xonupl dm juxipg hoc kqarayqqbuhtx cbf tsmkf cbttkha tz skzn rzlgbvs. Ljqiv 60 clb dfgeoa cfg rpkqupikmf pa vlzkcws niv fggtavfked.[6]
                 """, "calico");
 
-        CifrarioVigenere cv7 = new CifrarioVigenere("Ybx wrx (Kyecj gfnnm) zw f xhgvwycv mgihcxm fj xgtfc gflgcmswinm dergtf.[1][2] Zx nm mbv ssfr xfqjmmcteyyw mgihcxm zr ybx zrqnfr Zvpnxty rri cl iwxjh kywiwlxx ks fm mbv htgxmkmh wtn ks iclnzrlobmy my zkid xmy pcch ryfvvvx iy nyi kufccc.[4] F wtn tes ybnyiw vx u yszmx wrx, f ztld gfn hl r jjltf tey; nay ceynxl iesaxm wvjyes rri uoizhx bngrr hignrgy.[5] Xhgvwycv wrxx uky meqoxx sc mofuew kik wfquugcfrxbbj rri nayzv fvbfzxd nh ezpq lhxvrym. Tvfyy 60 wtn svjywm rvj lxwfkscsyu fd ptlzszm vuk vjabmkvnyl.[6]", "future");
-
-
+        CifrarioVigenere cv7 = new CifrarioVigenere("Evh at bnjh orcgfkztvzv hvt hkvgscux ft gdex ft an gnkghpfwzbu Rsuzbsi exdpsgk ter osnbjcfh.  Ox'ms udl hlf Gtukvhogq hw Ghplx, Ywzaskp Qzxfmfb.  Kt ztms cjj VZO Rxjxthcg Dxfb Dpfxkho.  Lw arjs dmk Jsqgwmrfm dx Wvtsckx Nwzaatd Uoiwl; Jsqgwmrfm Csifzwisgf ct Swirfhbwgk ct Wgfvzocv Lvqigamp; Ohigkesm Vwgvfoa Wkzq Vddwvf; an Ftkwccse Jsqjjbkm Osnbjcf Yaf Acbtk.  Ter W lsgk hc tkivqwpdep hvpfd fif Pumzbu Pjvywjxkm ft hww Newhtv Lkohtk, Tufwtfgv Hvdetj.\n", "troops");
+        
         Time time5 = new Time();
         VigenereCracker vigenereCracker5 = new VigenereCracker(cv5.getCipher());
         System.out.println(vigenereCracker5.getKeyWord());
@@ -360,15 +359,12 @@ M ajv ilak ewi Cfyvvejd sicclgi tyli wient xhv fctrfgdoeu lch drdieruwn etklro b
         time5.end();
         time5.println();
 
-
-//        Time time7 = new Time();
-//        VigenereCracker vigenereCracker7 = new VigenereCracker(cv7.getCipher());
-//        System.out.println(vigenereCracker7.getKeyWord());
-//        System.out.println(vigenereCracker7.getSolved());
-//        time7.end();
-//        time7.println();
-
-
+        Time time7 = new Time();
+        VigenereCracker vigenereCracker7 = new VigenereCracker(cv7.getCipher());
+        System.out.println(vigenereCracker7.getKeyWord());
+        System.out.println(vigenereCracker7.getSolved());
+        time7.end();
+        time7.println();
 
         Time time6 = new Time();
         VigenereCracker vigenereCracker6 = new VigenereCracker(cv6.getCipher());
