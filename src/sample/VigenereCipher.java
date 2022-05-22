@@ -29,10 +29,10 @@ public class VigenereCipher {
 //        }
 //        String keyWord = z2.toString();
         String x = text;
-        x = charSet.removeIgnorers(x, new String[]{""});
+        x = charSet.RemoveIgnorers(x);
 
         VigenereKeyPhrase vigenereKeyPhrase = new VigenereKeyPhrase(keyWord, x.length());
-        VigenereSplit vigenereSplit = new VigenereSplit(text, vigenereKeyPhrase.get());
+        VigenereSplit vigenereSplit = new VigenereSplit(x, vigenereKeyPhrase.get());
         ArrayList<ArrayList<String>> b = vigenereSplit.get(0);
         ArrayList<ArrayList<String>> c = vigenereSplit.get(1);
         StringBuilder d = new StringBuilder();
@@ -60,10 +60,7 @@ public class VigenereCipher {
     public String get(){
         return s;
     }
-    public static void main(String[] args) throws IOException {
-//green good keep        System.out.println(new VigenereCipher("MICHIGAN TECHNOLOGICAL UNIVERSITY").get());
-//        System.out.println(new VigenereCipher("This is an example of text to be encoded by a Vigenere cipher".toUpperCase(), "vigenere".toUpperCase()).get());
-//
+    private void testSpeed() throws IOException {
         StringBuilder lbuilder = new StringBuilder();
         File reservoir = charSet.getLanguage_Manipulation_UniqueWords_TrainerReservoir();
         Scanner scanner = new Scanner(reservoir);
@@ -91,5 +88,10 @@ public class VigenereCipher {
         }
         fileWriter.write(sb.toString());
         fileWriter.close();
+    }
+    public static void main(String[] args) throws IOException {
+        System.out.println(new VigenereCipher("MICHIGAN TECHNOLOGICAL UNIVERSITY").get());
+        System.out.println(new VigenereCipher("This is an example of text to be encoded by a Vigenere cipher".toUpperCase(), "vigenere".toUpperCase()).get());
+        System.out.println(new VigenereCipher("PILONMYCOUSINWEELIESAYSSHEISFIFTYYEARSOLDPILONSAIDEXCITEDLYDANNYSPREADHISHANDSWHATISITHOWOLDINYEARSSHEISHEOBSERVEDPHILOSOPHICALLYSHEISLIVELYTHATONESHEOWNSHERHOUSEANDHASTWOHUNDREDDOLLARSINTHEBANKTHENDANNYBECAMEALITTLEEMBARRASSEDIWOULDLIKETOMAKEAPRESENTTOMRSMORALESPILONANDPABLOREGARDEDTHEIRFEETANDTRIEDBYSTRENUOUSMENTALEFFORTTOWARDOFFWHATWASCOMINGBUTTHEIREFFORTHADNOVALUEIFIHADALITTLEMONEYSAIDDANNYIWOULDBUYHERABOXOFBIGCANDYHELOOKEDMEANINGLYATHISTENANTSBUTNEITHERONEANSWEREDHIMIWOULDNEEDONLYADOLLARORTWOHESUGGESTEDCHINKEEISDRYINGSQUIDSPILONOBSERVEDPERHAPSYOUCOULDCUTSQUIDSFORHALFADAYDANNYSPOKEPOINTEDLYITWOULDNOTLOOKWELLFORAMANWHOOWNSTWOHOUSESTOCUTSQUIDSBUTPERHAPSIFALITTLERENTWEREEVERPAIDPILONAROSEANGRILYALWAYSTHERENTHECRIEDYOUWOULDFORCEUSINTOTHESTREETSINTOTHEG", "aways").get());
     }
 }

@@ -17,7 +17,7 @@ public class VigenereSplit extends ArrayList<ArrayList<ArrayList<String>>> {
             x.add(c);
             y.add(e);
         }
-        this.add(x);
-        this.add(y);
+        add(x);
+        add(y);
     }
 }

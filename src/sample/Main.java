@@ -50,11 +50,11 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 1440, 800));
         primaryStage.show();
     }
-    public static void main(String[] args) throws IOException {
-    test_FindKeyLengthByIndexOfCoincidence();
-
+    public static void main(String[] args) throws IOException, InterruptedException {
+//    test_FindKeyLengthByIndexOfCoincidence();
+//    test_caesar_cracker();
 //blue this launches the UI.
-// launch(args);
+ launch(args);
 
 
     }
@@ -323,7 +323,7 @@ public class Main extends Application {
         writer.close();
     }
 
-    private static void test_caesar_cracker() throws IOException {
+    private static void test_caesar_cracker() throws IOException, InterruptedException {
         CaesarCracker caesarCracker = new CaesarCracker(
                 """
 Gur fvta unq nccrnerq bireavtug. Ba ovyyobneqf naq gerrf naq gur onpxf bs gur ohf-fgbc orapurf. Vg uhat va gur jvaqbj bs Jbbyjbegu’f. Vg uhat ol gur ragenapr gb gur LZPN. Vg jnf fgncyrq gb gur qbbe bs gur zhavpvcny pbheg naq anvyrq, ng rlr yriry, gb rirel gryrcubar cbyr nybat Havirefvgl Nirahr. Gur jbzna jnf ergheavat n obbx gb gur yvoenel jura fur fnj gur fvta va n cbfg bssvpr jvaqbj. Vg jnf n fhaal qnl va Orexryrl va gur fcevat bs 1942 naq fur jnf jrnevat arj tynffrf naq pbhyq frr rirelguvat pyrneyl sbe gur svefg gvzr va jrrxf. Fur ab ybatre unq gb fdhvag ohg fur fdhvagrq bhg bs unovg naljnl. Fur ernq gur fvta sebz gbc gb obggbz naq gura, fgvyy fdhvagvat, fur gbbx bhg n cra naq ernq gur fvta sebz gbc gb obggbz ntnva. Gur cevag jnf fznyy naq qnex. Fbzr bs vg jnf gval. Fur jebgr qbja n srj jbeqf ba gur onpx bs n onax erprvcg, gura ghearq nebhaq naq jrag ubzr naq ortna gb cnpx.
@@ -339,6 +339,10 @@ Ng Yhaql’f Uneqjner fur fgbccrq naq ybbxrq ng gur qvfcynl bs ivpgbel tneqra fu
         System.out.println(caesarCracker.getSolved());
         System.out.println(caesarCracker.getShift());
         System.out.println(caesarCracker.getSolution());
-    }
 
+//        CaesarCracker caesarCracker2 = new CaesarCracker("R qxyn ljnbja lajltrwp fxatb bcruu!");
+//        System.out.println(caesarCracker2.getSolved());
+//        System.out.println(caesarCracker2.getShift());
+//        System.out.println(caesarCracker2.getSolution());
+    }
 }

@@ -31,6 +31,14 @@ public class Sortable {
         }
         return b;
     }
+    public static ArrayList<Sortable> MOST_TO_LEAST_TOP_X(ArrayList<Sortable> A, int topX){
+        ArrayList<Sortable> a = Sortable.LEAST_TO_MOST(A);
+        ArrayList<Sortable> b = new ArrayList<>();
+        for (int i = a.size()-1; i >=a.size()-topX; i--) {
+            b.add(a.get(i));
+        }
+        return b;
+    }
     public String getString() {
         return string;
     }

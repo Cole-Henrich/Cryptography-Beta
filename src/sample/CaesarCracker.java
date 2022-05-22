@@ -3,16 +3,16 @@ package sample;
 import java.io.*;
 
 public class CaesarCracker {
-    CharSet charSet = new CharSet(false);
-    char[] alphabet = charSet.getAlphabet();
-    char[] ignorers = charSet.getIgnorers();
+    static CharSet charSet = new CharSet(false);
+    static char[] alphabet = charSet.getAlphabet();
+    static char[] ignorers = charSet.getIgnorers();
     private String solved = "";
     private int shift;
     private File solution;
     boolean isSolved;
     private char[] key;
     private String language;
-    public CaesarCracker(String Cipher) throws IOException {
+    public CaesarCracker(String Cipher) throws IOException, InterruptedException {
         shift = 1;
         File[] files = new File[]{new File("src/sample/0.txt"), new File("src/sample/1.txt"), new File("src/sample/2.txt"), new File("src/sample/3.txt"), new File("src/sample/4.txt"), new File("src/sample/5.txt"), new File("src/sample/6.txt"), new File("src/sample/7.txt"), new File("src/sample/8.txt"), new File("src/sample/9.txt"), new File("src/sample/10.txt"), new File("src/sample/11.txt"), new File("src/sample/12.txt"), new File("src/sample/13.txt"), new File("src/sample/14.txt"), new File("src/sample/15.txt"), new File("src/sample/16.txt"), new File("src/sample/17.txt"), new File("src/sample/18.txt"), new File("src/sample/19.txt"), new File("src/sample/20.txt"), new File("src/sample/21.txt"), new File("src/sample/22.txt"), new File("src/sample/23.txt"), new File("src/sample/24.txt"), new File("src/sample/25.txt")};
         for (int i = 1; i < files.length; i++) {
@@ -23,7 +23,7 @@ public class CaesarCracker {
             }
                 fileWriter.write(attempt.toString());
                 fileWriter.close();
-                not_english not_english = new not_english(files[i]);
+                not_english not_english = new not_english(charSet.FileToString(files[i]));
                 if (!not_english.not_english()) {
                     isSolved = true;
                     shift = i;
@@ -33,7 +33,7 @@ public class CaesarCracker {
                     language = "English";
                 }
                 else {
-                    not_spanish not_spanish = new not_spanish(files[i]);
+                    not_spanish not_spanish = new not_spanish(charSet.FileToString(files[i]));
                     if (!not_spanish.not_spanish()) {
                         isSolved = true;
                         shift = i;
@@ -43,7 +43,7 @@ public class CaesarCracker {
                         language = "Spanish";
                     }
                     else {
-                        not_french not_french = new not_french(files[i]);
+                        not_french not_french = new not_french(charSet.FileToString(files[i]));
                         if (!not_french.not_french()) {
                             isSolved = true;
                             shift = i;
@@ -53,7 +53,7 @@ public class CaesarCracker {
                             language = "French";
                         }
                         else {
-                            not_portuguese not_portuguese = new not_portuguese(files[i]);
+                            not_portuguese not_portuguese = new not_portuguese(charSet.FileToString(files[i]));
                             if (!not_portuguese.not_portuguese()) {
                                 isSolved = true;
                                 shift = i;
@@ -63,7 +63,7 @@ public class CaesarCracker {
                                 language = "Portuguese";
                             }
                             else {
-                                not_latin_alphabet_language not_latin_alphabet_language = new not_latin_alphabet_language(files[i]);
+                                not_latin_alphabet_language not_latin_alphabet_language = new not_latin_alphabet_language(charSet.FileToString(files[i]));
                                 if (!not_latin_alphabet_language.not_latin_alphabet_language()) {
                                     isSolved = true;
                                     shift = i;
@@ -78,7 +78,7 @@ public class CaesarCracker {
                 }
         }
     }
-    private String transpositionOf(char letter, int shift){
+    public static String transpositionOf(char letter, int shift){
         String rtn;
 
         String stringVal = String.valueOf(letter);
@@ -112,6 +112,13 @@ public class CaesarCracker {
                 rtn = rtn.toLowerCase();
             }
         return rtn;
+    }
+    public static String transpose(String string, int shift){
+        StringBuilder sb = new StringBuilder();
+        for (int j = 0; j < string.length(); j++) {
+            sb.append(transpositionOf(string.charAt(j), shift));
+        }
+        return sb.toString();
     }
     public boolean isSolved(){return isSolved;}
     public String getSolved(){return solved;}

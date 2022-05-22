@@ -44,15 +44,15 @@ public class VigenereCracker {
             VigenereBruteForcer vbf = new VigenereBruteForcer(cipher, 1);
         } else {
             //cyan very good stuff - just not ready yet, commenting it out to allow other stuff to run.
-//            if (c1.length() > 100 * likelyKeyLength) {
-//                VigenereStatisticsAttacker vsa = new VigenereStatisticsAttacker(cipher, likelyKeyLength);
-//                if (vsa.isSolved()) {
-//                    isSolved = true;
-//                    solved = vsa.getSolved();
-//                    keyWord = vsa.getKeyWord();
-//                    keyLength = keyWord.length();
-//                }
-//            } else
+            if (c1.length() > 100 * likelyKeyLength) {
+                VigenereStatisticsAttacker vsa = new VigenereStatisticsAttacker(cipher, likelyKeyLength);
+                if (vsa.isSolved()) {
+                    isSolved = true;
+                    solved = vsa.getSolved();
+                    keyWord = vsa.getKeyWord();
+                    keyLength = keyWord.length();
+                }
+            } else
             {
                 VigenereDictionaryAttacker vda = new VigenereDictionaryAttacker(cipher, likelyKeyLength);
                 if (vda.isSolved()) {

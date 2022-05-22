@@ -2,11 +2,13 @@ package sample;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 public class BigWordAndOccurrenceStore {
 
     private ArrayList<Map<String, Integer>> central;
+    private Map<String, Integer> HashCentral;
     public BigWordAndOccurrenceStore(){
 
 		WordAndOccurrenceStore1 ws1 = new WordAndOccurrenceStore1();
@@ -56,6 +58,7 @@ public class BigWordAndOccurrenceStore {
 		WordAndOccurrenceStore23 ws23 = new WordAndOccurrenceStore23();
 		Map<String, Integer> _23 = ws23.get();
 		central = new ArrayList<>();
+		HashCentral = new HashMap<>();
 		ArrayList<Map<String, Integer>> a = new ArrayList<>();
 		a.add(_1);
 		a.add(_2);
@@ -82,7 +85,9 @@ public class BigWordAndOccurrenceStore {
 		a.add(_23);
         for (Map<String, Integer> b: a) {
             Collections.addAll(central, b);
+            if (b!= null) {b.forEach(HashCentral::put);}
         }
     }
+    public Map<String, Integer> HashCentral(){return HashCentral;}
     public ArrayList<Map<String, Integer>> central(){return central;}
 }

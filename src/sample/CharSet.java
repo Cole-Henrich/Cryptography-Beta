@@ -20,6 +20,7 @@ import java.util.*;
 @SuppressWarnings({"MagicNumber", "LawOfDemeter"})
 public class CharSet {
 
+
     public static void main(String[] args) throws FileNotFoundException {
         CharSet charSet = new CharSet();
         System.out.println(charSet.charArrayPrintFormat("ΑαΒβΓγΔδΕεΖζΗηΘθΙιΚκΛλΜμΝνΞξΟοΠπΡρΣσςΤτΥυΦφΧχΨψΩωCcDdeFfGghiJjkLlmnopQqRrSstUuVvWwx".toCharArray()));
@@ -136,8 +137,10 @@ public class CharSet {
             'ž','ź','ż',
             'ç','ć','č',
             'ñ','ń'};
+    private final int[] etaoArray = new int[]{4,19,0,14,13,8,18,7,17,3,11,20,12,2,5,22,6,24,15,1,21,10,9,23,25,16};
     public static final double EngMinValidityFactor = 0.8;
     //TotalWordsNumberAtWhichDictionaryAttackDecidesWhetherToFullyDecryptOrIgnoreTranslation
+    public static int dicAttackToleranceLowest = 10;
     public static final int dicAttackTolerance = 20;
     public static final double EIOC = 0.0667;
     public String[] getEmojis() {return emojis;}
@@ -147,6 +150,114 @@ public class CharSet {
     public String[] getPolysymbolic() {return Polysymbolic;}
     public String[] getGreek() {return Greek;}
     math mathematics = new math();
+
+    public String buildStringFromCharArray(char[] array) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : array) {
+            sb.append(c);
+        }
+        return sb.toString();
+    }
+    public String[] ObjectArrayToStringArray(Object[] objects) {
+        String[] rtn = new String[objects.length];
+        for (int i = 0; i < objects.length; i++) {
+            Object object = objects[i];
+            rtn[i] = String.valueOf(object);
+        }
+        return rtn;
+    }
+    public boolean isAlphabetic(String s){
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isAlphabetic(s.codePointAt(i))){
+                return false;
+            }
+        }
+        return true;
+    }
+    public String guessAndCheckFind(String[] words, int length, Random random) {
+        String word = RemoveIgnorers(words[random.nextInt(words.length)]);
+        if (word.length() != length || !isAlphabetic(word)) {
+            return guessAndCheckFind(words, length, random);
+        }
+        return word;
+    }
+    public HashMap<Character, Integer> HashMapCountFrequencyIn(String string) {
+        HashMap<Character, Integer> rtn = new HashMap<>();
+        char[] chars = string.toCharArray();
+        for (char ch: chars){
+            Integer count = rtn.get(ch);
+            if (count == null) {
+                rtn.put(ch, 1);
+            }
+            else {
+                rtn.put(ch, count + 1);
+            }
+        }
+        return rtn;
+    }
+    public int[] charToIntArray(char[] a){
+        int[] rtn = new int[a.length];
+        for (int i = 0; i < a.length; i++) {
+            rtn[i] = Integer.parseInt(String.valueOf(a[i]));
+        }
+        return rtn;
+    }
+    public double cosangle(double X, double Y){
+        double numerator = 0;
+        double lengthx2 = 0;
+        double lengthy2 = 0;
+        int[] x = charToIntArray(String.valueOf(X).toCharArray());
+        int[] y = charToIntArray(String.valueOf(X).toCharArray());
+
+        for (int i = 0; i < x.length; i++) {
+            numerator += x[i]*y[i];
+            lengthx2 += x[i]*x[i];
+            lengthy2 += y[i]*y[i];
+        }
+        return (numerator / Math.sqrt(lengthx2*lengthy2));
+    }
+    //    from math import sqrt
+//    def cosangle(x,y):
+//    numerator = 0
+//    lengthx2 = 0
+//    lengthy2 = 0
+//            for i in range(len(x)):
+//    numerator += x[i]*y[i]
+//    lengthx2 += x[i]*x[i]
+//    lengthy2 += y[i]*y[i]
+//            return numerator / sqrt(lengthx2*lengthy2)
+
+    public int indexOf(char c){
+        if (c=='e'||c=='E'){return 4;}
+        if (c=='t'||c=='T'){return 19;}
+        if (c=='a'||c=='A'){return 0;}
+        if (c=='o'||c=='O'){return 14;}
+        if (c=='n'||c=='N'){return 13;}
+        if (c=='i'||c=='I'){return 8;}
+        if (c=='s'||c=='S'){return 18;}
+        if (c=='h'||c=='H'){return 7;}
+        if (c=='r'||c=='R'){return 17;}
+        if (c=='d'||c=='D'){return 3;}
+        if (c=='l'||c=='L'){return 11;}
+        if (c=='u'||c=='U'){return 20;}
+        if (c=='m'||c=='M'){return 12;}
+        if (c=='c'||c=='C'){return 2;}
+        if (c=='f'||c=='F'){return 5;}
+        if (c=='w'||c=='W'){return 22;}
+        if (c=='g'||c=='G'){return 6;}
+        if (c=='y'||c=='Y'){return 24;}
+        if (c=='p'||c=='P'){return 15;}
+        if (c=='b'||c=='B'){return 1;}
+        if (c=='v'||c=='V'){return 21;}
+        if (c=='k'||c=='K'){return 10;}
+        if (c=='j'||c=='J'){return 9;}
+        if (c=='x'||c=='X'){return 23;}
+        if (c=='z'||c=='Z'){return 25;}
+        if (c=='q'||c=='Q'){return 16;}
+        return Integer.MAX_VALUE;
+    }
+
+
     public ArrayList<String> ArrayList_a_to_ArrayList_String (ArrayList<a> a_s){
         ArrayList<String> rtn = new ArrayList<>();
         for (a _a:a_s){rtn.add(_a.getWord());}
@@ -563,6 +674,9 @@ public class CharSet {
         }
         int[] rtn = IntegerArrayListToIntArray(indices);
         return rtn;
+    }
+    public String getGeneralEtao(){
+        return "etaonishrdlumcfwgypbvkjxzq";
     }
     public String getEtao() {
         return etaoin;
@@ -1611,7 +1725,8 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
         return rtn;
     }
     public final char[] ignorers0 = new char[]{'\n', ',','.','’','“','”','-','?','—','!',';','á','ó','"','í',':',')','(','1','é','\'','ú','0','2','9','_','‘','5','8','3','…','6','*','4','7','è','•','ë','[',']','§','–','$','ü','ï','/','ö','à','#','ê','â','&','%','ç','Á','ç','Á','ä','ô','Ñ','À','=','œ','œ','`','æ','æ','î','É','+','~','@'};
-    public final char[] ignorers1 = new char[] {'\n',' ', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', '\'', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '<', '>', '?', '¡', '™', '£', '¢', '∞', '§', '¶', '•', 'ª', 'º', '–', '≠', 'œ', '∑', '´', '®', '†', '¥', '¨', 'ˆ', 'ø', 'π', '“', '‘', '«', 'å', 'ß', '∂', 'ƒ', '©', '˙', '∆', '˚', '¬', '…', 'æ', 'Ω', '≈', 'ç', '√', '∫', '˜', 'µ', '≤', '≥', '÷', '⁄', '€', '‹', '›', 'ﬁ', 'ﬂ', '‡', '°', '·', '‚', '—', '±', 'Œ', '„', '´', '‰', 'ˇ', 'Á', '¨', 'ˆ', 'Ø', '∏', '”', '’', '»', 'Å', 'Í', 'Î', 'Ï', '˝', 'Ó', 'Ô', '', 'Ò', 'Ú', 'Æ', '¸', '˛', 'Ç', '◊', 'ı', '˜', 'Â', '¯', '˘', '¿', 'è', 'é', 'ê', 'ë', 'ē', 'ė', 'ę', 'ÿ', 'û', 'ü', 'ù', 'ú', 'ū', 'î', 'ï', 'í', 'ī', 'į', 'ì', 'ô', 'ö', 'ò', 'ó', 'œ', 'ø', 'ō', 'õ', 'à', 'á', 'â', 'ä', 'æ', 'ã', 'å', 'ā', 'ß', 'ś', 'š', 'ł', 'ž', 'ź', 'ż', 'ç', 'ć', 'č', 'ñ', 'ń', 'È', 'É', 'Ê', 'Ë', 'Ē', 'Ė', 'Ę', 'Ÿ', 'Û', 'Ü', 'Ù', 'Ú', 'Ū', 'Î', 'Ï', 'Í', 'Ī', 'Į', 'Ì', 'Ô', 'Ö', 'Ò', 'Ó', 'Œ', 'Ø', 'Ō', 'Õ', 'À', 'Á', 'Â', 'Ä', 'Æ', 'Ã', 'Å', 'Ā', 'Ś', 'Š', 'Ł', 'Ž', 'Ź', 'Ż', 'Ç', 'Ć', 'Č', 'Ñ', 'Ń', '‖', '‗'};
+    public final char[] ignorers1 = new char[] {'\n',' ', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', '\'', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '<', '>', '?', '¡', '™', '£', '¢', '∞', '§', '¶', '•', 'ª', 'º', '–', '≠', 'œ', '∑', '´', '®', '†', '¥', '¨', 'ˆ', 'ø', 'π', '“', '‘', '«', 'å', 'ß', '∂', 'ƒ', '©', '˙', '∆', '˚', '¬', '…', 'æ', 'Ω', '≈', 'ç', '√', '∫', '˜', 'µ', '≤', '≥', '÷', '⁄', '€', '‹', '›', 'ﬁ', 'ﬂ', '‡', '°', '·', '‚', '—', '±', 'Œ', '„', '´', '‰', 'ˇ', 'Á', '¨', 'ˆ', 'Ø', '∏', '”', '’', '»', 'Å', 'Í', 'Î', 'Ï', '˝', 'Ó', 'Ô', '', 'Ò', 'Ú', 'Æ', '¸', '˛', 'Ç', '◊', 'ı', '˜', 'Â', '¯', '˘', '¿', 'è', 'é', 'ê', 'ë', 'ē', 'ė', 'ę', 'ÿ', 'û', 'ü', 'ù', 'ú', 'ū', 'î', 'ï', 'í', 'ī', 'į', 'ì', 'ô', 'ö', 'ò', 'ó', 'œ', 'ø', 'ō', 'õ', 'à', 'á', 'â', 'ä', 'æ', 'ã', 'å', 'ā', 'ß', 'ś', 'š', 'ł', 'ž', 'ź', 'ż', 'ç', 'ć', 'č', 'ñ', 'ń', 'È', 'É', 'Ê', 'Ë', 'Ē', 'Ė', 'Ę', 'Ÿ', 'Û', 'Ü', 'Ù', 'Ú', 'Ū', 'Î', 'Ï', 'Í', 'Ī', 'Į', 'Ì', 'Ô', 'Ö', 'Ò', 'Ó', 'Œ', 'Ø', 'Ō', 'Õ', 'À', 'Á', 'Â', 'Ä', 'Æ', 'Ã', 'Å', 'Ā', 'Ś', 'Š', 'Ł', 'Ž', 'Ź', 'Ż', 'Ç', 'Ć', 'Č', 'Ñ', 'Ń', '‖', '‗', '⟨', '⟩', 'ʶ', 'ɔ', 'ʊ', 'ə', 'ɵ', 'ː', 'ʴ', 'ʉ', 'ɐ', 'ʵ', 'ɛ', 'ˈ', 'ð', 'ʌ', 'ʔ', 'ɜ', 'ɹ', 'ɨ', 'ʃ', 'ɪ', 'ɑ'};
+
     public final char[] ignorers2 = new char[] {'\n',' ', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '<', '>', '?', '¡', '™', '£', '¢', '∞', '§', '¶', '•', 'ª', 'º', '–', '≠', 'œ', '∑', '´', '®', '†', '¥', '¨', 'ˆ', 'ø', 'π', '“', '«', '©', '˙', '∆', '˚', '¬', '…', 'Ω', '≈', '√', '∫', '˜', 'µ', '≤', '≥', '÷', '⁄', '€', '‹', '›', 'ﬁ', 'ﬂ', '‡', '°', '·', '‚', '—', '±', '„', '´', '‰', 'ˇ', '¨', 'ˆ', 'Ø', '∏', '”', '’', '»', '˝', '', '¸', '˛', '◊', 'ı', '˜', '¯', '˘', '¿', '‖', '‗'};
 
     public CharSet(){this(false);}
@@ -1620,7 +1735,7 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
             ignorers = new char[]{'\n', ',','.','’','“','”','-','?','—','!',';','á','ó','"','í',':',')','(','1','é','\'','ú','0','2','9','_','‘','5','8','3','…','6','*','4','7','è','•','ë','[',']','§','–','$','ü','ï','/','ö','à','#','ê','â','&','%','ç','Á','ç','Á','ä','ô','Ñ','À','=','œ','œ','`','æ','æ','î','É','+','~','@','⟨', '⟩'};
         }
         if (ignorerSet == 1){
-            ignorers = new char[] {'\n',' ', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', '\'', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '<', '>', '?', '¡', '™', '£', '¢', '∞', '§', '¶', '•', 'ª', 'º', '–', '≠', 'œ', '∑', '´', '®', '†', '¥', '¨', 'ˆ', 'ø', 'π', '“', '‘', '«', 'å', 'ß', '∂', 'ƒ', '©', '˙', '∆', '˚', '¬', '…', 'æ', 'Ω', '≈', 'ç', '√', '∫', '˜', 'µ', '≤', '≥', '÷', '⁄', '€', '‹', '›', 'ﬁ', 'ﬂ', '‡', '°', '·', '‚', '—', '±', 'Œ', '„', '´', '‰', 'ˇ', 'Á', '¨', 'ˆ', 'Ø', '∏', '”', '’', '»', 'Å', 'Í', 'Î', 'Ï', '˝', 'Ó', 'Ô', '', 'Ò', 'Ú', 'Æ', '¸', '˛', 'Ç', '◊', 'ı', '˜', 'Â', '¯', '˘', '¿', 'è', 'é', 'ê', 'ë', 'ē', 'ė', 'ę', 'ÿ', 'û', 'ü', 'ù', 'ú', 'ū', 'î', 'ï', 'í', 'ī', 'į', 'ì', 'ô', 'ö', 'ò', 'ó', 'œ', 'ø', 'ō', 'õ', 'à', 'á', 'â', 'ä', 'æ', 'ã', 'å', 'ā', 'ß', 'ś', 'š', 'ł', 'ž', 'ź', 'ż', 'ç', 'ć', 'č', 'ñ', 'ń', 'È', 'É', 'Ê', 'Ë', 'Ē', 'Ė', 'Ę', 'Ÿ', 'Û', 'Ü', 'Ù', 'Ú', 'Ū', 'Î', 'Ï', 'Í', 'Ī', 'Į', 'Ì', 'Ô', 'Ö', 'Ò', 'Ó', 'Œ', 'Ø', 'Ō', 'Õ', 'À', 'Á', 'Â', 'Ä', 'Æ', 'Ã', 'Å', 'Ā', 'Ś', 'Š', 'Ł', 'Ž', 'Ź', 'Ż', 'Ç', 'Ć', 'Č', 'Ñ', 'Ń', '‖', '‗', '⟨', '⟩'};
+            ignorers = ignorers1;
         }
         if (ignorerSet == 2){
             ignorers = new char[] {'\n',' ', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '<', '>', '?', '¡', '™', '£', '¢', '∞', '§', '¶', '•', 'ª', 'º', '–', '≠', 'œ', '∑', '´', '®', '†', '¥', '¨', 'ˆ', 'ø', 'π', '“', '«', '©', '˙', '∆', '˚', '¬', '…', 'Ω', '≈', '√', '∫', '˜', 'µ', '≤', '≥', '÷', '⁄', '€', '‹', '›', 'ﬁ', 'ﬂ', '‡', '°', '·', '‚', '—', '±', '„', '´', '‰', 'ˇ', '¨', 'ˆ', 'Ø', '∏', '”', '’', '»', '˝', '', '¸', '˛', '◊', 'ı', '˜', '¯', '˘', '¿', '‖', '‗', '⟨', '⟩'};
@@ -1631,7 +1746,7 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
             ignorers = new char[]{'\n', ',','.','’','“','”','-','?','—','!',';','á','ó','"','í',':',')','(','1','é','\'','ú','0','2','9','_','‘','5','8','3','…','6','*','4','7','è','•','ë','[',']','§','–','$','ü','ï','/','ö','à','#','ê','â','&','%','ç','Á','ç','Á','ä','ô','Ñ','À','=','œ','œ','`','æ','æ','î','É','+','~','@'};
         }
         if (!streamLineIgnorers){
-            ignorers = new char[] {'\n',' ', '`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '[', ']', '\\', ';', '\'', ',', '.', '/', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '{', '}', '|', ':', '"', '\"', '<', '>', '?', '¡', '™', '£', '¢', '∞', '§', '¶', '•', 'ª', 'º', '–', '≠', 'œ', '∑', '´', '®', '†', '¥', '¨', 'ˆ', 'ø', 'π', '“', '‘', '«', 'å', 'ß', '∂', 'ƒ', '©', '˙', '∆', '˚', '¬', '…', 'æ', 'Ω', '≈', 'ç', '√', '∫', '˜', 'µ', '≤', '≥', '÷', '⁄', '€', '‹', '›', 'ﬁ', 'ﬂ', '‡', '°', '·', '‚', '—', '±', 'Œ', '„', '´', '‰', 'ˇ', 'Á', '¨', 'ˆ', 'Ø', '∏', '”', '’', '»', 'Å', 'Í', 'Î', 'Ï', '˝', 'Ó', 'Ô', '', 'Ò', 'Ú', 'Æ', '¸', '˛', 'Ç', '◊', 'ı', '˜', 'Â', '¯', '˘', '¿', 'è', 'é', 'ê', 'ë', 'ē', 'ė', 'ę', 'ÿ', 'û', 'ü', 'ù', 'ú', 'ū', 'î', 'ï', 'í', 'ī', 'į', 'ì', 'ô', 'ö', 'ò', 'ó', 'œ', 'ø', 'ō', 'õ', 'à', 'á', 'â', 'ä', 'æ', 'ã', 'å', 'ā', 'ß', 'ś', 'š', 'ł', 'ž', 'ź', 'ż', 'ç', 'ć', 'č', 'ñ', 'ń', 'È', 'É', 'Ê', 'Ë', 'Ē', 'Ė', 'Ę', 'Ÿ', 'Û', 'Ü', 'Ù', 'Ú', 'Ū', 'Î', 'Ï', 'Í', 'Ī', 'Į', 'Ì', 'Ô', 'Ö', 'Ò', 'Ó', 'Œ', 'Ø', 'Ō', 'Õ', 'À', 'Á', 'Â', 'Ä', 'Æ', 'Ã', 'Å', 'Ā', 'Ś', 'Š', 'Ł', 'Ž', 'Ź', 'Ż', 'Ç', 'Ć', 'Č', 'Ñ', 'Ń', '‖', '‗', '⟨', '⟩'};
+            ignorers = ignorers1;
         }
         wholeShebang = makeWholeShebang();
     }
@@ -1641,6 +1756,9 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
     public char[] getLongAlphabet(){return longAlphabet;}
     public char[] getIgnorers(){return ignorers;}
     public char[] getWholeShebang(){return wholeShebang;}
+    public int[] getEtaoArray(){
+        return etaoArray;
+    }
     private Random random = new Random();
     public int[] IntegerArrayListToIntArray(ArrayList<Integer> a){
         int[] b = new int[a.size()];
@@ -2465,4 +2583,6 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
         }
         return false;
     }
+
+
 }

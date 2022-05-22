@@ -13,7 +13,7 @@ public class not_english {
     private ArrayList<String> words;
     private BigArrayStore biggy;
     private double cutoff;
-    private final CharSet charSet = new CharSet(true);
+    private static final CharSet charSet = new CharSet(true);
 
     public not_english(String string, boolean ignoreSpaces, boolean ignorePunctuation) throws InterruptedException {
         this(string, ignoreSpaces, ignorePunctuation, true, false, 0);
@@ -113,13 +113,13 @@ public class not_english {
 ////        }
     }
     public not_english(File file) throws FileNotFoundException {
-       this(file, CharSet.EngMinValidityFactor);
+       this(file, 0.4);
     }
     public not_english(String string) throws InterruptedException {
         this(string, CharSet.EngMinValidityFactor);
     }
     public not_english(File file, double cutoff) throws FileNotFoundException {
-        this(file, cutoff, true);
+        this(file, cutoff, false);
     }
     public not_english(File file, double cutoff, boolean optimize) throws FileNotFoundException {
         this.cutoff = cutoff;
@@ -135,25 +135,24 @@ public class not_english {
         int i = 0;
         while (reader.hasNext()) {
             if (optimize){
-                if (i >= 10) {
-                    if (validWords <= 2) {
+                if (i >=8 ) {
+                    if (validWords < 4){
                         not_english = true;
                         break;
-                    } else {
-                        if (i >= 15){
-                            if ( validWords <= 3){
+                    }
+                    else {
+                        if (i >= 10) {
+                            if (validWords < 5) {
                                 not_english = true;
                                 break;
-                            }
-                            else {
-                                if (i >= 20){
-                                    if ( validWords <= 8){
+                            } else {
+                                if (i >= 16) {
+                                    if (validWords <= 9) {
                                         not_english = true;
                                         break;
-                                    }
-                                    else {
-                                        if (i ==30){
-                                            if ( validWords <= 10){
+                                    } else {
+                                        if (i >= 20) {
+                                            if (validWords <= 12) {
                                                 not_english = true;
                                                 break;
                                             }
@@ -216,7 +215,14 @@ public class not_english {
     public int getDocLength(){return docLength;}
 
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
-        test_ValidityFactorInVigenereCipher();
+        test_not_english2();
+    }
+    private static void test_not_english2() throws InterruptedException, FileNotFoundException {
+        not_english english = new not_english(charSet.FileToString(new File("src/sample/13.txt")));
+        not_english cipher = new not_english(charSet.FileToString(new File("src/sample/25.txt")));
+        System.out.println(english.not_english());
+        System.out.println(cipher.not_english());
+
     }
     private static void test_ValidityFactorInVigenereCipher() throws InterruptedException {
         String vigenereEncoded = """

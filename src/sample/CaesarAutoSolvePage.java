@@ -49,7 +49,7 @@ public class CaesarAutoSolvePage extends StackPane {
             CaesarCracker caesarCracker = null;
             try {
                 caesarCracker = new CaesarCracker(textArea.getText());
-            } catch (IOException e) {
+            } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
             Stage s = (Stage) getScene().getWindow();

@@ -114,7 +114,7 @@ public class VigenereDictionaryAttacker {
         }
         String[] cipherSplit = cipher.split(" ");
         StringBuilder shortCipherBuilder = new StringBuilder();
-        for (int i = 0; i < CharSet.dicAttackTolerance; i++) {
+        for (int i = 0; i < 8; i++) {
             shortCipherBuilder.append(cipherSplit[i]).append("\s");
         }
         String shortCipher = shortCipherBuilder.toString();
@@ -141,11 +141,12 @@ public class VigenereDictionaryAttacker {
                     isSolved = true;
                     solved = testFull;
                     keyWord = keyWordTest;
+                    System.out.println(i);
                     break;
                 }
             }
             i++;
-            if (i%100==0){
+            if (i%200==0){
                 System.out.println(i+" "+keyWordTest);
             }
             if (i == xLongWords.size()){

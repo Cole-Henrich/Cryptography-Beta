@@ -8,10 +8,10 @@ public class CaesarKey {
     private final char[] alphabet = charSet.getAlphabet();
     private char[] key;
     public CaesarKey(int shift){
-        shift = wrapAround(shift);
+        shift = shift%26;
         key = new char[alphabet.length];
         for (int c = 0; c < alphabet.length; c++) {
-            key[c] = alphabet[wrapAround(c+shift)];
+            key[c] = alphabet[(c+shift)%26];
         }
     }
     public CaesarKey(){

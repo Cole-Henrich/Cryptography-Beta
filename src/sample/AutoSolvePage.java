@@ -79,8 +79,13 @@ public class AutoSolvePage extends StackPane {
 //                    }
 //                }
                 ShowVoila();
-            } catch (IOException | InterruptedException e) {
+            } catch (IOException | InterruptedException | NullPointerException e) {
                 e.printStackTrace();
+                try {
+                    topLevelDecrypter = new TopLevelDecrypter(text);
+                } catch (IOException | InterruptedException ioException) {
+                    ioException.printStackTrace();
+                }
             }
         });
 

@@ -13,13 +13,14 @@ public class not_french {
     private ArrayList<String> words;
     private BigArrayStore biggy;
     private double cutoff;
-    private final CharSet charSet = new CharSet(2);
+    private final CharSet charSet = new CharSet(true);
 
     public not_french(String string, boolean ignoreSpaces, boolean ignorePunctuation) throws InterruptedException {
-        this(string, ignoreSpaces, ignorePunctuation, 10, 7, false, false, 0);
+        this(string, ignoreSpaces, ignorePunctuation, true, false, 0);
     }
-    public not_french(String string, boolean ignoreSpaces, boolean ignorePuncuation, int fromInclusive, int toInclusive, boolean optimize, boolean calculateCutoff, double Cutoff) throws InterruptedException {
-        this.cutoff = Cutoff;
+    public not_french(String string, boolean ignoreSpaces, boolean ignorePuncuation, boolean optimize, boolean calculateCutoff, double Cutoff) throws InterruptedException {
+
+        cutoff = Cutoff;
         if (ignorePuncuation) {
             string = charSet.removeIgnorers(string, new String[]{" "});
         }
@@ -29,79 +30,180 @@ public class not_french {
         if (calculateCutoff) {
             cutoff = calculateCutoff();
         }
+        String[] textSplit = string.split(" ");
+        docLength = textSplit.length;
         biggy = new BigArrayStore();
         words = biggy.central();
-        this.docLength = string.length();
         int validWords = 0;
-        int wordsCounted = 0;
-        boolean Break = false;
-        for (int i = fromInclusive; i >= toInclusive; i--) {
-            String[] split = charSet.split(string, i);
-            for (String str : split) {
-                wordsCounted++;
-                for (String word : words) {
-                    validityFactor = ((double) validWords) / ((double) wordsCounted);
-                    this.not_french = validityFactor < cutoff;
-                    if (str.equalsIgnoreCase(word)) {
-                        validWords++;
+        for (int i = 0; i < textSplit.length; i++) {
+            String word = textSplit[i];
+            if (optimize){
+                if (i >= 10) {
+                    if (validWords <= 2) {
+                        not_french = true;
                         break;
-                    }
-                    if (optimize) {
-                        if (!not_french) {
-                            Break = true;
-                            this.validWords = validWords;
-                            break;
+                    } else {
+                        if (i >= 15){
+                            if ( validWords <= 3){
+                                not_french = true;
+                                break;
+                            }
+                            else {
+                                if (i == 20){
+                                    if ( validWords <= 8){
+                                        not_french = true;
+                                        break;
+                                    }
+                                }
+                            }
                         }
                     }
-                    if (optimize && Break){
+                }
+            }
+            if (words.contains(charSet.RemoveIgnorers(word))) {
+                validWords++;
+                validityFactor = (double) validWords / (double) docLength;
+                not_french = (validWords <= (cutoff * docLength));
+                if (optimize) {
+                    if (!not_french) {
                         break;
                     }
                 }
             }
-            if (optimize && Break){
-                break;
-            }
         }
+        this.validWords = validWords;
+//        this.validityFactor = (double)validWords/(double)docLength;
+//        not_french = (validWords <= (cutoff*docLength));
+
+
+//        System.out.println(string);
+//        biggy = new BigArrayStore();
+//        words = biggy.central();
+//        this.docLength = string.length();
+//        int validWords = 0;
+//        int wordsCounted = 0;
+//        boolean Break = false;
+////        for (int i = fromInclusive; i >= toInclusive; i--) {
+////            String[] split = charSet.split(string, i);
+////            for (String str : split) {
+////                wordsCounted++;
+////                for (String word : words) {
+////                    validityFactor = ((double) validWords) / ((double) wordsCounted);
+////                    this.not_french = validityFactor < cutoff;
+////                    if (str.equalsIgnoreCase(word)) {
+////                        System.out.println(word);
+////                        validWords++;
+////                        break;
+////                    }
+////                    if (optimize) {
+////                        if (!not_french) {
+////                            Break = true;
+////                            this.validWords = validWords;
+////                            break;
+////                        }
+////                    }
+////                    if (optimize && Break){
+////                        break;
+////                    }
+////                }
+////            }
+////            if (optimize && Break){
+////                break;
+////            }
+////        }
     }
     public not_french(File file) throws FileNotFoundException {
-        this(file, 0.4);
+        this(file, CharSet.EngMinValidityFactor);
     }
-    public not_french(String string){
-        this(string, 0.4);
+    public not_french(String string) throws InterruptedException {
+        this(string, CharSet.EngMinValidityFactor);
     }
     public not_french(File file, double cutoff) throws FileNotFoundException {
+        this(file, cutoff, false);
+    }
+    public not_french(File file, double cutoff, boolean optimize) throws FileNotFoundException {
+        this.cutoff = cutoff;
         biggy = new BigArrayStore();
         words = biggy.central();
         int docLength = 0;
         Scanner counter = new Scanner(file);
-        while (counter.hasNext()){if (charSet.RemoveIgnorers(counter.next()) != null){docLength++;}}
+        while (counter.hasNext()){if (counter.next() != null){docLength++;}}
         this.docLength = docLength;
 
         int validWords = 0;
         Scanner reader = new Scanner(file);
+        int i = 0;
         while (reader.hasNext()) {
+            if (optimize){
+                if (i >=8 ) {
+                    if (validWords < 4){
+                        not_french = true;
+                        break;
+                    }
+                    else {
+                        if (i >= 10) {
+                            if (validWords < 5) {
+                                not_french = true;
+                                break;
+                            } else {
+                                if (i >= 16) {
+                                    if (validWords <= 9) {
+                                        not_french = true;
+                                        break;
+                                    } else {
+                                        if (i >= 20) {
+                                            if (validWords <= 12) {
+                                                not_french = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             if (words.contains(charSet.removeIgnorers(reader.next(), new String[]{""}))){
                 validWords++;
+                if (optimize){
+                    validityFactor = (double)validWords/(double)docLength;
+                    not_french = (validWords <= (cutoff*docLength));
+                    if (!not_french){
+                        break;
+                    }
+                }
             }
+            i++;
         }
         this.validWords = validWords;
-        this.validityFactor = (double)validWords/(double)docLength;
-        not_french = (validWords <= (cutoff*docLength));
+//        biggy = new BigArrayStore();
+//        words = biggy.central();
+//        int docLength = 0;
+//        Scanner counter = new Scanner(file);
+//        while (counter.hasNext()){if (counter.next() != null){docLength++;}}
+//        this.docLength = docLength;
+//
+//        int validWords = 0;
+//        Scanner reader = new Scanner(file);
+//        while (reader.hasNext()) {
+//            if (words.contains(charSet.removeIgnorers(reader.next(), new String[]{""}))){
+//                validWords++;
+//                if (optimize){
+//                    validityFactor = (double)validWords/(double)docLength;
+//                    not_french = (validWords <= (cutoff*docLength));
+//                    if (!not_french){
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//        this.validWords = validWords;
+//        validityFactor = (double)validWords/(double)docLength;
+//        not_french = (validWords <= (cutoff*docLength));
     }
-    public not_french(String string, double cutoff) {
-        biggy = new BigArrayStore();
-        words = biggy.central();
-        this.docLength = string.length();
-        int validWords = 0;
-        String[] split = string.split(" ");
-        for (String word: split) {
-            if (words.contains(charSet.removeIgnorers(word, new String[]{""}))){
-                validWords++;
-            }
-        }
-        this.validWords = validWords;
-        this.validityFactor = (double)validWords/(double)docLength;
-        not_french = (validWords <= (cutoff*docLength));
+    public not_french(String string, double cutoff) throws InterruptedException {
+        this(string, false, true, true, false, cutoff);
     }
 
     public double getCutoff() {
@@ -113,7 +215,108 @@ public class not_french {
     public int getDocLength(){return docLength;}
 
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
-        test_not_french();
+        test_ValidityFactorInVigenereCipher();
+    }
+    private static void test_ValidityFactorInVigenereCipher() throws InterruptedException {
+        String vigenereEncoded = """
+                EVSPXFAI
+                                Kt elt Tsdapt st isi Jrwiph Hxoipw, xr Cgoig xc uzvb e adci eifupgi Ybxzr, twhpmpxwv Yfwimqt, trhyft osbigitg Ivocbyxpwij, tgsjxoi usf isi rsabzr sittywt, tfdxsii hwp ktrsglp Lizulvt, ebs diryft elt Fztdwxruh zj Amptcxn xc dfvhizkpw prr dfv Esgipvxxm, sz sghoxy ech sheeqpwhs xwmg Rzrhxwifxxsb uzv ils Jymiir Heeiig dq Ebifxne.
+
+                                Pvhxnpt M
+                                Gtnxxsb 1
+                                Pwp aiuxdppxwkp Tdasgd ltvsxy kgebiph hloaw ft zsheis mb p Nsckftdw dj hwp Ycmhto Wiehtd, awmqw dlppz rzrhmgi zj p Wsclxt ebs Ssjws dq Vttftdicxoitztw.
+
+                                Gtnxxsb 2
+                                Isi Wsihp su Vsecihibilxxzsh dlppz qp gdqdddis st Bpqqifh nldwsc pztvm hpgdrr Npeg fm isi Eicewi dj hwp wtzsglp Hxoipw, prr isi Tpsresgw wc perl Gilxt wvpwp wejt elt Uipwmumqpemdrg gpujmgxei usf Twirxcgd su xvt xshx bjxigsih Mvprqw zj ils Heeii Ztrmhpoifvt.
+
+                                Rc Epvhsb hseap pt l Vttftdicxoitzt avd dlppz czx wejt lxiewcph is hwp Evi cu eatrhn qmki Mtlvh, ebs mitr gtgic Cspcw p Gwitdtr cu elt Ybxeis Whpeih, ebs hld wvpwp csh, lsic iztnxth, pt lr Xrvpmmiebi zj iloi Dxpxs xy awmqw si hloaw ft gvddic.
+
+                                Vsecihibilxxzsh lrs hwgpgi Xompw hloaw ft edezvimccph pqccr xwi gtgigez Heeiig lsmrl apj ft mbrwysir ltxwmb ismh Ybxzr, pgqdchxru iz xwiwg cihtsremki Bjxftvg, lsmrl gwlpa fs spxtvaxyis fm pohxru iz xwi kwzpt Ribmig st ucit Tsgdscw, wcnpjhwcr xwsgt msjrr iz Wtvjxni usf p Eigq cu Jipvg, pyh tbqafhxru Xyhxebh ysi xomph, ilftp jxjhwd su eza zxwif Epvhsbh. Elt eqifea Ibjxigehxzr hloaw ft qosp axxvxy xwvst Jipvg pqxtv hwp jxvgi Xitxwcr su xvt Nsckftdw dj hwp Ycmhto Wiehtd, ech kxelxr skpvn wiqdifysce Xtva dq xtr Mtlvh, mb hfgw Qocyig eg isin wvpwp qc Zph hxvsre. Xwi Bjxftv cu Cievshpriehxgih wvpwp csh tigtir dyi usf tgigc hwtvic Hwzyhebs, myi iors Wieht dlppz wlzt eh Apehx ccp Vttftdicxoitzt; ebs frimz hfgw ibjxigehxzr hloaw ft qosp, xwi Gilxt st Cpa Weaedlxvs hseap pt primhaph is qwfwt xvgpi, Beghlgwygtexh iwvsx, Glcsp-Mhpoco ech Dgzzxhscni Epoceeimccd sci, Qdyrtghxnyi jwkp, Rta-Mdco hml, Cpa Yifhpc usig, Aicrgnwzprwp pmvlh, Spppaogp sci, Apccaebs dmm, Zwgrmcmo ipr, Csfis Gpvcatrp jwkp, Wdyhw Negszxye umjt, lrs Ksdckxe hwcit.
+
+                                Avty zpgocnmtw vpattr wc elt Vsecihibilxxsb ucsb ebn Dxpxs, isi Tbsrfxxzs Pfxwsfxec ilsgpsu wvpwp xwgjp Agmhh zj Tpsremdr hd qmap gjnl Keqpygxig.
+
+                                Isi Wsihp su Vsecihibilxxzsh dlppz rsyhi hwpmg Wdtlotv oco silsg Zjumqtcw; prr hseap vpgi ils hzpt Tclpv dj Wbaipgvbpri.
+
+                                Wsremdr 3
+                                Hwp Wtroip su xvt Frxxss Dxpxsh dlppz qp gdqdddis st ihs Hibpesgw tgzq teqw Dxpxs, rsshib qj xwi Ztrmhpoifvt xvtcidj, tdc wxb Mtlvh; ebs perl Gtyeisf hseap vpgi drs Kzxt.
+
+                                Mabphxehtwc pjhtc xwim hseap pt lwhiaqwis mb Rzrhiejprri cu elt jwgdx Tpsremdr, hwpc hloaw ft hwkthth oh pujezaj eh qon mi xrhd elgis Rwehwsh. Elt Wspew dj hwp Wtroizvh st isi umfhe Gaegh dlppz qp zpgoiph px hwp Imtwglxxsb dq xwi gtnsch Mtlv, dj hwp wtgcco Gaegh lx ils Titxvoitsc st isi usigel Niog, lrs st isi ilwgo Gaegh lx ils Titxvoitsc st isi hmlis Ctef, hz xweh dyi ilwgo qpc pt nldwsc pztvm hpgdrr Npeg; ebs tj Keqpygxig wlteib qj Vtwwvyeimcc, zv dxvtcaxws, sfvxru isi Giqtdw dj hwp Ptkwhweiyft zj prm Heeii, hwp Imiqjemki hwpvtst blc beyt eibtcglvn Edezmcxatyxh ybitp ils cpbi Qstemck cu elt Psvtwaehjci, llwrs wweza eltr txwp hyqw Gerebrtih.
+
+                                Rc Epvhsb hseap pt l Wtroizv llc hseap bde lpzs pexpmbto xd xvt Lkt st ismgxm Npegw, oco ftib ctrt Cspcw p Gwitdtr cu elt Ybxeis Whpeih, ebs hld wvpwp csh, lsic iztnxth, pt lr Xrvpmmiebi zj iloi Dxpxs uzv llwrs lt wvpwp qi qwzwtr.
+
+                                Hwp Zxgs Ecihmrtyx dj hwp Ycmhto Wiehtd wweza mi Evshthtrh dq xwi Gtyeii, pje wweza seki bd Gsii, icwihw hwpc qi sffeapm stzxhss.
+
+                                Elt Wsclxt wvpwp rlihp xwiwg zxwif Dqjxgsgd, ech oads p Tftdmsibi avd xsbasgi, wc elt Ephprri cu elt Zwrp Tgigxoicx, cg hltr vt dlppz tiiggwhp xwi Cuqmri cu Avtwwspri st isi Jrwiph Hxoipw.
+
+                                Ils Hprpxs hseap vpgi ils hzpt Tclpv is hgj eap Wbaipgvbpriw. Kwpr hmhitrv jcg elpx Djctdws, isin wvpwp qi cc Zeil cg Ljumfblxxsb. Lsic xvt Avtwwspri st isi Jrwiph Hxoipw xw hgtis, xvt Nlxit Yfwimqt dlppz ecihmrt: Lrs rc Epvhsb hseap pt nsczwreis awissjx hwp Gdrqjcvtrqt zj iac ismghg dq xwi Atxftvg ecihibi.
+
+                                Uyskatyx xr Qpdih st Xxtteqwxicx gwlpa rci pbiibs qygxvtc xweb iz vtqcklp uvcb Zjumqt, lrs hwhbyppwutgpxwdy xd lcao ech scusn ebn Zjumqt zj wsbdc, Xgygi zv Evcutx jrrtc xwi Ictxth Gilxtw: pje xwi Dpcxn gccgmrxss dlppz cpztvhwpptwg qp pxepap ech gjmntgh iz Mchwreqtrh, Icmpp, Xjokbibi lrs Tictwwqsce, ergcgomck hd Wel.
+                """;
+        not_french not_french = new not_french(vigenereEncoded, false, true, false, false, 0);
+        System.out.println(not_french.getValidityFactor());
+
+    }
+    private static void test_a() throws FileNotFoundException, InterruptedException {
+        sample.not_french not_french1 = new not_french("""
+                There's a core principle that we will apply to all of our actions.  Even as we clean up the mess at Guantanamo, we will constantly reevaluate our approach, subject our decisions to review from other branches of government, as well as the public.  We seek the strongest and most sustainable legal framework for addressing these issues in the long term -- not to serve immediate politics, but to do what's right over the long term.  By doing that we can leave behind a legacy that outlasts my administration, my presidency, that endures for the next President and the President after that -- a legacy that protects the American people and enjoys a broad legitimacy at home and abroad.
+
+                Now, this is what I mean when I say that we need to focus on the future.  I recognize that many still have a strong desire to focus on the past.  When it comes to actions of the last eight years, passions are high.  Some Americans are angry; others want to re-fight debates that have been settled, in some cases debates that they have lost.  I know that these debates lead directly, in some cases, to a call for a fuller accounting, perhaps through an independent commission.
+
+                I've opposed the creation of such a commission because I believe that our existing democratic institutions are strong enough to deliver accountability.  The Congress can review abuses of our values, and there are ongoing inquiries by the Congress into matters like enhanced interrogation techniques.  The Department of Justice and our courts can work through and punish any violations of our laws or miscarriages of justice.
+
+                It's no secret there is a tendency in Washington to spend our time pointing fingers at one another.  And it's no secret that our media culture feeds the impulse that lead to a good fight and good copy.  But nothing will contribute more than that than a extended relitigation of the last eight years.  Already, we've seen how that kind of effort only leads those in Washington to different sides to laying blame.  It can distract us from focusing our time, our efforts, and our politics on the challenges of the future.
+
+                We see that, above all, in the recent debate -- how the recent debate has obscured the truth and sent people into opposite and absolutist ends.  On the one side of the spectrum, there are those who make little allowance for the unique challenges posed by terrorism, and would almost never put national security over transparency.  And on the other end of the spectrum, there are those who embrace a view that can be summarized in two words:  "Anything goes."  Their arguments suggest that the ends of fighting terrorism can be used to justify any means, and that the President should have blanket authority to do whatever he wants -- provided it is a President with whom they agree.
+
+                Both sides may be sincere in their views, but neither side is right.  The American people are not absolutist, and they don't elect us to impose a rigid ideology on our problems.  They know that we need not sacrifice our security for our values, nor sacrifice our values for our security, so long as we approach difficult questions with honesty and care and a dose of common sense.  That, after all, is the unique genius of America.  That's the challenge laid down by our Constitution.  That has been the source of our strength through the ages.  That's what makes the United States of America different as a nation.
+
+                I can stand here today, as President of the United States, and say without exception or equivocation that we do not torture, and that we will vigorously protect our people while forging a strong and durable framework that allows us to fight terrorism while abiding by the rule of law.  Make no mistake:  If we fail to turn the page on the approach that was taken over the past several years, then I will not be able to say that as President.  And if we cannot stand for our core values, then we are not keeping faith with the documents that are enshrined in this hall.
+
+                The Framers who drafted the Constitution could not have foreseen the challenges that have unfolded over the last 222 years.  But our Constitution has endured through secession and civil rights, through World War and Cold War, because it provides a foundation of principles that can be applied pragmatically; it provides a compass that can help us find our way.  It hasn't always been easy.  We are an imperfect people.  Every now and then, there are those who think that America's safety and success requires us to walk away from the sacred principles enshrined in this building.  And we hear such voices today.  But over the long haul the American people have resisted that temptation.  And though we've made our share of mistakes, required some course corrections, ultimately we have held fast to the principles that have been the source of our strength and a beacon to the world.
+
+                Now this generation faces a great test in the specter of terrorism.  And unlike the Civil War or World War II, we can't count on a surrender ceremony to bring this journey to an end.  Right now, in distant training camps and in crowded cities, there are people plotting to take American lives.  That will be the case a year from now, five years from now, and -- in all probability -- 10 years from now.  Neither I nor anyone can stand here today and say that there will not be another terrorist attack that takes American lives.  But I can say with certainty that my administration -- along with our extraordinary troops and the patriotic men and women who defend our national security -- will do everything in our power to keep the American people safe.  And I do know with certainty that we can and will defeat al Qaeda.  Because the terrorists can only succeed if they swell their ranks and alienate America from our allies, and they will never be able to do that if we stay true to who we are, if we forge tough and durable approaches to fighting terrorism that are anchored in our timeless ideals.  This must be our common purpose""");
+        not_french not_french3 = new not_french("""
+                PREAMBLE
+                We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defense, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.
+                                
+                Article I
+                Section 1
+                All legislative Powers herein granted shall be vested in a Congress of the United States, which shall consist of a Senate and House of Representatives.
+                                
+                Section 2
+                The House of Representatives shall be composed of Members chosen every second Year by the People of the several States, and the Electors in each State shall have the Qualifications requisite for Electors of the most numerous Branch of the State Legislature.
+                                
+                No Person shall be a Representative who shall not have attained to the Age of twenty five Years, and been seven Years a Citizen of the United States, and who shall not, when elected, be an Inhabitant of that State in which he shall be chosen.
+                                
+                Representatives and direct Taxes shall be apportioned among the several States which may be included within this Union, according to their respective Numbers, which shall be determined by adding to the whole Number of free Persons, including those bound to Service for a Term of Years, and excluding Indians not taxed, three fifths of all other Persons. The actual Enumeration shall be made within three Years after the first Meeting of the Congress of the United States, and within every subsequent Term of ten Years, in such Manner as they shall by Law direct. The Number of Representatives shall not exceed one for every thirty Thousand, but each State shall have at Least one Representative; and until such enumeration shall be made, the State of New Hampshire shall be entitled to chuse three, Massachusetts eight, Rhode-Island and Providence Plantations one, Connecticut five, New-York six, New Jersey four, Pennsylvania eight, Delaware one, Maryland six, Virginia ten, North Carolina five, South Carolina five, and Georgia three.
+                                
+                When vacancies happen in the Representation from any State, the Executive Authority thereof shall issue Writs of Election to fill such Vacancies.
+                                
+                The House of Representatives shall chuse their Speaker and other Officers; and shall have the sole Power of Impeachment.
+                                
+                Section 3
+                The Senate of the United States shall be composed of two Senators from each State, chosen by the Legislature thereof, for six Years; and each Senator shall have one Vote.
+                                
+                Immediately after they shall be assembled in Consequence of the first Election, they shall be divided as equally as may be into three Classes. The Seats of the Senators of the first Class shall be vacated at the Expiration of the second Year, of the second Class at the Expiration of the fourth Year, and of the third Class at the Expiration of the sixth Year, so that one third may be chosen every second Year; and if Vacancies happen by Resignation, or otherwise, during the Recess of the Legislature of any State, the Executive thereof may make temporary Appointments until the next Meeting of the Legislature, which shall then fill such Vacancies.
+                                
+                No Person shall be a Senator who shall not have attained to the Age of thirty Years, and been nine Years a Citizen of the United States, and who shall not, when elected, be an Inhabitant of that State for which he shall be chosen.
+                                
+                The Vice President of the United States shall be President of the Senate, but shall have no Vote, unless they be equally divided.
+                                
+                The Senate shall chuse their other Officers, and also a President pro tempore, in the Absence of the Vice President, or when he shall exercise the Office of President of the United States.
+                                
+                The Senate shall have the sole Power to try all Impeachments. When sitting for that Purpose, they shall be on Oath or Affirmation. When the President of the United States is tried, the Chief Justice shall preside: And no Person shall be convicted without the Concurrence of two thirds of the Members present.
+                                
+                Judgment in Cases of Impeachment shall not extend further than to removal from Office, and disqualification to hold and enjoy any Office of honor, Trust or Profit under the United States: but the Party convicted shall nevertheless be liable and subject to Indictment, Trial, Judgment and Punishment, according to Law""");
+
+        System.out.println(not_french1.getValidityFactor());
+        System.out.println(not_french1.not_french());
+        not_french not_french2 = new not_french(new File("src/sample/obama_not_french_test"));
+        System.out.println(not_french2.getValidityFactor());
+        System.out.println(not_french2.not_french());
+        System.out.println(not_french3.getValidityFactor());
+        System.out.println(not_french3.not_french());
+
     }
     private static void test_not_french() throws FileNotFoundException {
         String[] pathnames = new String[]{"src/sample/document.txt", "src/sample/spanish.txt", "src/sample/russian.txt", "src/sample/obama.txt", "src/sample/belides_english.txt", "src/sample/orpheus_latin.txt", "src/sample/french.txt", "src/sample/stringStorer.txt"};
@@ -1373,11 +1576,12 @@ public class not_french {
 //                M ajv ilak ewi Cfyvvejd sicclgi tyli wient xhv fctrfgdoeu lch drdieruwn etklro bp Uptae zc Wueopc, Dvntqbvc 7il, 1941, a jepxe fq ler ylh ixzdiid spiaevy ile Lyxxeu Dietvd prd kst Naglcisv pbtiip.
 //                """,true, true);
         //Thread.sleep(2000);
+        //bad this line below is not correct. It needs to select the right documents. It's set for english.
         double FrenchAverageValidityFactor = (not_french.getValidityFactor()+ not_french2.getValidityFactor()+ not_french3.getValidityFactor()+ not_french5.getValidityFactor()+ not_french6.getValidityFactor())/5;
         //System.err.println("French Average Validity Factor");
         //System.out.println(FrenchAverageValidityFactor);
         //Thread.sleep(2000);
-
+        //bad this line below is not correct. It needs to select the right documents. It's set for english.
         double NotFrenchNotCipherAverageValidityFactor = (not_french1.getValidityFactor()+ not_french4.getValidityFactor())/2;
         //System.err.println("Not French Not Cipher Average Validity Factor");
         //System.out.println(NotFrenchNotCipherAverageValidityFactor);
