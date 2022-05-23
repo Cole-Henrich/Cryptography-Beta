@@ -12,7 +12,11 @@ public class Letterbox extends TextArea {
     private String msg;
     private boolean ok;
     private Background original;
-
+    public Letterbox(boolean bodge){
+        super();
+        original = getBackground();
+        setWrapText(true);
+    }
     private final CharSet charSet = new CharSet();
     public void adjust(double w, double h) {
         setPrefWidth(w/72);

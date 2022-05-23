@@ -61,7 +61,7 @@ public class EncodePage extends StackPane {
         how = new Text("How do you want to encode your text?");
         Caesar = new button("Caesar - 26 possible keys", "Caesar Cipher", new CaesarEncodePage(), buttonSize);
         Substitution = new button("Substitution - 403,291,460,000,000,000,000,000,000 possible keys", "Substitution Cipher", new SubstitutionEncodePage(), buttonSize);
-        Vigenere = new button("Vigenere -  variable, but can easily surpass 20,725,275,000,000,000,000,000,000,000 possible keys", "Vigenère Cipher", new VigenereEncodePage(), buttonSize);
+        Vigenere = new button("Vigenère -  infinite possible keys; this program can generate any one of more than 26^1000000", "Vigenère Cipher", new VigenereEncodePage(), buttonSize);
         moreInfo = new button_link("(more info)", "On the number of possible Vigenère keys", new CountingVigenereKeysPage(), buttonSize);
         Custom = new button("Custom -\n these ciphers are unique to this app - and you can create your own unorthodox ciphers, which are at their core simple, but which are probably immune to any pre-existing deciphering programs because of their uniqueness.", "Custom", new EncodeCustomPage(), buttonSize);
 

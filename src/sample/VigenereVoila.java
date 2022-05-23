@@ -40,6 +40,7 @@ public class VigenereVoila extends StackPane {
     private Text header;
     private Text Info2;
     private TextArea Solved;
+    private Button expand;
     private Button tabulaRecta;
     private Button statisticsAttack;
     private Button dictionaryAttack;
@@ -86,12 +87,16 @@ public class VigenereVoila extends StackPane {
        // }
         char anotherEncrypto = String.valueOf(cipher.charAt(charSet.findAnother(String.valueOf(plainTextFirst).toLowerCase().charAt(0), solved.toLowerCase()))).toLowerCase().charAt(0);
         double time = timeFromClickDecode.getDuration();
-        String info2 = "For example, to find the encrypted equivalent of the first letter, find the intersection of the first letter and the first letter of the repeated keyword in a Tabula Recta, a.k.a. Vigenere Square. See the buttons below for more information. This means you go to row "+plainTextFirst+", column "+krFirst+" (or vice versa, column "+plainTextFirst+", row "+krFirst+", it doesn't matter since the Tabula Recta is symmetric) and pick the letter there. Here it's "+encFirst+". But notice: later "+plainTextFirst+" is encoded by "+anotherEncrypto+". This is what makes the Vigenere Cipher difficult to crack. In fact, it was considered uncrackable - named \"Le Chiffre Indechiffrable\" after its creation in 1553 by the Italian cryptographer Giovan Battista Bellaso (not Blaise de Vigenère, whom it is named after). Only in 1863 did Friedrich Kasiski, a German infantry officer and cryptographer, published a method of determining the key length of and breaking a Vigenere cipher. Charles Babbage, considered by some to be a father of computers (in the theoretical realm, because he never saw computers realized), possibly knew how to crack them as early as 1846. Either way, it stood uncracked for about 300 years. It was supposedly used even in World War 1 (but it's nowhere near as strong as an enigma cipher). The currently popular method of determining the key length was published only in 1922. Now that you know the key, any other messages that you receive can go into the page listed at the bottom - decrypt other messages that use the same key. This will provide an even faster and 100% reliable (the auto-crack vigenere is \"only\" 95% reliable) way to decrypt text. However, if you don't know if it's the same key, keep using the automatic codebreaker.";
-        header = new Text("Without further ado, here are the results:\n" +
+        String info2 = "For example, to find the encrypted equivalent of the first letter, find the intersection of the first letter and the first letter of the repeated keyword in a Tabula Recta, a.k.a. Vigenere Square. See the buttons below for more information. This means you go to row "+plainTextFirst+", column "+krFirst+" (or vice versa, column "+plainTextFirst+", row "+krFirst+", it doesn't matter since the Tabula Recta is symmetric) and pick the letter there. Here it's "+encFirst+". But notice: later "+plainTextFirst+" is encoded by "+anotherEncrypto+". This is what makes the Vigenere Cipher difficult to crack. In fact, it was considered uncrackable - named \"Le Chiffre Indechiffrable\" after its creation in 1553 by the Italian cryptographer Giovan Battista Bellaso (not Blaise de Vigenère, whom it is named after). Only in 1863 did Friedrich Kasiski, a German infantry officer and cryptographer, published a method of determining the key length of and breaking a Vigenere cipher. Charles Babbage, considered by some to be a father of computers (in the theoretical realm, because he never saw computers realized), possibly knew how to crack them as early as 1846. Either way, it stood uncracked for about 300 years. It was supposedly used even in World War 1 (but it's nowhere near as strong as an enigma cipher). The currently popular method of determining the key length was published only in 1922. Now that you know the key, any other messages that you receive can go into the page listed at the bottom - decrypt other messages that use the same key. This will provide an even faster and 100% reliable (the auto-crack vigenere is \"only\" 95% reliable) way to decrypt text. However, if you don't know if it's the same key, keep using the automatic codebreaker. \n\nWithout further ado, here are the results:\n " +
                 "Time taken to break the cipher: "+time+" nanoseconds\n"+
                 "Method: "+attackMethod+"\n"+
-                "Decrypted message:\n"
-                );
+                "Decrypted message:\n";
+//        header = new Text("Without further ado, here are the results:\n" +
+//                "Time taken to break the cipher: "+time+" nanoseconds\n"+
+//                "Method: "+attackMethod+"\n"+
+//                "Decrypted message:\n"
+//                );
+        expand = new Button("click to see more of the text");
         Solved = new TextArea(solved);
         tabulaRecta = new Button("Tabula Recta");
         statisticsAttack = new Button("Statistics Attack");
@@ -116,9 +121,10 @@ public class VigenereVoila extends StackPane {
         Header.setStyle("-fx-font-size:18pt;");
         Header.setFont(Font.font("MONOSPACED"));
         Header.setWrappingWidth(1440-(2*padding));
-        header.setStyle("-fx-font-size:18pt;");
-        header.setWrappingWidth(1440-(2*padding));
+//        header.setStyle("-fx-font-size:18pt;");
+//        header.setWrappingWidth(1440-(2*padding));
         Solved.setStyle("-fx-font-size:16pt;");
+        expand.setStyle("-fx-font-size:14pt;");
         tabulaRecta.setStyle("-fx-font-size:14pt;");
         statisticsAttack.setStyle("-fx-font-size:14pt;");
         dictionaryAttack.setStyle("-fx-font-size:14pt;");
@@ -140,11 +146,16 @@ public class VigenereVoila extends StackPane {
         layer2.setAlignment(Pos.BASELINE_CENTER);
         layer3.setAlignment(Pos.BASELINE_CENTER);
 
-        VBox all = new VBox(ExtraInfo, FirstLine, Header, Info2, header, Solved, bottom);
+        VBox all = new VBox(ExtraInfo, FirstLine, Header, Info2, expand,/*header,*/ Solved, bottom);
 //        Solved.setStyle("-fx-background-color:yellow");
         FirstLine.setStyle("-fx-font-size:20pt;");
         setOnScroll(scrollEvent -> charSet.handleExit(getScene()));
         setOnSwipeUp(swipeEvent -> charSet.handleExit(getScene()));
+        expand.setOnAction(actionEvent -> {
+            Info2.setText("");
+            Header.setText("");
+            Solved.setStyle("-fx-font-size:"+(charSet.deriveFontSize(Solved.getStyle())-1)+"pt;");
+        });
         tabulaRecta.setOnAction(actionEvent -> {
 //            Stage s = (Stage) getScene().getWindow();
 //            Parent root = new ManualSolve();
@@ -245,7 +256,7 @@ public class VigenereVoila extends StackPane {
 //        System.out.println("!" + wrappingWidth);
         Header.setWrappingWidth(wrappingWidth);
         Info2.setWrappingWidth(wrappingWidth);
-        header.setWrappingWidth(wrappingWidth);
+//        header.setWrappingWidth(wrappingWidth);
         ExtraInfo.setWrappingWidth(wrappingWidth);
 
 
@@ -273,7 +284,7 @@ public class VigenereVoila extends StackPane {
         FirstLine.setStyle(StringRelativeTwentyPt);
         Header.setStyle(StringRelativeEighteenPt);
         Info2.setStyle(StringRelativeTwelvePt);
-        header.setStyle(StringRelativeEighteenPt);
+//        header.setStyle(StringRelativeEighteenPt);
         tabulaRecta.setStyle(StringRelativeFourteenPt);
         statisticsAttack.setStyle(StringRelativeFourteenPt);
         dictionaryAttack.setStyle(StringRelativeFourteenPt);
