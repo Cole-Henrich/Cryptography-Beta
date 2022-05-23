@@ -1563,8 +1563,7 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
         }
         public String firstSentence(String string){
 //            Pattern pattern = Pattern.compile("[\"’]?[A-Z][^.?!]+((?![.?!][’\"]?\\s[\"’]?[A-Z][^.?!]).)+[.?!’\"]+");
-            String rtn = removeIgnorers(string.split("\\s+[^.!?]*[.!?]")[0], new String[]{"\s", ".", "!", "?"});
-            return rtn;
+            return string.substring(0, 50);
         }
         public String selectRandomBlockOfSentences(FileSplitToSentences source, int lengthOfBlock, boolean newLineEverySentence) {
             Random random = new Random();

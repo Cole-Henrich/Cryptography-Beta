@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
@@ -23,6 +24,7 @@ public class VigenereVoila extends StackPane {
     private int RelativeEighteenPt;
     private int RelativeSixteenPt;
     private int RelativeFourteenPt;
+    private int RelativeTwelvePt;
     private double wrappingWidth;
     private final String syntax = "-fx-font-size:";
     private String StringRelativeTwentyFivePt;
@@ -30,10 +32,13 @@ public class VigenereVoila extends StackPane {
     private String StringRelativeEighteenPt;
     private String StringRelativeSixteenPt;
     private String StringRelativeFourteenPt;
+    private String StringRelativeTwelvePt;
+
     private Text ExtraInfo;
     private Text FirstLine;
     private Text Header;
     private Text header;
+    private Text Info2;
     private TextArea Solved;
     private Button tabulaRecta;
     private Button statisticsAttack;
@@ -56,16 +61,16 @@ public class VigenereVoila extends StackPane {
         ExtraInfo.setText(extraInfo);
         System.out.println(keyWord);
         String firstSentence = charSet.firstSentence(solved);
-        VigenereKeyPhrase vkf = new VigenereKeyPhrase(keyWord, firstSentence.length());
         String removedIgnorers = charSet.removeIgnorers(firstSentence, new String[]{" "});
+        VigenereKeyPhrase vkf = new VigenereKeyPhrase(keyWord, charSet.RemoveIgnorers(removedIgnorers).length());
         VigenereCipher vgc = new VigenereCipher(removedIgnorers);
         String firstLine = "Keyword: "+keyWord;
         String info = "How encoding and decoding work:";
-        String firstPartOfText = "A piece of the text:\s"+firstSentence;
-        String kr = vkf.get();
-        String keyRepeated = "The keyword repeated:\s"+kr;
+        String firstPartOfText = "A piece of the text:\s\s\s\s\s\s\s\s\s\s"+firstSentence;
+        String kr = charSet.inheritForm(vkf.get(), removedIgnorers);
+        String keyRepeated = "The\skeyword\srepeated:\s\s\s\s\s\s\s\s\s"+kr;
         String enc = vgc.get();
-        String enciphered = "The piece of text, encrypted:\s"+enc;
+        String enciphered = "The\spiece\sof\stext,\sencrypted:\s"+enc;
 //        char plainTextFirst = ' ';
 //        if (firstSentence.length() > 0){
         System.out.println("firstSentence "+firstSentence);
@@ -103,12 +108,16 @@ public class VigenereVoila extends StackPane {
                 info+"\n"+
                         firstPartOfText+"\n"+
                         keyRepeated+"\n"+
-                        enciphered+"\n"+
-                        info2
+                        enciphered+"\n"
         );
+        Info2 = new Text(info2);
+        Info2.setStyle("-fx-font-size:12pt;");;
+        Info2.setWrappingWidth(1440-(2*padding));
         Header.setStyle("-fx-font-size:18pt;");
+        Header.setFont(Font.font("MONOSPACED"));
         Header.setWrappingWidth(1440-(2*padding));
         header.setStyle("-fx-font-size:18pt;");
+        header.setWrappingWidth(1440-(2*padding));
         Solved.setStyle("-fx-font-size:16pt;");
         tabulaRecta.setStyle("-fx-font-size:14pt;");
         statisticsAttack.setStyle("-fx-font-size:14pt;");
@@ -131,7 +140,7 @@ public class VigenereVoila extends StackPane {
         layer2.setAlignment(Pos.BASELINE_CENTER);
         layer3.setAlignment(Pos.BASELINE_CENTER);
 
-        VBox all = new VBox(ExtraInfo, FirstLine, Header, header, Solved, bottom);
+        VBox all = new VBox(ExtraInfo, FirstLine, Header, Info2, header, Solved, bottom);
 //        Solved.setStyle("-fx-background-color:yellow");
         FirstLine.setStyle("-fx-font-size:20pt;");
         setOnScroll(scrollEvent -> charSet.handleExit(getScene()));
@@ -235,6 +244,7 @@ public class VigenereVoila extends StackPane {
         wrappingWidth = s.getWidth()-(2*padding);
 //        System.out.println("!" + wrappingWidth);
         Header.setWrappingWidth(wrappingWidth);
+        Info2.setWrappingWidth(wrappingWidth);
         header.setWrappingWidth(wrappingWidth);
         ExtraInfo.setWrappingWidth(wrappingWidth);
 
@@ -244,11 +254,14 @@ public class VigenereVoila extends StackPane {
         RelativeEighteenPt = (int) area/64000;
         RelativeSixteenPt = (int) area/72000;
         RelativeFourteenPt = (int) (area/82285.7142857);
+        RelativeTwelvePt = (int) (area/96000);
         StringRelativeTwentyFivePt = syntax+RelativeTwentyFivePt+"pt;";
         StringRelativeTwentyPt = syntax+RelativeTwentyPt+"pt;";
         StringRelativeEighteenPt = syntax+RelativeEighteenPt+"pt;";
         StringRelativeSixteenPt = syntax+RelativeSixteenPt+"pt;";
         StringRelativeFourteenPt = syntax+RelativeFourteenPt+"pt;";
+        StringRelativeTwelvePt = syntax+ RelativeTwelvePt +"pt;";
+
 //        System.out.println(StringRelativeTwentyFivePt);
 //        System.out.println(StringRelativeTwentyPt);
 //        System.out.println(StringRelativeEighteenPt);
@@ -259,6 +272,7 @@ public class VigenereVoila extends StackPane {
         Solved.setStyle(StringRelativeSixteenPt);
         FirstLine.setStyle(StringRelativeTwentyPt);
         Header.setStyle(StringRelativeEighteenPt);
+        Info2.setStyle(StringRelativeTwelvePt);
         header.setStyle(StringRelativeEighteenPt);
         tabulaRecta.setStyle(StringRelativeFourteenPt);
         statisticsAttack.setStyle(StringRelativeFourteenPt);

@@ -14,62 +14,62 @@ public class CaesarCracker {
     private String language;
     public CaesarCracker(String Cipher) throws IOException, InterruptedException {
         shift = 1;
-        File[] files = new File[]{new File("src/sample/0.txt"), new File("src/sample/1.txt"), new File("src/sample/2.txt"), new File("src/sample/3.txt"), new File("src/sample/4.txt"), new File("src/sample/5.txt"), new File("src/sample/6.txt"), new File("src/sample/7.txt"), new File("src/sample/8.txt"), new File("src/sample/9.txt"), new File("src/sample/10.txt"), new File("src/sample/11.txt"), new File("src/sample/12.txt"), new File("src/sample/13.txt"), new File("src/sample/14.txt"), new File("src/sample/15.txt"), new File("src/sample/16.txt"), new File("src/sample/17.txt"), new File("src/sample/18.txt"), new File("src/sample/19.txt"), new File("src/sample/20.txt"), new File("src/sample/21.txt"), new File("src/sample/22.txt"), new File("src/sample/23.txt"), new File("src/sample/24.txt"), new File("src/sample/25.txt")};
-        for (int i = 1; i < files.length; i++) {
-            FileWriter fileWriter = new FileWriter(files[i]);
+//        File[] files = new File[]{new File("src/sample/0.txt"), new File("src/sample/1.txt"), new File("src/sample/2.txt"), new File("src/sample/3.txt"), new File("src/sample/4.txt"), new File("src/sample/5.txt"), new File("src/sample/6.txt"), new File("src/sample/7.txt"), new File("src/sample/8.txt"), new File("src/sample/9.txt"), new File("src/sample/10.txt"), new File("src/sample/11.txt"), new File("src/sample/12.txt"), new File("src/sample/13.txt"), new File("src/sample/14.txt"), new File("src/sample/15.txt"), new File("src/sample/16.txt"), new File("src/sample/17.txt"), new File("src/sample/18.txt"), new File("src/sample/19.txt"), new File("src/sample/20.txt"), new File("src/sample/21.txt"), new File("src/sample/22.txt"), new File("src/sample/23.txt"), new File("src/sample/24.txt"), new File("src/sample/25.txt")};
+        for (int i = 1; i < 26; i++) {
+//            FileWriter fileWriter = new FileWriter(files[i]);
             StringBuilder attempt = new StringBuilder();
             for (int j = 0; j < Cipher.length()/*-1*/; j++) {
                 attempt.append(transpositionOf(Cipher.charAt(j), i));
             }
-            System.out.println(attempt);
-                fileWriter.write(attempt.toString());
-                fileWriter.close();
-                not_english not_english = new not_english(files[i], 0.4, false);
+            String sattempt = attempt.toString();
+//                fileWriter.write(attempt.toString());
+//                fileWriter.close();
+                not_english not_english = new not_english(sattempt);
                 if (!not_english.not_english()) {
                     isSolved = true;
                     shift = i;
-                    solved = attempt.toString();
-                    solution = files[i];
+                    solved = sattempt;
+//                    solution = files[i];
                     key = new CaesarKey(shift).get();
                     language = "English";
                 }
                 else {
-                    not_spanish not_spanish = new not_spanish(files[i]);
+                    not_spanish not_spanish = new not_spanish(sattempt);
                     if (!not_spanish.not_spanish()) {
                         isSolved = true;
                         shift = i;
-                        solved = attempt.toString();
-                        solution = files[i];
+                        solved = sattempt;
+//                        solution = files[i];
                         key = new CaesarKey(shift).get();
                         language = "Spanish";
                     }
                     else {
-                        not_french not_french = new not_french(files[i]);
+                        not_french not_french = new not_french(sattempt);
                         if (!not_french.not_french()) {
                             isSolved = true;
                             shift = i;
-                            solved = attempt.toString();
-                            solution = files[i];
+                            solved = sattempt;
+//                            solution = files[i];
                             key = new CaesarKey(shift).get();
                             language = "French";
                         }
                         else {
-                            not_portuguese not_portuguese = new not_portuguese(files[i]);
+                            not_portuguese not_portuguese = new not_portuguese(sattempt);
                             if (!not_portuguese.not_portuguese()) {
                                 isSolved = true;
                                 shift = i;
-                                solved = attempt.toString();
-                                solution = files[i];
+                                solved = sattempt;
+//                                solution = files[i];
                                 key = new CaesarKey(shift).get();
                                 language = "Portuguese";
                             }
                             else {
-                                not_latin_alphabet_language not_latin_alphabet_language = new not_latin_alphabet_language(files[i]);
+                                not_latin_alphabet_language not_latin_alphabet_language = new not_latin_alphabet_language(sattempt);
                                 if (!not_latin_alphabet_language.not_latin_alphabet_language()) {
                                     isSolved = true;
                                     shift = i;
-                                    solved = attempt.toString();
-                                    solution = files[i];
+                                    solved = sattempt;
+//                                    solution = files[i];
                                     key = new CaesarKey(shift).get();
                                     language = "*";
                                 }
