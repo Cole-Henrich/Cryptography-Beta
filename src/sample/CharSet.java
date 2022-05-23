@@ -1559,7 +1559,7 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
                     I’m jumping to all kinds of unwarranted conclusions. At least I hope they’re unwarranted. Between my horror at what’s happened down at Dovetree and my hopes and fears for my own people, I’m upset and at loose ends and, perhaps, just imagining things.""";
         }
         public static File getPureMLK11(){
-            return new File("sample/Pure-MLK-11-Speeches.txt");
+            return new File("src/sample/Pure-MLK-11-Speeches.txt");
         }
         public String firstSentence(String string){
 //            Pattern pattern = Pattern.compile("[\"’]?[A-Z][^.?!]+((?![.?!][’\"]?\\s[\"’]?[A-Z][^.?!]).)+[.?!’\"]+");

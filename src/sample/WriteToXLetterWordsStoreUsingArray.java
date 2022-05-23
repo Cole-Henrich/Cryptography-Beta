@@ -91,13 +91,13 @@ public class WriteToXLetterWordsStoreUsingArray {
         return sortables;
     }
     public static void main(String[] args) throws IOException {
-        File[] _6s = new File[]{
-                new File("sample/_Array_6LetterWordsAndOccurrencesStore1.java"),
-                new File("sample/_Array_6LetterWordsAndOccurrencesStore2.java"),
-                new File("sample/_Array_6LetterWordsAndOccurrencesStore3.java"),
+        File[] _5s = new File[]{
+                new File("src/sample/_Array_5LetterWordsAndOccurrencesStore1.java"),
+                new File("src/sample/_Array_5LetterWordsAndOccurrencesStore2.java"),
+                new File("src/sample/_Array_5LetterWordsAndOccurrencesStore3.java"),
         };
         Time time = new Time();
-        new WriteToXLetterWordsStoreUsingArray(_6s, 6);
+        new WriteToXLetterWordsStoreUsingArray(_5s, 5);
         time.end();
         time.println();
     }

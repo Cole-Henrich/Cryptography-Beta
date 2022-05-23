@@ -119,13 +119,13 @@ public class WriteToXLetterWordsStore {
         return sortables;
     }
     public static void main(String[] args) throws IOException {
-        File[] _6s = new File[]{
-                new File("sample/_6LetterWordsStore1.java"),
-                new File("sample/_6LetterWordsStore2.java"),
-                new File("sample/_6LetterWordsStore3.java")
+        File[] _5s = new File[]{
+                new File("src/sample/_5LetterWordsStore.java"),
+                new File("src/sample/_5LetterWordsStore2.java"),
+                new File("src/sample/_5LetterWordsStore3.java")
         };
         Time time = new Time();
-        new WriteToXLetterWordsStore(_6s, 6);
+        new WriteToXLetterWordsStore(_5s, 5);
         time.end();
         time.println();
     }

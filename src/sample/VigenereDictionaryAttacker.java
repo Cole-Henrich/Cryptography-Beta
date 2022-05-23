@@ -13,9 +13,13 @@ public class VigenereDictionaryAttacker {
 //        ArrayList<HashMap<String, Integer>> xLongWords = words.get(likelyKeyLength);
         ArrayList<a> xLongWords = new ArrayList<>();
         if (likelyKeyLength <=9){
-
+            if (likelyKeyLength==9){
+                _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                xLongWords = _6s.central();
+            }
             if (likelyKeyLength==8){
-
+                _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                xLongWords = _6s.central();
             }
             else {
                 if (likelyKeyLength==7){
@@ -29,23 +33,28 @@ public class VigenereDictionaryAttacker {
                     }
                     else {
                         if (likelyKeyLength==5){
-
+                            _Array_5LetterWordsAndOccurrencesBigStore _5s = new _Array_5LetterWordsAndOccurrencesBigStore();
+                            xLongWords = _5s.central();
                         }
                         else {
                             if (likelyKeyLength==4){
-
+                                _Array_4LetterWordsAndOccurrencesBigStore _4s = new _Array_4LetterWordsAndOccurrencesBigStore();
+                                xLongWords = _4s.central();
                             }
                             else {
                                 if (likelyKeyLength==3){
-
+                                    _Array_3LetterWordsAndOccurrencesBigStore _3s = new _Array_3LetterWordsAndOccurrencesBigStore();
+                                    xLongWords = _3s.central();
                                 }
                                 else {
                                     if (likelyKeyLength==2){
-
+                                        _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                                        xLongWords = _6s.central();
                                     }
                                     else {
                                         if (likelyKeyLength==1){
-
+                                            _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                                            xLongWords = _6s.central();
                                         }
                                     }
                                 }
@@ -57,47 +66,58 @@ public class VigenereDictionaryAttacker {
         }
         else {
             if (likelyKeyLength == 10){
-
+                _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                xLongWords = _6s.central();
             }
             else {
                 if (likelyKeyLength == 11){
-
+                    _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                    xLongWords = _6s.central();
                 }
                 else {
                     if (likelyKeyLength == 12){
-
+                        _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                        xLongWords = _6s.central();
                     }
                     else {
                         if (likelyKeyLength == 13){
-
+                            _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                            xLongWords = _6s.central();
                         }
                         else {
                             if (likelyKeyLength == 14){
-
+                                _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                                xLongWords = _6s.central();
                             }
                             else {
                                 if (likelyKeyLength == 15){
-
+                                    _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                                    xLongWords = _6s.central();
                                 }
                                 else {
                                     if (likelyKeyLength == 16){
-
+                                        _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                                        xLongWords = _6s.central();
                                     }
                                     else {
                                         if (likelyKeyLength == 17){
-
+                                            _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                                            xLongWords = _6s.central();
                                         }
                                         else {
                                             if (likelyKeyLength == 18){
-
+                                                _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                                                xLongWords = _6s.central();
                                             }
                                             else {
                                                 if (likelyKeyLength == 19){
-
+                                                    _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                                                    xLongWords = _6s.central();
                                                 }
                                                 else {
                                                     if (likelyKeyLength == 20){
-
+                                                        _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                                                        xLongWords = _6s.central();
                                                     }
                                                     else {
                                                         xLongWords = new ArrayList<a>(Collections.singletonList(new a("supercalifragilisticexpialidocious", 1)));
