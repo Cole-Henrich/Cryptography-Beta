@@ -6,6 +6,8 @@ public class VigenereCracker {
     private boolean isSolved;
     private String solved;
     private String keyWord;
+    private int length;
+    private String AttackMethod;
     private final CharSet charSet = new CharSet();
     private int likelyMinLength;
     private int likelyKeyLength;
@@ -30,6 +32,7 @@ public class VigenereCracker {
             {Double.MAX_VALUE, 0.0388}
     };
     public VigenereCracker(String Cipher) throws IOException, InterruptedException {
+        System.err.println("new VigenereCracker");
         cipher = Cipher;
 //        int a = calculateLengthViaKasiski(cipher);
 //        int b = calculateLengthViaKasiski(charSet.RemoveIgnorers(cipher));
@@ -38,19 +41,29 @@ public class VigenereCracker {
 //        int e = calculateLengthViaKasiski(cipher.toUpperCase());
 //        System.out.println(a + "\n"+b + "\n"+c + "\n"+d + "\n"+e);
 //        System.out.println("^^Kasiskis^^");
-        likelyKeyLength = charSet.findKeyLengthByIndexOfCoincidenceAndKasiski(charSet.RemoveIgnorers(cipher), 3);
         String c1 = charSet.RemoveIgnorers(cipher);
+        likelyKeyLength = charSet.findKeyLengthByIndexOfCoincidenceAndKasiski(c1, 3);
+        System.out.println(likelyKeyLength);
+        length = c1.length();
+        System.out.println(length);
         if (likelyKeyLength == 1) {
             VigenereBruteForcer vbf = new VigenereBruteForcer(cipher, 1);
+            if (vbf.isSolved()){
+                isSolved = true;
+                solved = vbf.getSolved();
+                keyWord = vbf.getKeyWord();
+                keyLength = keyWord.length();
+                AttackMethod = "Brute Force";
+            }
         } else {
-            //cyan very good stuff - just not ready yet, commenting it out to allow other stuff to run.
-            if (c1.length() > 100 * likelyKeyLength) {
+            if (c1.length() > (100 * likelyKeyLength)) {
                 VigenereStatisticsAttacker vsa = new VigenereStatisticsAttacker(cipher, likelyKeyLength);
                 if (vsa.isSolved()) {
                     isSolved = true;
                     solved = vsa.getSolved();
                     keyWord = vsa.getKeyWord();
                     keyLength = keyWord.length();
+                    AttackMethod = "Statistics Attack";
                 }
             } else
             {
@@ -60,6 +73,7 @@ public class VigenereCracker {
                     solved = vda.getSolved();
                     keyWord = vda.getKeyWord();
                     keyLength = keyWord.length();
+                    AttackMethod = "Dictionary Attack";
                 } else {
                     if (likelyKeyLength == 2 || likelyKeyLength == 3) {
                         VigenereBruteForcer vbf = new VigenereBruteForcer(cipher, likelyKeyLength);
@@ -68,6 +82,7 @@ public class VigenereCracker {
                             solved = vbf.getSolved();
                             keyWord = vbf.getKeyWord();
                             keyLength = keyWord.length();
+                            AttackMethod = "Brute Force";
                         }
                     }
                 }
@@ -197,7 +212,9 @@ public class VigenereCracker {
     public boolean isSolved(){return isSolved;}
     public boolean isCaesar() {return isCaesar;}
     public int getShift() {return shift;}
-
+    public int getLength() {return length;}
+    public String getAttackMethod() {return AttackMethod;}
+    public String getCipher() {return cipher;}
     public static void main(String[] args) throws IOException, InterruptedException {
         //keys are "crawdad", "pearl", and "harbor"
         CharSet charSet = new CharSet(false);
@@ -380,4 +397,6 @@ M ajv ilak ewi Cfyvvejd sicclgi tyli wient xhv fctrfgdoeu lch drdieruwn etklro b
 //        }
 
     }
+
+
 }

@@ -21,9 +21,10 @@ public class CaesarCracker {
             for (int j = 0; j < Cipher.length()/*-1*/; j++) {
                 attempt.append(transpositionOf(Cipher.charAt(j), i));
             }
+            System.out.println(attempt);
                 fileWriter.write(attempt.toString());
                 fileWriter.close();
-                not_english not_english = new not_english(charSet.FileToString(files[i]));
+                not_english not_english = new not_english(files[i], 0.4, false);
                 if (!not_english.not_english()) {
                     isSolved = true;
                     shift = i;
@@ -33,7 +34,7 @@ public class CaesarCracker {
                     language = "English";
                 }
                 else {
-                    not_spanish not_spanish = new not_spanish(charSet.FileToString(files[i]));
+                    not_spanish not_spanish = new not_spanish(files[i]);
                     if (!not_spanish.not_spanish()) {
                         isSolved = true;
                         shift = i;
@@ -43,7 +44,7 @@ public class CaesarCracker {
                         language = "Spanish";
                     }
                     else {
-                        not_french not_french = new not_french(charSet.FileToString(files[i]));
+                        not_french not_french = new not_french(files[i]);
                         if (!not_french.not_french()) {
                             isSolved = true;
                             shift = i;
@@ -53,7 +54,7 @@ public class CaesarCracker {
                             language = "French";
                         }
                         else {
-                            not_portuguese not_portuguese = new not_portuguese(charSet.FileToString(files[i]));
+                            not_portuguese not_portuguese = new not_portuguese(files[i]);
                             if (!not_portuguese.not_portuguese()) {
                                 isSolved = true;
                                 shift = i;
@@ -63,7 +64,7 @@ public class CaesarCracker {
                                 language = "Portuguese";
                             }
                             else {
-                                not_latin_alphabet_language not_latin_alphabet_language = new not_latin_alphabet_language(charSet.FileToString(files[i]));
+                                not_latin_alphabet_language not_latin_alphabet_language = new not_latin_alphabet_language(files[i]);
                                 if (!not_latin_alphabet_language.not_latin_alphabet_language()) {
                                     isSolved = true;
                                     shift = i;
@@ -127,4 +128,8 @@ public class CaesarCracker {
     public File getSolution(){return solution;}
     public char[] getKey(){return key;}
 
+    public static void main(String[] args) throws IOException, InterruptedException {
+        CaesarCracker caesarCracker = new CaesarCracker(" Estd td esp dezcj zq Olyyj lyo zq Olyyj’d qctpyod lyo zq Olyyj’d szfdp. Te td l dezcj zq szh espdp escpp mpnlxp zyp estyr");
+        System.out.println(caesarCracker.getSolved());
+    }
 }

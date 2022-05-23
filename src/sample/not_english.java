@@ -116,7 +116,7 @@ public class not_english {
        this(file, 0.4);
     }
     public not_english(String string) throws InterruptedException {
-        this(string, CharSet.EngMinValidityFactor);
+        this(string, 0.4);
     }
     public not_english(File file, double cutoff) throws FileNotFoundException {
         this(file, cutoff, false);
@@ -134,29 +134,23 @@ public class not_english {
         Scanner reader = new Scanner(file);
         int i = 0;
         while (reader.hasNext()) {
+            String next = reader.next();
             if (optimize){
-                if (i >=8 ) {
-                    if (validWords < 4){
+                if (i >= 10) {
+                    if (validWords <= 2) {
                         not_english = true;
                         break;
-                    }
-                    else {
-                        if (i >= 10) {
-                            if (validWords < 5) {
+                    } else {
+                        if (i >= 15){
+                            if ( validWords <= 3){
                                 not_english = true;
                                 break;
-                            } else {
-                                if (i >= 16) {
-                                    if (validWords <= 9) {
+                            }
+                            else {
+                                if (i == 20){
+                                    if ( validWords <= 8){
                                         not_english = true;
                                         break;
-                                    } else {
-                                        if (i >= 20) {
-                                            if (validWords <= 12) {
-                                                not_english = true;
-                                                break;
-                                            }
-                                        }
                                     }
                                 }
                             }
@@ -164,12 +158,12 @@ public class not_english {
                     }
                 }
             }
-            if (words.contains(charSet.removeIgnorers(reader.next(), new String[]{""}))){
+            if (words.contains(charSet.RemoveIgnorers(next))) {
                 validWords++;
-                if (optimize){
-                    validityFactor = (double)validWords/(double)docLength;
-                    not_english = (validWords <= (cutoff*docLength));
-                    if (!not_english){
+                validityFactor = (double) validWords / (double) docLength;
+                not_english = (validWords <= (cutoff * docLength));
+                if (optimize) {
+                    if (!not_english) {
                         break;
                     }
                 }
@@ -214,14 +208,16 @@ public class not_english {
     public int getValidWords(){return validWords;}
     public int getDocLength(){return docLength;}
 
-    public static void main(String[] args) throws InterruptedException, FileNotFoundException {
-        test_not_english2();
-    }
+
     private static void test_not_english2() throws InterruptedException, FileNotFoundException {
-        not_english english = new not_english(charSet.FileToString(new File("src/sample/13.txt")));
+        not_english english = new not_english(charSet.FileToString(new File("src/sample/15.txt")));
+        not_english english2 = new not_english(new File("src/sample/15.txt"));
         not_english cipher = new not_english(charSet.FileToString(new File("src/sample/25.txt")));
+        not_english cipher2 = new not_english(new File("src/sample/25.txt"));
         System.out.println(english.not_english());
+        System.out.println(english2.not_english());
         System.out.println(cipher.not_english());
+        System.out.println(cipher2.not_english());
 
     }
     private static void test_ValidityFactorInVigenereCipher() throws InterruptedException {
@@ -1601,5 +1597,8 @@ public class not_english {
             rtn = rtn * 2;
         }
         return rtn;
+    }
+    public static void main(String[] args) throws InterruptedException, FileNotFoundException {
+        test_not_english2();
     }
 }

@@ -20,7 +20,7 @@ public class TopLevelDecrypter {
         isCaesar = false;
         isSubstitution = false;
         isVigenere = false;
-        CharSet charSet = new CharSet();
+        CharSet charSet = new CharSet(1);
         caesarCracker = new CaesarCracker(Cipher);
         if (caesarCracker.isSolved()){
             isCaesar = true;
@@ -30,18 +30,18 @@ public class TopLevelDecrypter {
             language = caesarCracker.getLanguage();
         }
         if (!isSolved) {
-            substitutionCracker = new SubstitutionCracker(Cipher, hiddenKey);
-            if (substitutionCracker.isSolved()){
-                isSubstitution = true;
-                solved = substitutionCracker.getSolved();
-                key = charSet.StringToCharArray(substitutionCracker.getKey());
+            vigenereCracker = new VigenereCracker(Cipher);
+            if (vigenereCracker.isSolved()){
+                isVigenere = true;
+                solved = vigenereCracker.getSolved();
                 isSolved = true;
             }
             if (!isSolved){
-                vigenereCracker = new VigenereCracker(Cipher);
-                if (vigenereCracker.isSolved()){
-                    isVigenere = true;
-                    solved = vigenereCracker.getSolved();
+                substitutionCracker = new SubstitutionCracker(Cipher, hiddenKey);
+                if (substitutionCracker.isSolved()){
+                    isSubstitution = true;
+                    solved = substitutionCracker.getSolved();
+                    key = charSet.StringToCharArray(substitutionCracker.getKey());
                     isSolved = true;
                 }
             }
@@ -53,7 +53,7 @@ public class TopLevelDecrypter {
         isCaesar = false;
         isSubstitution = false;
         isVigenere = false;
-        CharSet charSet = new CharSet();
+        CharSet charSet = new CharSet(1);
 
 
         if (charSet.containsPermutationsOfTwoChars(Cipher)){
@@ -71,21 +71,22 @@ public class TopLevelDecrypter {
                 solved = caesarCracker.getSolved();
                 key = caesarCracker.getKey();
                 isSolved = true;
+                System.out.println(solved);
             }
-
             if (!isSolved) {
-                substitutionCracker = new SubstitutionCracker(Cipher, "not applicable here");
-                if (substitutionCracker.isSolved()) {
-                    isSubstitution = true;
-                    solved = substitutionCracker.getSolved();
-                    key = charSet.StringToCharArray(substitutionCracker.getKey());
+                vigenereCracker = new VigenereCracker(Cipher);
+                if (vigenereCracker.isSolved()) {
+                    isVigenere = true;
+                    solved = vigenereCracker.getSolved();
+                    System.out.println(solved);
                     isSolved = true;
                 }
                 if (!isSolved) {
-                    vigenereCracker = new VigenereCracker(Cipher);
-                    if (vigenereCracker.isSolved()) {
-                        isVigenere = true;
-                        solved = vigenereCracker.getSolved();
+                    substitutionCracker = new SubstitutionCracker(Cipher, "not applicable here");
+                    if (substitutionCracker.isSolved()) {
+                        isSubstitution = true;
+                        solved = substitutionCracker.getSolved();
+                        key = charSet.StringToCharArray(substitutionCracker.getKey());
                         isSolved = true;
                     }
                 }

@@ -80,11 +80,11 @@ public class AutoSolvePage extends StackPane {
 //                }
                 ShowVoila();
             } catch (IOException | InterruptedException | NullPointerException e) {
-                e.printStackTrace();
+//                e.printStackTrace();
                 try {
                     topLevelDecrypter = new TopLevelDecrypter(text);
                 } catch (IOException | InterruptedException ioException) {
-                    ioException.printStackTrace();
+//                    ioException.printStackTrace();
                 }
             }
         });
@@ -147,6 +147,23 @@ public class AutoSolvePage extends StackPane {
                     s.setTitle("Voila");
                     s.setScene(new Scene(root, 1440, 800));
                     s.show();
+                }
+                if (!isTwoChar){
+                    boolean isVigenere = topLevelDecrypter.isVigenere();
+                    if (isVigenere){
+                        timeFromPaste.end();
+                        timeFromClickDecode.end();
+                        timeFromPaste.println();
+                        timeFromClickDecode.println();
+                        Stage s = (Stage) getScene().getWindow();
+                        VigenereCracker vigenereCracker = topLevelDecrypter.getVigenere();
+                        Parent root = new VigenereVoila(vigenereCracker.getSolved(), vigenereCracker.getKeyWord(), vigenereCracker.getLength(), vigenereCracker.getAttackMethod(), timeFromClickDecode, "Vigenère Cipher", vigenereCracker.getCipher());
+                        s.setMinWidth(100);
+                        s.setMinHeight(100);
+                        s.setTitle("Voila");
+                        s.setScene(new Scene(root, 1440, 800));
+                        s.show();
+                    }
                 }
             }
 //            if (!isSubstitution){

@@ -17,9 +17,10 @@ public class TestVigenereStatsAttackFindTimeExpenseVSTextAndKeyLength {
     private double[][] Data;
     private ArrayList<String> Failures;
     private int NumFailures;
-
     private ArrayList<ArrayList<String>> KeyWordFailures;
     private int NumKeyWordFailures;
+    private int NumNullCharInKeyWordFailures;
+
 
     public TestVigenereStatsAttackFindTimeExpenseVSTextAndKeyLength(int repetitions, int minKeyLength, int maxKeyLength, int keyLengthStep, int minTextLength, int maxTextLength, int TextLengthStep) throws InterruptedException {
         NumFailures = 0;
@@ -61,6 +62,9 @@ public class TestVigenereStatsAttackFindTimeExpenseVSTextAndKeyLength {
                             set.add(vsaKeyWord);
                             set.add(randomWord);
                             KeyWordFailures.add(set);
+                            if (vsaKeyWord.contains(String.valueOf('\u0000'))){
+                                NumNullCharInKeyWordFailures++;
+                            }
                         }
                     }
                     else {
@@ -72,7 +76,7 @@ public class TestVigenereStatsAttackFindTimeExpenseVSTextAndKeyLength {
                 double avg = (sum/(double)repetitions);
                 timesAtTextLengthL_KeyLengthK[indexOfTimes] = avg/1000000000.0;
                 indexOfTimes++;
-                System.out.println("finished Key Length\s"+keyLength+"\sText Length\s"+textLength);
+//                System.out.println("finished Key Length\s"+keyLength+"\sText Length\s"+textLength);
             }
             data[indexOfData] = timesAtTextLengthL_KeyLengthK;
             indexOfData++;
@@ -84,6 +88,7 @@ public class TestVigenereStatsAttackFindTimeExpenseVSTextAndKeyLength {
     public double[][] getData() {return Data;}
     public ArrayList<String> getFailures() {return Failures;}
     public int getNumFailures() {return NumFailures;}
+    public int getNumNullCharInKeyWordFailures() {return NumNullCharInKeyWordFailures;}
 
     public ArrayList<ArrayList<String>> getKeyWordFailures() {return KeyWordFailures;}
     public int getNumKeyWordFailures() {return NumKeyWordFailures;}
@@ -117,8 +122,10 @@ public class TestVigenereStatsAttackFindTimeExpenseVSTextAndKeyLength {
             String actual = failureSet.get(1);
             System.out.println(wrong+" "+actual);
         }
-        System.out.println(test.getNumKeyWordFailures());
-        System.out.println(numLoops);
+        System.out.println("Total Failures: "+test.getNumKeyWordFailures());
+        System.out.println("Of which contain null char: "+ test.getNumNullCharInKeyWordFailures());
+        System.out.println("Of which do not contain null char: "+ (test.getNumKeyWordFailures()-test.getNumNullCharInKeyWordFailures()));
+        System.out.println("numLoops: "+numLoops);
         time.println();
     }
 }
