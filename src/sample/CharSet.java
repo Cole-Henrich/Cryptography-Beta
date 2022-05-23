@@ -40,7 +40,7 @@ public class CharSet {
 //                """));
 //        System.out.println(charSet.permutationsOfAlphabet(7));
 //        double l = charSet.getAlphabet().length;
-//        double Fl = charSet.countWordsInFile(new File("src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"));
+//        double Fl = charSet.countWordsInFile(new File("sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"));
 //        System.out.println(l);
 //        System.out.println(Fl);
 //        System.out.println(l*Fl*29819);
@@ -629,8 +629,8 @@ public class CharSet {
     }
     public static Filepackage getAmericanDream1964() {
         return new Filepackage(
-                new File("src/sample/American-Dream-7_4_1965_Mistaken.txt"),
-                new File("src/sample/American-Dream-7_4_1965_Corrected.txt")
+                new File("sample/American-Dream-7_4_1965_Mistaken.txt"),
+                new File("sample/American-Dream-7_4_1965_Corrected.txt")
         );
     }
 
@@ -1559,7 +1559,7 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
                     I’m jumping to all kinds of unwarranted conclusions. At least I hope they’re unwarranted. Between my horror at what’s happened down at Dovetree and my hopes and fears for my own people, I’m upset and at loose ends and, perhaps, just imagining things.""";
         }
         public static File getPureMLK11(){
-            return new File("src/sample/Pure-MLK-11-Speeches.txt");
+            return new File("sample/Pure-MLK-11-Speeches.txt");
         }
         public String firstSentence(String string){
 //            Pattern pattern = Pattern.compile("[\"’]?[A-Z][^.?!]+((?![.?!][’\"]?\\s[\"’]?[A-Z][^.?!]).)+[.?!’\"]+");
@@ -1754,7 +1754,7 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
         }
         wholeShebang = makeWholeShebang();
     }
-    public File getLanguage_Manipulation_UniqueWords_TrainerReservoir(){return new File("src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt");}
+    public File getLanguage_Manipulation_UniqueWords_TrainerReservoir(){return new File("sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt");}
     public char[] getAlphabet(){return alphabet;}
     public char[] getUpperCases(){return upperCases;}
     public char[] getLongAlphabet(){return longAlphabet;}

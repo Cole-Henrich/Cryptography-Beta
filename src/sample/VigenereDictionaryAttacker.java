@@ -13,12 +13,14 @@ public class VigenereDictionaryAttacker {
 //        ArrayList<HashMap<String, Integer>> xLongWords = words.get(likelyKeyLength);
         ArrayList<a> xLongWords = new ArrayList<>();
         if (likelyKeyLength <=9){
+
             if (likelyKeyLength==8){
 
             }
             else {
                 if (likelyKeyLength==7){
-
+                    _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
+                    xLongWords = _6s.central();
                 }
                 else {
                     if (likelyKeyLength==6){

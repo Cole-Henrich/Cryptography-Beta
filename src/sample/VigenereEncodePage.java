@@ -33,10 +33,14 @@ public class VigenereEncodePage extends StackPane {
 //    private ArrayList<Text>textes;
     ArrayList<Letterbox>letterboxes;
     private boolean full;
-    private SubstitutionDeciphered substitutionDeciphered;
+//    private SubstitutionDeciphered substitutionDeciphered;
+    private VigenereDeciphered vigenereDeciphered;
+    private VigenereCipher vigenereCipher;
+
     private TextArea in;
     private TextArea out;
-    private String[] key;
+//    private String[] key;
+    private String keyWord;
     private CheckBox switcher;
     private button div;
     private Text Instructions;
@@ -170,9 +174,9 @@ public class VigenereEncodePage extends StackPane {
         s.show();
     }
     private void applyArgs(boolean encode, String switcherText, Text Instructions, String inPrompt, String outPrompt,button tempDecode, button tempRandom, button tempNewQuote) throws IOException {
-        String title = "Substitution Cipher Encoding";
+        String title = "Vigenère Cipher Encoding";
         if (!encode){
-            title = "Substitution Cipher Decoding";
+            title = "Vigenère Cipher Decoding";
         }
         Stage s = (Stage) getScene().getWindow();
         Parent root = new VigenereEncodePage(encode, switcherText, Instructions, inPrompt, outPrompt, tempDecode, tempRandom, tempNewQuote);
@@ -192,7 +196,8 @@ public class VigenereEncodePage extends StackPane {
         spacerPrefWidth=36;
         setPadding(new Insets(30,50,50,50));
         Instructions.setWrappingWidth(1340);
-        key = new String[26];
+        keyWord = "";
+//        key = new String[26];
         switcher = new CheckBox();
         switcher.setText(switcherText);
         switcher.setSelected(encode);
@@ -201,13 +206,13 @@ public class VigenereEncodePage extends StackPane {
 //        textes = new ArrayList<Text>(Arrays.asList(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z));
         letterboxes = new ArrayList<Letterbox>(Collections.singletonList(wordInput));
 
-        defineInputReaction();
+        defineInputReaction(encode);
 
         in = new TextArea();
         in.setPromptText(inPrompt);
         out = new TextArea();
         out.setPromptText(outPrompt);
-        in.setOnKeyTyped(keyEvent -> decode());
+        in.setOnKeyTyped(keyEvent -> decode(encode));
         in.setOnMouseMoved(mouseEvent -> clearOutputIfNecessary());
         in.setPrefHeight(340);
         out.setPrefHeight(340);
@@ -238,7 +243,7 @@ public class VigenereEncodePage extends StackPane {
         div.setVisible(false);
         div.setPrefSize(1,20);
         top.getChildren().addAll(switcher,div);
-        habensTextium = new HBox();
+//        habensTextium = new HBox();
 //        Text first = textes.get(0);
 //        first.setStyle("-fx-font-size:16pt;");
 //        habensTextium.getChildren().add(first);
@@ -262,15 +267,15 @@ public class VigenereEncodePage extends StackPane {
         if (decode == null){
             System.err.println("decode = null");
         }
-        if (habensTextium == null){
-            System.err.println("habensTextium = null");
-        }
+//        if (habensTextium == null){
+//            System.err.println("habensTextium = null");
+//        }
         if (habensBoxes == null){
             System.err.println("habensBoxes = null");
         }
 
         HBox buttonsBox = new HBox(decode, random,NewQuote);
-        layout.getChildren().addAll(top,Instructions,buttonsBox,habensTextium,habensBoxes,IO);
+        layout.getChildren().addAll(top,Instructions,buttonsBox,/*habensTextium,*/habensBoxes,IO);
         getChildren().add(layout);
 
         switcher.setOnMouseReleased(mouseEvent -> {
@@ -280,7 +285,13 @@ public class VigenereEncodePage extends StackPane {
                 fileNotFoundException.printStackTrace();
             }
         });
-        decode.setOnAction(actionEvent -> handleAutocrack(decode));
+        decode.setOnAction(actionEvent -> {
+            try {
+                handleAutocrack(decode);
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
         String fx16pt = "-fx-font-size:16pt;";
         decode.setStyle(fx16pt);
         decode.setAlignment(Pos.TOP_CENTER);
@@ -293,24 +304,24 @@ public class VigenereEncodePage extends StackPane {
         HBox.setHgrow(out, Priority.ALWAYS);
         habensBoxes.setAlignment(Pos.CENTER);
         HBox.setHgrow(habensBoxes, Priority.ALWAYS);
-        habensTextium.setAlignment(Pos.CENTER);
-        HBox.setHgrow(habensTextium, Priority.ALWAYS);
+//        habensTextium.setAlignment(Pos.CENTER);
+//        HBox.setHgrow(habensTextium, Priority.ALWAYS);
         IO.setAlignment(Pos.BOTTOM_CENTER);
         switcher.setTextAlignment(TextAlignment.CENTER);
         top.setAlignment(Pos.TOP_CENTER);
         Instructions.setTextAlignment(TextAlignment.LEFT);
         setOnMouseEntered(mouseEvent -> adjustSizesProportionallyOnResize());
 //        setOnMouseMoved(mouseEvent -> adjustSizesProportionallyOnResize());
-        random.setOnAction(actionEvent -> InjectRandomKey());
+        random.setOnAction(actionEvent -> InjectRandomKey(encode));
         NewQuote.setOnAction(actionEvent -> {
-            InjectNewQuote();
+            InjectNewQuote(encode);
         });
         //Green 2022/2/1 and forward edits:
         setOnScroll(scrollEvent -> charSet.handleExit(getScene()));
         setOnSwipeUp(swipeEvent -> charSet.handleExit(getScene()));
         //Green end edits
     }
-    private void InjectNewQuote() {
+    private void InjectNewQuote(boolean encode) {
         Random RANDOM = new Random();
         double Mathrand = Math.random();
         int lengthOfBlock = 5;
@@ -320,14 +331,14 @@ public class VigenereEncodePage extends StackPane {
         String quote = charSet.selectRandomBlockOfSentences(quoteInspiration, lengthOfBlock, true);
         in.setText("");
         in.setText(quote);
-        decode();
+        decode(encode);
     }
     private void clearOutputIfNecessary(){
         if (in.getText().isEmpty() && !out.getText().isEmpty()){
             out.setText("");
         }
     }
-    private void InjectRandomKey(){
+    private void InjectRandomKey(boolean encode){
         BigArrayStore biggy = new BigArrayStore();
         ArrayList<String> words = biggy.central();
         Random RANDOM = new Random();
@@ -337,18 +348,21 @@ public class VigenereEncodePage extends StackPane {
             initial.setText(String.valueOf(words.get(random)));
             letterboxes.set(i, initial);
         }
-        reactToInput();
+        reactToInput(encode);
     }
-    private void handleAutocrack(button b){
-        if (hasAdequateText(b)){
+    private void handleAutocrack(button b) throws IOException, InterruptedException {
+//        if (hasAdequateText(b)){
+            Time time = new Time();
             Stage s = (Stage) getScene().getWindow();
-            Parent root = new AutoSolvePage(in.getText());
+            VigenereCracker vigenereCracker = new VigenereCracker(in.getText());
+            time.end();
+            Parent root = new VigenereVoila(vigenereCracker.getSolved(), vigenereCracker.getKeyWord(), vigenereCracker.getLength(), vigenereCracker.getAttackMethod(), time, "", vigenereCracker.getCipher());
             s.setMinWidth(100);
             s.setMinHeight(100);
             s.setTitle("AutoSolve");
             s.setScene(new Scene(root, 1440, 800));
             s.show();
-        }
+      //  }
         b.setDisable(false);
     }
     private boolean hasAdequateText(button b){
@@ -464,16 +478,16 @@ public class VigenereEncodePage extends StackPane {
         }
         return !problem;
     }
-    private void defineInputReaction(){
+    private void defineInputReaction(boolean encode){
         for (Letterbox letterbox:letterboxes) {
-            letterbox.setOnKeyReleased(keyEvent -> reactToInput());
+            letterbox.setOnKeyReleased(keyEvent -> reactToInput(encode));
         }
     }
-    private void reactToInput() {
+    private void reactToInput(boolean encode) {
 //        checkIfKeyIsFullOnLetterboxInput();
         updateKey();
-        alertOnDuplicates();
-        decode();
+       // alertOnDuplicates();
+        decode(encode);
     }
     private void alertOnDuplicates(){
         for (int i = 0; i < letterboxes.size()-1; i++) {
@@ -552,19 +566,29 @@ public class VigenereEncodePage extends StackPane {
         }
     }
     private void updateKey(){
-        if (full){
+//        if (full){
             for (int index = 0; index < letterboxes.size(); index++) {
                 Letterbox letterboxus = letterboxes.get(index);
-                key[index]=letterboxus.getText().toLowerCase();
+                keyWord = letterboxus.getText().toLowerCase();
             }
-        }
+        //}
     }
 
-    private void decode(){
-        if (full && !in.getText().isBlank()) {
-            substitutionDeciphered = new SubstitutionDeciphered(in.getText(), key);
-            out.setText(substitutionDeciphered.get());
-        }
+    private void decode(boolean encode){
+       if (encode) {
+           if (!in.getText().isBlank()) {
+               VigenereKeyPhrase vkf = new VigenereKeyPhrase(keyWord, in.getText().length());
+               vigenereCipher = new VigenereCipher(in.getText(), vkf.get());
+               out.setText(vigenereCipher.get());
+           }
+       }
+       if (!encode){
+           if (!in.getText().isBlank()) {
+               VigenereKeyPhrase vkf = new VigenereKeyPhrase(keyWord, charSet.RemoveIgnorers(in.getText()).length());
+               vigenereDeciphered = new VigenereDeciphered(in.getText(), vkf.get());
+               out.setText(vigenereDeciphered.get());
+           }
+       }
     }
     private void checkIfKeyIsFullOnLetterboxInput(){
         boolean rtn = true;

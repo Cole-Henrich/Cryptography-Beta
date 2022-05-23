@@ -45,8 +45,8 @@ public class CoordinateGrapher_FullRange extends JPanel {
 
         canvas = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         fillCanvas(Color.cyan);
-        File yFile = new File("src/sample/yPoints.txt");
-        File xFile = new File("src/sample/xPoints.txt");
+        File yFile = new File("sample/yPoints.txt");
+        File xFile = new File("sample/xPoints.txt");
         FileWriter yWriter = new FileWriter(yFile);
         FileWriter xWriter = new FileWriter(xFile);
         for (int i = 0; i < coordinates.size(); i++) {

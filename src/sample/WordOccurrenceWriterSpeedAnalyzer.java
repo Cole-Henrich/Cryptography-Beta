@@ -6,19 +6,19 @@ import java.util.Scanner;
 public class WordOccurrenceWriterSpeedAnalyzer {
     private CharSet charSet = new CharSet();
     public WordOccurrenceWriterSpeedAnalyzer(int start, int step, int max) throws IOException {
-        File BigWordAndOccurrenceStore = new File("src/sample/BigWordAndOccurrenceStore.java");
+        File BigWordAndOccurrenceStore = new File("sample/BigWordAndOccurrenceStore.java");
         File[] WordAndOccurrenceStores = new File[]{
-                new File("src/sample/WordAndOccurrenceStore1.java"),
-                new File("src/sample/WordAndOccurrenceStore2.java"),
-                new File("src/sample/WordAndOccurrenceStore3.java"),
-                new File("src/sample/WordAndOccurrenceStore4.java"),
-                new File("src/sample/WordAndOccurrenceStore5.java"),
-                new File("src/sample/WordAndOccurrenceStore6.java"),
-                new File("src/sample/WordAndOccurrenceStore7.java")
+                new File("sample/WordAndOccurrenceStore1.java"),
+                new File("sample/WordAndOccurrenceStore2.java"),
+                new File("sample/WordAndOccurrenceStore3.java"),
+                new File("sample/WordAndOccurrenceStore4.java"),
+                new File("sample/WordAndOccurrenceStore5.java"),
+                new File("sample/WordAndOccurrenceStore6.java"),
+                new File("sample/WordAndOccurrenceStore7.java")
         };
         File r = charSet.getLanguage_Manipulation_UniqueWords_TrainerReservoir();
 
-        File res = new File("src/sample/mutableEnglishReservoirForSpeedAnalysis");
+        File res = new File("sample/mutableEnglishReservoirForSpeedAnalysis");
         StringBuilder totalTimes = new StringBuilder();
         StringBuilder countAndSortTimes = new StringBuilder();
         for (int i = start; i < max; i+=step) {
@@ -38,8 +38,8 @@ public class WordOccurrenceWriterSpeedAnalyzer {
             countAndSortTimes.append(wow.getDurationOfCountAndSort()).append("\n");
             System.out.println(i);
         }
-        FileWriter WOWTotalTimeWriter = new FileWriter("src/sample/WOWTotalTimes");
-        FileWriter WOWCountAndSortTimeWriter = new FileWriter("src/sample/WOWCountAndSortTimes");
+        FileWriter WOWTotalTimeWriter = new FileWriter("sample/WOWTotalTimes");
+        FileWriter WOWCountAndSortTimeWriter = new FileWriter("sample/WOWCountAndSortTimes");
         WOWTotalTimeWriter.write(totalTimes.toString());
         WOWCountAndSortTimeWriter.write(countAndSortTimes.toString());
         WOWTotalTimeWriter.close();

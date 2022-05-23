@@ -311,7 +311,7 @@ public class not_french {
 
         System.out.println(not_french1.getValidityFactor());
         System.out.println(not_french1.not_french());
-        not_french not_french2 = new not_french(new File("src/sample/obama_not_french_test"));
+        not_french not_french2 = new not_french(new File("sample/obama_not_french_test"));
         System.out.println(not_french2.getValidityFactor());
         System.out.println(not_french2.not_french());
         System.out.println(not_french3.getValidityFactor());
@@ -319,7 +319,7 @@ public class not_french {
 
     }
     private static void test_not_french() throws FileNotFoundException {
-        String[] pathnames = new String[]{"src/sample/document.txt", "src/sample/spanish.txt", "src/sample/russian.txt", "src/sample/obama.txt", "src/sample/belides_english.txt", "src/sample/orpheus_latin.txt", "src/sample/french.txt", "src/sample/stringStorer.txt"};
+        String[] pathnames = new String[]{"sample/document.txt", "sample/spanish.txt", "sample/russian.txt", "sample/obama.txt", "sample/belides_english.txt", "sample/orpheus_latin.txt", "sample/french.txt", "sample/stringStorer.txt"};
         for (String pathname : pathnames) {
             File document = new File(pathname);
             not_french not_french = new not_french(document);

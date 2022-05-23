@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class JGetter{
     private ArrayList<String> jholder;
     public JGetter() throws FileNotFoundException {
-        File JReservoir = new File("src/sample/JReservoir.txt");
+        File JReservoir = new File("sample/JReservoir.txt");
         Scanner JScanner = new Scanner(JReservoir);
         jholder = new ArrayList<>();
         while (JScanner.hasNext()){

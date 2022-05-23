@@ -162,85 +162,85 @@ public class UniqueWordsStorerWriter {
             }
         }
         File[] ArrayStores = new File[]{
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage1.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage2.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage3.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage4.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage5.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage6.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage7.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage8.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage9.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage10.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage11.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage12.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage14.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage15.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage16.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage17.java"),
-                new File("src/sample/ArrayStoreGeneralLatinAlphabetLanguage18.java")
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage1.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage2.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage3.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage4.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage5.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage6.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage7.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage8.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage9.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage10.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage11.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage12.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage14.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage15.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage16.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage17.java"),
+                new File("sample/ArrayStoreGeneralLatinAlphabetLanguage18.java")
         };
-        File BigArrayStore = new File("src/sample/BigArrayStoreGeneralLatinAlphabetLanguage.java");
+        File BigArrayStore = new File("sample/BigArrayStoreGeneralLatinAlphabetLanguage.java");
         String Language = "GeneralLatinAlphabetLanguage";
         UniqueWordsStorerWriter w = new UniqueWordsStorerWriter(generalUniques, ArrayStores, BigArrayStore, Language);
     }
     private static void Spanish() throws IOException {
-        File reservoir = new File("src/sample/SpanishReservoir.txt");
+        File reservoir = new File("sample/SpanishReservoir.txt");
         File[] ArrayStores = new File[]{
-                new File("src/sample/ArrayStoreSpanish1.java"),
-                new File("src/sample/ArrayStoreSpanish2.java"),
-                new File("src/sample/ArrayStoreSpanish3.java"),
-                new File("src/sample/ArrayStoreSpanish4.java"),
+                new File("sample/ArrayStoreSpanish1.java"),
+                new File("sample/ArrayStoreSpanish2.java"),
+                new File("sample/ArrayStoreSpanish3.java"),
+                new File("sample/ArrayStoreSpanish4.java"),
         };
-        File BigArrayStore = new File("src/sample/BigArrayStoreSpanish.java");
+        File BigArrayStore = new File("sample/BigArrayStoreSpanish.java");
         String Language = "Spanish";
         UniqueWordsStorerWriter w = new UniqueWordsStorerWriter(reservoir, ArrayStores, BigArrayStore, Language);
     }
     private static void Portuguese() throws IOException {
-        File reservoir = new File("src/sample/PortugueseReservoir.txt");
+        File reservoir = new File("sample/PortugueseReservoir.txt");
         File[] ArrayStores = new File[]{
-                new File("src/sample/ArrayStorePortuguese1.java"),
-                new File("src/sample/ArrayStorePortuguese2.java"),
-                new File("src/sample/ArrayStorePortuguese3.java"),
-                new File("src/sample/ArrayStorePortuguese4.java"),
-                new File("src/sample/ArrayStorePortuguese5.java"),
-                new File("src/sample/ArrayStorePortuguese6.java"),
-                new File("src/sample/ArrayStorePortuguese7.java"),
+                new File("sample/ArrayStorePortuguese1.java"),
+                new File("sample/ArrayStorePortuguese2.java"),
+                new File("sample/ArrayStorePortuguese3.java"),
+                new File("sample/ArrayStorePortuguese4.java"),
+                new File("sample/ArrayStorePortuguese5.java"),
+                new File("sample/ArrayStorePortuguese6.java"),
+                new File("sample/ArrayStorePortuguese7.java"),
 
         };
-        File BigArrayStore = new File("src/sample/BigArrayStorePortuguese.java");
+        File BigArrayStore = new File("sample/BigArrayStorePortuguese.java");
         String Language = "Portuguese";
         UniqueWordsStorerWriter w = new UniqueWordsStorerWriter(reservoir, ArrayStores, BigArrayStore, Language);
     }
     private static void English() throws IOException {
-        File reservoir = new File("src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt");
+        File reservoir = new File("sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt");
         File[] ArrayStores = new File[]{
-                new File("src/sample/ArrayStore1.java"),
-                new File("src/sample/ArrayStore2.java"),
-                new File("src/sample/ArrayStore3.java"),
-                new File("src/sample/ArrayStore4.java"),
-                new File("src/sample/ArrayStore5.java"),
-                new File("src/sample/ArrayStore6.java")
+                new File("sample/ArrayStore1.java"),
+                new File("sample/ArrayStore2.java"),
+                new File("sample/ArrayStore3.java"),
+                new File("sample/ArrayStore4.java"),
+                new File("sample/ArrayStore5.java"),
+                new File("sample/ArrayStore6.java")
         };
-        File BigArrayStore = new File("src/sample/BigArrayStore.java");
+        File BigArrayStore = new File("sample/BigArrayStore.java");
         String Language = "";
         UniqueWordsStorerWriter w = new UniqueWordsStorerWriter(reservoir, ArrayStores, BigArrayStore, Language);
     }
 
     private static void French() throws IOException {
-        File reservoir = new File("src/sample/FrenchReservoir.txt");
+        File reservoir = new File("sample/FrenchReservoir.txt");
         File[] ArrayStores = new File[]{
-                new File("src/sample/ArrayStoreFrench1.java"),
-                new File("src/sample/ArrayStoreFrench2.java"),
-                new File("src/sample/ArrayStoreFrench3.java"),
-                new File("src/sample/ArrayStoreFrench4.java"),
-                new File("src/sample/ArrayStoreFrench5.java"),
-                new File("src/sample/ArrayStoreFrench6.java"),
-                new File("src/sample/ArrayStoreFrench7.java"),
-                new File("src/sample/ArrayStoreFrench8.java"),
+                new File("sample/ArrayStoreFrench1.java"),
+                new File("sample/ArrayStoreFrench2.java"),
+                new File("sample/ArrayStoreFrench3.java"),
+                new File("sample/ArrayStoreFrench4.java"),
+                new File("sample/ArrayStoreFrench5.java"),
+                new File("sample/ArrayStoreFrench6.java"),
+                new File("sample/ArrayStoreFrench7.java"),
+                new File("sample/ArrayStoreFrench8.java"),
 
         };
-        File BigArrayStore = new File("src/sample/BigArrayStoreFrench.java");
+        File BigArrayStore = new File("sample/BigArrayStoreFrench.java");
         String Language = "French";
         UniqueWordsStorerWriter w = new UniqueWordsStorerWriter(reservoir, ArrayStores, BigArrayStore, Language);
     }
@@ -255,9 +255,9 @@ public class UniqueWordsStorerWriter {
 //        System.out.println(sb.toString());
 //    }
 //    private static void getFrench() throws FileNotFoundException {
-//        getLanguage(new File("src/sample/FrenchReservoir.txt"));
+//        getLanguage(new File("sample/FrenchReservoir.txt"));
 //    }
 //    private static void getSpanish() throws FileNotFoundException {
-//        getLanguage(new File("src/sample/SpanishReservoir.txt"));
+//        getLanguage(new File("sample/SpanishReservoir.txt"));
 //    }
 }

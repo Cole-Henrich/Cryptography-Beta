@@ -210,10 +210,10 @@ public class not_english {
 
 
     private static void test_not_english2() throws InterruptedException, FileNotFoundException {
-        not_english english = new not_english(charSet.FileToString(new File("src/sample/15.txt")));
-        not_english english2 = new not_english(new File("src/sample/15.txt"));
-        not_english cipher = new not_english(charSet.FileToString(new File("src/sample/25.txt")));
-        not_english cipher2 = new not_english(new File("src/sample/25.txt"));
+        not_english english = new not_english(charSet.FileToString(new File("sample/15.txt")));
+        not_english english2 = new not_english(new File("sample/15.txt"));
+        not_english cipher = new not_english(charSet.FileToString(new File("sample/25.txt")));
+        not_english cipher2 = new not_english(new File("sample/25.txt"));
         System.out.println(english.not_english());
         System.out.println(english2.not_english());
         System.out.println(cipher.not_english());
@@ -314,7 +314,7 @@ public class not_english {
 
         System.out.println(not_english1.getValidityFactor());
         System.out.println(not_english1.not_english());
-        not_english not_english2 = new not_english(new File("src/sample/obama_not_english_test"));
+        not_english not_english2 = new not_english(new File("sample/obama_not_english_test"));
         System.out.println(not_english2.getValidityFactor());
         System.out.println(not_english2.not_english());
         System.out.println(not_english3.getValidityFactor());
@@ -322,7 +322,7 @@ public class not_english {
 
     }
     private static void test_not_english() throws FileNotFoundException {
-        String[] pathnames = new String[]{"src/sample/document.txt", "src/sample/spanish.txt", "src/sample/russian.txt", "src/sample/obama.txt", "src/sample/belides_english.txt", "src/sample/orpheus_latin.txt", "src/sample/french.txt", "src/sample/stringStorer.txt"};
+        String[] pathnames = new String[]{"sample/document.txt", "sample/spanish.txt", "sample/russian.txt", "sample/obama.txt", "sample/belides_english.txt", "sample/orpheus_latin.txt", "sample/french.txt", "sample/stringStorer.txt"};
         for (String pathname : pathnames) {
             File document = new File(pathname);
             not_english not_english = new not_english(document);

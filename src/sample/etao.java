@@ -62,13 +62,13 @@ public class etao {
         return Occurrences;
     }
     public etao(boolean count) throws FileNotFoundException {
-        this(new File("src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), count);
+        this(new File("sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), count);
     }
     public etao(File file) throws FileNotFoundException {
         this(file, true);
     }
     public etao() throws FileNotFoundException {
-        this(new File("src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), true);
+        this(new File("sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt"), true);
     }
 
     public String get(){

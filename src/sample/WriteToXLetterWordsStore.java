@@ -120,9 +120,9 @@ public class WriteToXLetterWordsStore {
     }
     public static void main(String[] args) throws IOException {
         File[] _6s = new File[]{
-                new File("src/sample/_6LetterWordsStore1.java"),
-                new File("src/sample/_6LetterWordsStore2.java"),
-                new File("src/sample/_6LetterWordsStore3.java")
+                new File("sample/_6LetterWordsStore1.java"),
+                new File("sample/_6LetterWordsStore2.java"),
+                new File("sample/_6LetterWordsStore3.java")
         };
         Time time = new Time();
         new WriteToXLetterWordsStore(_6s, 6);

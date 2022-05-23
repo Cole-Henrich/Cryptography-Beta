@@ -158,34 +158,34 @@ public class WordOccurrenceWriter {
         totalDuration = totalTime.getDuration();
     }
     public static void main(String[] args) throws IOException {
-        File test = new File("src/sample/test.txt");
+        File test = new File("sample/test.txt");
         File actual = charSet.getLanguage_Manipulation_UniqueWords_TrainerReservoir();
         File[] WordAndOccurrenceStores = new File[]{
-                new File("src/sample/WordAndOccurrenceStore1.java"),
-                new File("src/sample/WordAndOccurrenceStore2.java"),
-                new File("src/sample/WordAndOccurrenceStore3.java"),
-                new File("src/sample/WordAndOccurrenceStore4.java"),
-                new File("src/sample/WordAndOccurrenceStore5.java"),
-                new File("src/sample/WordAndOccurrenceStore6.java"),
-                new File("src/sample/WordAndOccurrenceStore7.java"),
-                new File("src/sample/WordAndOccurrenceStore8.java"),
-                new File("src/sample/WordAndOccurrenceStore9.java"),
-                new File("src/sample/WordAndOccurrenceStore10.java"),
-                new File("src/sample/WordAndOccurrenceStore11.java"),
-                new File("src/sample/WordAndOccurrenceStore12.java"),
-                new File("src/sample/WordAndOccurrenceStore13.java"),
-                new File("src/sample/WordAndOccurrenceStore14.java"),
-                new File("src/sample/WordAndOccurrenceStore15.java"),
-                new File("src/sample/WordAndOccurrenceStore16.java"),
-                new File("src/sample/WordAndOccurrenceStore17.java"),
-                new File("src/sample/WordAndOccurrenceStore18.java"),
-                new File("src/sample/WordAndOccurrenceStore19.java"),
-                new File("src/sample/WordAndOccurrenceStore20.java"),
-                new File("src/sample/WordAndOccurrenceStore21.java"),
-                new File("src/sample/WordAndOccurrenceStore22.java"),
-                new File("src/sample/WordAndOccurrenceStore23.java")
+                new File("sample/WordAndOccurrenceStore1.java"),
+                new File("sample/WordAndOccurrenceStore2.java"),
+                new File("sample/WordAndOccurrenceStore3.java"),
+                new File("sample/WordAndOccurrenceStore4.java"),
+                new File("sample/WordAndOccurrenceStore5.java"),
+                new File("sample/WordAndOccurrenceStore6.java"),
+                new File("sample/WordAndOccurrenceStore7.java"),
+                new File("sample/WordAndOccurrenceStore8.java"),
+                new File("sample/WordAndOccurrenceStore9.java"),
+                new File("sample/WordAndOccurrenceStore10.java"),
+                new File("sample/WordAndOccurrenceStore11.java"),
+                new File("sample/WordAndOccurrenceStore12.java"),
+                new File("sample/WordAndOccurrenceStore13.java"),
+                new File("sample/WordAndOccurrenceStore14.java"),
+                new File("sample/WordAndOccurrenceStore15.java"),
+                new File("sample/WordAndOccurrenceStore16.java"),
+                new File("sample/WordAndOccurrenceStore17.java"),
+                new File("sample/WordAndOccurrenceStore18.java"),
+                new File("sample/WordAndOccurrenceStore19.java"),
+                new File("sample/WordAndOccurrenceStore20.java"),
+                new File("sample/WordAndOccurrenceStore21.java"),
+                new File("sample/WordAndOccurrenceStore22.java"),
+                new File("sample/WordAndOccurrenceStore23.java")
         };
-        File BigWordAndOccurrenceStore = new File("src/sample/BigWordAndOccurrenceStore.java");
+        File BigWordAndOccurrenceStore = new File("sample/BigWordAndOccurrenceStore.java");
         Time time = new Time();
         WordOccurrenceWriter wow = new WordOccurrenceWriter(actual, WordAndOccurrenceStores, BigWordAndOccurrenceStore);
         time.end();
@@ -204,7 +204,7 @@ public class WordOccurrenceWriter {
 ////        System.out.println(SortingAttribute.println(b, got));
 ////        System.out.println(got.get(b.get(0).getIndex()) + " "+ b.get(0).getOccurrences());
 //        File[] files = new File[]{
-//                new File("src/sample/WordAndOccurrenceStore1.java")
+//                new File("sample/WordAndOccurrenceStore1.java")
 //        };
 //            int fileIndex = 0;
 //            FileWriter fileWriter = new FileWriter(files[fileIndex]);
