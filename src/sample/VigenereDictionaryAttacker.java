@@ -66,62 +66,56 @@ public class VigenereDictionaryAttacker {
         }
         else {
             if (likelyKeyLength == 10){
-                _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
-                xLongWords = _6s.central();
+                _Array_10LetterWordsAndOccurrencesBigStore _10s = new _Array_10LetterWordsAndOccurrencesBigStore();
+                xLongWords = _10s.central();
             }
             else {
                 if (likelyKeyLength == 11){
-                    _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
-                    xLongWords = _6s.central();
+                    _Array_11LetterWordsAndOccurrencesBigStore _11s = new _Array_11LetterWordsAndOccurrencesBigStore();
+                    xLongWords = _11s.central();
                 }
                 else {
                     if (likelyKeyLength == 12){
-                        _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
-                        xLongWords = _6s.central();
+                        _Array_12LetterWordsAndOccurrencesBigStore _12s = new _Array_12LetterWordsAndOccurrencesBigStore();
+                        xLongWords = _12s.central();
                     }
                     else {
                         if (likelyKeyLength == 13){
-                            _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
-                            xLongWords = _6s.central();
+                            _Array_13LetterWordsAndOccurrencesBigStore _13s = new _Array_13LetterWordsAndOccurrencesBigStore();
+                            xLongWords = _13s.central();
                         }
                         else {
                             if (likelyKeyLength == 14){
-                                _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
-                                xLongWords = _6s.central();
+                                _Array_14LetterWordsAndOccurrencesBigStore _14s = new _Array_14LetterWordsAndOccurrencesBigStore();
+                                xLongWords = _14s.central();
                             }
                             else {
                                 if (likelyKeyLength == 15){
-                                    _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
-                                    xLongWords = _6s.central();
+                                    _Array_15LetterWordsAndOccurrencesBigStore _15s = new _Array_15LetterWordsAndOccurrencesBigStore();
+                                    xLongWords = _15s.central();
                                 }
                                 else {
                                     if (likelyKeyLength == 16){
-                                        _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
-                                        xLongWords = _6s.central();
+                                        _Array_16LetterWordsAndOccurrencesBigStore _16s = new _Array_16LetterWordsAndOccurrencesBigStore();
+                                        xLongWords = _16s.central();
                                     }
                                     else {
                                         if (likelyKeyLength == 17){
-                                            _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
-                                            xLongWords = _6s.central();
+                                            _Array_17LetterWordsAndOccurrencesBigStore _17s = new _Array_17LetterWordsAndOccurrencesBigStore();
+                                            xLongWords = _17s.central();
                                         }
                                         else {
                                             if (likelyKeyLength == 18){
-                                                _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
-                                                xLongWords = _6s.central();
+                                                _Array_18LetterWordsAndOccurrencesBigStore _18s = new _Array_18LetterWordsAndOccurrencesBigStore();
+                                                xLongWords = _18s.central();
                                             }
                                             else {
                                                 if (likelyKeyLength == 19){
-                                                    _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
-                                                    xLongWords = _6s.central();
+                                                    _Array_19LetterWordsAndOccurrencesBigStore _19s = new _Array_19LetterWordsAndOccurrencesBigStore();
+                                                    xLongWords = _19s.central();
                                                 }
                                                 else {
-                                                    if (likelyKeyLength == 20){
-                                                        _Array_6LetterWordsAndOccurrencesBigStore _6s = new _Array_6LetterWordsAndOccurrencesBigStore();
-                                                        xLongWords = _6s.central();
-                                                    }
-                                                    else {
-                                                        xLongWords = new ArrayList<a>(Collections.singletonList(new a("supercalifragilisticexpialidocious", 1)));
-                                                    }
+                                                    xLongWords = new ArrayList<a>(Collections.singletonList(new a("supercalifragilisticexpialidocious", 1)));
                                                 }
                                             }
                                         }
@@ -136,7 +130,8 @@ public class VigenereDictionaryAttacker {
         }
         String[] cipherSplit = cipher.split(" ");
         StringBuilder shortCipherBuilder = new StringBuilder();
-        for (int i = 0; i < 8; i++) {
+        int Short = Math.min(cipherSplit.length, 8);
+        for (int i = 0; i < Short; i++) {
             shortCipherBuilder.append(cipherSplit[i]).append("\s");
         }
         String shortCipher = shortCipherBuilder.toString();
@@ -152,13 +147,13 @@ public class VigenereDictionaryAttacker {
             String test = vdc.get();
 //            System.out.println(test);
 
-            not_english not_english1 = new not_english(test, 0.4);
+            not_english not_english1 = new not_english(test, false, true, true, false, 0.2);
 //            System.out.println(not_english1.not_english());
             if (!not_english1.not_english()) {
                 VigenereKeyPhrase vkfFull = new VigenereKeyPhrase(keyWordTest, cipher.length());
                 VigenereDeciphered vdcFull = new VigenereDeciphered(cipher, vkfFull.get(), false);
                 String testFull = vdcFull.get();
-                not_english not_englishFull = new not_english(testFull, 0.4);
+                not_english not_englishFull = new not_english(testFull, 0.5);
                 if (!not_englishFull.not_english()){
                     isSolved = true;
                     solved = testFull;

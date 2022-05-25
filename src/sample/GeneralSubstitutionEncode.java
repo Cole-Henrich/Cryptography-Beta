@@ -8,7 +8,7 @@ public class GeneralSubstitutionEncode {
     private String[] key;
     private char[] alphabet;
     public GeneralSubstitutionEncode(String in, String[] k, char[] ab){
-        this(false, in, k, ab);
+        this(true, in, k, ab);
     }
     public GeneralSubstitutionEncode(boolean spaces, String in, String[] k, char[] ab) {
         setInput(in);

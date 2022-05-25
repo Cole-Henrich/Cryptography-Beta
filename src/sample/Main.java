@@ -45,14 +45,12 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-//        Parent root = new SubstitutionVoila(new CharSet().charToStringArray(new CharSet().getAlphabet()), "The quick brown fox jumped over the lazy dogs");
         Parent root = new StartPage();
         primaryStage.setTitle("Cryptography");
         primaryStage.setScene(new Scene(root, 1440, 800));
         primaryStage.show();
     }
     public static void main(String[] args) throws IOException, InterruptedException {
-        //blue this launches the UI.
         launch(args);
     }
     private static void exampleCiphers(){

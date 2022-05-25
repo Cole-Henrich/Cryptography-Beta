@@ -12,6 +12,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
+import java.util.Arrays;
+
 public class PresetKeyEncodePage extends StackPane {
     public PresetKeyEncodePage(String[] key, char[] alphabet){
         CharSet charSet = new CharSet();
@@ -55,6 +57,7 @@ public class PresetKeyEncodePage extends StackPane {
         code.setOnKeyTyped(keyEvent -> {
             if (!checkBox.isSelected()){
                 String[] alphab = charSet.charToStringArray(charSet.getLongAlphabet());
+                System.out.println(Arrays.toString(alphab));
                 EmojEtcDecoder decoder = new EmojEtcDecoder(code.getText(), key, alphab);
                 System.out.println(decoder.getOutput());
                 words.setText(decoder.getOutput());

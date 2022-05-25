@@ -32,7 +32,8 @@ public class WriteToXLetterWordsStoreUsingArray {
         FileWriter fileWriter = new FileWriter(WordsStores[FileIndex]);
         String name = WordsStores[FileIndex].getName();
         name = name.replaceAll("[^0-9]", "");
-        int storeNumber = Integer.parseInt(name.replaceFirst(String.valueOf(WordLength), ""));
+        String storeNumber = name.replaceFirst(String.valueOf(WordLength), "");
+
         fileWriter.write("package sample;\n" +
                 "                                \n" +
                 "                public class _Array_"+WordLength+"LetterWordsAndOccurrencesStore"+storeNumber+"\sextends WordAndOccurrenceStoreArray{\n" +
@@ -57,7 +58,7 @@ public class WriteToXLetterWordsStoreUsingArray {
                     //System.out.println("4. FileIndex="+FileIndex);
                     name = WordsStores[FileIndex].getName();
                     name = name.replaceAll("[^0-9]", "");
-                    storeNumber = Integer.parseInt(name.replaceFirst(String.valueOf(WordLength), ""));
+                    storeNumber = name.replaceFirst(String.valueOf(WordLength), "");
                     fileWriter.write("package sample;\n" +
                             "                                \n" +
                             "                public class _Array_"+WordLength+"LetterWordsAndOccurrencesStore"+storeNumber+"\sextends WordAndOccurrenceStoreArray{\n" +
@@ -91,13 +92,13 @@ public class WriteToXLetterWordsStoreUsingArray {
         return sortables;
     }
     public static void main(String[] args) throws IOException {
-        File[] _5s = new File[]{
-                new File("src/sample/_Array_5LetterWordsAndOccurrencesStore1.java"),
-                new File("src/sample/_Array_5LetterWordsAndOccurrencesStore2.java"),
-                new File("src/sample/_Array_5LetterWordsAndOccurrencesStore3.java"),
+        File[] files = new File[]{
+                new File("src/sample/_Array_2LetterWordsAndOccurrencesStore1.java"),
+                new File("src/sample/_Array_4LetterWordsAndOccurrencesStore2.java"),
+                new File("src/sample/_Array_4LetterWordsAndOccurrencesStore3.java"),
         };
         Time time = new Time();
-        new WriteToXLetterWordsStoreUsingArray(_5s, 5);
+        new WriteToXLetterWordsStoreUsingArray(files, 2);
         time.end();
         time.println();
     }
