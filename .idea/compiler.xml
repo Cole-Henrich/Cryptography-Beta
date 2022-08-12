@@ -14,7 +14,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Cryptography-2" options="--add-exports javafx.base/com.sun.javafx.logging=Ciphers --add-exports javafx.graphics/com.sun.javafx.tk=Ciphers" />
+      <module name="Cryptography-Beta" options="--add-exports javafx.base/com.sun.javafx.logging=Ciphers --add-exports javafx.graphics/com.sun.javafx.tk=Ciphers" />
     </option>
   </component>
 </project>

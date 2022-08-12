@@ -5,7 +5,7 @@ public class TwoCharDecoder {
     private String output;
     private boolean isSolved;
     public TwoCharDecoder(String input){
-        System.out.println("new two char decoder");
+//        System.out.println("new two char decoder");
         char[] chars = input.toCharArray();
         StringBuilder TwoChars = new StringBuilder();
         for (char c:chars){

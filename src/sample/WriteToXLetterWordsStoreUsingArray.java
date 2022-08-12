@@ -93,12 +93,10 @@ public class WriteToXLetterWordsStoreUsingArray {
     }
     public static void main(String[] args) throws IOException {
         File[] files = new File[]{
-                new File("src/sample/_Array_2LetterWordsAndOccurrencesStore1.java"),
-                new File("src/sample/_Array_4LetterWordsAndOccurrencesStore2.java"),
-                new File("src/sample/_Array_4LetterWordsAndOccurrencesStore3.java"),
+                new File("src/sample/_Array_19LetterWordsAndOccurrencesStore.java"),
         };
         Time time = new Time();
-        new WriteToXLetterWordsStoreUsingArray(files, 2);
+        new WriteToXLetterWordsStoreUsingArray(files, 19);
         time.end();
         time.println();
     }

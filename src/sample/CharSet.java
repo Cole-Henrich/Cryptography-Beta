@@ -151,6 +151,69 @@ public class CharSet {
     public String[] getPolysymbolic() {return Polysymbolic;}
     public String[] getGreek() {return Greek;}
     math mathematics = new math();
+    public ArrayList<Character> UnicodesToCharacters(ArrayList<String> unicodes) {
+        ArrayList<Character> rtn = new ArrayList<>();
+        for (String unicode : unicodes) {
+            String sTemp = unicode.replaceAll("u", "").replace('\\', ' ').replaceAll(" ", "");
+            rtn.add((char) Integer.parseInt(sTemp, 16));
+        }
+        return rtn;
+    }
+    public ArrayList<String> CharactersToUnicodes(ArrayList<Character> characters) {
+        ArrayList<String> rtn = new ArrayList<>();
+        for (int i = 0; i < characters.size(); i++) {
+            rtn.add(Integer.toHexString(characters.get(i) | 0x10000).substring(1));
+        }
+        return rtn;
+    }
+    public ArrayList<Character> filesToArrayListCharacter(File[] files, String delineator) throws FileNotFoundException {
+        ArrayList<Character> rtn = new ArrayList<>();
+        for (int i = 0; i < files.length; i++) {
+            Scanner scanner = new Scanner(files[i]);
+            while (scanner.hasNext()) {
+                String line = scanner.nextLine();
+                char[] chars = line.toCharArray();
+                for (int j = 0; j < chars.length; j++) {
+                    rtn.add(chars[i]);
+                }
+                rtn.add('\n');
+            }
+            if (!delineator.isEmpty()){
+                char[] delinearr = delineator.toCharArray();
+                for (char c : delinearr) {rtn.add(c);}
+            }
+        }
+        return rtn;
+    }
+    public String removeStringFromString(String remove, String from){
+        String rtn = from;
+        char[] ch = remove.toCharArray();
+        for (char c : ch) {
+            rtn = rtn.replaceFirst(String.valueOf(c), "");
+        }
+        return rtn;
+    }
+    public boolean isFormableFrom(String word, String fromLetters){
+        if (!isAlphabetic(word)){return false;}
+        String w = word;
+        String f = fromLetters;
+        System.out.println(w+" "+f);
+        if (w.length() > f.length()){return false;}
+        String c = String.valueOf(w.charAt(0));
+        int wl1 = w.length();
+        int fl1 = f.length();
+        w=w.replaceFirst(c, "");
+        f=f.replaceFirst(c,"");
+        int wdiff = wl1-w.length();
+        int fdiff = fl1-f.length();
+        System.out.println(wdiff+" "+fdiff);
+        if (w.isEmpty() && wdiff==fdiff){return true;}
+        if (wdiff != fdiff){return false;}
+        else {return isFormableFrom(w, f);}
+    }
+    public int doubleToint(double v) {
+        return (Integer.parseInt(String.valueOf(v).split("\\.")[0]));
+    }
 
     public String buildStringFromCharArray(char[] array) {
         StringBuilder sb = new StringBuilder();
@@ -166,6 +229,14 @@ public class CharSet {
             rtn[i] = String.valueOf(object);
         }
         return rtn;
+    }
+    public boolean isNumeric(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isDigit(s.codePointAt(i))){
+                return false;
+            }
+        }
+        return true;
     }
     public boolean isAlphabetic(String s){
         for (int i = 0; i < s.length(); i++) {
@@ -335,7 +406,7 @@ public class CharSet {
 //        System.out.println(Arrays.toString(rankedLikelyKeyLengths));
         return rankedLikelyKeyLengths;
     }
-    public HashMap countFrequencyIn(ArrayList<String> r) {
+    public HashMap<String, Integer> countFrequencyIn(ArrayList<String> r) {
         System.err.println("CharSet.countFrequencyIn");
         HashMap<String,Integer> words=new HashMap<String, Integer>();
         for (String word : r) {
@@ -1755,7 +1826,7 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
         }
         wholeShebang = makeWholeShebang();
     }
-    public File getLanguage_Manipulation_UniqueWords_TrainerReservoir(){return new File("sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt");}
+    public File getLanguage_Manipulation_UniqueWords_TrainerReservoir(){return new File("src/sample/Language_Manipulation_Unique-Words_Trainer-Reservoir.txt");}
     public char[] getAlphabet(){return alphabet;}
     public char[] getUpperCases(){return upperCases;}
     public char[] getLongAlphabet(){return longAlphabet;}
@@ -2595,14 +2666,16 @@ Rey pwdj qalepsz, pwv Uacy Qarjp, orj r xrsp ak pwdj vmpvejdnv qaepdevep ieaoe r
         int count = 0;
         int rtn = stringToFindItIn.indexOf(String.valueOf(charToFind));
         for (int i = 0; i < chars.length; i++) {
-            if (chars[i] == charToFind){
-                if (count > 0){
-                   rtn = i;
-                   break;
+            if (chars[i] == charToFind) {
+                if (count > 0) {
+                    rtn = i;
+                    break;
                 }
                 count++;
             }
         }
         return rtn;
     }
+
+
 }

@@ -45,8 +45,9 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = new StartPage();
-        primaryStage.setTitle("Cryptography");
+        Parent root = new PwnedPage();
+//        Parent root = new StartPage();
+//        primaryStage.setTitle("Cryptography");
         primaryStage.setScene(new Scene(root, 1440, 800));
         primaryStage.show();
     }

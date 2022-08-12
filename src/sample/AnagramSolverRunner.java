@@ -21,17 +21,17 @@ public class AnagramSolverRunner {
         if (next != null){
             String noParens = next;
             noParens = noParens.replaceAll("\\s\\(.*\\)", "");
-            AnagramSolver anagramSolver;
+            AnagramSolverDeprecated anagramSolverDeprecated;
             if (noParens.length() != next.length()){
                 String onlyParens = next;
                 onlyParens = onlyParens.replaceAll(noParens, "");
                 String insideParens = onlyParens;
                 insideParens = insideParens.replaceAll("[\\(\\)]", "");
                 double minimumFrequency = Double.parseDouble(insideParens);
-                anagramSolver = new AnagramSolver(next, minimumFrequency);
+                anagramSolverDeprecated = new AnagramSolverDeprecated(next, minimumFrequency);
             }
             else {
-                anagramSolver = new AnagramSolver(next);
+                anagramSolverDeprecated = new AnagramSolverDeprecated(next);
             }
         }
         // hello (0.0005)

@@ -8,7 +8,7 @@ public class SubstitutionDecodeWithKnownTwoCharKey {
     CharSet charSet = new CharSet();
     private String[] key;
     public SubstitutionDecodeWithKnownTwoCharKey(String input, String[] twoChars){
-        System.out.println("new SubstitutionDecodeWithKnownTwoCharKey");
+//        System.out.println("new SubstitutionDecodeWithKnownTwoCharKey");
               ArrayList<String> split = charSet.StringToStringArrayList(input.split("(?<=\\G.{7})"));
               KeyCreatorFromLimitedSymbols keyCreator = new KeyCreatorFromLimitedSymbols(twoChars, 83);
               key = keyCreator.getKey();
